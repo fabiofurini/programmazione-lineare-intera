@@ -6,14 +6,14 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
 <div class="info-capitolo" markdown>
 
-**Parte 3 · Metodi esatti · Capitolo 6** · [:material-file-pdf-box: Appunti delle lezioni, volume 2 (PDF)](../pdf/lecture-notes-2-exact-methods.pdf) · [:material-pencil: Esercizi: Piani di taglio](../exercises/gomory.md) · [:material-gesture-tap: App: Tagli di Gomory sul piano](../lab/gomory-cuts.md)
+**Parte 3 · Metodi esatti · Capitolo 6** · [:material-file-pdf-box: Appunti delle lezioni, volume 2 (PDF)](../pdf/lecture-notes-2-exact-methods.pdf) · [:material-pencil: Esercizi: Piani di taglio](../exercises/gomory.md) · [:material-gesture-tap: App: Cutting plane con i tagli di Gomory](../lab/gomory-cuts.md)
 
 </div>
 
 !!! nota "Prerequisiti"
     - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 10 «Algoritmo del Simplesso Duale»](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/): dizionari del simplesso, basi duali ammissibili e operazioni di pivoting duali. Un breve riepilogo è fornito in questo capitolo.
 
-    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Vincoli primali e duali»: problemi ILP, il rilassamento LP e il limite superiore dato dal rilassamento LP.
+    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Bound primali e bound duali»: problemi ILP, il rilassamento LP e il limite superiore dato dal rilassamento LP.
 
     - Da questo modulo, il capitolo «Disuguaglianze valide»: disuguaglianze valide e tagli che rimuovono punti frazionari.
 
@@ -26,10 +26,8 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     - eseguire manualmente un algoritmo del piano di taglio, con la strategia di selezione del lato destro più grande e le sue regole di risoluzione dei pareggi;
 
-    - calcola il limite superiore a ogni iterazione e spiega perché l'algoritmo potrebbe aver bisogno di molti tagli;
-
-    - spiega perché questi tagli sono validi solo per problemi ILP con dati interi.
-
+    - calcolare il limite superiore a ogni iterazione e spiegare perché l'algoritmo potrebbe aver bisogno di molti tagli;
+    - spiegare perché questi tagli sono validi solo per problemi ILP con dati interi.
 ## 6.1 Tagli frazionari di Gomory
 
 <a id="box-1-def-cutting-plane"></a>
@@ -71,7 +69,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     <a id="box-2-defXX"></a>
 
     !!! definizione "Definizione 6.2: taglio frazionario di Gomory"
-        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -164,7 +162,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     \end{array}
     $$
 
-    e la sua rilassamento LP in forma canonica con $2$ variabili non negative e $2$ vincoli lineari:
+    e il suo rilassamento LP in forma canonica con $2$ variabili non negative e $2$ vincoli lineari:
 
     $$
     \begin{array}{rrrrrrrrrrrrr}
@@ -393,7 +391,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     Qualsiasi taglio frazionario di Gomory elimina la soluzione di base fattibile frazionaria associata al dizionario del simplesso da cui è generato.
 
 !!! nota ""
-    ??? dimostrazione "Proof"
+    ??? dimostrazione "Dimostrazione"
 
         Nella soluzione di base fattibile associata al dizionario, tutte le variabili non di base sono uguali a zero:
 
@@ -436,7 +434,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     Ogni soluzione intera ammissibile del problema ILP soddisfa ogni taglio frazionario di Gomory generato dalle righe di un dizionario del simplesso.
 
 !!! nota ""
-    ??? dimostrazione "Proof"
+    ??? dimostrazione "Dimostrazione"
 
         Consideriamo un taglio frazionario di Gomory generato dalla seguente riga $i \in \pazocal{B}$ di un dizionario del simplesso:
 
@@ -624,7 +622,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 - L'arrotondamento è valido: il lato sinistro è un intero per ogni intero $\vet x$. La variabile di scarto $s$ è intera in ogni soluzione ammissibile intera del problema ILP.
 
 !!! chiave ""
-    Per prima cosa il taglio viene reso primitivo, poi viene aggiunta la sua variabile slack. Una variabile in eccesso aggiunta direttamente al taglio frazionario corrisponde all'inequazione prima dell'arrotondamento, che è più debole quando $g$ non divide $b$.
+    Per prima cosa il taglio viene reso primitivo, poi viene aggiunta la sua variabile slack. Una variabile in eccesso aggiunta direttamente al taglio frazionario corrisponde alla disuguaglianza prima dell'arrotondamento, che è più debole quando $g$ non divide $b$.
 
 <a id="box-8-gfc-projection-original-space"></a>
 
@@ -705,7 +703,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
         \frac{1}{8}\;x_4.
         \end{align*}
 
-- Nel Esempio 1 i coefficienti non hanno divisori comuni e nulla è arrotondato. Nell'esempio dell'auto delle ultime sezioni, il secondo taglio nelle variabili originali è $6\,x_1 + 14\,x_2 \le 55$: con $g = 2$ l'ineguaglianza primitiva è $3\,x_1 + 7\,x_2 \le \lfloor 55/2 \rfloor = 27$, e la sua variabile di scarto è $27 - 3\,x_1 - 7\,x_2$.
+- Nel Esempio 1 i coefficienti non hanno divisori comuni e nulla è arrotondato. Nell'esempio dell'auto delle ultime sezioni, il secondo taglio nelle variabili originali è $6\,x_1 + 14\,x_2 \le 55$: con $g = 2$ la disuguaglianza primitiva è $3\,x_1 + 7\,x_2 \le \lfloor 55/2 \rfloor = 27$, e la sua variabile di scarto è $27 - 3\,x_1 - 7\,x_2$.
 
 ## 6.2 Un algoritmo a piani di taglio basato sui tagli frazionari di Gomory
 
@@ -718,7 +716,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     \rightsquigarrow~\textbf{cut generation operations}
     $$
 
-    Dopo ogni passaggio di generazione dei tagli, la nuova rilassamento LP più restrittiva viene risolta di nuovo:
+    Dopo ogni passaggio di generazione dei tagli, il nuovo rilassamento LP più restrittiva viene risolta di nuovo:
 
     $$
     \rightsquigarrow~\textbf{LP re-optimization operations}
@@ -758,7 +756,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 !!! algoritmo "Algoritmo"
     - <strong>Input:</strong> Un problema ILP in forma canonica di massimizzazione con dati di input interi.
 
-    - <strong>Output:</strong> Una soluzione ottimale al problema ILP (se esiste) o un certificato di irrisolvibilità/illimitatezza.
+    - <strong>Output:</strong> Una soluzione ottimale al problema ILP (se esiste) o un certificato di infattibilità/illimitatezza.
 
     - **Passo 0:** <strong>Inizializzazione</strong>
 
@@ -768,7 +766,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
         - **2.** se il problema $\LP_1$ è <strong>infattibile</strong>, allora il problema ILP è infattibile. <code>STOP</code>.
 
-        - **3.** se il problema $\LP_1$ è <strong>illimitato</strong>, allora il problema ILP è o irrealizzabile o illimitato. <code>FERMA</code>.
+        - **3.** se il problema $\LP_1$ è <strong>illimitato</strong>, allora il problema ILP è o infattibile o illimitato. <code>FERMA</code>.
 
     - **Passo 1:** <strong>Generazione dei tagli</strong>
 
@@ -787,7 +785,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
             \left\lfloor \bar{b}_i \right\rfloor .
             $$
 
-        2. Riscrivi ogni taglio nelle variabili originali in forma primitiva, aggiungi la sua variabile di scarto e aggiungilo al problema $\LP_k$: questo dà la nuova rilassamento LP $\LP_{k+1}$. Aggiorna il contatore delle iterazioni $k \leftarrow k+1.$
+        2. Riscrivi ogni taglio nelle variabili originali in forma primitiva, aggiungi la sua variabile di scarto e aggiungilo al problema $\LP_k$: questo dà il nuovo rilassamento LP $\LP_{k+1}$. Aggiorna il contatore delle iterazioni $k \leftarrow k+1.$
 
     - **Fase 2:** <strong>Verifica dell'ottimalità</strong>
 
@@ -799,9 +797,9 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
 - Durante la fase di generazione dei tagli, è possibile generare più di un taglio frazionario di Gomory: selezionando più di una riga del dizionario del simplesso ottimale con $\bar{b}_i$ frazionario, o la riga della funzione obiettivo.
 
-- Il pseudocodice non dice come i problemi di programmazione lineare vengano riottimizzati dopo l'inserimento dei tagli: la sezione successiva spiega l'uso dell'algoritmo del simplesso duale.
+- Lo pseudocodice non dice come i problemi di programmazione lineare vengano riottimizzati dopo l'inserimento dei tagli: la sezione successiva spiega l'uso dell'algoritmo del simplesso duale.
 
-### 6.2.3 Rottimizzazione con l'algoritmo del simplesso duale
+### 6.2.3 Riottimizzazione con l'algoritmo del simplesso duale
 
 - Un nuovo taglio differisce dal precedente problema $\LP_k$ per <u>un</u> vincolo, quindi non risolviamo il nuovo problema da zero: iniziamo dal <strong>dizionario ottimale</strong> del problema $\LP_k$ e lo riottimizziamo con il <strong>algoritmo del simplesso duale</strong>.
 
@@ -832,7 +830,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     L'algoritmo si ferma quando tutte le variabili di base sono non negative: il dizionario è allora ottimale.
 
-- Se il nuovo problema $\LP_{k+1}$ è irrisolvibile, l'algoritmo del simplesso duale lo rileva nel passo b, e il problema ILP è irrisolvibile. Di solito uno o due operazioni di pivotamento sono sufficienti.
+- Se il nuovo problema $\LP_{k+1}$ è infattibile, l'algoritmo del simplesso duale lo rileva nel passo b, e il problema ILP è infattibile. Di solito una o due operazioni di pivotamento sono sufficienti.
 
 <a id="box-10-texexpbox2"></a>
 
@@ -843,7 +841,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     2. il lato destro più grande come strategia di selezione del taglio, con le regole di spareggio della sezione sulla selezione del taglio (indice più piccolo della variabile di base, riga della funzione obiettivo per ultima);
 
-    3. Ogni problema $\LP_k$ viene r-ottimizzato con l'algoritmo del simplesso duale.
+    3. Ogni problema $\LP_k$ viene riottimizzato con l'algoritmo del simplesso duale.
 
     <span style="color:#e03131"><strong>Inizializzazione</strong></span>
 
@@ -1268,17 +1266,17 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     sul valore ottimale del problema ILP. Man mano che vengono aggiunti tagli validi, questo limite superiore viene progressivamente migliorato.
 
-- La disponibilità di una soluzione intera fattibile permette di monitorare il divario tra i limiti superiore e inferiore:
+- La disponibilità di una soluzione intera fattibile permette di monitorare il gap tra i limiti superiore e inferiore:
 
     $$
     \frac{\UB - \LB}{|\LB|}
     $$
 
-    L'algoritmo del piano di taglio può essere interrotto quando questo divario è zero, allora la soluzione euristica è dimostrata essere ottimale.
+    L'algoritmo del piano di taglio può essere interrotto quando questo gap è zero, allora la soluzione euristica è dimostrata essere ottimale.
 
 ### 6.2.6 Osservazioni aggiuntive
 
-- La terminazione finita di un algoritmo di piano di taglio con tagli frazionari di Gomory è garantita solo con regole precise (un algoritmo duale semplice lessicografico e una scelta adeguata delle righe). Con regole arbitrarie l'algoritmo può richiedere un numero molto elevato di iterazioni.
+- La terminazione finita di un algoritmo di piano di taglio con tagli frazionari di Gomory è garantita solo con regole precise (un algoritmo del simplesso duale lessicografico e una scelta adeguata delle righe). Con regole arbitrarie l'algoritmo può richiedere un numero molto elevato di iterazioni.
 
 - I tagli frazionari di Gomory sono solitamente molto efficaci nelle prime iterazioni, ma la loro efficacia diminuisce man mano che l'algoritmo procede (<strong>tailing off</strong>); la sezione successiva mostra un esempio.
 
@@ -1286,9 +1284,9 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
 ## 6.3 L'esempio dell'auto
 
-- L'esempio dell'auto è risolto dall'algoritmo del piano di taglio con le stesse regole del Esempio 1: un taglio per iterazione, il termine noto più grande, in caso di parità si considera l'indice più piccolo della variabile di base e per ultimo la riga della funzione obiettivo.
+- L'esempio dell'auto è risolto dall'algoritmo del piano di taglio con le stesse regole dell'Esempio 1: un taglio per iterazione, il termine noto più grande, in caso di parità si considera l'indice più piccolo della variabile di base e per ultimo la riga della funzione obiettivo.
 
-- La tabella riporta, per ogni taglio, l'ineguaglianza nelle variabili originali prima dell'arrotondamento (quando $g > 1$) e in forma primitiva, la soluzione e il valore del prossimo problema LP, e il limite superiore $\UB = \lfloor z(\LP_{k+1}) \rfloor$.
+- La tabella riporta, per ogni taglio, la disuguaglianza nelle variabili originali prima dell'arrotondamento (quando $g > 1$) e in forma primitiva, la soluzione e il valore del prossimo problema LP, e il limite superiore $\UB = \lfloor z(\LP_{k+1}) \rfloor$.
 
 <div class="tabella" markdown="0"><table>
 <tr>
@@ -1343,7 +1341,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
 - L'algoritmo ha bisogno di $5$ tagli. Il limite superiore rimane a $15$ per i primi $3$ tagli, e la soluzione intera viene trovata solo all'ultimo taglio.
 
-- Nei tagli 2 e 4 i coefficienti hanno un divisore comune: il taglio primitivo è più forte dell'ineguaglianza prima dell'arrotondamento.
+- Nei tagli 2 e 4 i coefficienti hanno un divisore comune: il taglio primitivo è più forte della disuguaglianza prima dell'arrotondamento.
 
 - La soluzione ottimale è $\tilde{\vet x} = (4, 1)$, con valore $z(\ILP) = 14$.
 
@@ -1360,7 +1358,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     - <strong>Scegliere tra membri destri uguali senza una regola.</strong> Scelte diverse producono esecuzioni diverse; usare l'indice più piccolo della variabile di base e l'ultima riga della funzione obiettivo.
 
-    - <strong>Risoluzione di ogni problema $\LP_k$ da zero.</strong> La risposta è la stessa, ma molto più lenta: il dizionario con la nuova riga è duale ammissibile, e l'algoritmo del simplesso duale parte da esso.
+    - <strong>Risoluzione di ogni problema $\LP_k$ da zero.</strong> La risposta è la stessa, ma molto più lenta: il dizionario con la nuova riga è dualmente ammissibile, e l'algoritmo del simplesso duale parte da esso.
 
     - <strong>Fermarsi quando il limite superiore smette di migliorare.</strong> L'algoritmo si ferma solo quando la soluzione del problema $\LP_k$ è intera.
 
@@ -1377,7 +1375,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     - Ogni taglio viene riscritto nelle variabili originali, reso primitivo (diviso per il massimo comune divisore dei suoi coefficienti, termine noto arrotondato per difetto) e solo allora viene aggiunta la sua variabile di slack.
 
-    - Le incisioni funzionano bene all'inizio e poi perdono efficacia: sull'esempio dell'auto $5$ sono necessarie incisioni.
+    - I tagli possono essere efficaci nelle prime iterazioni e poi perdere efficacia: nell'esempio dell'auto ne occorrono $5$.
 
     <strong>Cruscotto dell'esempio di auto.</strong> I limiti inferiori e superiori su $z(\ILP)$ trovati finora in questo modulo:
 
@@ -1411,6 +1409,6 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 ## Laboratorio interattivo { #interactive-lab }
 
 Le idee del capitolo, pratica: muovi i cursori e trascina i punti.
-Ogni app apre anche una pagina completa nel [laboratorio interattivo](../lab/index.md): [Tagli di Gomory sul piano](../lab/gomory-cuts.md).
+Ogni app apre anche una pagina completa nel [laboratorio interattivo](../lab/index.md): [Cutting plane con i tagli di Gomory](../lab/gomory-cuts.md).
 
 <div class="gi" data-grafico="pli-gomory"></div>

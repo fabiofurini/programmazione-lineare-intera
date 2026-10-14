@@ -36,7 +36,7 @@ title: "Esercizi · Solver MIP"
 
     3. Confronta il valore ottimale del rilassamento LP prima e dopo il restringimento dei vincoli.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Il minimo di $a_{ij}\,x_j$ è $a_{ij}$ volte il limite inferiore se $a_{ij} > 0$, e volte il limite superiore se $a_{ij} < 0$. All'interno di ogni turno i limiti vengono aggiornati non appena vengono trovati.
 
@@ -115,7 +115,7 @@ soluzione "Solution"
         6\,x_1 + 6\,x_2 + 4\,x_3 + 4\,x_4 \le 10.
         $$
 
-    2. Entrambi i vincoli sono soddisfatti dagli stessi punti binari $10$ (dello $2^4 = 16$), ossia $(0,0,0,0)$, $(0,0,0,1)$, $(0,0,1,0)$, $(0,0,1,1)$, $(0,1,0,0)$, $(0,1,0,1)$, $(0,1,1,0)$, $(1,0,0,0)$, $(1,0,0,1)$, $(1,0,1,0)$.
+    2. Entrambi i vincoli sono soddisfatti dagli stessi $10$ punti binari (dei $2^4 = 16$ possibili), ossia $(0,0,0,0)$, $(0,0,0,1)$, $(0,0,1,0)$, $(0,0,1,1)$, $(0,1,0,0)$, $(0,1,0,1)$, $(0,1,1,0)$, $(1,0,0,0)$, $(1,0,0,1)$, $(1,0,1,0)$.
 
     3. Il rilassamento LP del vincolo originale ha come soluzione ottimale $(0,\tfrac{3}{5},1,1)$ con valore $\dfrac{13}{5}$; il rilassamento LP del vincolo rafforzato ha come soluzione ottimale $(\tfrac{1}{3},0,1,1)$ con valore $\dfrac{7}{3}$. Il problema binario ha valore ottimale $2$.
 
@@ -125,7 +125,7 @@ soluzione "Solution"
 <a id="esercizio-9-3"></a>
 
 !!! esercizio "Esercizio 9.3: Lettura di un registro del risolutore"
-    ??? codice "Code"
+    ??? codice "Codice"
 
         Gurobi risolve un problema ILP generico con $n = 10$ variabili intere $x_j \in \{0,\dots,3\}$ e $m = 3$ vincoli, $\max~ \vet c\T\vet x$ soggetti a $\boldsymbol A\,\vet x \le \vet b$, con dati pseudo-casuali interi (Python <code>random.Random(4)</code>): $a_{ij}$ uniforme in $\{1,\dots,20\}$, $c_j$ uniforme in $\{5,\dots,25\}$, e $b_i = \lfloor 3 \sum_j a_{ij} / 3 \rfloor$, con <code>Presolve</code> $=0$, <code>Cuts</code> $=0$ e <code>Heuristics</code> $=0$ (<code>Threads</code> $=1$, <code>Seed</code> $=0$). Il log è:
 
@@ -185,11 +185,11 @@ soluzione "Solution"
 
     3. Quali righe riportano nuove soluzioni incumbent e come vengono trovate? Fornisci il limite inferiore $\LB$ dopo ciascuna di esse.
 
-    4. Ricalcola il divario della linea 33.
+    4. Ricalcola il gap della linea 33.
 
     5. Quanti nodi vengono esplorati? La soluzione finale è certificata come ottimale?
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Riga 13: <code>(Max)</code>, quindi è un problema di <strong>massimizzazione</strong>, con $3$ righe (vincoli) e $10$ colonne (variabili), tutte intere e non binarie.
 
@@ -211,7 +211,7 @@ soluzione "Solution"
 
         come nella colonna <code>Gap</code> ($2.08\%$).
 
-    5. Linea 37: i nodi $25$ sono esplorati, con $30$ iterazioni del simplesso. Linea 42: la soluzione di valore $223$ è ottimale con la tolleranza predefinita $10^{-4}$; l'ultima linea riporta il miglior limite $223$ e il divario $0$.
+    5. Linea 37: i nodi $25$ sono esplorati, con $30$ iterazioni del simplesso. Linea 42: la soluzione di valore $223$ è ottimale con la tolleranza predefinita $10^{-4}$; l'ultima linea riporta il miglior limite $223$ e il gap $0$.
 
         !!! chiave ""
             $\LB$ cresce da $220$ a $223$ con soluzioni nodali intere, mentre $\UB$ diminuisce da $229$ a $223$ tramite ramificazione: dopo $25$ nodi $\LB = \UB = 223$ e la soluzione è <strong>certificata ottimale</strong>.
@@ -219,7 +219,7 @@ soluzione "Solution"
 <a id="esercizio-9-4"></a>
 
 !!! esercizio "Esercizio 9.4: Lettura del registro di un risolutore: un problema di minimizzazione"
-    ??? codice "Code"
+    ??? codice "Codice"
 
         Gurobi risolve un problema ILP generico con $n = 12$ variabili intere $x_j \in \{0,\dots,3\}$ e $m = 4$ vincoli, $\min~ \vet c\T\vet x$ soggetti a $\boldsymbol A\,\vet x \ge \vet b$, con dati pseudo-casuali interi (Python <code>random.Random(3)</code>): $a_{ij}$ uniforme in $\{1,\dots,20\}$, $c_j$ uniforme in $\{5,\dots,25\}$, e $b_i = \lfloor \tfrac{2}{5} \cdot 3 \sum_j a_{ij} / 3 \rfloor$, con i parametri predefiniti (<code>Threads</code> $=1$, <code>Seed</code> $=0$). Il registro è:
 
@@ -279,11 +279,11 @@ soluzione "Solution"
 
     2. Cosa succede nelle righe 20, 22 e 25? Fornisci i limiti dopo la riga 25, usando che i dati sono interi.
 
-    3. Ricalcola il divario della linea 33.
+    3. Ricalcola il gap della linea 33.
 
     4. Spiega le righe 34 e 37. Perché il problema è risolto nel nodo radice?
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. In un problema di minimizzazione i ruoli sono invertiti: <code>Incumbent</code> è il valore della migliore soluzione ammissibile, un <strong>limite superiore</strong> $\UB$ sul valore ottimale, e <code>BestBd</code> è un <strong>limite inferiore</strong> $\LB$.
 
@@ -309,7 +309,7 @@ soluzione "Solution"
 <a id="esercizio-9-5"></a>
 
 !!! esercizio "Esercizio 9.5: Il gap come criterio di arresto"
-    ??? codice "Code"
+    ??? codice "Codice"
 
         Gurobi risolve il problema ILP generico dell'esercizio «Reading a solver log» (un problema ILP generico con $n = 10$ variabili intere $x_j \in \{0,\dots,3\}$ e $m = 3$ vincoli, $\max~ \vet c\T\vet x$ soggetto a $\boldsymbol A\,\vet x \le \vet b$, con dati pseudo-casuali interi (Python <code>random.Random(4)</code>): $a_{ij}$ uniformi in $\{1,\dots,20\}$, $c_j$ uniformi in $\{5,\dots,25\}$, e $b_i = \lfloor 3 \sum_j a_{ij} / 3 \rfloor$) con gli stessi parametri e, inoltre, <code>MIPGap</code> $= 0.02$. Il log è:
 
@@ -362,7 +362,7 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Perché il risolutore si ferma? Ricalcola il divario finale dall'ultima riga.
+    1. Perché il risolutore si ferma? Ricalcola il gap finale dall'ultima riga.
 
     2. Cosa garantisce la frase alla riga 41 riguardo alla soluzione del valore $220$?
 
@@ -370,7 +370,7 @@ soluzione "Solution"
 
 ??? soluzione "Soluzione"
 
-    1. Linea 42: miglior obiettivo $220$ e miglior limite $224$. Il valore $224.569$ di <code>BestBd</code> nella linea 34 è arrotondato per difetto dal risolutore, poiché tutti i dati sono interi. Il divario finale è
+    1. Linea 42: miglior obiettivo $220$ e miglior limite $224$. Il valore $224.569$ di <code>BestBd</code> nella linea 34 è arrotondato per difetto dal risolutore, poiché tutti i dati sono interi. Il gap finale è
 
         $$
         \frac{224 - 220}{220} \approx 1.82\% < 2\%,

@@ -17,7 +17,7 @@ I numeri sono frazioni esatte.
 
     ---
 
-    Il poliedro, i punti interi, l'ottimo LP e l'ottimo ILP: sposta la linea di livello e vedi il divario.
+    Il poliedro, i punti interi, l'ottimo LP e l'ottimo ILP: sposta la linea di livello e vedi il gap.
 
     [Apri l'app →](integer-points.md)
 
@@ -41,7 +41,7 @@ I numeri sono frazioni esatte.
 
 <div class="griglia schede" markdown>
 
--   :material-content-cut: **Tagli di Gomory sul piano**
+-   :material-content-cut: **Cutting plane con i tagli di Gomory**
 
     ---
 

@@ -35,7 +35,7 @@ title: "Esercizi · Euristiche MIP"
 
     3. Applica il fractional diving: a ogni passaggio risolvi il rilassamento LP con le variabili finora fissate, fissa la variabile meno frazionaria al suo intero più vicino (in caso di parità: indice minore) e ripeti finché la soluzione LP non è intera.
 
-    4. Calcola il divario di ottimalità della soluzione del diving rispetto al limite superiore $\lfloor z(\LP)\rfloor$ e dimostra che la soluzione è ottimale esaminando i possibili valori di $x_2$.
+    4. Calcola il gap di ottimalità della soluzione del diving rispetto al limite superiore $\lfloor z(\LP)\rfloor$ e dimostra che la soluzione è ottimale esaminando i possibili valori di $x_2$.
 
 ??? soluzione "Soluzione"
 
@@ -127,7 +127,7 @@ title: "Esercizi · Euristiche MIP"
 
     4. La soluzione trovata dalla pompa è ottimale? Confronta il suo valore con il limite LP.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Il vincolo $6x_1-7x_2\ge 8$ con $x_2\ge0$ richiede $x_1\ge\frac43$, e $6x_1-2x_2\le16$ con $x_2\ge 0$ dà $x_1\le\frac83$ sull'asse. $\mathcal{L}$ è il triangolo con vertici $\big(\frac43,0\big)$, $\big(\frac83,0\big)$ e l'intersezione delle due linee, $\big(\frac{16}{5},\frac85\big)$. I suoi punti interi sono $(2,0)$ e $(3,1)$. L'obiettivo $x_1+x_2$ è massimizzato al vertice
 
@@ -137,7 +137,7 @@ soluzione "Solution"
 
         ![Figura 1](../img/ex-10-mip-heuristics/fig01.svg){ .fig loading=lazy  }
 
-    2. $\tilde x^0=\big(\rnd{3.2},\rnd{1.6}\big)=(3,2)$: $6\cdot3-2\cdot2=14\le16$, ma $6\cdot3-7\cdot2=4<8$: irrealizzabile.
+    2. $\tilde x^0=\big(\rnd{3.2},\rnd{1.6}\big)=(3,2)$: $6\cdot3-2\cdot2=14\le16$, ma $6\cdot3-7\cdot2=4<8$: infattibile.
 
     3. <strong>Iterazione 1.</strong> Proiezione di $(3,2)$. La linea verticale $x_1=3$ attraversa $\mathcal{L}$ per $18-2x_2\le16$ e $18-7x_2\ge8$, cioè tra $(3,1)$ e $\big(3,\frac{10}{7}\big)$: la più vicina è $\big(3,\frac{10}7\big)$, a distanza $2-\frac{10}{7}=\frac47$. La linea orizzontale $x_2=2$ non attraversa $\mathcal{L}$ ($x_1\le\frac{10}3$ e $x_1\ge\frac{11}{3}$). Il vertice $\big(\frac{16}5,\frac85\big)$ si trova a distanza $\frac15+\frac25=\frac35>\frac47$, gli altri vertici sono più lontani. Quindi $x^{*1}=\big(3,\frac{10}7\big)$, $\Delta=\frac47$ e $\tilde x^1=\rnd{x^{*1}}=(3,1)$, un nuovo punto.
 
@@ -180,7 +180,7 @@ soluzione "Solution"
 
         ![Figura 2](../img/ex-10-mip-heuristics/fig02.svg){ .fig loading=lazy  }
 
-    2. $\tilde x^0=\big(\rnd{2.55},\rnd{3.73}\big)=(3,4)$: $-9+20=11\le11$, ma $12-12=0>-1$: irrealizzabile.
+    2. $\tilde x^0=\big(\rnd{2.55},\rnd{3.73}\big)=(3,4)$: $-9+20=11\le11$, ma $12-12=0>-1$: infattibile.
 
     3. <strong>Iterazione 1.</strong> Proiezione di $(3,4)$. La linea verticale $x_1=3$ avrebbe bisogno di $x_2\ge\frac{13}3$ e $x_2\le4$: nessun incrocio. La linea orizzontale $x_2=4$ avrebbe bisogno di $x_1\ge3$ e $x_1\le\frac{11}4$: nessun incrocio. Il punto più vicino è il vertice $x^{*1}=\big(\frac{28}{11},\frac{41}{11}\big)$, alla distanza $\frac5{11}+\frac3{11}=\frac8{11}$. Il suo arrotondamento è ancora $(3,4)$: un <strong>ciclo breve</strong>. La differenza maggiore è su $x_1$ ($\frac{5}{11}>\frac3{11}$), che si muove verso $\frac{28}{11}$: $\tilde x^1=(2,4)$.
 
@@ -213,7 +213,7 @@ soluzione "Solution"
 
     3. Applica la pompa di fattibilità: a ciascuna iterazione calcola la proiezione $x^{*k}$, cioè il punto di $\mathcal{L}$ che minimizza la distanza $L_1$ da $\Delta(x,\tilde x^{k-1})$, arrotondalo e, se l'arrotondamento restituisce lo stesso punto intero, sposta la componente con la più grande $|x^{*k}_j-\tilde x^{k-1}_j|$ di un'unità verso $x^{*k}_j$. Ferma quando la distanza è $0$.
 
-    4. Trova la soluzione ottimale esaminando i punti interi e calcola il divario della soluzione della pompa rispetto al limite LP. Perché la pompa manca l'ottimo?
+    4. Trova la soluzione ottimale esaminando i punti interi e calcola il gap della soluzione della pompa rispetto al limite LP. Perché la pompa manca l'ottimo?
 
 ??? soluzione "Soluzione"
 
@@ -225,13 +225,13 @@ soluzione "Solution"
 
         ![Figura 3](../img/ex-10-mip-heuristics/fig03.svg){ .fig loading=lazy  }
 
-    2. $\tilde x^0=(\rnd{1.8},0)=(2,0)$: $10>9$, irrealizzabile.
+    2. $\tilde x^0=(\rnd{1.8},0)=(2,0)$: $10>9$, infattibile.
 
     3. <strong>Iterazione 1.</strong> Con $\tilde x^0=(2,0)$, $\Delta(x,\tilde x^0)=|x_1-2|+x_2$. La linea verticale $x_1=2$ non attraversa $\mathcal{L}$; la linea orizzontale $x_2=0$ la attraversa sul segmento da $(0,0)$ a $\big(\frac95,0\big)$, il cui punto più vicino è $\big(\frac95,0\big)$, alla distanza $\frac15$; gli altri vertici sono più lontani. Quindi $x^{*1}=\big(\frac95,0\big)=x^{*0}$, il cui arrotondamento è di nuovo $(2,0)$: un ciclo breve. Il ribaltamento muove $x_1$ verso $\frac95$: $\tilde x^1=(1,0)$.
 
         <strong>Iterazione 2.</strong> $(1,0)\in\mathcal{L}$: $\Delta=0$, la pompa si ferma con $(1,0)$, di valore $4$.
 
-    4. I valori dei punti interi sono $0$, $4$, $2$, $6$: l'ottimo è $(1,1)$, con $z(I)=6$ ($5+4=9\le9$, $-7+3\le5$). Rispetto al limite LP $\lfloor7.2\rfloor=7$, il divario della soluzione della pompa è $\frac{7-4}{7}\approx42.9\%$ (il suo vero errore relativo è $\frac{6-4}{6}\approx33.3\%$). La pompa considera solo la distanza da $\mathcal{L}$, mai l'obiettivo dopo il primo LP: si ferma al primo punto fattibile che incontra. Migliorarla è compito di metodi come il local branching o la ricerca di prossimità.
+    4. I valori dei punti interi sono $0$, $4$, $2$, $6$: l'ottimo è $(1,1)$, con $z(I)=6$ ($5+4=9\le9$, $-7+3\le5$). Rispetto al limite LP $\lfloor7.2\rfloor=7$, il gap della soluzione della pompa è $\frac{7-4}{7}\approx42.9\%$ (il suo vero errore relativo è $\frac{6-4}{6}\approx33.3\%$). La pompa considera solo la distanza da $\mathcal{L}$, mai l'obiettivo dopo il primo LP: si ferma al primo punto fattibile che incontra. Migliorarla è compito di metodi come il local branching o la ricerca di prossimità.
 
 ## RINS e ramificazione locale
 
@@ -263,7 +263,7 @@ soluzione "Solution"
 
     4. Applica la ricerca di prossimità con $\theta=1$. Confronta i tre metodi e indica quale di essi dimostra l'ottimalità della soluzione trovata.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. L'attuale è ammissibile ($3+16=19\le24$), di valore $1+8=9$. L'ottimo LP è $x_1=1$ (il suo limite inferiore) e $x_2=\frac{21}{8}$:
 
@@ -379,4 +379,4 @@ soluzione "Solution"
 
         <strong>Iterazione 5.</strong> Cutoff $\ge15$, intorno a $(1,3)$. Il secondo vincolo dà $x_1\le2$, e per $x_1=0,1,2$ i valori sono al massimo $8$, $14$, $8$: inammissibile.
 
-    4. L'ultima soluzione $(1,3)$, di valore $14$, è <strong>ottimale</strong> secondo la proposizione sulla ricerca per prossimità (Capitolo 10): sono stati risolti $5$ sub-MIP, quattro dei quali con una soluzione. Il vincolo $17$ da solo lascia un divario di $\frac{17-14}{14}\approx21.4\%$. Ogni passo si muove di un'unità perché il cutoff è piccolo: un più grande $\theta$ richiederebbe spostamenti maggiori e meno iterazioni.
+    4. L'ultima soluzione $(1,3)$, di valore $14$, è <strong>ottimale</strong> secondo la proposizione sulla ricerca per prossimità (Capitolo 10): sono stati risolti $5$ sub-MIP, quattro dei quali con una soluzione. Il vincolo $17$ da solo lascia un gap di $\frac{17-14}{14}\approx21.4\%$. Ogni passo si muove di un'unità perché il cutoff è piccolo: un più grande $\theta$ richiederebbe spostamenti maggiori e meno iterazioni.

@@ -39,7 +39,7 @@ title: "Branch-and-cut"
 
 - Un <strong>algoritmo del piano di taglio</strong> spinge il rilassamento LP verso l'inviluppo convesso delle soluzioni intere, ma i tagli frazionari di Gomory perdono efficacia dopo le prime iterazioni (<strong>fenomeno di esaurimento</strong>).
 
-- Un <strong>algoritmo branch-and-bound</strong> suddivide la regione ammissibile in problemi LP più piccoli, ma iniziando da una debole rilassamento LP ha bisogno di un grande albero.
+- Un <strong>algoritmo branch-and-bound</strong> suddivide la regione ammissibile in problemi LP più piccoli, ma iniziando da un rilassamento LP debole ha bisogno di un grande albero.
 
 !!! chiave ""
     I tagli riducono i limiti dei nodi, quindi più nodi vengono potati grazie ai limiti; la ramificazione garantisce la terminazione quando i tagli non sono più efficaci.
@@ -55,7 +55,7 @@ title: "Branch-and-cut"
 <a id="box-2-def-global-local"></a>
 
 !!! definizione "Definizione 8.2: disuguaglianze valide globali e locali"
-    Un'ineguaglianza lineare $\vet\alpha\T\vet x \le \beta$ è chiamata:
+    Una disuguaglianza lineare $\vet\alpha\T\vet x \le \beta$ è chiamata:
 
     1. una <strong>disuguaglianza valida a livello globale</strong> (o <strong>taglio globale</strong>) se è soddisfatta da tutte le soluzioni in $F$;
 
@@ -68,7 +68,7 @@ title: "Branch-and-cut"
 !!! chiave ""
     Un taglio derivato solo dai vincoli originali (e da altri tagli globali) è <strong>globale</strong>. Un taglio la cui derivazione utilizza un vincolo di ramificazione è, in generale, solo <strong>locale</strong>.
 
-- Un taglio frazionario di Gomory generato al nodo radice è globale: deriva solo dai vincoli originali, ed è quindi un'ineguaglianza di una famiglia (come le disuguaglianze di copertura di un vincolo con coefficienti positivi) separata da essi. Un taglio frazionario di Gomory generato da una riga che contiene la variabile slack di un vincolo di ramificazione con un coefficiente diverso da zero è trattato come locale.
+- Un taglio frazionario di Gomory generato al nodo radice è globale: deriva solo dai vincoli originali, ed è quindi una disuguaglianza di una famiglia (come le disuguaglianze di copertura di un vincolo con coefficienti positivi) separata da essi. Un taglio frazionario di Gomory generato da una riga che contiene la variabile slack di un vincolo di ramificazione con un coefficiente diverso da zero è trattato come locale.
 
 ## 8.3 Taglia-e-intera e intera-e-taglia
 
@@ -93,7 +93,7 @@ title: "Branch-and-cut"
 
 ### 8.3.2 Pseudocodice di alto livello
 
-- L'algoritmo branch-and-cut ha il pseudocodice dell'algoritmo branch-and-bound (stesse operazioni di branching, stessi criteri di potatura, stessa lista $L$): solo la <strong>Sotto-procedura della Soluzione del Nodo di Branching</strong> cambia.
+- L'algoritmo branch-and-cut ha lo pseudocodice dell'algoritmo branch-and-bound (stesse operazioni di branching, stessi criteri di potatura, stessa lista $L$): solo la <strong>Sotto-procedura della Soluzione del Nodo di Branching</strong> cambia.
 
 !!! algoritmo "Algoritmo"
     - <strong>Input:</strong> Un problema $\LP_k$ associato a un nodo di ramificazione, al pool di tagli e a un numero massimo $R$ di round di tagli.
@@ -102,7 +102,7 @@ title: "Branch-and-cut"
 
         Risolvi il problema $\LP_k$.
 
-        1. se il problema $\LP_k$ è irrisolvibile, allora <code>STOP</code>.
+        1. se il problema $\LP_k$ è infattibile, allora <code>STOP</code>.
 
         2. se $\left\lfloor z(\LP_k) \right\rfloor \le \LB$, allora <code>STOP</code>.
 
@@ -122,7 +122,7 @@ title: "Branch-and-cut"
 
 - Con $R = 0$ in ogni nodo eccetto la radice otteniamo un algoritmo di taglio e ramificazione; con $R = 0$ in ogni nodo otteniamo l'algoritmo branch-and-bound.
 
-- Il pseudocodice non indica come vengono generati i tagli o come il problema LP venga riottimizzato. Dopo l'inserimento di un taglio, il dizionario è dualmente ammissibile, quindi l'<strong>algoritmo del simplesso duale</strong> parte dal dizionario ottimale del problema precedente, come dopo un vincolo di branching.
+- Lo pseudocodice non indica come vengono generati i tagli o come il problema LP venga riottimizzato. Dopo l'inserimento di un taglio, il dizionario è dualmente ammissibile, quindi l'<strong>algoritmo del simplesso duale</strong> parte dal dizionario ottimale del problema precedente, come dopo un vincolo di branching.
 
 ## 8.4 Esempio pratico: cut-and-branch con tagli di Gomory { #sez-sec-bc-example }
 
@@ -209,7 +209,7 @@ title: "Branch-and-cut"
 
         È un taglio globale, e taglia $\tilde{\vet x}(\LP_1)$: $3 \cdot 5 - \frac{7}{2} = \frac{23}{2} > 11$.
 
-    - <span style="color:#e03131"><strong>Radice: riottimizzazione.</strong></span> Aggiungiamo il taglio al problema $\LP_1$ e lo ri-ottimizziamo con l'algoritmo del simplesso duale. Una soluzione ottimale è
+    - <span style="color:#e03131"><strong>Radice: riottimizzazione.</strong></span> Aggiungiamo il taglio al problema $\LP_1$ e lo riottimizziamo con l'algoritmo del simplesso duale. Una soluzione ottimale è
 
         $$
         \tilde{\vet x}(\LP_1) = (\tfrac{34}{7},\tfrac{25}{7}), \qquad z(\LP_1) = \tfrac{220}{7}, \qquad \UB = 31 .
@@ -387,7 +387,7 @@ title: "Branch-and-cut"
         x_2 \le 1 .
         $$
 
-    - L'ineguaglianza $x_2 \le 1$ è valida per tutte le soluzioni in $F_3$, ma <strong>non è globalmente valida</strong>: la soluzione intera ammissibile $(3,2)$, di valore $13$, la viola. È un taglio locale del nodo $3$.
+    - La disuguaglianza $x_2 \le 1$ è valida per tutte le soluzioni in $F_3$, ma <strong>non è globalmente valida</strong>: la soluzione intera ammissibile $(3,2)$, di valore $13$, la viola. È un taglio locale del nodo $3$.
 
     - Lo aggiungiamo al problema $\LP_3$, con la variabile di scarto $x_6 = 1 - x_2$, e riottimizziamo.
 
@@ -452,7 +452,7 @@ title: "Branch-and-cut"
 
 ### 8.6.1 Taglia selezione
 
-- Ad ogni round possono essere disponibili molti tagli violati; aggiungerli tutti rende i problemi di programmazione lineare grandi e lenti da riorottimizzare. Un algoritmo branch-and-cut seleziona un sottoinsieme.
+- Ad ogni round possono essere disponibili molti tagli violati; aggiungerli tutti rende i problemi di programmazione lineare grandi e lenti da riottimizzare. Un algoritmo branch-and-cut seleziona un sottoinsieme.
 
 - L'<strong>efficacia</strong> di un taglio $\vet\alpha\T\vet x \le \beta$ alla soluzione frazionaria $\tilde{\vet x}(\LP_k)$ è la distanza euclidea di $\tilde{\vet x}(\LP_k)$ dall'iperpiano $\vet\alpha\T\vet x = \beta$:
 
@@ -480,7 +480,7 @@ title: "Branch-and-cut"
 
     dove $z(\LP_k)$ è ora il valore ottimale del problema $\LP_k$ <u>dopo</u> i tagli.
 
-- I tagli riducono i valori $z(\LP_k)$ e, di conseguenza, il limite superiore $\UB$ e il divario di ottimalità $\frac{\UB - \LB}{|\LB|}$.
+- I tagli riducono i valori $z(\LP_k)$ e, di conseguenza, il limite superiore $\UB$ e il gap di ottimalità $\frac{\UB - \LB}{|\LB|}$.
 
 ## 8.7 Errori tipici
 
@@ -506,7 +506,7 @@ title: "Branch-and-cut"
 
     - Un algoritmo cut-and-branch genera tagli solo alla radice; i tagli sono quindi globali.
 
-    - Dopo un taglio, il problema LP viene riorganizzato con l'algoritmo del simplesso duale a partire dal dizionario precedente.
+    - Dopo un taglio, il problema LP viene riottimizzato con l'algoritmo del simplesso duale a partire dal dizionario precedente.
 
     - I tagli riducono la dimensione dell'albero, ma solo i tagli efficaci lo fanno: su $P10$, un taglio di Gomory riduce l'albero da problemi LP $5$ a $3$, e due tagli a $1$.
 

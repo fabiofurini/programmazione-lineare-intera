@@ -12,7 +12,7 @@ title: "Esercizi · Bound primali e bound duali"
 
 <a id="esercizio-2-1"></a>
 
-!!! esercizio "Esercizio 2.1: Limiti primari e duali (P5)"
+!!! esercizio "Esercizio 2.1: Bound primali e bound duali (P5)"
     !!! nota ""
         Considera il seguente problema ILP in forma canonica di massimizzazione con $n=2$ variabili intere e $m=2$ vincoli:
 
@@ -31,7 +31,7 @@ title: "Esercizi · Bound primali e bound duali"
 
     2. Risolvi il rilassamento LP graficamente e fornisci il bound duale $\UB$ che esso fornisce.
 
-    3. Calcola il divario di ottimalità. La migliore soluzione euristica è certificata come ottimale?
+    3. Calcola il gap di ottimalità. La migliore soluzione euristica è certificata come ottimale?
 
 ??? soluzione "Soluzione"
 
@@ -107,16 +107,16 @@ title: "Esercizi · Bound primali e bound duali"
         z(\ILP) \le z(\LP) = 15
         $$
 
-    3. Con $\LB = 13$ e $\UB = 15$ il divario di ottimalità è
+    3. Con $\LB = 13$ e $\UB = 15$ il gap di ottimalità è
 
         $$
         \frac{\UB - \LB}{|\LB|} = \frac{15 - 13}{13} = \dfrac{2}{13} \approx 15.4\%
         $$
 
-        Il divario non è zero: i limiti forniscono solo $13 \le z(\ILP) \le 15$, e $\bar{\vet x} = (2,3)$ non è <strong>certificato</strong> ottimale.
+        Il gap non è zero: i limiti forniscono solo $13 \le z(\ILP) \le 15$, e $\bar{\vet x} = (2,3)$ non è <strong>certificato</strong> ottimale.
 
         !!! chiave ""
-            $\LB = 13$ dall'euristica a due fasi, $\UB = 15$ dal rilassamento LP, divario di ottimalità $\dfrac{2}{13}$. L'enumerazione completa mostra che $z(\ILP) = 13$: la soluzione euristica $(2,3)$ è ottimale, ma i due limiti non lo dimostrano.
+            $\LB = 13$ dall'euristica a due fasi, $\UB = 15$ dal rilassamento LP, gap di ottimalità $\dfrac{2}{13}$. L'enumerazione completa mostra che $z(\ILP) = 13$: la soluzione euristica $(2,3)$ è ottimale, ma i due limiti non lo dimostrano.
 
 <a id="esercizio-2-2"></a>
 
@@ -139,11 +139,11 @@ title: "Esercizi · Bound primali e bound duali"
 
     2. Arrotonda la soluzione ottimale del rilassamento LP nei quattro modi possibili (ogni componente in basso o in alto). Quali punti arrotondati sono ammissibili? Fornisci il miglior bound primale $\LB$ ottenuto arrotondando.
 
-    3. Calcola il divario di ottimalità.
+    3. Calcola il gap di ottimalità.
 
     4. Dimostra che il punto $(6,2)$ è ammissibile e certifica che è una soluzione ottimale.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Graficamente, abbiamo:
 
@@ -204,13 +204,13 @@ soluzione "Solution"
 
         Solo $(5,3)$ è ammissibile, quindi l'arrotondamento dà $\LB = 5 \cdot 5 + 3 \cdot 3 = 34$.
 
-    3. Con $\LB = 34$ e $\UB = 36$ il divario di ottimalità è
+    3. Con $\LB = 34$ e $\UB = 36$ il gap di ottimalità è
 
         $$
         \frac{\UB - \LB}{|\LB|} = \frac{36 - 34}{34} = \dfrac{1}{17} \approx 5.9\%
         $$
 
-    4. Il punto $(6,2)$ soddisfa i vincoli, $2 \cdot 6 + 1 \cdot 2 = 14 \le 14, \quad 1 \cdot 6 + 8 \cdot 2 = 22 \le 32$, e il suo valore è $5 \cdot 6 + 3 \cdot 2 = 36$. Pertanto $\LB = 36 = \UB$: il divario di ottimalità è zero.
+    4. Il punto $(6,2)$ soddisfa i vincoli, $2 \cdot 6 + 1 \cdot 2 = 14 \le 14, \quad 1 \cdot 6 + 8 \cdot 2 = 22 \le 32$, e il suo valore è $5 \cdot 6 + 3 \cdot 2 = 36$. Pertanto $\LB = 36 = \UB$: il gap di ottimalità è zero.
 
         !!! chiave ""
             La soluzione ammissibile $(6,2)$ ha valore $36 = \lfloor z(\LP) \rfloor$: è <strong>certificata ottimale</strong>, $z(\ILP) = 36$. Approssimare la soluzione LP fornisce solo $(5,3)$, di valore $34$.
@@ -238,7 +238,7 @@ soluzione "Solution"
 
     3. Trova una soluzione ottimale del problema ILP graficamente e confrontala con la soluzione del rilassamento LP.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Graficamente, abbiamo:
 
@@ -331,7 +331,7 @@ soluzione "Solution"
 
     2. Scrivi il problema duale D(LP) del rilassamento LP e verifica che $\tilde{\vet\pi} = (\tfrac{4}{17},\tfrac{11}{17})$ sia una soluzione duale ottimale.
 
-    3. Derivare i limiti superiori sulle variabili dalle vincoli. Migliorano il limite del rilassamento LP?
+    3. Derivare i limiti superiori sulle variabili dai vincoli. Migliorano il limite del rilassamento LP?
 
 ??? soluzione "Soluzione"
 
@@ -428,7 +428,7 @@ soluzione "Solution"
 
     3. Applica l'euristica a due fasi (estesa a tre fasi) con le variabili in ordine di costo decrescente, $x_3$, $x_2$, $x_1$.
 
-    4. Calcola il divario di ottimalità con il miglior bound primale.
+    4. Calcola il gap di ottimalità con il miglior bound primale.
 
 ??? soluzione "Soluzione"
 
@@ -450,11 +450,11 @@ soluzione "Solution"
 
         La soluzione euristica è $\bar{\vet x} = (0,1,1)$, con $\LB = 5 \cdot 0 + 6 \cdot 1 + 10 \cdot 1 = 16$.
 
-    4. Con $\LB = 16$ e $\UB = 19$ il divario di ottimalità è
+    4. Con $\LB = 16$ e $\UB = 19$ il gap di ottimalità è
 
         $$
         \frac{\UB - \LB}{|\LB|} = \frac{19 - 16}{16} = \dfrac{3}{16} \approx 18.8\%
         $$
 
         !!! chiave ""
-            $16 \le z(\ILP) \le 19$. L'enumerazione completa mostra che la soluzione euristica $(0,1,1)$ è ottimale, $z(\ILP) = 16$, ma il divario $\dfrac{3}{16}$ non lo certifica.
+            $16 \le z(\ILP) \le 19$. L'enumerazione completa mostra che la soluzione euristica $(0,1,1)$ è ottimale, $z(\ILP) = 16$, ma il gap $\dfrac{3}{16}$ non lo certifica.

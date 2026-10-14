@@ -44,7 +44,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
-    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
+    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sul rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
         Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
@@ -705,7 +705,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
-    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
+    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sul rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
         Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
@@ -1389,10 +1389,10 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
-    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
+    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sul rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -2047,7 +2047,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
-    2. Mostra graficamente l'effetto di ogni taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
+    2. Mostra graficamente l'effetto di ogni taglio frazionario di Gomory sul rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
         Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
@@ -2448,10 +2448,10 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
-    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
+    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sul rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -2838,7 +2838,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
-    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
+    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sul rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
         Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
@@ -3253,7 +3253,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
-    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
+    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sul rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
         Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
@@ -4039,10 +4039,10 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         Risolvi i problemi di programmazione lineare dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema di programmazione lineare a ogni iterazione.
 
-    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
+    2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sul rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}

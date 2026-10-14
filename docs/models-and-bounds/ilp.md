@@ -16,16 +16,11 @@ title: "Programmazione lineare intera"
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - scrivi un problema ILP nella forma canonica di massimizzazione e distingui tra problemi ILP, BIP e MIP;
-
-    - disegna la regione ammissibile di un piccolo problema ILP e trova una soluzione ottimale graficamente;
-
-    - spiega perché la regione ammissibile non è convessa e quali sono i tre risultati di un problema ILP;
-
-    - spiega perché la enumerazione completa fallisce e quanto costa;
-
-    - spiega perché sono necessari limiti sul valore ottimale per evitare l'enumerazione.
-
+    - scrivere un problema ILP nella forma canonica di massimizzazione e distinguere tra problemi ILP, BIP e MIP;
+    - disegnare la regione ammissibile di un piccolo problema ILP e trovare una soluzione ottimale graficamente;
+    - spiegare perché la regione ammissibile non è convessa e quali sono i tre risultati di un problema ILP;
+    - spiegare perché l'enumerazione completa fallisce e quanto costa;
+    - spiegare perché sono necessari limiti sul valore ottimale per evitare l'enumerazione.
 ## 1.1 Forma canonica di massimizzazione
 
 <a id="box-1-defILPCanonical"></a>
@@ -264,7 +259,7 @@ title: "Programmazione lineare intera"
     \max \big\{\, x_1 ~:~ 2\,x_1 \le 1,~ -2\,x_1 \le -1,~ x_1 \in \Z_{\ge 0} \,\big\}
     $$
 
-    è irrealizzabile, perché i vincoli richiedono $x_1 = \frac{1}{2}$. Il problema LP con gli stessi dati è realizzabile, con l'unica soluzione realizzabile $x_1 = \frac{1}{2}$.
+    è infattibile, perché i vincoli richiedono $x_1 = \frac{1}{2}$. Il problema LP con gli stessi dati è realizzabile, con l'unica soluzione realizzabile $x_1 = \frac{1}{2}$.
 
 <a id="box-8-exUnbILP"></a>
 
@@ -360,7 +355,7 @@ $$
 </table></div>
 
 !!! chiave ""
-    La enumerazione completa è già impraticabile per modelli di dimensioni moderate. Un computer $1000$ volte più veloce guadagna solo circa $10$ variabili, perché $2^{10} = 1024 \approx 1000$.
+    L'enumerazione completa è già impraticabile per modelli di dimensioni moderate. Un computer $1000$ volte più veloce guadagna solo circa $10$ variabili, perché $2^{10} = 1024 \approx 1000$.
 
 - La via d'uscita è <strong>evitare di elencare</strong>. Se conosciamo un limite inferiore e un limite superiore sul valore ottimale, possiamo escludere intere regioni di soluzioni ammissibili senza visitarle. I due limiti provengono da due fonti diverse, le soluzioni ammissibili e i rilassamenti: sono l'argomento del capitolo successivo, «Bound primali e bound duali».
 
@@ -378,11 +373,11 @@ $$
 ## 1.5 In sintesi
 
 !!! chiave "In sintesi"
-    - Un problema ILP massimizza una funzione lineare sui punti interi di un politopo; la sua regione ammissibile non è convessa e è finita quando il politopo è limitato.
+    - Un problema ILP massimizza una funzione lineare sui punti interi di un politopo; la sua regione ammissibile non è convessa ed è finita quando il politopo è limitato.
 
-    - I risultati sono non fattibili, illimitati o ottimali, e un problema LP fattibile può avere una versione ILP inammissibile.
+    - Un problema ILP può essere infattibile, illimitato oppure avere una soluzione ottima. Il suo rilassamento LP può essere ammissibile anche quando il problema ILP è infattibile.
 
-    - La enumerazione completa costa $2^n$ valutazioni per $n$ variabili binarie: non è un'opzione al di là di modelli molto piccoli.
+    - L'enumerazione completa costa $2^n$ valutazioni per $n$ variabili binarie: non è un'opzione al di là di modelli molto piccoli.
 
     - Per evitare l'enumerazione abbiamo bisogno di limiti su $z(\ILP)$ da entrambi i lati: soluzioni ammissibili e rilassamenti, l'argomento del prossimo capitolo.
 

@@ -22,7 +22,7 @@
 
     [:octicons-arrow-right-24: Leggi il capitolo](valid-inequalities.md) · [Esercizi](../exercises/valid-inequalities.md)
 
--   **5. Coprire le disuguaglianze**
+-   **5. Disuguaglianze di copertura**
 
     ---
 

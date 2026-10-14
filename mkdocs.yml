@@ -131,7 +131,7 @@ nav:
   - Modelli e limiti:
       - models-and-bounds/index.md
       - "1. Programmazione lineare intera": models-and-bounds/ilp.md
-      - "2. Limiti primali e duali": models-and-bounds/lp-relaxation.md
+      - "2. Bound primali e bound duali": models-and-bounds/lp-relaxation.md
   - Formulazioni:
       - formulations/index.md
       - "3. Formulazioni ideali": formulations/ideal-formulations.md
@@ -151,7 +151,7 @@ nav:
   - Esercizi:
       - exercises/index.md
       - "1. Programmazione lineare intera": exercises/ilp.md
-      - "2. Limiti primali e duali": exercises/lp-relaxation.md
+      - "2. Bound primali e bound duali": exercises/lp-relaxation.md
       - "3. Formulazioni ideali": exercises/ideal-formulations.md
       - "4. Disuguaglianze valide": exercises/valid-inequalities.md
       - "5. Disuguaglianze di copertura": exercises/cover.md

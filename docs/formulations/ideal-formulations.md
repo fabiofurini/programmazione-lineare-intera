@@ -11,7 +11,7 @@ title: "Formulazioni ideali"
 </div>
 
 !!! nota "Prerequisiti"
-    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Vincoli primali e duali»: la regione ammissibile di un problema ILP, il rilassamento LP e il suo vincolo, e l'esempio dell'auto.
+    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Bound primali e bound duali»: la regione ammissibile di un problema ILP, il rilassamento LP e il bound duale che fornisce, e l'esempio dell'auto.
 
     - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 15 «La geometria della Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): vertici di un poliedro, e il fatto che un problema LP con una soluzione ottimale abbia un vertice ottimale.
 
@@ -24,30 +24,29 @@ title: "Formulazioni ideali"
 
     - definire una formulazione di un problema ILP e decidere se è ideale;
 
-    - spiega perché un problema di programmazione lineare su una formulazione ideale risolve il problema ILP;
-
-    - confrontare due formulazioni dello stesso problema attraverso le loro rilassamenti LP;
+    - spiegare perché un problema di programmazione lineare su una formulazione ideale risolve il problema ILP;
+    - confrontare due formulazioni dello stesso problema attraverso i loro rilassamenti LP;
 
     - spiegare perché le formulazioni ideali esistono ma sono difficili da trovare.
 
 !!! nota "Dove eravamo"
-    Nell'esempio dell'auto abbiamo il limite inferiore $14$ e il limite superiore $\lfloor z(\LP) \rfloor = 15$. Il divario di $\frac{1}{14}$ è dovuto al politopo dei vincoli, che contiene punti frazionari al di fuori dell'inviluppo convesso dei punti interi. Questo capitolo definisce il politopo che non genera alcun divario.
+    Nell'esempio dell'auto abbiamo il limite inferiore $14$ e il limite superiore $\lfloor z(\LP) \rfloor = 15$. Il gap di $\frac{1}{14}$ è dovuto al politopo dei vincoli, che contiene punti frazionari al di fuori dell'inviluppo convesso dei punti interi. Questo capitolo definisce il politopo che non genera alcun gap.
 
 ## 3.1 L'inviluppo convesso
 
 <a id="box-1-def-hull"></a>
 
-!!! definizione "Definizione 3.1: di involucro convesso"
-    Data un insieme $S \subseteq \R^n$, una <strong>combinazione convessa</strong> di punti $\vet s^1, \vet s^2, \dots, \vet s^k \in S$ è un punto $\sum_{h=1}^k \lambda_h \, \vet s^h$ con $\lambda_h \ge 0$ e $\sum_{h=1}^k \lambda_h = 1$. L'<strong'inviluppo convesso</strong> di $S$, denotato da $\mathrm{conv}(S)$, è l'insieme di tutte le combinazioni convesse dei punti di $S$.
+!!! definizione "Definizione 3.1: inviluppo convesso"
+    Dato un insieme $S \subseteq \R^n$, una <strong>combinazione convessa</strong> di punti $\vet s^1, \vet s^2, \dots, \vet s^k \in S$ è un punto $\sum_{h=1}^k \lambda_h \, \vet s^h$ con $\lambda_h \ge 0$ e $\sum_{h=1}^k \lambda_h = 1$. L'<strong>inviluppo convesso</strong> di $S$, denotato da $\mathrm{conv}(S)$, è l'insieme di tutte le combinazioni convesse dei punti di $S$.
 
-- L'involucro convesso è il più piccolo insieme convesso contenente $S$. Se $S$ è un insieme finito di punti, l'involucro convesso è un poliedro limitato (un <strong>poliedro</strong>), e i suoi <strong>vertici</strong> sono punti di $S$. Gli altri punti di $S$ si trovano o sul bordo del poliedro, o all'interno di esso: non sono necessari per descriverlo.
+- L'inviluppo convesso è il più piccolo insieme convesso contenente $S$. Se $S$ è un insieme finito di punti, l'inviluppo convesso è un poliedro limitato (un <strong>politopo</strong>), e i suoi <strong>vertici</strong> sono punti di $S$. Gli altri punti di $S$ si trovano o sul bordo del poliedro, o all'interno di esso: non sono necessari per descriverlo.
 
-- Per un problema LPI prendiamo $S = F$, l'insieme delle soluzioni ammissibili. I vertici di $\mathrm{conv}(F)$ sono soluzioni ammissibili intere.
+- Per un problema ILP prendiamo $S = F$, l'insieme delle soluzioni ammissibili. I vertici di $\mathrm{conv}(F)$ sono soluzioni ammissibili intere.
 
 <a id="box-2-ex-hull-car"></a>
 
-!!! esempio "Esempio 3.1: involucro convesso dell'esempio dell'auto"
-    Il guscio convesso dei punti interi $16$ dell'esempio dell'auto ha $6$ vertici:
+!!! esempio "Esempio 3.1: inviluppo convesso dell'esempio dell'auto"
+    L'inviluppo convesso dei $16$ punti interi dell'esempio dell'auto ha $6$ vertici:
 
     $$
     (0,0), \quad (4,0), \quad (4,1), \quad (3,2), \quad (1,3), \quad (0,3).
@@ -57,14 +56,14 @@ title: "Formulazioni ideali"
 
     ![Figura 1](../img/03-ideal-formulations/fig01.svg){ .fig .ovale loading=lazy  }
 
-    <em>Il guscio convesso dei punti interi $16$ dell'esempio dell'auto (verde). I suoi vertici $6$ (quadri neri) sono punti interi; cinque altri punti si trovano sul suo bordo e cinque nel suo interno.</em>
+    <em>L'inviluppo convesso dei $16$ punti interi dell'esempio dell'auto (verde). I suoi $6$ vertici (quadrati neri) sono punti interi; cinque altri punti si trovano sul suo bordo e cinque nel suo interno.</em>
 
 ## 3.2 Formulazioni e formulazioni ideali
 
 <a id="box-3-def-formulation"></a>
 
-!!! definizione "Definizione 3.2: di formulazione"
-    Una <strong>formulazione</strong> di un problema ILP con regione ammissibile $F$ è un politopo $P = \{ \vet x \in \R^n : \sum_{j} a_{ij} \, x_j \le b_i,~ \forall i,~ x_j \ge 0,~ \forall j \}$ tale che $P \cap \Z^n = F$. La <strong>rilassamento LP della formulazione</strong> è il problema di massimizzare $\sum_j c_j \, x_j$ su $P$.
+!!! definizione "Definizione 3.2: formulazione"
+    Una <strong>formulazione</strong> di un problema ILP con regione ammissibile $F$ è un politopo $P = \{ \vet x \in \R^n : \sum_{j} a_{ij} \, x_j \le b_i,~ \forall i,~ x_j \ge 0,~ \forall j \}$ tale che $P \cap \Z^n = F$. Il <strong>rilassamento LP della formulazione</strong> è il problema di massimizzare $\sum_j c_j \, x_j$ su $P$.
 
 - Un problema ILP ha molte formulazioni: condividono i punti interi e differiscono nei punti frazionari. Poiché $P$ è convesso e contiene $F$, ogni formulazione contiene l'inviluppo convesso:
 
@@ -74,17 +73,17 @@ title: "Formulazioni ideali"
 
 <a id="box-4-def-ideal"></a>
 
-!!! definizione "Definizione 3.3: di formulazione ideale"
+!!! definizione "Definizione 3.3: formulazione ideale"
     Una formulazione $P$ di un problema ILP è <strong>ideale</strong> se $P = \mathrm{conv}(F)$, cioè se la regione ammissibile del suo rilassamento LP è esattamente l'inviluppo convesso delle soluzioni intere ammissibili.
 
 <a id="box-5-theo-ideal"></a>
 
 !!! teorema "Teorema 3.4: LP su una formulazione ideale"
-    Sia $P$ una formulazione ideale di un problema ILP con $F \ne \emptyset$ e $P$ limitati. Allora il rilassamento LP ha un vertice ottimale, ogni vertice ottimale è una soluzione ottimale del problema ILP, e $z(\LP) = z(\ILP)$.
+    Sia $P$ una formulazione ideale di un problema ILP con $F \ne \emptyset$ e $P$ limitato. Allora il rilassamento LP ha un vertice ottimale, ogni vertice ottimale è una soluzione ottimale del problema ILP, e $z(\LP) = z(\ILP)$.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
-    Il poliedro $P = \mathrm{conv}(F)$ è non vuoto e limitato, quindi il problema LP ha un vertice ottimale $P$. I vertici di $\mathrm{conv}(F)$ appartengono a $F$, quindi questo vertice è una soluzione ILP ammissibile, il cui valore è $z(\LP)$. Poiché $z(\ILP) \le z(\LP)$, il vertice è ottimale per il problema ILP. <span class="qed">□</span>
+    Il poliedro $P = \mathrm{conv}(F)$ è non vuoto e limitato, quindi il problema LP ha un vertice ottimale in $P$. I vertici di $\mathrm{conv}(F)$ appartengono a $F$, quindi questo vertice è una soluzione ILP ammissibile, il cui valore è $z(\LP)$. Poiché $z(\ILP) \le z(\LP)$, il vertice è ottimale per il problema ILP. <span class="qed">□</span>
 
 - L'algoritmo del simplesso restituisce un vertice ottimale, quindi con una formulazione ideale restituisce una soluzione intera. Se il problema di programmazione lineare ha diverse soluzioni ottimali, un metodo che non restituisce vertici può dare un punto frazionario sulla faccia ottimale: ecco perché il teorema parla di un vertice ottimale.
 
@@ -94,7 +93,7 @@ title: "Formulazioni ideali"
 <a id="box-6-ex-car-not-ideal"></a>
 
 !!! esempio "Esempio 3.2: la formulazione dell'esempio dell'auto non è ideale"
-    Il punto $(\frac{7}{2},\frac{5}{2})$ appartiene al poliedro $P$ dell'esempio dell'auto ma non a $\mathrm{conv}(F)$, perché viola $x_1 + x_2 \le 5$, che tutti i vertici dell'involucro di <span style="color:#1971c2">[Esempio 3.1](#box-2-ex-hull-car)</span> soddisfano: $\mathrm{conv}(F) \subsetneq P$.
+    Il punto $(\frac{7}{2},\frac{5}{2})$ appartiene al poliedro $P$ dell'esempio dell'auto ma non a $\mathrm{conv}(F)$, perché viola $x_1 + x_2 \le 5$, che tutti i vertici dell'inviluppo di <span style="color:#1971c2">[Esempio 3.1](#box-2-ex-hull-car)</span> soddisfano: $\mathrm{conv}(F) \subsetneq P$.
 
     ![Figura 2](../img/03-ideal-formulations/fig02.svg){ .fig .ovale loading=lazy  }
 
@@ -138,7 +137,7 @@ title: "Formulazioni ideali"
 - La formulazione ideale è la più forte di tutte, perché è contenuta in ogni formulazione. Nell'esempio dell'auto, la formulazione originale fornisce il limite $\lfloor \frac{31}{2} \rfloor = 15$, e quella ideale di <span style="color:#1971c2">[Esempio 3.3](#box-7-ex-car-ideal)</span> fornisce il limite $14$.
 
 !!! chiave ""
-    Tra le formulazioni dello stesso problema ILP, preferiamo quelle con il poliedro più piccolo: le loro rilassamenti LP forniscono i migliori limiti superiori, e la formulazione ideale dà il valore ottimale.
+    Tra le formulazioni dello stesso problema ILP, preferiamo quelle con il poliedro più piccolo: i loro rilassamenti LP forniscono i migliori limiti superiori, e la formulazione ideale dà il valore ottimale.
 
 ## 3.4 Esistenza di formulazioni ideali
 
@@ -162,7 +161,7 @@ title: "Formulazioni ideali"
 ## 3.6 In sintesi
 
 !!! chiave "In sintesi"
-    - L'involucro convesso delle soluzioni ammissibili è il più piccolo poliedro che le contiene, e i suoi vertici sono soluzioni ammissibili intere.
+    - L'inviluppo convesso delle soluzioni ammissibili è il più piccolo poliedro che le contiene, e i suoi vertici sono soluzioni ammissibili intere.
 
     - Una formulazione è ideale se il suo poliedro è l'inviluppo convesso; allora un vertice ottimale del rilassamento LP è una soluzione ILP ottimale.
 

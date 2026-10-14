@@ -83,7 +83,7 @@ title: "Esercizi · Programmazione lineare intera"
 
     3. Il gradiente della funzione obiettivo è $\nabla f = (3,1)$. Spostando la linea di livello $3\,x_1 + x_2 = z$ nella direzione di $\nabla f$, l'ultimo punto di $F$ raggiunto è $(2,1)$, sulla linea tratteggiata $3\,x_1 + x_2 = 7$ della figura; nessun altro punto di $F$ giace su questa linea.
 
-        La enumerazione completa delle soluzioni ammissibili $9$ lo conferma (l'ottimo in grassetto):
+        L'enumerazione completa delle soluzioni ammissibili $9$ lo conferma (l'ottimo in grassetto):
 
         $$
         \begin{array}{ccc|ccc|ccc}
@@ -244,11 +244,11 @@ title: "Esercizi · Programmazione lineare intera"
         Il miglior punto con $x_3 = 0$ è $(2,2,0)$, di valore $6$: è peggiore di $(0,0,1)$, di valore $7$.
 
         !!! chiave ""
-            La enumerazione completa fornisce la <strong>unica</strong> soluzione ottimale $\tilde{\vet x}(\ILP) = (0,0,1)$, con valore ottimale $z(\ILP) = 7$.
+            L'enumerazione completa fornisce la <strong>unica</strong> soluzione ottimale $\tilde{\vet x}(\ILP) = (0,0,1)$, con valore ottimale $z(\ILP) = 7$.
 
 <a id="esercizio-1-4"></a>
 
-!!! esercizio "Esercizio 1.4: Possibili risultati: un problema ILP irrealizzabile"
+!!! esercizio "Esercizio 1.4: Possibili risultati: un problema ILP infattibile"
     !!! nota ""
         Considera il seguente problema ILP in forma canonica di massimizzazione con $n=2$ variabili intere e $m=4$ vincoli:
 
@@ -271,7 +271,7 @@ title: "Esercizi · Programmazione lineare intera"
 
     3. Trova una soluzione ottimale del problema di programmazione lineare con gli stessi dati.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. I quattro vincoli sono $-\frac{1}{2} \le x_1 - x_2 \le \frac{1}{2}$ e $\frac{1}{2} \le x_1 + x_2 \le \frac{3}{2}$: il poliedro $P$ è il quadrato con vertici $(0,\dfrac{1}{2})$, $(\dfrac{1}{2},0)$, $(\dfrac{1}{2},1)$, $(1,\dfrac{1}{2})$.
 

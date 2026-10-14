@@ -11,23 +11,22 @@ title: "Disuguaglianze valide"
 </div>
 
 !!! nota "Prerequisiti"
-    - Da questo modulo, il capitolo «Limiti primari e duali»: il rilassamento LP, il limite arrotondato $\lfloor z(\LP) \rfloor$ e i limiti derivanti dai moltiplicatori non negativi dei vincoli.
+    - Da questo modulo, il capitolo «Bound primali e bound duali»: il rilassamento LP, il limite arrotondato $\lfloor z(\LP) \rfloor$ e i limiti derivanti dai moltiplicatori non negativi dei vincoli.
 
     - Da questo modulo, il capitolo «Formulazioni ideali»: formulazioni, l'inviluppo convesso e il confronto delle formulazioni attraverso i loro poliedri.
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - definire un'ineguaglianza valida e dire quando taglia un punto frazionario;
+    - definire una disuguaglianza valida e dire quando taglia un punto frazionario;
 
-    - derivare un'ineguaglianza valida dai moltiplicatori non negativi dei vincoli arrotondando per difetto;
+    - derivare una disuguaglianza valida dai moltiplicatori non negativi dei vincoli arrotondando per difetto;
 
-    - migliorare un'ineguaglianza valida fino a toccare un punto intero fattibile;
+    - migliorare una disuguaglianza valida fino a toccare un punto intero fattibile;
 
     - misurare l'effetto di una disuguaglianza valida sul valore ottimale del rilassamento LP e sul limite superiore;
 
-    - spiega perché le disuguaglianze valide sono il modo pratico per avvicinarsi a una formulazione ideale.
-
+    - spiegare perché le disuguaglianze valide sono il modo pratico per avvicinarsi a una formulazione ideale.
 !!! nota "Dove eravamo"
     Nell'esempio dell'auto, la formulazione ideale fornisce il limite superiore $14$, uguale al limite inferiore, quindi certifica che $(4,1)$ è ottimale. Ma abbiamo trovato le sue quattro disuguaglianze osservando l'inviluppo convesso, cosa che in generale non è possibile. Ora impariamo a <strong>derivare</strong> tali disuguaglianze dai vincoli.
 
@@ -35,26 +34,26 @@ title: "Disuguaglianze valide"
 
 <a id="box-1-def-valid"></a>
 
-!!! definizione "Definizione 4.1: di disuguaglianza valida"
-    Un'ineguaglianza $\sum_{j=1}^n \alpha_j \, x_j \le \beta$ è una <strong>ineguaglianza valida</strong> per un problema ILP con regione fattibile $F$ se è soddisfatta da tutti i punti di $F$.
+!!! definizione "Definizione 4.1: disuguaglianza valida"
+    Una disuguaglianza $\sum_{j=1}^n \alpha_j \, x_j \le \beta$ è una <strong>disuguaglianza valida</strong> per un problema ILP con regione fattibile $F$ se è soddisfatta da tutti i punti di $F$.
 
 <a id="box-2-def-tight"></a>
 
-!!! definizione "Definizione 4.2: punto di interruzione e disuguaglianza valida stretta"
-    Sia $\sum_{j=1}^n \alpha_j \, x_j \le \beta$ un'inegualità valida per un problema ILP con regione ammissibile $F$.
+!!! definizione "Definizione 4.2: punto escluso e disuguaglianza valida saturata"
+    Sia $\sum_{j=1}^n \alpha_j \, x_j \le \beta$ una disuguaglianza valida per un problema ILP con regione ammissibile $F$.
 
-    - L'ineguaglianza <strong>esclude</strong> un punto $\vet x^* \in \R^n$ se $\sum_{j=1}^n \alpha_j \, x^*_j > \beta$.
+    - La disuguaglianza <strong>esclude</strong> un punto $\vet x^* \in \R^n$ se $\sum_{j=1}^n \alpha_j \, x^*_j > \beta$.
 
-    - L'ineguaglianza è <strong>stretta</strong> se almeno un punto di $F$ la soddisfa con uguaglianza.
+    - La disuguaglianza è <strong>saturata</strong> se almeno un punto di $F$ la soddisfa con uguaglianza.
 
-- Una disuguaglianza valida non esclude alcun punto di $F$, ma può escludere punti frazionari del rilassamento LP. Il lato destro di una disuguaglianza stretta non può essere diminuito senza perdere una soluzione ammissibile.
+- Una disuguaglianza valida non esclude alcun punto di $F$, ma può escludere punti frazionari del rilassamento LP. Il lato destro di una disuguaglianza saturata non può essere diminuito senza perdere una soluzione ammissibile.
 
-- Aggiungere un'ineguaglianza valida alla formulazione non cambia $F$ e riduce il poliedro $P$. La nuova formulazione è più forte, quindi il suo rilassamento LP fornisce un limite superiore che non è peggiore.
+- Aggiungere una disuguaglianza valida alla formulazione non cambia $F$ e riduce il poliedro $P$. La nuova formulazione è più forte, quindi il suo rilassamento LP fornisce un limite superiore che non è peggiore.
 
-- Un'ineguaglianza valida è soddisfatta da un punto di $F$ se e solo se è soddisfatta dall'inviluppo convesso, quindi è valida per $\mathrm{conv}(F)$. Le disuguaglianze della formulazione ideale sono disuguaglianze valide.
+- Una disuguaglianza valida è soddisfatta da un punto di $F$ se e solo se è soddisfatta dall'inviluppo convesso, quindi è valida per $\mathrm{conv}(F)$. Le disuguaglianze della formulazione ideale sono disuguaglianze valide.
 
 !!! chiave ""
-    Un'ineguaglianza valida elimina i punti frazionari e mai una soluzione intera ammissibile. Aggiungere ineguaglianze valide rende la formulazione più forte e migliora il limite superiore.
+    Una disuguaglianza valida elimina i punti frazionari e mai una soluzione intera ammissibile. Aggiungere disuguaglianze valide rende la formulazione più forte e migliora il limite superiore.
 
 <a id="box-3-ex-vi-car"></a>
 
@@ -68,7 +67,7 @@ title: "Disuguaglianze valide"
 <a id="box-4-prop-rounding"></a>
 
 !!! teorema "Proposizione 4.3: disuguaglianze valide mediante arrotondamento"
-    Siano $\pi_1, \pi_2, \dots, \pi_m \ge 0$ moltiplicatori tali che $\sum_{i=1}^m \pi_i \, a_{ij} \ge \alpha_j$, con $\alpha_j \in \Z$, per tutti $j \in \{1,2,\dots,n\}$. Allora l'ineguaglianza
+    Siano $\pi_1, \pi_2, \dots, \pi_m \ge 0$ moltiplicatori tali che $\sum_{i=1}^m \pi_i \, a_{ij} \ge \alpha_j$, con $\alpha_j \in \Z$, per tutti $j \in \{1,2,\dots,n\}$. Allora la disuguaglianza
 
     \begin{equation*}
     \label{rounding}
@@ -77,7 +76,7 @@ title: "Disuguaglianze valide"
 
     è valido per il problema ILP.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     Per ogni soluzione ammissibile, $\sum_j \alpha_j \, x_j \le \sum_j \big( \sum_i \pi_i \, a_{ij} \big) x_j \le \sum_i \pi_i \, b_i$, per $x_j \ge 0$ e per i vincoli moltiplicati per $\pi_i \ge 0$. Il lato sinistro è un numero intero, perché $\alpha_j$ e $x_j$ sono interi, quindi è al massimo la parte intera del lato destro. <span class="qed">□</span>
 
@@ -130,9 +129,9 @@ title: "Disuguaglianze valide"
     L'ottimo LP si sposta, ma il limite superiore non migliora: $\lfloor \frac{472}{31} \rfloor = \lfloor \frac{957}{62} \rfloor = 15$.
 
 !!! chiave ""
-    Un'ineguaglianza valida che esclude la soluzione LP ottimale non migliora sempre il limite superiore. La scelta dei moltiplicatori è importante: cerchiamo diseguaglianze che tocchino i punti interi.
+    Una disuguaglianza valida che esclude la soluzione LP ottimale non migliora sempre il limite superiore. La scelta dei moltiplicatori è importante: cerchiamo disuguaglianze che tocchino i punti interi.
 
-## 4.3 Migliorare un'ineguaglianza valida
+## 4.3 Migliorare una disuguaglianza valida
 
 - Dato i coefficienti $\alpha_j$, la disuguaglianza valida più forte ha il lato destro più piccolo possibile, che è il massimo di $\sum_j \alpha_j \, x_j$ su $F$. La troviamo abbassando il lato destro $\beta$ di $\eqref{rounding}$ fino a quando un punto intero fattibile lo raggiunge.
 
@@ -157,8 +156,8 @@ title: "Disuguaglianze valide"
 
 <a id="box-6-ex-x1x2"></a>
 
-!!! esempio "Esempio 4.3: l'ineguaglianza $x_1 + x_2 \le 5$"
-    Cerchiamo un'ineguaglianza valida con $\alpha = (1,1)$.
+!!! esempio "Esempio 4.3: la disuguaglianza $x_1 + x_2 \le 5$"
+    Cerchiamo una disuguaglianza valida con $\alpha = (1,1)$.
 
     - <strong>Fase 0.</strong> Con i moltiplicatori $(\frac{1}{14},\frac{1}{14})$ la somma dei vincoli, divisa per $14$, è $x_1 + \frac{9}{7}\,x_2 \le \frac{47}{7}$. I coefficienti sono almeno $(1,1)$, quindi $x_1 + x_2 \le \lfloor \frac{47}{7} \rfloor = 6$, e impostiamo $\beta = 6$.
 
@@ -166,35 +165,35 @@ title: "Disuguaglianze valide"
 
     - <strong>Passo 1, $\beta = 5$.</strong> Lasciate che $x_2 = 5 - x_1$. I vincoli diventano $x_1 \le \frac{25}{6}$, quindi $x_1 \le 4$, e $x_1 \ge \frac{21}{10}$, quindi $x_1 \ge 3$. Non c'è contraddizione, e i punti $(3,2)$ e $(4,1)$ sono ammissibili con $x_1 + x_2 = 5$.
 
-    - <strong>Passo 2.</strong> L'ineguaglianza $x_1 + x_2 \le 5$ è valida e stringente.
+    - <strong>Passo 2.</strong> La disuguaglianza $x_1 + x_2 \le 5$ è valida e saturata.
 
-    Taglia $(\frac{7}{2},\frac{5}{2})$ (la somma è $6$). La nuova rilassamento LP ha la soluzione ottimale $(\frac{25}{6},\frac{5}{6})$ con $z(\LP) = \frac{85}{6}$, quindi il limite superiore è $\lfloor \frac{85}{6} \rfloor = 14$.
+    Taglia $(\frac{7}{2},\frac{5}{2})$ (la somma è $6$). Il nuovo rilassamento LP ha la soluzione ottimale $(\frac{25}{6},\frac{5}{6})$ con $z(\LP) = \frac{85}{6}$, quindi il limite superiore è $\lfloor \frac{85}{6} \rfloor = 14$.
 
     ![Figura 1](../img/04-valid-inequalities/fig01.svg){ .fig .ovale loading=lazy  }
 
-    <em>L'ineguaglianza valida $x_1 + x_2 \le 5$ (verde) esclude il triangolo grigio, che non contiene alcun punto intero, e la soluzione ottimale della precedente rilassamento LP. La nuova soluzione ottimale è $(\frac{25}{6},\frac{5}{6})$ (blu), con $z = \frac{85}{6}$ (linea tratteggiata).</em>
+    <em>La disuguaglianza valida $x_1 + x_2 \le 5$ (verde) esclude il triangolo grigio, che non contiene alcun punto intero, e la soluzione ottimale del precedente rilassamento LP. La nuova soluzione ottimale è $(\frac{25}{6},\frac{5}{6})$ (blu), con $z = \frac{85}{6}$ (linea tratteggiata).</em>
 
 <a id="box-7-ex-x12x2"></a>
 
-!!! esempio "Esempio 4.4: l'ineguaglianza $x_1 + 2\,x_2 \le 7$"
-    Cerchiamo un'ineguaglianza valida con $\alpha = (1,2)$.
+!!! esempio "Esempio 4.4: la disuguaglianza $x_1 + 2\,x_2 \le 7$"
+    Cerchiamo una disuguaglianza valida con $\alpha = (1,2)$.
 
     - <strong>Passo 0.</strong> Con i moltiplicatori $(\frac{3}{62},\frac{4}{31})$ la combinazione dei vincoli è $x_1 + 2\,x_2 \le \frac{17}{2}$, perché $\frac{3 \cdot 10}{62} + \frac{4 \cdot 4}{31} = 1$, $\frac{3 \cdot 4}{62} + \frac{4 \cdot 14}{31} = 2$ e $\frac{3 \cdot 45}{62} + \frac{4 \cdot 49}{31} = \frac{17}{2}$. Pertanto $x_1 + 2\,x_2 \le \lfloor \frac{17}{2} \rfloor = 8$, e impostiamo $\beta = 8$.
 
     - <strong>Passo 1, $\beta = 8$.</strong> Lascia $x_1 = 8 - 2\,x_2$. Il primo vincolo diventa $80 - 16\,x_2 \le 45$, quindi $x_2 \ge 3$; il secondo diventa $32 + 6\,x_2 \le 49$, quindi $x_2 \le 2$. Si contraddicono a vicenda, e impostiamo $\beta = 7$.
 
-    - <strong>Fase 1, $\beta = 7$.</strong> Lascia che $x_1 = 7 - 2\,x_2$: le vincoli diventino $70 - 16\,x_2 \le 45$, dunque $x_2 \ge 2$, e $28 + 6\,x_2 \le 49$, dunque $x_2 \le 3$. I punti $(3,2)$ e $(1,3)$ sono ammissibili con $x_1 + 2\,x_2 = 7$.
+    - <strong>Fase 1, $\beta = 7$.</strong> Lascia che $x_1 = 7 - 2\,x_2$: i vincoli diventano $70 - 16\,x_2 \le 45$, dunque $x_2 \ge 2$, e $28 + 6\,x_2 \le 49$, dunque $x_2 \le 3$. I punti $(3,2)$ e $(1,3)$ sono ammissibili con $x_1 + 2\,x_2 = 7$.
 
-    - <strong>Passo 2.</strong> L'ineguaglianza $x_1 + 2\,x_2 \le 7$ è valida e stringente.
+    - <strong>Passo 2.</strong> La disuguaglianza $x_1 + 2\,x_2 \le 7$ è valida e saturata.
 
-    La nuova rilassamento LP ha la soluzione ottimale $(\frac{31}{8},\frac{25}{16})$ con $z(\LP) = \frac{59}{4}$, quindi il limite superiore è $\lfloor \frac{59}{4} \rfloor = 14$.
+    Il nuovo rilassamento LP ha la soluzione ottimale $(\frac{31}{8},\frac{25}{16})$ con $z(\LP) = \frac{59}{4}$, quindi il limite superiore è $\lfloor \frac{59}{4} \rfloor = 14$.
 
     ![Figura 2](../img/04-valid-inequalities/fig02.svg){ .fig .ovale loading=lazy  }
 
-    <em>L'ineguaglianza valida $x_1 + 2\,x_2 \le 7$ (verde) taglia il triangolo grigio, che non contiene punti interi. La nuova soluzione ottimale è $(\frac{31}{8},\frac{25}{16})$ (blu), con $z = \frac{59}{4}$ (linea tratteggiata).</em>
+    <em>La disuguaglianza valida $x_1 + 2\,x_2 \le 7$ (verde) taglia il triangolo grigio, che non contiene punti interi. La nuova soluzione ottimale è $(\frac{31}{8},\frac{25}{16})$ (blu), con $z = \frac{59}{4}$ (linea tratteggiata).</em>
 
 !!! chiave ""
-    Con la disuguaglianza valida $x_1 + x_2 \le 5$, o con $x_1 + 2\,x_2 \le 7$, il limite superiore scende da $15$ a $14$. Eguaglia il limite inferiore dato da $(4,1)$: <strong>la soluzione $(4,1)$ è certificata ottimale</strong>, e il divario è zero.
+    Con la disuguaglianza valida $x_1 + x_2 \le 5$, o con $x_1 + 2\,x_2 \le 7$, il limite superiore scende da $15$ a $14$. Eguaglia il limite inferiore dato da $(4,1)$: <strong>la soluzione $(4,1)$ è certificata ottimale</strong>, e il gap è zero.
 
 - Le due disuguaglianze, insieme a $x_1 \le 4$ e $x_2 \le 3$, sono esattamente le quattro disuguaglianze della formulazione ideale del capitolo precedente. Per l'esempio dell'auto abbiamo raggiunto l'inviluppo convesso con disuguaglianze valide derivate dai vincoli.
 
@@ -211,24 +210,24 @@ title: "Disuguaglianze valide"
 !!! attenzione "Avviso"
     - <strong>Arrotondamento quando una variabile è continua.</strong> L'arrotondamento di $\eqref{rounding}$ necessita di variabili intere e coefficienti interi $\alpha_j$.
 
-    - <strong>Arrotondare per eccesso invece che per difetto.</strong> Il lato destro è arrotondato <u>per difetto</u>. Arrotondare per eccesso produce un'ineguaglianza che non è valida e può eliminare soluzioni intere.
+    - <strong>Arrotondare per eccesso invece che per difetto.</strong> Il lato destro è arrotondato <u>per difetto</u>. Arrotondare per eccesso produce una disuguaglianza che non è valida e può eliminare soluzioni intere.
 
     - <strong>Credere che ogni disuguaglianza valida migliori il vincolo.</strong> Le disuguaglianze $5\,x_1 + 2\,x_2 \le 22$ e $2\,x_1 + 7\,x_2 \le 24$ eliminano l'ottimo LP, ma lasciano il vincolo a $15$.
 
     - <strong>Usare moltiplicatori che non sono abbastanza grandi.</strong> I coefficienti combinati devono essere almeno $\alpha_j$ per ogni $j$, e i moltiplicatori devono essere non negativi.
 
-    - <strong>Fermarsi a un lato destro grezzo.</strong> L'ineguaglianza $x_1 + x_2 \le 6$ è valida, ma non elimina l'ottimo LP dell'esempio dell'auto (la sua somma è $6$); l'ineguaglianza stretta $x_1 + x_2 \le 5$ lo fa.
+    - <strong>Fermarsi a un lato destro grezzo.</strong> La disuguaglianza $x_1 + x_2 \le 6$ è valida, ma non elimina l'ottimo LP dell'esempio dell'auto (la sua somma è $6$); la disuguaglianza saturata $x_1 + x_2 \le 5$ lo fa.
 
 ## 4.6 In sintesi
 
 !!! chiave "In sintesi"
-    - Un'ineguaglianza valida è soddisfatta da tutte le soluzioni intere ammissibili; può eliminare punti frazionari del rilassamento LP e rende la formulazione più forte.
+    - Una disuguaglianza valida è soddisfatta da tutte le soluzioni intere ammissibili; può eliminare punti frazionari del rilassamento LP e rende la formulazione più forte.
 
     - Moltiplicatori non negativi dei vincoli, con il lato destro arrotondato per difetto, forniscono disuguaglianze valide per i problemi ILP.
 
-    - Abbassare il lato destro fino a quando un punto intero tocca la linea produce un'inequazione stretta.
+    - Abbassare il lato destro fino a quando un punto intero tocca la linea produce una disuguaglianza saturata.
 
-    - Un'ineguaglianza valida aiuta solo se elimina l'ottimo LP e migliora il limite arrotondato.
+    - Una disuguaglianza valida aiuta solo se elimina l'ottimo LP e migliora il limite arrotondato.
 
     - Nell'esempio dell'auto, $x_1 + x_2 \le 5$ o $x_1 + 2\,x_2 \le 7$ riduce il limite superiore da $15$ a $14$ e certifica che $(4,1)$ è ottimale.
 
@@ -270,6 +269,6 @@ title: "Disuguaglianze valide"
 ## Laboratorio interattivo { #interactive-lab }
 
 Le idee del capitolo, pratica: muovi i cursori e trascina i punti.
-Ogni app apre anche una pagina completa nel [laboratorio interattivo](../lab/index.md): [Disuguaglianze valide e involucro convesso](../lab/convex-hull.md).
+Ogni app apre anche una pagina completa nel [laboratorio interattivo](../lab/index.md): [Disuguaglianze valide e inviluppo convesso](../lab/convex-hull.md).
 
-<div class="gi" data-grafico="pli-involucro"></div>
+<div class="gi" data-grafico="pli-inviluppo"></div>

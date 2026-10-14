@@ -13,21 +13,17 @@ title: "Solver MIP: cosa fanno"
 !!! nota "Prerequisiti"
     - Da questo modulo, i capitoli «Algoritmi branch-and-bound basati su LP» e «Algoritmi branch-and-cut»: le operazioni di branching, bounding e pruning, i tagli e la soluzione incumbent.
 
-    - Da questo modulo, il capitolo «Bound primali e bound duali»: i limiti inferiori e superiori e il divario di ottimalità.
+    - Da questo modulo, il capitolo «Bound primali e bound duali»: i limiti inferiori e superiori e il gap di ottimalità.
 
     - Per imparare a usare Gurobi nella pratica, vedi il modulo «Modellazione MIP» ([<u>fabiofurini.github.io/modellazione-mip</u>](https://fabiofurini.github.io/modellazione-mip/)), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/modellazione-mip/modellazione-3/).
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - nomina i componenti di un risolutore MIP e indica su quale lato dei vincoli agisce ciascuno di essi;
-
-    - spiega presolve, tagli, euristiche primali, regole di branching, tolleranze e il gap;
-
-    - leggi il registro di Gurobi e segui i due limiti, la soluzione corrente e l'albero;
-
-    - spiega perché un risolutore può fermarsi con una soluzione che non è ottimale.
-
+    - nominare i componenti di un risolutore MIP e indicare su quale lato dei vincoli agisce ciascuno di essi;
+    - spiegare presolve, tagli, euristiche primali, regole di branching, tolleranze e il gap;
+    - leggere il registro di Gurobi e seguire i due limiti, la soluzione corrente e l'albero;
+    - spiegare perché un risolutore può fermarsi con una soluzione che non è ottimale.
 ## 9.1 Dall'algoritmo branch-and-cut a un risolutore MIP
 
 <a id="box-1-def-solver"></a>
@@ -44,7 +40,7 @@ title: "Solver MIP: cosa fanno"
 - I componenti sono gli stessi in tutti i risolutori. I dettagli (quali tagli, quali euristiche, quali regole) differiscono da risolutore a risolutore e da versione a versione, e sono solo parzialmente documentati.
 
 !!! chiave ""
-    Un risolutore MIP esegue il presolve, poi il nodo radice (rilassamento LP, tagli, euristiche primali), poi l'albero branch-and-cut, e si ferma quando il divario tra i limiti è al di sotto di una tolleranza o viene raggiunto un limite.
+    Un risolutore MIP esegue il presolve, poi il nodo radice (rilassamento LP, tagli, euristiche primali), poi l'albero branch-and-cut, e si ferma quando il gap tra i limiti è al di sotto di una tolleranza o viene raggiunto un limite.
 
 ![Figura 1](../img/09-mip-solvers/fig01.svg){ .fig loading=lazy  }
 
@@ -64,8 +60,8 @@ title: "Solver MIP: cosa fanno"
 <td><code>BestBd</code> (miglior limite)</td>
 </tr>
 <tr>
-<td>divario di ottimalità</td>
-<td><code>Divario</code></td>
+<td>gap di ottimalità</td>
+<td><code>Gap</code></td>
 </tr>
 <tr>
 <td>list <span class="arithmatex">\(L\)</span> dei problemi LP per il ramificamento</td>
@@ -150,11 +146,11 @@ title: "Solver MIP: cosa fanno"
 
 ### 9.2.4 Selezione della variabile di ramificazione e del nodo di ramificazione
 
-- Le strategie di selezione della variabile di branching del capitolo B&amp;B (massima infeasibilità, strong branching, pseudocosti) sono tutte disponibili in un solver. Lo strong branching produce alberi piccoli ma è costoso; i pseudocosti sono economici ma inaffidabili all'inizio.
+- Le strategie di selezione della variabile di branching del capitolo B&amp;B (massima infattibilità, strong branching, pseudocosti) sono tutte disponibili in un solver. Lo strong branching produce alberi piccoli ma è costoso; i pseudocosti sono economici ma inaffidabili all'inizio.
 
 - I risolutori li combinano nel <strong>ramificazione di affidabilità</strong>: ramificazione forte su una variabile fino a quando i suoi pseudocosti sono stati osservati abbastanza volte.
 
-- In Gurobi il parametro <code>VarBranch</code> seleziona la strategia: $-1$ automatica (predefinita), $0$ pseudocosto ridotto, $1$ pseudo-prezzo ombra, $2$ massima infeasibilità, $3$ ramificazione forte.
+- In Gurobi il parametro <code>VarBranch</code> seleziona la strategia: $-1$ automatica (predefinita), $0$ pseudocosto ridotto, $1$ pseudo-prezzo ombra, $2$ massima infattibilità, $3$ ramificazione forte.
 
 - La selezione dei nodi combina <strong>best bound</strong> (seleziona il nodo con il più grande $z(\LP_k)$, che diminuisce $\UB$) e <strong>depth first</strong> (che trova rapidamente soluzioni intere).
 
@@ -196,7 +192,7 @@ title: "Solver MIP: cosa fanno"
 </table></div>
 
 !!! chiave ""
-    “<code>Soluzione ottimale trovata (tolleranza 1.00e-04)</code>” significa che la soluzione corrente è ottimale <strong>fino a un divario relativo di $10^{-4}$</strong>. Con un <code>MIPGap</code> maggiore, il risolutore si ferma con una soluzione che potrebbe <strong>non</strong> essere ottimale e scrive la stessa frase.
+    “<code>Soluzione ottimale trovata (tolleranza 1.00e-04)</code>” significa che la soluzione corrente è ottimale <strong>fino a un gap relativo di $10^{-4}$</strong>. Con un <code>MIPGap</code> maggiore, il risolutore si ferma con una soluzione che potrebbe <strong>non</strong> essere ottimale e scrive la stessa frase.
 
 ## 9.3 Come leggere il registro di Gurobi
 
@@ -388,15 +384,15 @@ title: "Solver MIP: cosa fanno"
 
 - **25** <strong>Rilassamento LP alla radice</strong>: il valore è $599.17487$ (limite superiore), dopo $13$ iterazioni del simplesso.
 
-- **27–28** Intestazione del <strong>log dei nodi</strong>: <code>Expl</code> e <code>Unexpl</code> sono i nodi esplorati e non esplorati; <code>Obj</code>, <code>Depth</code>, <code>IntInf</code> descrivono il nodo corrente; <code>Incumbent</code>, <code>BestBd</code>, <code>Gap</code> sono i due limiti e il divario.
+- **27–28** Intestazione del <strong>log dei nodi</strong>: <code>Expl</code> e <code>Unexpl</code> sono i nodi esplorati e non esplorati; <code>Obj</code>, <code>Depth</code>, <code>IntInf</code> descrivono il nodo corrente; <code>Incumbent</code>, <code>BestBd</code>, <code>Gap</code> sono i due limiti e il gap.
 
-- **30** Nodo radice: $6$ le variabili intere sono frazionarie e il divario è $39.7\%$.
+- **30** Nodo radice: $6$ le variabili intere sono frazionarie e il gap è $39.7\%$.
 
 - **31–35** Linee che iniziano con <code>H</code>: le euristiche primali trovano soluzioni incumbent migliori, da $563$ a $588$, mentre il miglior limite resta a $599.17487$.
 
 - **36–78** Il <strong>ciclo di taglio</strong>: ogni riga con $0$ nodi esplorati è un nuovo giro di tagli, e il miglior limite diminuisce da $599.17487$ a $596.73942$. Vengono trovate più soluzioni incumbenti, fino a $593$ (riga $45$).
 
-- **79** La radice è ramificata: i nodi $2$ attendono nella lista, il divario è $0.62\%$.
+- **79** La radice è ramificata: i nodi $2$ attendono nella lista, il gap è $0.62\%$.
 
 - **81–84** Tagli aggiunti: $1$ Gomory, $1$ lift-and-project, $5$ MIR, $3$ StrongCG.
 
@@ -464,7 +460,7 @@ title: "Solver MIP: cosa fanno"
 
 - **36** Per dimostrare che $593$ è ottimale, il risolutore esplora $119$ nodi ($228$ iterazioni), contro $47$ nodi con i parametri predefiniti.
 
-### 9.3.4 Il divario come criterio di arresto
+### 9.3.4 Il gap come criterio di arresto
 
 - Ripetiamo l'esecuzione precedente con <code>MIPGap</code> $= 0.01$:
 
@@ -518,7 +514,7 @@ title: "Solver MIP: cosa fanno"
 
 - **34–35** Le stesse due soluzioni in corso di validità come prima, $584$ e $593$.
 
-- **37** Il risolutore si ferma dopo $74$ nodi invece di $119$: con $\LB = 593$ il miglior limite è $597$ (il valore $597.40703$ dell'ultima riga nodo è arrotondato per difetto dal risolutore, poiché tutti i dati sono interi) e il divario è $\frac{597 - 593}{593} \approx 0.67\% < 1\%$.
+- **37** Il risolutore si ferma dopo $74$ nodi invece di $119$: con $\LB = 593$ il miglior limite è $597$ (il valore $597.40703$ dell'ultima riga nodo è arrotondato per difetto dal risolutore, poiché tutti i dati sono interi) e il gap è $\frac{597 - 593}{593} \approx 0.67\% < 1\%$.
 
 - **42–43** Il risolutore scrive “<code>Soluzione ottimale trovata (tolleranza 1.00e-02)</code>” per il valore $593$.
 
@@ -561,7 +557,7 @@ title: "Solver MIP: cosa fanno"
 </tr>
 </table></div>
 
-- Le differenze sono moderate su queste due istanze: il branching forte produce gli alberi più piccoli, e la regola della massima infeasibilità produce i più grandi su $G_1$ e il secondo più piccolo su $G_2$.
+- Le differenze sono moderate su queste due istanze: il branching forte produce gli alberi più piccoli, e la regola della massima infattibilità produce i più grandi su $G_1$ e il secondo più piccolo su $G_2$.
 
 - La classifica delle regole cambia con l'istanza, quindi il comportamento di una regola è difficile da prevedere; la scelta automatica non è mai lontana dalla migliore.
 
@@ -588,11 +584,11 @@ title: "Solver MIP: cosa fanno"
 !!! chiave "In sintesi"
     - Un risolutore MIP è un algoritmo branch-and-cut con presolve, tagli, euristiche primali, ramificazione e regole di selezione dei nodi intorno ad esso.
 
-    - Il presolve e i tagli aumentano il limite inferiore (minimizzazione), le euristiche trovano la soluzione corrente, il branching chiude il divario.
+    - Il presolve e i tagli aumentano il limite inferiore (minimizzazione), le euristiche trovano la soluzione corrente, il branching chiude il gap.
 
     - Il registro mostra i limiti: <code>Incumbent</code> è il lato primale, <code>BestBd</code> il lato duale, <code>Gap</code> la loro distanza relativa.
 
-    - Il risolutore si interrompe quando il divario è inferiore a <code>MIPGap</code>: la soluzione è ottimale solo fino a quella tolleranza.
+    - Il risolutore si interrompe quando il gap è inferiore a <code>MIPGap</code>: la soluzione è ottimale solo fino a quella tolleranza.
 
     - Spegnere i componenti mostra quanto ciascuno di essi risparmia su una determinata istanza.
 

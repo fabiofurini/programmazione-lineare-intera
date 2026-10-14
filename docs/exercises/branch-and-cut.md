@@ -1074,7 +1074,7 @@ title: "Esercizi · Branch-and-cut"
     4. Il punto $(4,2)$ è la soluzione ottimale unica del problema ILP, con valore $14$. Con il taglio nel pool globale verrebbe rimosso anche dal Nodo 3 ($x_1 \ge 4$), e l'algoritmo restituirebbe $(2,3)$, di valore $13$.
 
         !!! chiave ""
-            Il taglio di Gomory $x_1 + x_2 \le 5$ del Nodo 2 è <strong>locale</strong>: deve rimanere nel sott'albero del Nodo 2. Usato a livello globai taglierebbe la soluzione ottimale $(4,2)$ e l'algoritmo restituirebbe una soluzione di valore $13$ invece di $14$.
+            Il taglio di Gomory $x_1 + x_2 \le 5$ del Nodo 2 è <strong>locale</strong>: deve rimanere nel sott'albero del Nodo 2. Usato a livello globale taglierebbe la soluzione ottimale $(4,2)$ e l'algoritmo restituirebbe una soluzione di valore $13$ invece di $14$.
 
 <a id="esercizio-8-5"></a>
 
@@ -1312,7 +1312,7 @@ title: "Esercizi · Branch-and-cut"
 
         Il problema LP principale con il taglio ha la soluzione ottimale $(\tfrac{28}{9},\tfrac{25}{9})$ e $z(\LP_1) = \dfrac{131}{9}$, come nella linea $R = 1$. Il numero di problemi LP diminuisce da $11$ a $8$, $3$ e $1$: ogni round riduce $z(\LP_1)$ un po', e l'albero si restringe.
 
-    3. Dopo che $3$ completa i giri, la soluzione ottimale del problema LP radice è intera e l'albero si riduce al nodo radice. Solo il primo giro cambia a malapena il limite; in pratica, un algoritmo di cut-and-branch smette di tagliare quando la diminuzione di $z(\LP_1)$ diventa piccola (tailing off), poiché ogni giro rende più grande ogni problema LP dei nodi.
+    3. Dopo $3$ round completi di tagli, la soluzione ottimale del problema LP radice è intera e l'albero si riduce al nodo radice. Solo il primo giro cambia a malapena il limite; in pratica, un algoritmo di cut-and-branch smette di tagliare quando la diminuzione di $z(\LP_1)$ diventa piccola (tailing off), poiché ogni giro rende più grande ogni problema LP dei nodi.
 
         !!! chiave ""
             Con $0, 1, 2, 3$ round di tagli di Gomory, l'algoritmo risolve $11, 8, 3, 1$ problemi LP: su $P5$ i tagli pagano, e $3$ round risolvono il problema alla radice, $z(\ILP) = 13$.

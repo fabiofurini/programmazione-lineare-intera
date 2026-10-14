@@ -20,17 +20,16 @@ title: "Bound primali e bound duali"
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - ottenere un vincolo primale (un limite inferiore) sul valore ottimale a partire da una soluzione ammissibile, anche con un semplice algoritmo euristico;
+    - ottenere un bound primale (un limite inferiore) sul valore ottimale a partire da una soluzione ammissibile, anche con un semplice algoritmo euristico;
 
-    - costruire il rilassamento LP di un problema ILP e utilizzare il suo valore ottimale come vincolo duale (un limite superiore), arrotondato per difetto quando è valido;
+    - costruire il rilassamento LP di un problema ILP e utilizzare il suo valore ottimale come bound duale (un limite superiore), arrotondato per difetto quando è valido;
 
-    - calcolare il divario di ottimalità a partire da un bound primale e un bound duale;
+    - calcolare il gap di ottimalità a partire da un bound primale e un bound duale;
 
-    - spiega perché arrotondare una soluzione ottimale di LP fornisce al massimo una soluzione ammissibile;
-
+    - spiegare perché arrotondare una soluzione ottimale di LP fornisce al massimo una soluzione ammissibile;
     - derivare limiti superiori sulle variabili dai vincoli e dire quando sono utili;
 
-    - ottenere un vincolo duale dai moltiplicatori non negativi dei vincoli e riconoscere il problema duale come il problema dei migliori moltiplicatori.
+    - ottenere un bound duale dai moltiplicatori non negativi dei vincoli e riconoscere il problema duale come il problema dei migliori moltiplicatori.
 
 !!! nota "Dove eravamo"
     Nel capitolo precedente abbiamo visto che l'enumerazione completa non è un'opzione e che abbiamo bisogno di limiti sul valore ottimale da entrambe le parti. Ora li otteniamo: <strong>bound primali</strong> dalle soluzioni ammissibili e <strong>bound duali</strong> dai rilassamenti.
@@ -39,7 +38,7 @@ title: "Bound primali e bound duali"
 
 <a id="box-1-def-bounds"></a>
 
-!!! definizione "Definizione 2.1: bound primale, bound duale e divario di ottimalità"
+!!! definizione "Definizione 2.1: bound primale, bound duale e gap di ottimalità"
     Considera un problema ILP in forma canonica di massimizzazione, con regione fattibile $F$ e valore ottimale $z(\ILP)$.
 
     - Data una soluzione ammissibile $\bar{\vet x} \in F$, il suo valore $\LB(\bar{\vet x}) = \sum_{j=1}^n c_j \, \bar{x}_j$ è un <strong>bound primale</strong> su $z(\ILP)$.
@@ -62,7 +61,7 @@ title: "Bound primali e bound duali"
     \LB(\bar{\vet x}) ~\le~ z(\ILP) ~\le~ \UB .
     $$
 
-    Una soluzione ammissibile è <strong>certificata ottimale</strong> quando il divario di ottimalità è zero.
+    Una soluzione ammissibile è <strong>certificata ottimale</strong> quando il gap di ottimalità è zero.
 
 <a id="box-2-def-relaxation"></a>
 
@@ -144,7 +143,7 @@ title: "Bound primali e bound duali"
     </tr>
     </table></div>
 
-- L'euristica a due fasi fornisce un vincolo primale migliore, ma richiede più calcolo. Questo compromesso tra la qualità della soluzione e lo sforzo computazionale è tipico degli algoritmi euristici.
+- L'euristica a due fasi fornisce un bound primale migliore, ma richiede più calcolo. Questo compromesso tra la qualità della soluzione e lo sforzo computazionale è tipico degli algoritmi euristici.
 
 - Qui il miglior bound primale è $\LB = 14$, in $(4,1)$. Un bound primale da solo non è una certificazione di ottimalità: è necessaria una soglia duale.
 
@@ -176,7 +175,7 @@ title: "Bound primali e bound duali"
 
     Inoltre, se una soluzione ottimale del rilassamento LP è intera, allora essa è una soluzione ottimale del problema ILP.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     La regione ammissibile $F$ del problema ILP è contenuta nel politopo del rilassamento LP, e la funzione obiettivo è la stessa. Il massimo su un insieme più grande non è minore del massimo su un sottoinsieme. Se $\tilde{\vet x}(\LP)$ è intero, appartiene a $F$ e ha valore $z(\LP) \ge z(\ILP)$: è ottimale per il problema ILP. <span class="qed">□</span>
 
@@ -216,7 +215,7 @@ title: "Bound primali e bound duali"
 
     <em>Il rilassamento LP dell'esempio dell'auto: la regione ammissibile (rossa), i suoi punti interi $16$ (neri) e la soluzione ottimale $(\frac{7}{2},\frac{5}{2})$ del rilassamento LP (blu), con la linea obiettivo $3\,x_1 + 2\,x_2 = \frac{31}{2}$ attraverso di essa (tratteggiata). La linea grigia tratteggiata è la linea obiettivo della soluzione ILP ottimale.</em>
 
-    - Il valore ottimale è $14$ o $15$. Con $\UB = 15$ e $\LB = 14$ il divario di ottimalità $\eqref{gap}$ è $\frac{1}{14} \approx 7.1\%$: la soluzione $(4,1)$ non è ancora certificata come ottimale.
+    - Il valore ottimale è $14$ o $15$. Con $\UB = 15$ e $\LB = 14$ il gap di ottimalità $\eqref{gap}$ è $\frac{1}{14} \approx 7.1\%$: la soluzione $(4,1)$ non è ancora certificata come ottimale.
 
 ## 2.4 Arrotondamento della soluzione del rilassamento LP
 
@@ -293,7 +292,7 @@ title: "Bound primali e bound duali"
     x_j \le \left\lfloor \frac{b_i}{a_{ij}} \right\rfloor, \qquad \forall j \text{ such that } a_{ij} > 0. \tag{2.5}
     \end{equation*}
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     Dato che tutte le variabili sono non negative e tutti i coefficienti sono non negativi, $a_{ij} \, x_j \le \sum_{k=1}^n a_{ik} \, x_k \le b_i$, quindi $x_j \le \frac{b_i}{a_{ij}}$. La variabile è intera, quindi non supera la parte intera di $\frac{b_i}{a_{ij}}$. <span class="qed">□</span>
 
@@ -335,7 +334,7 @@ title: "Bound primali e bound duali"
 
 ## 2.6 Bordi duali
 
-- Un vincolo duale può essere ottenuto anche senza risolvere il rilassamento LP, combinando i vincoli con <strong>moltiplicatori non negativi</strong> $\pi_i$, uno per ciascun vincolo.
+- Un bound duale può essere ottenuto anche senza risolvere il rilassamento LP, combinando i vincoli con <strong>moltiplicatori non negativi</strong> $\pi_i$, uno per ciascun vincolo.
 
 <a id="box-17-def-dlp"></a>
 
@@ -350,7 +349,7 @@ title: "Bound primali e bound duali"
     &&\pi_i                        &\ge  0, & \forall i \in \{1,2,\dots,m\}. \label{non_negativity_D} \tag{2.6c}
     \end{align*}
 
-- Moltiplicando il vincolo $i$ per $\pi_i \ge 0$ e sommando, otteniamo un'ineguaglianza i cui coefficienti sono almeno i costi, secondo $\eqref{Cons_D}$. I moltiplicatori devono essere non negativi: un moltiplicatore negativo invertirebbe l'ineguaglianza.
+- Moltiplicando il vincolo $i$ per $\pi_i \ge 0$ e sommando, otteniamo una disuguaglianza i cui coefficienti sono almeno i costi, secondo $\eqref{Cons_D}$. I moltiplicatori devono essere non negativi: un moltiplicatore negativo invertirebbe la disuguaglianza.
 
 <a id="box-18-prop-dual-bound"></a>
 
@@ -363,7 +362,7 @@ title: "Bound primali e bound duali"
 
     Per la forte dualità, $z(\mathrm{D(LP)}) = z(\LP)$: i migliori moltiplicatori danno esattamente il valore del rilassamento LP.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     Sia $\vet x$ fattibile per il rilassamento LP. Moltiplicando il vincolo $i$ per $\bar{\pi}_i \ge 0$ e sommando, $\sum_{j=1}^n \big( \sum_{i=1}^m a_{ij} \, \bar{\pi}_i \big) x_j \le \sum_{i=1}^m b_i \, \bar{\pi}_i$. Per $\eqref{Cons_D}$ e $x_j \ge 0$, il lato sinistro è almeno $\sum_{j=1}^n c_j \, x_j$. Da ciò segue $\sum_{j=1}^n c_j \, x_j \le \sum_{i=1}^m b_i \, \bar{\pi}_i$ per ogni $\vet x$ fattibile. <span class="qed">□</span>
 
@@ -373,7 +372,7 @@ title: "Bound primali e bound duali"
 <a id="box-19-ex-mult-car"></a>
 
 !!! esempio "Esempio 2.9: moltiplicatori per l'esempio dell'auto"
-    - Una soluzione ammissibile del rilassamento LP non fornisce un vincolo duale: il suo valore non è né un limite inferiore né un limite superiore su $z(\ILP)$.
+    - Una soluzione ammissibile del rilassamento LP non fornisce un bound duale: il suo valore non è né un limite inferiore né un limite superiore su $z(\ILP)$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -501,11 +500,11 @@ title: "Bound primali e bound duali"
 ## 2.8 In sintesi
 
 !!! chiave "In sintesi"
-    - Ogni soluzione ammissibile è un bound primale (un limite inferiore) su $z(\ILP)$, e gli algoritmi euristici trovano rapidamente buone soluzioni ammissibili.
+    - Il valore di ogni soluzione ammissibile fornisce un bound primale (un limite inferiore) su $z(\ILP)$, e gli algoritmi euristici trovano rapidamente buone soluzioni ammissibili.
 
     - Il rilassamento LP elimina l'integralità, quindi $z(\ILP) \le z(\LP)$; con variabili intere e costi interi questo bound duale (un limite superiore) può essere arrotondato per difetto a $\lfloor z(\LP) \rfloor$.
 
-    - Il vincolo primale e duale definiscono il margine di ottimalità; l'ottimalità è certificata quando il margine è zero.
+    - Un bound primale e un bound duale determinano il gap di ottimalità; quando coincidono, certificano l'ottimalità.
 
     - Arrotondare una soluzione ottimale di LP fornisce al massimo una soluzione ammissibile, mai una certificazione.
 
@@ -513,7 +512,7 @@ title: "Bound primali e bound duali"
 
     - I moltiplicatori non negativi dei vincoli forniscono bound duali; i migliori risolvono il problema duale, il cui valore ottimale è $z(\LP)$.
 
-    <strong>Cruscotto dell'esempio dell'auto.</strong> I vincoli su $z(\ILP)$ trovati finora in questo modulo (vincolo primale: inferiore; vincolo duale: superiore):
+    <strong>Cruscotto dell'esempio dell'auto.</strong> I vincoli su $z(\ILP)$ trovati finora in questo modulo (bound primale: inferiore; bound duale: superiore):
 
     <div class="tabella" markdown="0"><table>
     <tr>

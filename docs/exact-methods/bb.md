@@ -15,24 +15,23 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
     - Da questo modulo, il capitolo «Programmazione lineare intera»: problemi ILP, soluzioni ammissibili e ottimali, e l'esempio dell'auto.
 
-    - Da questo modulo, il capitolo «Bound primali e bound duali»: il rilassamento LP, i limiti inferiori dalle soluzioni ammissibili, i limiti superiori dal rilassamento LP e il divario di ottimalità.
+    - Da questo modulo, il capitolo «Bound primali e bound duali»: il rilassamento LP, i limiti inferiori dalle soluzioni ammissibili, i limiti superiori dal rilassamento LP e il gap di ottimalità.
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - spiega come le operazioni di ramificazione dividono un problema ILP in problemi LP più piccoli e perché nessuna soluzione ammissibile viene persa;
-
+    - spiegare come le operazioni di ramificazione dividono un problema ILP in problemi LP più piccoli e perché nessuna soluzione ammissibile viene persa;
     - applicare i tre criteri di potatura e decidere quando il limite di un nodo può essere arrotondato per difetto;
 
     - eseguire manualmente un algoritmo branch-and-bound basato su LP, riottimizzando ogni nodo con l'algoritmo del simplesso duale;
 
-    - calcolare il limite inferiore, il limite superiore e il divario di ottimalità a ogni iterazione;
+    - calcolare il limite inferiore, il limite superiore e il gap di ottimalità a ogni iterazione;
 
     - confrontare diverse strategie di selezione delle variabili di diramazione e dei nodi di diramazione sulla stessa istanza.
 
 - Questo capitolo definisce l'algoritmo di branch-and-bound basato su LP per problemi ILP in forma canonica di massimizzazione con dati interi, con le sue operazioni di ramificazione e di bounding.
 
-- L'istanza guida è l'esempio dell'auto, $\max \{ 3\,x_1 + 2\,x_2 : 10\,x_1 + 4\,x_2 \le 45,~ 4\,x_1 + 14\,x_2 \le 49,~ x_1, x_2 \in \Z_{\ge 0} \}$, la cui rilassamento LP ha la soluzione ottimale frazionaria $(\frac{7}{2},\frac{5}{2})$, con $z(\LP) = \frac{31}{2}$.
+- L'istanza guida è l'esempio dell'auto, $\max \{ 3\,x_1 + 2\,x_2 : 10\,x_1 + 4\,x_2 \le 45,~ 4\,x_1 + 14\,x_2 \le 49,~ x_1, x_2 \in \Z_{\ge 0} \}$, il cui rilassamento LP ha la soluzione ottimale frazionaria $(\frac{7}{2},\frac{5}{2})$, con $z(\LP) = \frac{31}{2}$.
 
 ## 7.1 L'idea in parole e in un'immagine
 
@@ -133,7 +132,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 !!! teorema "Osservazione 7.2: arrotondamento del limite di un nodo"
     Poiché tutte le variabili e tutti i costi sono interi, ogni soluzione ammissibile nella regione di $\LP_k$ ha valore al massimo $\lfloor z(\LP_k) \rfloor$.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     Poiché $c_j \in \Z$ per tutti $j$, il valore $\sum_{j=1}^{n} c_j \, \bar x_j$ di una soluzione ammissibile $\bar{\vet x}$ è una somma di prodotti di numeri interi, quindi un numero intero. Poiché è al massimo $z(\LP_k)$, è al massimo il più grande intero non superiore a $z(\LP_k)$, cioè $\lfloor z(\LP_k) \rfloor$. <span class="qed">□</span>
 
@@ -166,7 +165,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
 - L'ordine con cui i problemi di PL vengono estratti dalla lista determina la <strong>strategia di selezione del nodo di ramificazione</strong>; la scelta della variabile di ramificazione determina la <strong>strategia di selezione della variabile di ramificazione</strong>. Entrambe vengono discusse dopo l'algoritmo.
 
-### 7.2.6 Limite superiore e divario di ottimalità
+### 7.2.6 Limite superiore e gap di ottimalità
 
 - Se la lista $L$ non è vuota, ogni soluzione ammissibile migliore di quella corrente si trova nella regione di qualche nodo della lista. Di conseguenza, l'algoritmo B&amp;B ha il <strong>limite superiore</strong>
 
@@ -200,7 +199,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 !!! algoritmo "Algoritmo"
     - <strong>Input:</strong> Un problema ILP in forma canonica di massimizzazione con dati di input interi.
 
-    - <strong>Output:</strong> Una soluzione ottimale al problema ILP (se esiste) o un certificato di irrisolvibilità/illimitatezza.
+    - <strong>Output:</strong> Una soluzione ottimale al problema ILP (se esiste) o un certificato di infattibilità/illimitatezza.
 
     - **Passo 0:** <strong>Inizializzazione</strong>
 
@@ -218,7 +217,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
         1. se la lista $L$ è vuota e $\LB \neq -\infty$, allora $\LB$ è il valore ottimale e la <strong>soluzione attuale</strong> ${\bar{\vet x}}(\ILP)$ è una soluzione ottimale al problema ILP.  <code>FERMA</code>.
 
-        2. se la lista $L$ è vuota e $\LB = -\infty$, allora il problema ILP è irrisolvibile. <code>STOP</code>.
+        2. se la lista $L$ è vuota e $\LB = -\infty$, allora il problema ILP è infattibile. <code>STOP</code>.
 
     - **Passo 2:** <strong>Strategia di selezione del nodo di diramazione</strong>
 
@@ -234,7 +233,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
         Esegui la <strong>Sotto-procedura della Soluzione del Nodo a Diramazione</strong> per il problema $\LP_{c+1}$ e per il problema $\LP_{c+2}$; il secondo viene saltato se, dopo il primo, $\left\lfloor z(\LP_k) \right\rfloor \le \LB$. Incrementa il contatore dei nodi a diramazione $c \leftarrow c + 2$ e vai al passo 1.
 
-- Questo è il pseudocodice della <strong>Sotto-procedura della Soluzione del Nodo di Ramificazione</strong>.
+- Questo è lo pseudocodice della <strong>Sotto-procedura della Soluzione del Nodo di Ramificazione</strong>.
 
 !!! algoritmo "Algoritmo"
     - <strong>Input:</strong> Un problema $\LP_k$ associato a un nodo ramificato.
@@ -243,7 +242,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
         Risolvi il problema $\LP_k$.
 
-        1. se il problema $\LP_k$ è irrisolvibile, allora <code>STOP</code>.
+        1. se il problema $\LP_k$ è infattibile, allora <code>STOP</code>.
 
         2. se $\left\lfloor z(\LP_k) \right\rfloor \le \LB$, allora <code>STOP</code>.
 
@@ -263,9 +262,9 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
 - Il problema LP con il vincolo di ramificazione verso il basso è chiamato <strong><em>nodo di ramificazione verso il basso</em></strong>. Il problema LP con il vincolo di ramificazione verso l'alto è chiamato <strong><em>nodo di ramificazione verso l'alto</em></strong>. L'ordine in cui vengono risolti determina l'ordine con cui i problemi LP entrano nella lista $L$.
 
-- Il pseudocodice non specifica come vengono risolti i problemi di programmazione lineare: può essere utilizzato qualsiasi metodo per i problemi di programmazione lineare.
+- Lo pseudocodice non specifica come vengono risolti i problemi di programmazione lineare: può essere utilizzato qualsiasi metodo per i problemi di programmazione lineare.
 
-- Se viene utilizzato il <strong>algoritmo duale del simplesso</strong>, ogni figlio viene risolto partendo dal dizionario ottimale del suo genitore: dopo aver aggiunto il vincolo di ramificazione questo dizionario è ancora duale ammissibile, quindi in generale sono sufficienti poche operazioni di pivot (Sezione [7.4](#sez-bb-sec-dualsimplex)).
+- Se viene utilizzato il <strong>algoritmo del simplesso duale</strong>, ogni figlio viene risolto partendo dal dizionario ottimale del suo genitore: dopo aver aggiunto il vincolo di ramificazione questo dizionario è ancora duale ammissibile, quindi in generale sono sufficienti poche operazioni di pivot (Sezione [7.4](#sez-bb-sec-dualsimplex)).
 
 ### 7.3.2 La regola dello skip e la numerazione dei nodi
 
@@ -289,7 +288,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
     \sum_{j=0}^{n-1} 2^{j} = 2^{n}-1 . \tag{7.8}
     \end{equation*}
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     Per induzione su $n$.
 
@@ -353,7 +352,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
     In entrambi i casi il valore di $x_s$ è negativo, mentre i costi ridotti non cambiano: il nuovo dizionario è <strong>dualmente ammissibile</strong> ma non primalmente fattibile.
 
-- Questo è esattamente il punto di partenza dell'algoritmo del duale simplesso. In queste note usiamo le stesse regole di pivotamento come nel modulo <em>Programmazione Lineare</em>.
+- Questo è esattamente il punto di partenza dell'algoritmo del simplesso duale. In queste note usiamo le stesse regole di pivotamento come nel modulo <em>Programmazione Lineare</em>.
 
 !!! nota ""
     <strong>Operazione a doppio pivot</strong> su un dizionario $x_i = \bar b_i - \sum_{j \in \pazocal{N}} \bar a_{ij} \, x_j$, per $i \in \pazocal{B}$, e $z = \bar z + \sum_{j \in \pazocal{N}} \bar c_j \, x_j$, con $\bar c_j \le 0$ per tutti $j \in \pazocal{N}$:
@@ -398,7 +397,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 ### 7.5.2 Infattibilità minima e massima
 
 !!! chiave ""
-    La strategia di <strong>infeasibilità minima</strong> (rispettivamente, <strong>massima</strong>) seleziona la variabile il cui valore frazionario è il più vicino (rispettivamente, il più lontano) da un valore intero.
+    La strategia di <strong>infattibilità minima</strong> (rispettivamente, <strong>massima</strong>) seleziona la variabile il cui valore frazionario è il più vicino (rispettivamente, il più lontano) da un valore intero.
 
 - Dato un nodo di biforcazione $k$, per ogni variabile intera $x_j$ con un valore frazionario $\tilde x_j$ in $\tilde{\vet x}(\LP_k)$, il <strong>valore frazionario</strong> della variabile è
 
@@ -451,7 +450,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 <a id="box-6-ex-bb-strong"></a>
 
 !!! esempio "Esempio 7.2: ramificazione forte"
-    Allo nodo radice dell'esempio dell'auto abbiamo $\tilde x_1 = \dfrac{7}{2},~~\tilde x_2 = \dfrac{5}{2}$ e $z(\LP_1) = \dfrac{31}{2}$. Per ogni variabile frazionaria risolviamo i due problemi LP figli (con l'algoritmo duale semplice, a partire dal dizionario ottimale di $\LP_1$):
+    Allo nodo radice dell'esempio dell'auto abbiamo $\tilde x_1 = \dfrac{7}{2},~~\tilde x_2 = \dfrac{5}{2}$ e $z(\LP_1) = \dfrac{31}{2}$. Per ogni variabile frazionaria risolviamo i due problemi LP figli (con l'algoritmo del simplesso duale, a partire dal dizionario ottimale di $\LP_1$):
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -864,7 +863,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
             ![Figura 11](../img/07-bb/fig11.svg){ .fig .ovale loading=lazy  }
 
-            <em>Nodo $5$: il vincolo $x_2 \ge 2$ non lascia alcun punto nella regione del suo genitore $\LP_{3}$ (grigio): $\LP_{5}$ è irrealizzabile.</em>
+            <em>Nodo $5$: il vincolo $x_2 \ge 2$ non lascia alcun punto nella regione del suo genitore $\LP_{3}$ (grigio): $\LP_{5}$ è infattibile.</em>
 
             Di conseguenza, il Nodo $5$ è <u>potato per impossibilità</u>.
 
@@ -1192,7 +1191,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
             quindi il problema $\LP_{6}$ è <strong>inserito nella lista</strong> $L$.
 
-        - Nodo $7$ ($x_2 \ge 2$): il problema $\LP_{7}$ è irrisolvibile: <u>eliminato per irrisolvibilità</u>.
+        - Nodo $7$ ($x_2 \ge 2$): il problema $\LP_{7}$ è infattibile: <u>eliminato per infattibilità</u>.
 
         L'elenco è $L = \{\LP_{6}\}$, e il limite superiore è il limite più grande dei nodi nell'elenco:
 
@@ -1408,7 +1407,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
     - <strong>Prendendo il limite superiore dall'ultimo nodo.</strong> Il limite superiore è il più grande tra i nodi della lista $L$, non il limite dell'ultimo nodo risolto.
 
-    - <strong>Potatura solo tramite il vincolo con un'ineguaglianza stretta.</strong> Un nodo con $\mathrm{UB}(\LP_k) = \LB$ è potato: la sua regione può contenere soluzioni altrettanto buone quanto quella corrente, ma non migliori.
+    - <strong>Potatura solo tramite il vincolo con una disuguaglianza saturata.</strong> Un nodo con $\mathrm{UB}(\LP_k) = \LB$ è potato: la sua regione può contenere soluzioni altrettanto buone quanto quella corrente, ma non migliori.
 
     - <strong>Numerazione dei bambini saltati.</strong> Un bambino che non viene risolto non riceve un indice di nodo.
 
@@ -1425,11 +1424,11 @@ title: "Branch-and-bound basato sul rilassamento LP"
 !!! chiave "In sintesi"
     - Un algoritmo B&amp;B divide la regione ammissibile con vincoli di ramificazione su variabili intere con valori frazionari, e non perde mai una soluzione ammissibile.
 
-    - Ogni nodo viene potato per infeasibilità, per integrità o per limite, oppure attende nella lista; il limite di un nodo è $\lfloor z(\LP_k) \rfloor$ solo se tutte le variabili e i costi sono interi.
+    - Ogni nodo viene potato per infattibilità, per integrità o per limite, oppure attende nella lista; il limite di un nodo è $\lfloor z(\LP_k) \rfloor$ solo se tutte le variabili e i costi sono interi.
 
     - Il limite inferiore deriva dalla soluzione corrente, il limite superiore dai nodi della lista; quando la lista è vuota coincidono, e la soluzione corrente è certificata ottimale.
 
-    - Ogni figlio viene riottimizzato con l'algoritmo duale del simplesso a partire dal dizionario del suo genitore.
+    - Ogni figlio viene riottimizzato con l'algoritmo del simplesso duale a partire dal dizionario del suo genitore.
 
     - Le strategie di selezione e una buona soluzione euristica cambiano la dimensione dell'albero, non il valore ottimale.
 
@@ -1474,7 +1473,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
     </tr>
     </table></div>
 
-    Nell'esempio dell'auto, l'algoritmo chiude il divario tra $\LB = 13$ (soluzione LP arrotondata) e $\UB = 15$ (rilassamento LP) risolvendo $6$ problemi LP.
+    Nell'esempio dell'auto, l'algoritmo chiude il gap tra $\LB = 13$ (soluzione LP arrotondata) e $\UB = 15$ (rilassamento LP) risolvendo $6$ problemi LP.
 
 ---
 

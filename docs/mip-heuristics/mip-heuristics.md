@@ -13,7 +13,7 @@ title: "Euristiche MIP"
 <span class="arithmatex">\(\newcommand{\rnd}[1]{\left[\,#1\,\right]}\)</span>
 
 !!! nota "Prerequisiti"
-    - Da questo modulo, i capitoli «Bound primali e bound duali» e «Algoritmi branch-and-bound basati su LP»: il rilassamento LP, i limiti inferiori e superiori, il divario di ottimalità e le operazioni di branching.
+    - Da questo modulo, i capitoli «Bound primali e bound duali» e «Algoritmi branch-and-bound basati su LP»: il rilassamento LP, i limiti inferiori e superiori, il gap di ottimalità e le operazioni di branching.
 
     - Da questo modulo, il capitolo «Risolutori MIP: cosa fanno»: la soluzione corrente, i sotto-problemi risolti da un risolutore e le euristiche al suo interno.
 
@@ -22,15 +22,14 @@ title: "Euristiche MIP"
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - spiega come un algoritmo euristico utilizza il rilassamento LP e un risolutore MIP;
-
+    - spiegare come un algoritmo euristico utilizza il rilassamento LP e un risolutore MIP;
     - eseguire a mano l'arrotondamento, il diving, la feasibility pump, RINS, il local branching e la proximity search su un piccolo MIP;
 
     - eseguire relax-and-fix e fix-and-optimize su un MIP le cui variabili sono suddivise in blocchi;
 
     - decidere quale metodo usare quando manca una soluzione ammissibile o quando una soluzione corrente deve essere migliorata;
 
-    - calcolare il divario di una soluzione euristica quando è disponibile un vincolo duale.
+    - calcolare il gap di una soluzione euristica quando è disponibile un bound duale.
 
 ## 10.1 Euristiche basate su MIP { #sez-sec-intro }
 
@@ -274,7 +273,7 @@ title: "Euristiche MIP"
 !!! teorema "Osservazione 10.5"
     Siano tutti i coefficienti di $A$ non negativi, $b\ge 0$ e $l=0$. Se $\tilde{\vet x}\in\mathcal{L}$, allora il punto $\lfloor \tilde{\vet x}\rfloor$, ottenuto arrotondando per difetto ogni variabile intera, appartiene a $\mathcal{L}$.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     Per ogni $j$, $0\le\lfloor \tilde x_j\rfloor\le \tilde x_j\le u_j$, quindi i limiti sono validi. Per ogni riga $i$, dato che $a_{ij}\ge0$, $\sum_j a_{ij}\lfloor \tilde x_j\rfloor\le\sum_j a_{ij}\tilde x_j\le b_i$. <span class="qed">□</span>
 
@@ -306,7 +305,7 @@ title: "Euristiche MIP"
 !!! definizione "Definizione 10.6: euristica di diving"
     L’<em>euristica di diving</em> risolve ripetutamente il rilassamento LP, seleziona una variabile intera con un valore frazionario, la fissa a un valore intero e risolve di nuovo l’LP. Si ferma con una soluzione ammissibile quando la soluzione LP è intera su tutte le variabili intere, e fallisce quando l’LP diventa impossibile. Una <em>regola</em> decide quale variabile viene fissata e a quale valore.
 
-- Il pseudocodice dell’euristica di diving è il seguente:
+- Lo pseudocodice dell’euristica di diving è il seguente:
 
 !!! algoritmo "Algoritmo: Diving"
     <strong>Input:</strong> MIP [(10.1)](#eq-eq-mip); una regola; per diving guidate, un incumbent $\bar{\vet x}$
@@ -314,7 +313,7 @@ title: "Euristiche MIP"
     <strong>funzione</strong> Diving(MIP, regola)
     &emsp;&emsp;<strong>mentre</strong> vero <strong>fai</strong>
     &emsp;&emsp;&emsp;&emsp;risolvere il rilassamento LP con i limiti attuali $l,u$
-    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> l’LP è irrealizzabile <strong>allora</strong>
+    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> l’LP è infattibile <strong>allora</strong>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>return</strong> FALLIMENTO&emsp;*// il diving termina quando il problema LP diventa inammissibile*
     &emsp;&emsp;&emsp;&emsp;$\tilde{\vet x} :=$ soluzione ottimale dell’LP
     &emsp;&emsp;&emsp;&emsp;$F := \{j\in\mathscr{D} : \tilde x_j\notin\Z\}$&emsp;*// variabili intere frazionarie*
@@ -333,7 +332,7 @@ title: "Euristiche MIP"
 
 - <strong>Costo.</strong> Ogni passo risolve un LP che differisce dal precedente per un singolo vincolo, quindi l'algoritmo del simplesso duale lo riottimizza partendo dalla base precedente in poche iterazioni. Il diving con $|\mathscr{D}|$ variabili intere richiede al massimo $|\mathscr{D}|$ LP, di solito molti meno, poiché una soluzione LP ha già molte componenti intere.
 
-- <strong>Fallimento.</strong> Il programma lineare diventa irrealizzabile quando le fissazioni fatte finora sono incompatibili. Le implementazioni quindi annullano l'ultima fissazione e provano l'altro valore (un singolo backtracking), oppure rinunciano.
+- <strong>Fallimento.</strong> Il programma lineare diventa infattibile quando le fissazioni fatte finora sono incompatibili. Le implementazioni quindi annullano l'ultima fissazione e provano l'altro valore (un singolo backtracking), oppure rinunciano.
 
 <a id="box-9-ex-divecar"></a>
 
@@ -567,7 +566,7 @@ title: "Euristiche MIP"
     f(\vet x)\;\ge\; f(\bar{\vet x})+\theta \qquad\text{(maximization)}.
     $$
 
-- Quando $f$ assume valori interi su tutte le soluzioni ammissibili, come per tutti gli esempi di questo capitolo, $\theta=1$ esclude esattamente le soluzioni che non sono migliori di $\bar{\vet x}$. Se il sub-MIP con il cutoff è irrealizzabile, il vicinato non contiene soluzioni migliori: il risolutore ha <em>dimostrato</em> che $\bar{\vet x}$ è un ottimo locale per quel vicinato.
+- Quando $f$ assume valori interi su tutte le soluzioni ammissibili, come per tutti gli esempi di questo capitolo, $\theta=1$ esclude esattamente le soluzioni che non sono migliori di $\bar{\vet x}$. Se il sub-MIP con il cutoff è infattibile, il vicinato non contiene soluzioni migliori: il risolutore ha <em>dimostrato</em> che $\bar{\vet x}$ è un ottimo locale per quel vicinato.
 
 - I metodi differiscono in <em>quali</em> vincoli definiscono il vicinato: RINS fissa le variabili (<strong>fissaggio rigido</strong>), il local branching e la proximity search limitano il numero di variabili che cambiano (<strong>fissaggio morbido</strong>).
 
@@ -750,9 +749,9 @@ title: "Euristiche MIP"
 <a id="box-21-prop-ps"></a>
 
 !!! teorema "Proposizione 10.12"
-    Se $f$ assume valori interi su tutte le soluzioni ammissibili del MIP e il sottoprogamma di prossimità intorno a $\bar{\vet x}$ con $\theta=1$ è irrealizzabile, allora $f(\bar{\vet x})=z(I)$.
+    Se $f$ assume valori interi su tutte le soluzioni ammissibili del MIP e il sottoprogamma di prossimità intorno a $\bar{\vet x}$ con $\theta=1$ è infattibile, allora $f(\bar{\vet x})=z(I)$.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     La regione fattibile del sub-MIP di prossimità è l'insieme delle soluzioni ammissibili $\vet x$ del MIP con $f(\vet x)\le f(\bar{\vet x})-1$; non dipende dall'obiettivo $\Delta$. Se è vuota, ogni soluzione ammissibile ha $f(\vet x)>f(\bar{\vet x})-1$, quindi $f(\vet x)\ge f(\bar{\vet x})$ poiché entrambi i valori sono interi. Quindi $\bar{\vet x}$ è ottimale. <span class="qed">□</span>
 
@@ -794,7 +793,7 @@ title: "Euristiche MIP"
     </tr>
     </table></div>
 
-    Alla terza iterazione il sub-MIP è irrealizzabile, e [Proposizione 10.12](#box-21-prop-ps) dimostra che $7$ è ottimale, anche se il limite superiore $\lfloor z(\LP)\rfloor=8$ della radice non lo è.
+    Alla terza iterazione il sub-MIP è infattibile, e [Proposizione 10.12](#box-21-prop-ps) dimostra che $7$ è ottimale, anche se il limite superiore $\lfloor z(\LP)\rfloor=8$ della radice non lo è.
 
 - La prova di ottimalità viene dal risolutore, che dimostra l'infattibilità dell'ultimo sub-MIP con i propri bound duali: la ricerca per prossimità, usata con $\theta=1$, è un metodo esatto che migliora l'incumbent lungo il percorso.
 
@@ -863,7 +862,7 @@ title: "Euristiche MIP"
     </tr>
     </table></div>
 
-    Il risultato è $(0,2,0)$, di valore $12$, con un divario di $\frac{19-12}{12}\approx58.3\%$. La decisione sbagliata viene presa al passo $2$: con $x_3$ rilassato, $x_2=2$ dà $\frac{56}{3}\approx18.67$ e $x_2=1$ dà $\frac{122}{7}\approx17.43$, quindi $x_2:=2$; ma poi il secondo vincolo lascia spazio solo per $x_3\le\frac23$, e $x_3$ diventa $0$ quando è intero.
+    Il risultato è $(0,2,0)$, di valore $12$, con un gap di $\frac{19-12}{12}\approx58.3\%$. La decisione sbagliata viene presa al passo $2$: con $x_3$ rilassato, $x_2=2$ dà $\frac{56}{3}\approx18.67$ e $x_2=1$ dà $\frac{122}{7}\approx17.43$, quindi $x_2:=2$; ma poi il secondo vincolo lascia spazio solo per $x_3\le\frac23$, e $x_3$ diventa $0$ quando è intero.
 
     <strong>Blocchi più grandi, $B_1=\{x_1\}$, $B_2=\{x_2,x_3\}$.</strong> Il passo $1$ è lo stesso. Al passo $2$ il MIP su $x_2,x_3$ viene risolto con entrambe le variabili intere: restituisce $(0,1,1)$, di valore $16$, il <strong>ottimo</strong>.
 
@@ -976,7 +975,7 @@ title: "Euristiche MIP"
 <tr>
 <td><code>MiglioraInizioGap</code></td>
 <td><span class="arithmatex">\(0\)</span></td>
-<td>quando il divario raggiunge questo valore, passare a migliorare solo l'incumbent</td>
+<td>quando il gap raggiunge questo valore, passare a migliorare solo l'incumbent</td>
 </tr>
 </table></div>
 
@@ -986,7 +985,7 @@ title: "Euristiche MIP"
 
 ## 10.9 Quali euristiche basate su MIP forniscono { #sez-sec-give }
 
-- Un’euristica fornisce solo un lato del divario e senza un vincolo duale non si può dire nulla sulla qualità della sua soluzione. Un'euristica basata su MIP lavora con un modello MIP, e il modello include il suo rilassamento LP; eseguita all'interno di un risolutore MIP, include anche il vincolo duale del branch-and-bound. L'euristica <strong>sa quanto è lontana dall'ottimo</strong> mentre viene eseguita: il divario di ottimalità
+- Un’euristica fornisce solo un lato del gap e senza un bound duale non si può dire nulla sulla qualità della sua soluzione. Un'euristica basata su MIP lavora con un modello MIP, e il modello include il suo rilassamento LP; eseguita all'interno di un risolutore MIP, include anche il bound duale del branch-and-bound. L'euristica <strong>sa quanto è lontana dall'ottimo</strong> mentre viene eseguita: il gap di ottimalità
 
     $$
     \text{optimality gap} = \frac{\UB - \LB}{|\LB|}
@@ -1000,7 +999,7 @@ title: "Euristiche MIP"
 <th>soluzione</th>
 <th><span class="arithmatex">\(\LB\)</span></th>
 <th><span class="arithmatex">\(\UB=\lfloor z(\LP)\rfloor\)</span></th>
-<th>divario</th>
+<th>gap</th>
 <th>certificato da</th>
 </tr>
 <tr>
@@ -1080,7 +1079,7 @@ title: "Euristiche MIP"
 - Su $P7$ e $P42$ l'arrotondamento intero del valore LP è già il valore ottimale: la difficoltà è trovare una soluzione che raggiunga il limite, non dimostrarlo. Negli altri casi il limite $\lfloor z(\LP)\rfloor$ non è stretto, e il certificato proviene dalla ricerca per prossimità ([Proposizione 10.12](#box-21-prop-ps)) o dal branch-and-bound del risolutore.
 
 !!! chiave ""
-    Un’euristica basato su MIP non trova soltanto soluzioni: all'interno di un risolutore MIP lavora con un vincolo duale, quindi il divario della sua soluzione è sempre noto, e un divario pari a $0$ certifica l'ottimalità.
+    Un’euristica basata su MIP non trova soltanto soluzioni: all'interno di un risolutore MIP lavora con un bound duale, quindi il gap della sua soluzione è sempre noto, e un gap pari a $0$ certifica l'ottimalità.
 
 - I metodi di questo capitolo, in sintesi:
 
@@ -1489,7 +1488,7 @@ def fix_and_optimize(m, x_tilde, windows, theta=1, trace=None):
 
     - Relax-and-fix costruisce una soluzione blocco per blocco, fix-and-optimize la migliora finestra per finestra.
 
-    - All'interno di un risolutore MIP, il bound duale è disponibile: il divario della soluzione euristica è noto e un divario pari a $0$ certifica l'ottimalità.
+    - All'interno di un risolutore MIP, il bound duale è disponibile: il gap della soluzione euristica è noto e un gap pari a $0$ certifica l'ottimalità.
 
     <strong>Cruscotto dell'esempio di auto.</strong> I limiti inferiori e superiori su $z(\ILP)$ trovati finora in questo modulo:
 

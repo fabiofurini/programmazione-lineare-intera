@@ -33,7 +33,7 @@ title: "Esercizi · Formulazioni ideali"
 
     3. Risolvi il rilassamento LP della formulazione data e il problema LP sulla formulazione ideale, e confronta i due limiti superiori.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Per $x_2 = 0$ i vincoli danno $x_1 \le 3$, per $x_2 = 1$ danno $x_1 \le 2$, e per $x_2 = 2$ richiedono $x_1 \ge 2$ e $x_1 \le 1$. La regione fattibile ha i punti $7$
 
@@ -142,7 +142,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-    3. Il punto $(\tfrac{3}{2},\tfrac{7}{2})$ viola l'inequazione $2\,x_1 + x_2 \le 5$ dell'inviluppo: $2 \cdot \tfrac{3}{2} + 1 \cdot \tfrac{7}{2} = \tfrac{13}{2} > 5$. Ogni punto di $\mathrm{conv}(F)$ soddisfa questa inequazione, quindi $\tilde{\vet x}(\LP) \notin \mathrm{conv}(F)$ e $\mathrm{conv}(F) \subsetneq P$: la formulazione data <strong>non è ideale</strong>.
+    3. Il punto $(\tfrac{3}{2},\tfrac{7}{2})$ viola la disuguaglianza $2\,x_1 + x_2 \le 5$ dell'inviluppo: $2 \cdot \tfrac{3}{2} + 1 \cdot \tfrac{7}{2} = \tfrac{13}{2} > 5$. Ogni punto di $\mathrm{conv}(F)$ soddisfa questa disuguaglianza, quindi $\tilde{\vet x}(\LP) \notin \mathrm{conv}(F)$ e $\mathrm{conv}(F) \subsetneq P$: la formulazione data <strong>non è ideale</strong>.
 
     4. La formulazione fornita dà $z(\LP) = 17$, quindi $z(\ILP) \le 17$. La formulazione ideale ha il vertice ottimale $(1,3)$, con valore $14$.
 
@@ -208,7 +208,7 @@ soluzione "Solution"
 
         <em>La formulazione $P_A$ (rosso), la formulazione $P_B$ (blu, tratteggiato) e l'inviluppo convesso dei punti interi (verde), con i suoi vertici (quadrati neri).</em>
 
-    3. Le rilassamenti LP danno $\tilde{\vet x} = (1,\tfrac{21}{8})$ con $z = \dfrac{23}{2}$ su $P_A$, e $\tilde{\vet x} = (1,\tfrac{7}{3})$ con $z = \dfrac{31}{3}$ su $P_B$. I limiti arrotondati sono $11$ e $10$. Il punto ammissibile $(2,2)$ ha valore $10$, quindi $P_B$ certifica che è ottimale, mentre $P_A$ lascia un divario.
+    3. Le rilassamenti LP danno $\tilde{\vet x} = (1,\tfrac{21}{8})$ con $z = \dfrac{23}{2}$ su $P_A$, e $\tilde{\vet x} = (1,\tfrac{7}{3})$ con $z = \dfrac{31}{3}$ su $P_B$. I limiti arrotondati sono $11$ e $10$. Il punto ammissibile $(2,2)$ ha valore $10$, quindi $P_B$ certifica che è ottimale, mentre $P_A$ lascia un gap.
 
     4. No: il vertice $(1,\tfrac{7}{3})$ di $P_B$ è frazionario. L'inviluppo convesso ha i vertici $(1,1)$, $(5,1)$, $(2,2)$, $(1,2)$ e i lati su $x_2 \ge 1$, $x_1 + 3\,x_2 \le 8$, $x_2 \le 2$, $x_1 \ge 1$.
 

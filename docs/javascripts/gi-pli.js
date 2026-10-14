@@ -847,7 +847,7 @@
   };
 
   // ================================================================
-  // 4. Tagli di Gomory sul piano
+  // 4. Cutting plane con i tagli di Gomory
   // ================================================================
   // un'esecuzione per combinazione «riga|inserimento» (righe: rhs, min, z; inserimento: prim, debole)
   const chiaveG = (D) => `${D.riga || "rhs"}|${D.ins || "prim"}`;
@@ -901,7 +901,7 @@
   const xStato = (G, k, st) => (k === 0 ? probDi(st.chiave()).R.lp : { x: G.iterazioni[k - 1].xdopo, z: G.iterazioni[k - 1].zdopo });
 
   window.GI_RICETTE["pli-gomory"] = {
-    titolo: T("Tagli di Gomory sul piano", "Gomory cuts on the plane"),
+    titolo: T("Cutting plane con i tagli di Gomory", "Cutting plane with Gomory cuts"),
     sottotitolo: T("esempio delle automobili e altri problemi", "the car example and other problems"),
     funzioni: VOCI_P(),
     etichettaFunzioni: T("Problema", "Problem"),

@@ -1392,7 +1392,7 @@ title: "Esercizi · Branch-and-bound"
 
     2. Determina e commenta l'albero branch-and-bound, mostrando il motivo per cui ogni nodo di ramificazione viene scartato.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Esecuzione dell'algoritmo branch-and-bound per risolvere il problema $\ILP$.
 
@@ -2231,7 +2231,7 @@ soluzione "Solution"
 
     2. Determina e commenta l'albero branch-and-bound, mostrando il motivo per cui ogni nodo di ramificazione viene scartato.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Esecuzione dell'algoritmo branch-and-bound per risolvere il problema $\ILP$.
 
@@ -6576,7 +6576,7 @@ soluzione "Solution"
 
     2. Determina e commenta l'albero branch-and-bound, mostrando il motivo per cui ogni nodo di ramificazione viene scartato.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Esecuzione dell'algoritmo branch-and-bound per risolvere il problema $\ILP$.
 
@@ -10541,7 +10541,7 @@ soluzione "Solution"
 
     2. Determina e commenta l'albero branch-and-bound, mostrando il motivo per cui ogni nodo di ramificazione viene scartato.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Esecuzione dell'algoritmo branch-and-bound per risolvere il problema $\ILP$.
 
@@ -12151,7 +12151,7 @@ soluzione "Solution"
                 \delta_1^d(x_2) = \dfrac{64}{3} - \dfrac{52}{3} = 4.
                 $$
 
-            - Con $x_2 \ge 3$, il problema $\LP_{3}$ è <strong>irrealizzabile</strong>, di conseguenza
+            - Con $x_2 \ge 3$, il problema $\LP_{3}$ è <strong>infattibile</strong>, di conseguenza
 
                 $$
                 \delta_1^u(x_2) = +\infty
@@ -12271,7 +12271,7 @@ soluzione "Solution"
                 \delta_1^d(x_2) = 16 - \dfrac{44}{3} = \dfrac{4}{3}.
                 $$
 
-            - Con $x_2 \ge 5$, il problema $\LP_{3}$ è <strong>irrealizzabile</strong>, di conseguenza
+            - Con $x_2 \ge 5$, il problema $\LP_{3}$ è <strong>infattibile</strong>, di conseguenza
 
                 $$
                 \delta_1^u(x_2) = +\infty
@@ -12314,7 +12314,7 @@ soluzione "Solution"
 
     2. Determina la variabile di branching con la strategia di selezione della variabile di branching strong branching (in caso di parità, scegli la variabile con l'indice più piccolo). Risolvi graficamente i problemi LP dei nodi di branching.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     !!! nota ""
         Per una variabile frazionaria $x_j$ di $\tilde{\boldsymbol x}(\LP_{1})$, i due nodi di ramificazione sono $\LP_{2}$ (con $x_j\le\lfloor\tilde x_j\rfloor$) e $\LP_{3}$ (con $x_j\ge\lfloor\tilde x_j\rfloor+1$), e
@@ -12395,7 +12395,7 @@ soluzione "Solution"
                 \delta_1^d(x_2) = 17 - \dfrac{61}{4} = \dfrac{7}{4}.
                 $$
 
-            - Con $x_2 \ge 4$, il problema $\LP_{3}$ è <strong>irrealizzabile</strong>, di conseguenza
+            - Con $x_2 \ge 4$, il problema $\LP_{3}$ è <strong>infattibile</strong>, di conseguenza
 
                 $$
                 \delta_1^u(x_2) = +\infty
@@ -12568,7 +12568,7 @@ soluzione "Solution"
 
     2. Determina la variabile di branching con la strategia di selezione della variabile di branching strong branching (in caso di parità, scegli la variabile con l'indice più piccolo). Risolvi graficamente i problemi LP dei nodi di branching.
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     !!! nota ""
         Per una variabile frazionaria $x_j$ di $\tilde{\boldsymbol x}(\LP_{1})$, i due nodi di ramificazione sono $\LP_{2}$ (con $x_j\le\lfloor\tilde x_j\rfloor$) e $\LP_{3}$ (con $x_j\ge\lfloor\tilde x_j\rfloor+1$), e
@@ -12875,7 +12875,7 @@ soluzione "Solution"
                 \delta_1^d(x_1) = \dfrac{15}{2} - 7 = \dfrac{1}{2}.
                 $$
 
-            - Con $x_1 \ge 3$, il problema $\LP_{3}$ è <strong>irrealizzabile</strong>, di conseguenza
+            - Con $x_1 \ge 3$, il problema $\LP_{3}$ è <strong>infattibile</strong>, di conseguenza
 
                 $$
                 \delta_1^u(x_1) = +\infty
@@ -12995,7 +12995,7 @@ soluzione "Solution"
                 \delta_1^d(x_2) = \dfrac{14}{3} - 4 = \dfrac{2}{3}.
                 $$
 
-            - Con $x_2 \ge 2$, il problema $\LP_{3}$ è <strong>irrealizzabile</strong>, di conseguenza
+            - Con $x_2 \ge 2$, il problema $\LP_{3}$ è <strong>infattibile</strong>, di conseguenza
 
                 $$
                 \delta_1^u(x_2) = +\infty
@@ -13081,7 +13081,7 @@ soluzione "Solution"
                 \delta_1^d(x_1) = 13 - \dfrac{51}{4} = \dfrac{1}{4}.
                 $$
 
-            - Con $x_1 \ge 7$, il problema $\LP_{3}$ è <strong>irrealizzabile</strong>, di conseguenza
+            - Con $x_1 \ge 7$, il problema $\LP_{3}$ è <strong>infattibile</strong>, di conseguenza
 
                 $$
                 \delta_1^u(x_1) = +\infty

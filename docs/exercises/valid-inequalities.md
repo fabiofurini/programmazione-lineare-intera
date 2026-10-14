@@ -12,7 +12,7 @@ title: "Esercizi · Disuguaglianze valide"
 
 <a id="esercizio-4-1"></a>
 
-!!! esercizio "Esercizio 4.1: Un'ineguaglianza valida arrotondando (P2)"
+!!! esercizio "Esercizio 4.1: Una disuguaglianza valida arrotondando (P2)"
     !!! nota ""
         Considera il seguente problema ILP in forma canonica di massimizzazione con $n=2$ variabili intere e $m=2$ vincoli:
 
@@ -31,7 +31,7 @@ title: "Esercizi · Disuguaglianze valide"
 
     1. Usando i moltiplicatori $(\frac{3}{34}, \frac{2}{17})$, mostra che $x_2 \le 4$ è una disuguaglianza valida.
 
-    2. L'ineguaglianza è stretta? Taglia via la soluzione ottimale del rilassamento LP?
+    2. La disuguaglianza è saturata? Taglia via la soluzione ottimale del rilassamento LP?
 
     3. Aggiungi la disuguaglianza alla formulazione e calcola il nuovo limite superiore.
 
@@ -51,7 +51,7 @@ title: "Esercizi · Disuguaglianze valide"
 
         è una <strong>disuguaglianza valida</strong>.
 
-    2. Le soluzioni ammissibili $(2,4)$ soddisfano $x_2 = 4$, quindi l'ineguaglianza è <strong>stretta</strong>. Essa <strong>esclude</strong> $\tilde{\vet x}(\LP) = (\tfrac{5}{2},\tfrac{9}{2})$, poiché $0 \cdot \tfrac{5}{2} + 1 \cdot \tfrac{9}{2} = \tfrac{9}{2} > 4$.
+    2. Le soluzioni ammissibili $(2,4)$ soddisfano $x_2 = 4$, quindi la disuguaglianza è <strong>saturata</strong>. Essa <strong>esclude</strong> $\tilde{\vet x}(\LP) = (\tfrac{5}{2},\tfrac{9}{2})$, poiché $0 \cdot \tfrac{5}{2} + 1 \cdot \tfrac{9}{2} = \tfrac{9}{2} > 4$.
 
     3. Graficamente, abbiamo:
 
@@ -104,13 +104,13 @@ title: "Esercizi · Disuguaglianze valide"
 
     1. $x_1 + x_2 \le 7$ è una disuguaglianza valida?
 
-    2. Mostra che $x_1 + x_2 \le 8$ è un'ineguaglianza valida, utilizzando i moltiplicatori $(\frac{7}{15},\frac{1}{15})$. Essa esclude la soluzione ottimale della rilassata LP?
+    2. Mostra che $x_1 + x_2 \le 8$ è una disuguaglianza valida, utilizzando i moltiplicatori $(\frac{7}{15},\frac{1}{15})$. Essa esclude la soluzione ottimale della rilassata LP?
 
-    3. Aggiungi $x_1 + x_2 \le 8$ alla formulazione e risolvi la nuova rilassamento LP. Cosa puoi concludere?
+    3. Aggiungi $x_1 + x_2 \le 8$ alla formulazione e risolvi il nuovo rilassamento LP. Cosa puoi concludere?
 
 ??? soluzione "Soluzione"
 
-    1. No. Il punto $(6,2)$ è ammissibile, $2 \cdot 6 + 1 \cdot 2 = 14 \le 14, \quad 1 \cdot 6 + 8 \cdot 2 = 22 \le 32$, e viola l'ineguaglianza: $6 + 2 = 8 > 7$; lo stesso vale per il punto fattibile $(5,3)$. Un'ineguaglianza valida deve essere soddisfatta da <strong>tutte</strong> le soluzioni ammissibili.
+    1. No. Il punto $(6,2)$ è ammissibile, $2 \cdot 6 + 1 \cdot 2 = 14 \le 14, \quad 1 \cdot 6 + 8 \cdot 2 = 22 \le 32$, e viola la disuguaglianza: $6 + 2 = 8 > 7$; lo stesso vale per il punto fattibile $(5,3)$. Una disuguaglianza valida deve essere soddisfatta da <strong>tutte</strong> le soluzioni ammissibili.
 
     2. Moltiplicando i vincoli per i moltiplicatori non negativi $(\tfrac{7}{15}, \tfrac{1}{15})$ e sommando, $\tfrac{7}{15} \cdot (2\,x_1 + x_2 \le 14) + \tfrac{1}{15} \cdot (x_1 + 8\,x_2 \le 32)$, otteniamo
 
@@ -154,7 +154,7 @@ title: "Esercizi · Disuguaglianze valide"
         </table></div>
 
         !!! chiave ""
-            La nuova rilassamento LP ha la soluzione ottimale <strong>intera</strong> $(6,2)$: è una soluzione ottimale ILP, $z(\ILP) = 36$, e l'ineguaglianza $x_1 + x_2 \le 7$, che la elimina, non è valida.
+            Il nuovo rilassamento LP ha la soluzione ottimale <strong>intera</strong> $(6,2)$: è una soluzione ottimale ILP, $z(\ILP) = 36$, e la disuguaglianza $x_1 + x_2 \le 7$, che la elimina, non è valida.
 
 <a id="esercizio-4-3"></a>
 
@@ -175,11 +175,11 @@ title: "Esercizi · Disuguaglianze valide"
 
     **Domande**
 
-    1. Moltiplica entrambe le vincoli per $\frac{1}{7}$, sommali e ricava un'ineguaglianza valida $2\,x_1 + 3\,x_2 \le \beta$ arrotondando. Esclude la soluzione ottimale del rilassamento LP?
+    1. Moltiplica entrambi i vincoli per $\frac{1}{7}$, sommali e ricava una disuguaglianza valida $2\,x_1 + 3\,x_2 \le \beta$ arrotondando. Esclude la soluzione ottimale del rilassamento LP?
 
-    2. Rendi l'ineguaglianza stretta con il Passo 1 dell'algoritmo del capitolo: diminuisci $\beta$ fino a quando un punto intero ammissibile si trova sulla linea $2\,x_1 + 3\,x_2 = \beta$.
+    2. Rendi la disuguaglianza saturata con il Passo 1 dell'algoritmo del capitolo: diminuisci $\beta$ fino a quando un punto intero ammissibile si trova sulla linea $2\,x_1 + 3\,x_2 = \beta$.
 
-    3. Aggiungi la disuguaglianza stretta alla formulazione. Qual è il nuovo limite superiore?
+    3. Aggiungi la disuguaglianza saturata alla formulazione. Qual è il nuovo limite superiore?
 
 ??? soluzione "Soluzione"
 
@@ -205,11 +205,11 @@ title: "Esercizi · Disuguaglianze valide"
 
         - <strong>$\beta = 14$.</strong> I punti interi di $2\,x_1 + 3\,x_2 = 14$ con $x \ge 0$: $(1,4)$ viola il vincolo 1 ($6 \cdot 1 + 21 \cdot 4 = 90 > 77$); $(4,2)$ viola il vincolo 2 ($8 \cdot 4 + 3 \cdot 2 = 38 > 36$); $(7,0)$ viola il vincolo 2 ($8 \cdot 7 + 3 \cdot 0 = 56 > 36$). Pertanto nessun punto fattibile: insieme $\beta = 13$.
 
-        - <strong>$\beta = 13$.</strong> I punti interi di $2\,x_1 + 3\,x_2 = 13$ con $x \ge 0$: $(2,3)$ è ammissibile; $(5,1)$ viola il vincolo 2 ($8 \cdot 5 + 3 \cdot 1 = 43 > 36$). Pertanto esiste un punto fattibile: l'inequazione è stretta. <code>STOP</code>.
+        - <strong>$\beta = 13$.</strong> I punti interi di $2\,x_1 + 3\,x_2 = 13$ con $x \ge 0$: $(2,3)$ è ammissibile; $(5,1)$ viola il vincolo 2 ($8 \cdot 5 + 3 \cdot 1 = 43 > 36$). Pertanto esiste un punto fattibile: la disuguaglianza è saturata. <code>STOP</code>.
 
-        L'ineguaglianza valida stretta è $2\,x_1 + 3\,x_2 \le 13$. Essa <strong>esclude</strong> $\tilde{\vet x}(\LP) = (\tfrac{7}{2},\tfrac{8}{3})$, poiché $2 \cdot \tfrac{7}{2} + 3 \cdot \tfrac{8}{3} = 15 > 13$.
+        La disuguaglianza valida stretta è $2\,x_1 + 3\,x_2 \le 13$. Essa <strong>esclude</strong> $\tilde{\vet x}(\LP) = (\tfrac{7}{2},\tfrac{8}{3})$, poiché $2 \cdot \tfrac{7}{2} + 3 \cdot \tfrac{8}{3} = 15 > 13$.
 
-    3. L'inequazione stretta ha gli stessi coefficienti della funzione obiettivo, quindi la nuova rilassamento LP ha valore ottimale $z(\LP) = 13$, raggiunto ad esempio in $(\tfrac{23}{6},\tfrac{16}{9})$.
+    3. La disuguaglianza saturata ha gli stessi coefficienti della funzione obiettivo, quindi il nuovo rilassamento LP ha valore ottimale $z(\LP) = 13$, raggiunto ad esempio in $(\tfrac{23}{6},\tfrac{16}{9})$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -253,7 +253,7 @@ title: "Esercizi · Disuguaglianze valide"
 
     **Domande**
 
-    1. Deriva un'ineguaglianza valida $x_2 \le \beta_1$ con il moltiplicatore $\frac{1}{6}$, e un'ineguaglianza valida $x_1 + 2\,x_2 \le \beta_2$ con il moltiplicatore $\frac{1}{3}$.
+    1. Deriva una disuguaglianza valida $x_2 \le \beta_1$ con il moltiplicatore $\frac{1}{6}$, e una disuguaglianza valida $x_1 + 2\,x_2 \le \beta_2$ con il moltiplicatore $\frac{1}{3}$.
 
     2. Calcola il limite superiore fornito dal rilassamento LP dopo aver aggiunto ciascuna disuguaglianza da sola e dopo aver aggiunto entrambe.
 
@@ -355,13 +355,13 @@ title: "Esercizi · Disuguaglianze valide"
 
     **Domande**
 
-    1. Moltiplica il secondo vincolo per $\frac{1}{2}$, arrotonda verso il basso i suoi coefficienti e il suo termine noto, e mostra che il risultato è un'ineguaglianza valida.
+    1. Moltiplica il secondo vincolo per $\frac{1}{2}$, arrotonda verso il basso i suoi coefficienti e il suo termine noto, e mostra che il risultato è una disuguaglianza valida.
 
     2. Taglia la soluzione ottimale del rilassamento LP?
 
-    3. Aggiungi la disuguaglianza alla formulazione. La nuova rilassamento LP ha la soluzione ottimale $(2,2,0)$: cosa puoi concludere?
+    3. Aggiungi la disuguaglianza alla formulazione. Il nuovo rilassamento LP ha la soluzione ottimale $(2,2,0)$: cosa puoi concludere?
 
-soluzione "Solution"
+??? soluzione "Soluzione"
 
     1. Il secondo vincolo moltiplicato per $\frac{1}{2}$ è $x_1 + \dfrac{3}{2}\,x_3 \le \dfrac{5}{2}$. Arrotondando per difetto i coefficienti si ottiene $x_1 + x_3$, i cui coefficienti non sono maggiori. Moltiplicando i vincoli per i moltiplicatori non negativi $(0, \tfrac{1}{2}, 0)$ e sommando, $\tfrac{1}{2} \cdot (2\,x_1 + 3\,x_3 \le 5)$, otteniamo
 
@@ -379,7 +379,7 @@ soluzione "Solution"
 
     2. Interrompe <strong>$\tilde{\vet x}(\LP) = (\tfrac{5}{2},\tfrac{3}{2},0)$</strong>, poiché $1 \cdot \tfrac{5}{2} + 0 \cdot \tfrac{3}{2} + 1 \cdot 0 = \tfrac{5}{2} > 2$.
 
-    3. La nuova rilassamento LP ha la soluzione ottimale <strong>intera</strong> $(2,2,0)$, con valore $10$. Secondo la proposizione sul rilassamento LP, è una soluzione ILP ottimale.
+    3. Il nuovo rilassamento LP ha la soluzione ottimale <strong>intera</strong> $(2,2,0)$, con valore $10$. Secondo la proposizione sul rilassamento LP, è una soluzione ILP ottimale.
 
         !!! chiave ""
-            L'ineguaglianza valida $x_1 + x_3 \le 2$ abbassa il limite superiore da $\lfloor \dfrac{21}{2} \rfloor = 10$ a $10$ e fornisce la soluzione ottimale $(2,2,0)$, $z(\ILP) = 10$.
+            La disuguaglianza valida $x_1 + x_3 \le 2$ abbassa il limite superiore da $\lfloor \dfrac{21}{2} \rfloor = 10$ a $10$ e fornisce la soluzione ottimale $(2,2,0)$, $z(\ILP) = 10$.

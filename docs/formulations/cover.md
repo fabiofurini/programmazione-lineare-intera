@@ -22,15 +22,14 @@ title: "Disuguaglianze di copertura"
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - scrivi le disuguaglianze di copertura di un vincolo $\le$ con coefficienti positivi di un MIP binario e dimostra che sono valide;
+    - scrivere le disuguaglianze di copertura di un vincolo $\le$ con coefficienti positivi di un MIP binario e dimostrare che sono valide;
+    - elencare le coperture e le coperture minime di un'istanza, e descrivere la chiusura delle coperture;
 
-    - elencare le coperture e le coperture minime di un'istanza, e descrivere la chiusura della copertura;
+    - separare una disuguaglianza di copertura da un punto frazionario risolvendo un problema di separazione delle coperture, esattamente o con l'algoritmo euristico greedy;
 
-    - separare una disuguaglianza cover da un punto frazionario risolvendo un problema di separazione cover, esattamente o con l'algoritmo euristico greedy;
+    - rafforzare una disuguaglianza di copertura in una disuguaglianza di copertura estesa;
 
-    - rafforzare un'ineguaglianza di copertura in un'ineguaglianza di copertura estesa;
-
-    - calcolare la violazione di un'ineguaglianza di copertura e la distanza di un punto da essa.
+    - calcolare la violazione di una disuguaglianza di copertura e la distanza di un punto da essa.
 
 ## 5.1 Un vincolo con coefficienti positivi e il suo rilassamento LP
 
@@ -54,7 +53,7 @@ title: "Disuguaglianze di copertura"
     \sum_{j\in\mathscr{I}}a_jx_j\le b\right\}, \tag{5.2}
     \end{equation*}
 
-    e la sua rilassamento LP è
+    e il suo rilassamento LP è
 
     \begin{equation*}
     \label{eq:relaxation}
@@ -72,7 +71,7 @@ title: "Disuguaglianze di copertura"
 
     La prima ipotesi garantisce che ogni variabile possa essere impostata su $1$, la seconda che non possano tutte essere impostate su $1$ insieme.
 
-- $X$ è un insieme finito di punti binari, e una descrizione esatta del suo involucro convesso $\operatorname{conv}(X)$ è generalmente difficile da ottenere. L'obiettivo è rafforzare $P$ rimuovendo punti frazionari senza rimuovere alcun punto di $X$.
+- $X$ è un insieme finito di punti binari, e una descrizione esatta del suo inviluppo convesso $\operatorname{conv}(X)$ è generalmente difficile da ottenere. L'obiettivo è rafforzare $P$ rimuovendo punti frazionari senza rimuovere alcun punto di $X$.
 
 - Un MIP può contenere diversi vincoli di questo tipo e ulteriori vincoli. Le disuguaglianze valide per $X$ rimangono valide quando vengono imposti altri vincoli.
 
@@ -83,8 +82,8 @@ title: "Disuguaglianze di copertura"
 
 <a id="box-2-def-cover"></a>
 
-!!! definizione "Definizione 5.2: Rivestimento e insieme di tutti i rivestimenti"
-    Un <em>cover</em> è un sottoinsieme $C\subseteq\mathscr{I}$ il cui coefficiente totale $\sum_{j\in C}a_j$ supera il lato destro $b$. La raccolta di tutti i cover è
+!!! definizione "Definizione 5.2: copertura e insieme delle coperture"
+    Una <em>copertura</em> (cover) è un sottoinsieme $C\subseteq\mathscr{I}$ il cui coefficiente totale $\sum_{j\in C}a_j$ supera il lato destro $b$. L'insieme di tutte le coperture è
 
     \begin{equation*}
     \label{eq:covers}
@@ -97,7 +96,7 @@ title: "Disuguaglianze di copertura"
 <a id="box-3-def-inequality"></a>
 
 !!! definizione "Definizione 5.3: Disuguaglianza di copertura"
-    Dato $C\in\mathcal{C}$, l'<em>ineguaglianza di copertura</em> associata è
+    Dato $C\in\mathcal{C}$, la <em>disuguaglianza di copertura</em> associata è
 
     \begin{equation*}
     \label{eq:cover-cut}
@@ -107,9 +106,9 @@ title: "Disuguaglianze di copertura"
 <a id="box-4-prop-cover-validity"></a>
 
 !!! teorema "Proposizione 5.4"
-    Per ogni copertura $C\in\mathcal{C}$, l'ineguaglianza di copertura $\eqref{eq:cover-cut}$ è valida per $X$.
+    Per ogni copertura $C\in\mathcal{C}$, la disuguaglianza di copertura $\eqref{eq:cover-cut}$ è valida per $X$.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     Supponiamo che un punto $\vet x\in X$ violi $\eqref{eq:cover-cut}$. La somma di $|C|$ variabili binarie è quindi maggiore di $|C|-1$, quindi $x_j=1$ per ogni $j\in C$. Poiché tutti i coefficienti sono positivi,
 
@@ -139,9 +138,9 @@ title: "Disuguaglianze di copertura"
 !!! teorema "Proposizione 5.6"
     Le disuguaglianze delle coperture minime, insieme ai limiti superiori $x_j\le1$ per tutti i $j\in\mathscr{I}$, implicano ogni disuguaglianza di copertura.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
-    Partendo da una cover $C$, rimuovere le variabili finché l'insieme rimanente è ancora una cover: questo dà una cover minimale $D\subseteq C$. Aggiungere l'ineguaglianza di cover di $D$ e i limiti superiori delle variabili in $C\setminus D$ dà
+    Partendo da una cover $C$, rimuovere le variabili finché l'insieme rimanente è ancora una cover: questo dà una cover minimale $D\subseteq C$. Aggiungere la disuguaglianza di copertura di $D$ e i limiti superiori delle variabili in $C\setminus D$ dà
 
     $$
     \sum_{j\in C}x_j
@@ -156,7 +155,7 @@ title: "Disuguaglianze di copertura"
 <a id="box-7-def-closure"></a>
 
 !!! definizione "Definizione 5.7: Chiusura di copertura"
-    La <em>chiusura della copertura</em> di $P$ è il poliedro
+    La <em>chiusura delle coperture</em> di $P$ è il poliedro
 
     \begin{equation*}
     \label{eq:closure}
@@ -218,7 +217,7 @@ title: "Disuguaglianze di copertura"
 
 <a id="box-9-ex-guide-closure"></a>
 
-!!! esempio "Esempio 5.2: La chiusura della copertura dell'istanza a quattro variabili"
+!!! esempio "Esempio 5.2: La chiusura delle coperture dell'istanza a quattro variabili"
     L'istanza di [Esempio 5.1](#box-8-ex-guide) ha le seguenti sette coperture.
 
     <div class="tabella" markdown="0"><table>
@@ -280,7 +279,7 @@ title: "Disuguaglianze di copertura"
     </tr>
     </table></div>
 
-    Solo le prime tre coperture sono minime; le loro disuguaglianze descrivono già la chiusura della copertura. Denotiamo con $\LPcov$ l’LP ottenuto aggiungendole a $\LP$. Una soluzione ottimale $\tilde{\vet x}(\LPcov)$ è:
+    Solo le prime tre coperture sono minime; le loro disuguaglianze descrivono già la chiusura delle coperture. Denotiamo con $\LPcov$ l’LP ottenuto aggiungendole a $\LP$. Una soluzione ottimale $\tilde{\vet x}(\LPcov)$ è:
 
     $$
     \tilde{x}_1=1,\qquad \tilde{x}_2=\frac35,\qquad
@@ -293,14 +292,14 @@ title: "Disuguaglianze di copertura"
 
 - Tutte le coordinate nelle figure sono i valori effettivi delle variabili. I segni sulle tacche indicano le coordinate del punto blu e dei vertici principali; alcuni vertici non hanno tacche, per mantenere leggibili gli assi. In 3D, i bordi tratteggiati sono nascosti dietro le facce visibili.
 
-- Ogni passaggio è illustrato sia in due che in tre dimensioni, con gli stessi colori in tutte le figure: la regione rossa è la regione continua in considerazione; il verde identifica un'ineguaglianza di copertura (un bordo in 2D, una faccia in 3D); i punti neri sono i punti binari fattibili; il punto blu è il punto frazionario discusso nel testo.
+- Ogni passaggio è illustrato sia in due che in tre dimensioni, con gli stessi colori in tutte le figure: la regione rossa è la regione continua in considerazione; il verde identifica una disuguaglianza di copertura (un bordo in 2D, una faccia in 3D); i punti neri sono i punti binari fattibili; il punto blu è il punto frazionario discusso nel testo.
 
 - Considera prima solo il dominio, $[0,1]^2$ o $[0,1]^3$: nessun vincolo oltre ai limiti è imposto nei due esempi successivi.
 
 <a id="box-10-ex-square"></a>
 
 !!! esempio "Esempio 5.3: Una disuguaglianza di copertura nel quadrato unitario"
-    In $[0,1]^2$, l'ineguaglianza $x_1+x_2\le1$ rimuove solo il punto binario $(1,1)$ e preserva i punti binari $(0,0)$, $(1,0)$ e $(0,1)$.
+    In $[0,1]^2$, la disuguaglianza $x_1+x_2\le1$ rimuove solo il punto binario $(1,1)$ e preserva i punti binari $(0,0)$, $(1,0)$ e $(0,1)$.
 
     ![Figura 1](../img/05-cover/fig01.svg){ .fig .ovale loading=lazy  }
 
@@ -317,7 +316,7 @@ title: "Disuguaglianze di copertura"
 
     - I due semispazi rimuovono porzioni diverse del cubo. La loro intersezione preserva esattamente i punti binari $(0,0,0),(1,0,0),(0,1,0),(0,0,1),(0,1,1)$.
 
-    - L'ineguaglianza $x_1+x_2+x_3\le2$ rimuove solo il punto binario $x_1=x_2=x_3=1$.
+    - La disuguaglianza $x_1+x_2+x_3\le2$ rimuove solo il punto binario $x_1=x_2=x_3=1$.
 
     ![Figura 3](../img/05-cover/fig03.svg){ .fig .ovale loading=lazy  }
 
@@ -397,9 +396,9 @@ title: "Disuguaglianze di copertura"
 
     Aggiungi anche $x_1+x_2\le1$: la chiusura del coperchio.
 
-    - Per l'obiettivo $\max\,40x_1+15x_2+12x_3$, la soluzione ottimale su $P_A$ è $\tilde{\vet x}=(1,2/5,0)$, con valore $46$. Sulla chiusura del cover, la soluzione ottimale è $(1,0,0)$, con valore $40$, che è anche ottimale per il problema binario.
+    - Per l'obiettivo $\max\,40x_1+15x_2+12x_3$, la soluzione ottimale su $P_A$ è $\tilde{\vet x}=(1,2/5,0)$, con valore $46$. Sulla chiusura delle coperture, la soluzione ottimale è $(1,0,0)$, con valore $40$, che è anche ottimale per il problema binario.
 
-    - In questo caso la chiusura della copertura coincide con $\operatorname{conv}(X)$: i suoi vertici, mostrati nell'ultimo pannello, sono tutti binari. Questa è una proprietà di questo caso specifico, non di ogni chiusura di copertura.
+    - In questo caso la chiusura delle coperture coincide con $\operatorname{conv}(X)$: i suoi vertici, mostrati nell'ultimo pannello, sono tutti binari. Questa è una proprietà di questo caso specifico, non di ogni chiusura di copertura.
 
 <a id="box-14-ex-3d-b"></a>
 
@@ -429,7 +428,7 @@ title: "Disuguaglianze di copertura"
 ## 5.4 Separazione delle disuguaglianze di copertura { #sez-sec-separation }
 
 !!! chiave ""
-    Dato un punto $\tilde{\vet x}\in P$, il <strong>problema della separazione delle cover</strong> (CSP) consiste nel trovare un'ineguaglianza di cover violata da $\tilde{\vet x}$, o nel dimostrare che $\tilde{\vet x}$ soddisfa tutte le disuguaglianze di cover.
+    Dato un punto $\tilde{\vet x}\in P$, il <strong>problema di separazione delle coperture</strong> (CSP) consiste nel trovare una disuguaglianza di copertura violata da $\tilde{\vet x}$, o nel dimostrare che $\tilde{\vet x}$ soddisfa tutte le disuguaglianze di copertura.
 
     Formalmente, il CSP chiede di trovare una copertura
 
@@ -445,7 +444,7 @@ title: "Disuguaglianze di copertura"
 
 - Tipicamente, $\tilde{\vet x}$ è una soluzione ottimale del rilassamento LP attuale, ma qualsiasi punto di $P$ può essere separato.
 
-- Per una cover $C$, l'ineguaglianza della cover è violata da $\tilde{\vet x}$ se
+- Per una cover $C$, la disuguaglianza della copertura è violata da $\tilde{\vet x}$ se
 
     \begin{equation*}
     \label{eq:violated}
@@ -460,7 +459,7 @@ title: "Disuguaglianze di copertura"
     \sum_{j\in C}(1-\tilde{x}_j)&<1. \label{eq:cost-test} \tag{5.9}
     \end{align*}
 
-- Assegnando a ciascun indice $j$ il costo $q_j=1-\tilde{x}_j\ge0$, il CSP consiste nel trovare una copertura di <em>costo minimo</em>: esiste un'ineguaglianza di copertura violata se e solo se questo costo minimo è inferiore a $1$.
+- Assegnando a ciascun indice $j$ il costo $q_j=1-\tilde{x}_j\ge0$, il CSP consiste nel trovare una copertura di <em>costo minimo</em>: esiste una disuguaglianza di copertura violata se e solo se questo costo minimo è inferiore a $1$.
 
 ### 5.4.1 Una formulazione ILP per il CSP
 
@@ -486,7 +485,7 @@ title: "Disuguaglianze di copertura"
 !!! teorema "Proposizione 5.8"
     Esiste una disuguaglianza di copertura violata da $\tilde{\vet x}$ se e solo se $z(\CSP)<1$.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     Ogni assegnazione fattibile delle variabili binarie $z_j$ rappresenta una copertura $C=\{j:z_j=1\}$, e il suo obiettivo è $\sum_{j\in C}(1-\tilde{x}_j)$. Per $\eqref{eq:cost-test}$, questo è minore di $1$ esattamente quando il taglio corrispondente è violato. Prendere il minimo su tutte le coperture dimostra entrambe le implicazioni. Il CSP è ammissibile perché $\mathscr{I}$ stesso è una copertura. <span class="qed">□</span>
 
@@ -497,13 +496,13 @@ title: "Disuguaglianze di copertura"
     \tilde{C}=\big\{j\in\mathscr{I}:\ \tilde{z}_j=1\big\}
     $$
 
-    è associato con l'ineguaglianza di copertura $\sum_{j\in\tilde{C}}x_j\le|\tilde{C}|-1$ massimamente violata da $\tilde{\vet x}$. Altrimenti, nessuna ineguaglianza di copertura è violata da $\tilde{\vet x}$.
+    è associato con la disuguaglianza di copertura $\sum_{j\in\tilde{C}}x_j\le|\tilde{C}|-1$ massimamente violata da $\tilde{\vet x}$. Altrimenti, nessuna disuguaglianza di copertura è violata da $\tilde{\vet x}$.
 
-- Per trovare un'ineguaglianza di copertura violata, non è necessario risolvere $\CSP$ in modo ottimale: qualsiasi soluzione ammissibile $\bar{z}_1,\dots,\bar{z}_n$ di costo inferiore a $1$ fornisce la copertura $\bar{C}=\{j\in\mathscr{I}:\ \bar{z}_j=1\}$, la cui disuguaglianza di copertura è violata da $\tilde{\vet x}$.
+- Per trovare una disuguaglianza di copertura violata, non è necessario risolvere $\CSP$ in modo ottimale: qualsiasi soluzione ammissibile $\bar{z}_1,\dots,\bar{z}_n$ di costo inferiore a $1$ fornisce la copertura $\bar{C}=\{j\in\mathscr{I}:\ \bar{z}_j=1\}$, la cui disuguaglianza di copertura è violata da $\tilde{\vet x}$.
 
 - Al contrario, una soluzione ammissibile di costo almeno $1$ <em>non</em> dimostra che non esiste alcuna disuguaglianza di copertura violata: questo richiede il valore ottimale (o un limite inferiore) di $\CSP$.
 
-- Se $z(\CSP)<1$, la massima violazione di un'ineguaglianza di copertura in $\tilde{\vet x}$ è $1-z(\CSP)$.
+- Se $z(\CSP)<1$, la massima violazione di una disuguaglianza di copertura in $\tilde{\vet x}$ è $1-z(\CSP)$.
 
 <a id="box-16-ex-guide-csp"></a>
 
@@ -527,7 +526,7 @@ title: "Disuguaglianze di copertura"
     \end{array}
     $$
 
-    Una soluzione ottimale di $\CSP$ è $\tilde{z}_1=\tilde{z}_2=\tilde{z}_3=1$, $\tilde{z}_4=0$, con valore $z(\CSP)=\frac13<1$. Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{z}_j=1\}=\{1,2,3\}$ è la copertura associata all'inequazione di copertura massimamente violata da $\tilde{\vet x}$:
+    Una soluzione ottimale di $\CSP$ è $\tilde{z}_1=\tilde{z}_2=\tilde{z}_3=1$, $\tilde{z}_4=0$, con valore $z(\CSP)=\frac13<1$. Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{z}_j=1\}=\{1,2,3\}$ è la copertura associata alla disuguaglianza di copertura massimamente violata da $\tilde{\vet x}$:
 
     $$
     x_1+x_2+x_3\le 2,
@@ -567,7 +566,7 @@ title: "Disuguaglianze di copertura"
     \end{array}
     $$
 
-    Una soluzione ottimale di $\CSP$ è $\tilde{z}_1=0$, $\tilde{z}_2=1$, $\tilde{z}_3=0$, $\tilde{z}_4=1$, con valore $z(\CSP)=\frac37<1$ (la copertura $\{1,2,4\}$ ha lo stesso costo; scegliamo la copertura minima). Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{z}_j=1\}=\{2,4\}$ e l'ineguaglianza di copertura massimamente violata è
+    Una soluzione ottimale di $\CSP$ è $\tilde{z}_1=0$, $\tilde{z}_2=1$, $\tilde{z}_3=0$, $\tilde{z}_4=1$, con valore $z(\CSP)=\frac37<1$ (la copertura $\{1,2,4\}$ ha lo stesso costo; scegliamo la copertura minima). Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{z}_j=1\}=\{2,4\}$ e la disuguaglianza di copertura massimamente violata è
 
     $$
     x_2+x_4\le 1,
@@ -610,7 +609,7 @@ title: "Disuguaglianze di copertura"
 
     Una soluzione ottimale di $\CSP$ è $\tilde{z}_1=0$, $\tilde{z}_2=1$, $\tilde{z}_3=0$, $\tilde{z}_4=1$, con valore $z(\CSP)=1$ (le coperture $\{1,2,3\}$ e $\{1,2,4\}$ hanno lo stesso costo): <strong>nessuna</strong> disuguaglianza di copertura è violata da $\tilde{\vet x}$, e la separazione si interrompe.
 
-    Il valore finale $z(\LP_2)=\frac{79}{5}$ coincide con il valore $z(\LPcov)$ della chiusura della copertura ([Esempio 5.2](#box-9-ex-guide-closure)): la separazione raggiunge il limite della chiusura della copertura aggiungendo solo $2$ delle disuguaglianze di copertura $7$.
+    Il valore finale $z(\LP_2)=\frac{79}{5}$ coincide con il valore $z(\LPcov)$ della chiusura delle coperture ([Esempio 5.2](#box-9-ex-guide-closure)): la separazione raggiunge il limite della chiusura delle coperture aggiungendo solo $2$ delle disuguaglianze di copertura $7$.
 
     La soluzione $\tilde{\vet x}$ è ancora <strong>frazionaria</strong>, sebbene soddisfi tutte le disuguaglianze di copertura: la chiusura di copertura non coincide, in generale, con l'inviluppo convesso delle soluzioni intere.
 
@@ -672,9 +671,9 @@ title: "Disuguaglianze di copertura"
     \tilde{C}=\big\{j\in\mathscr{I}:\ \tilde{y}_j=0\big\}
     $$
 
-    è associato con l'ineguaglianza di copertura $\sum_{j\in\tilde{C}}x_j\le|\tilde{C}|-1$ massimamente violata da $\tilde{\vet x}$. Altrimenti, nessuna ineguaglianza di copertura è violata da $\tilde{\vet x}$.
+    è associato con la disuguaglianza di copertura $\sum_{j\in\tilde{C}}x_j\le|\tilde{C}|-1$ massimamente violata da $\tilde{\vet x}$. Altrimenti, nessuna disuguaglianza di copertura è violata da $\tilde{\vet x}$.
 
-- Qualsiasi soluzione ammissibile $\bar{y}_1,\dots,\bar{y}_n$ di $\CSPKP$ fornisce la copertura $\bar{C}=\{j\in\mathscr{I}:\ \bar{y}_j=0\}$, con costo $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\bar{y}_j$: se questo costo è inferiore a $1$, l'ineguaglianza di copertura di $\bar{C}$ è violata da $\tilde{\vet x}$.
+- Qualsiasi soluzione ammissibile $\bar{y}_1,\dots,\bar{y}_n$ di $\CSPKP$ fornisce la copertura $\bar{C}=\{j\in\mathscr{I}:\ \bar{y}_j=0\}$, con costo $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\bar{y}_j$: se questo costo è inferiore a $1$, la disuguaglianza di copertura di $\bar{C}$ è violata da $\tilde{\vet x}$.
 
 ### 5.5.1 Un’euristica di separazione avido
 
@@ -690,7 +689,7 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 
 - Rimuovere un indice da una copertura ne diminuisce il costo di $q_j\ge0$: ridurre una copertura violata a una minimale non può diminuire la sua violazione.
 
-- L'algoritmo goloso è un <em>euristico</em> per il problema complementare: se non trova un'ineguaglianza di copertura violata, non possiamo concludere che non ne esista nessuna.
+- L'algoritmo goloso è un'<em>euristica</em> per il problema complementare: se non trova una disuguaglianza di copertura violata, non possiamo concludere che non ne esista nessuna.
 
 <a id="box-17-ex-guide-comp"></a>
 
@@ -767,7 +766,7 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 
 ## 5.6 Disuguaglianze di copertura estese
 
-- Un'ineguaglianza di copertura può essere rafforzata considerando anche le variabili al di fuori della copertura i cui coefficienti sono almeno grandi quanto ogni coefficiente della copertura. Sia
+- Una disuguaglianza di copertura può essere rafforzata considerando anche le variabili al di fuori della copertura i cui coefficienti sono almeno grandi quanto ogni coefficiente della copertura. Sia
 
     $$
     \widehat{a}(C)=\max_{j\in C}a_j
@@ -796,9 +795,9 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 <a id="box-19-prop-extended-cover-validity"></a>
 
 !!! teorema "Proposizione 5.10"
-    Per ogni copertura $C\in\mathcal{C}$, l'ineguaglianza estesa della copertura $\eqref{eq:extended}$ è valida per $X$.
+    Per ogni copertura $C\in\mathcal{C}$, la disuguaglianza estesa della copertura $\eqref{eq:extended}$ è valida per $X$.
 
-??? dimostrazione "Proof"
+??? dimostrazione "Dimostrazione"
 
     Sia $k=|C|$ e prendi qualsiasi insieme $S\subseteq E(C)$ con $|S|=k$. Gli insiemi $S\setminus C$ e $C\setminus S$ hanno lo stesso numero di variabili, e ogni coefficiente $a_j$ con $j\in S\setminus C$ è almeno $\widehat{a}(C)$, cioè almeno grande quanto ciascun coefficiente con $j\in C\setminus S$. Sostituire gli indici di $C\setminus S$ con quelli di $S\setminus C$ dà
 
@@ -808,7 +807,7 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 
     Pertanto nessun punto $\vet x\in X$ può avere $k$ variabili di $E(C)$ uguali a $1$: al massimo $k-1$ di esse possono essere uguali a $1$ insieme. <span class="qed">□</span>
 
-- Poiché $C\subseteq E(C)$ e il lato destro sono gli stessi, l'ineguaglianza della copertura estesa domina l'ineguaglianza della copertura di $C$.
+- Poiché $C\subseteq E(C)$ e il lato destro sono gli stessi, la disuguaglianza della copertura estesa domina la disuguaglianza della copertura di $C$.
 
 - Può essere visto come un <em>sollevamento</em> dei coefficienti delle variabili in $E(C)\setminus C$ da $0$ a $1$. Non vieta a una variabile con un grande coefficiente di essere uguale a $1$ insieme a variabili di $C$: limita a $|C|-1$ il numero di variabili dell'intero insieme $E(C)$ uguali a $1$.
 
@@ -838,7 +837,7 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 
     Una soluzione ottimale di $\LP_{\mathrm{ext}}$ è $\tilde{\vet x}=(1,0,0,1)$, con valore $z(\LP_{\mathrm{ext}})=6+9=15$. Poiché è binaria, $\tilde{\vet x}$ è anche ottimale per il problema binario. Abbiamo $z(\LP_{\mathrm{ext}})=15<z(\LPcov)=79/5$: in questo caso, una disuguaglianza di copertura estesa è più forte di tutte le disuguaglianze di copertura insieme.
 
-## 5.7 Violazione e distanza da un'ineguaglianza di copertura
+## 5.7 Violazione e distanza da una disuguaglianza di copertura
 
 - Sia $C\subseteq\mathscr{I}$ una copertura. La sua disuguaglianza di copertura è
 
@@ -862,7 +861,7 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
     \sum_{j\in C}\tilde{x}_j-(|C|-1)\right\}. \tag{5.14}
     \end{equation*}
 
-    Il punto viola l'ineguaglianza di copertura precisamente quando $v_C(\tilde{\vet x})>0$.
+    Il punto viola la disuguaglianza di copertura precisamente quando $v_C(\tilde{\vet x})>0$.
 
 - I coefficienti della disuguaglianza di copertura sono $1$ per $j\in C$ e $0$ altrimenti, quindi la loro norma euclidea è $\sqrt{|C|}$. Pertanto, la distanza euclidea di $\tilde{\vet x}$ da $H_C$ è
 
@@ -873,7 +872,7 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
     {\sqrt{|C|}}. \tag{5.15}
     \end{equation*}
 
-    Se l'ineguaglianza di copertura è violata,
+    Se la disuguaglianza di copertura è violata,
 
     $$
     d(\tilde{\vet x},H_C)=\frac{v_C(\tilde{\vet x})}{\sqrt{|C|}}.
@@ -900,7 +899,7 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 <a id="box-21-ex-distance"></a>
 
 !!! esempio "Esempio 5.11: Proiezione ortogonale in due dimensioni"
-    Prendi il vertice $\tilde{x}_1=7/10$, $\tilde{x}_2=1$ di $P_2$ in [Esempio 5.5](#box-12-ex-2d) e il rivestimento $C=\{1,2\}$. La sua disuguaglianza di copertura è $x_1+x_2\le1$ e $|C|=2$. Poi
+    Prendi il vertice $\tilde{x}_1=7/10$, $\tilde{x}_2=1$ di $P_2$ in [Esempio 5.5](#box-12-ex-2d) e la copertura $C=\{1,2\}$. La sua disuguaglianza di copertura è $x_1+x_2\le1$ e $|C|=2$. Poi
 
     $$
     v_C(\tilde{\vet x})=\frac7{10},\qquad
@@ -933,7 +932,7 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 ## 5.8 Errori tipici
 
 !!! attenzione "Avviso"
-    - <strong>Usare un insieme che non è una copertura.</strong> L'ineguaglianza $\sum_{j\in C}x_j\le|C|-1$ è valida solo se il coefficiente totale $\sum_{j\in C}a_j$ supera il lato destro $b$; controlla i coefficienti prima di scriverla.
+    - <strong>Usare un insieme che non è una copertura.</strong> La disuguaglianza $\sum_{j\in C}x_j\le|C|-1$ è valida solo se il coefficiente totale $\sum_{j\in C}a_j$ supera il lato destro $b$; controlla i coefficienti prima di scriverla.
 
     - <strong>Utilizzo di $|E(C)|-1$ per una copertura estesa.</strong> Il lato destro della disuguaglianza della copertura estesa è $|C|-1$, dove $C$ è la copertura, non $|E(C)|-1$.
 
@@ -943,20 +942,20 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 
     - <strong>Confondere violazione e distanza.</strong> Il problema della separazione delle coperture massimizza la violazione; le coperture con la stessa violazione possono avere distanze differenti dal punto.
 
-    - <strong>Credere che la chiusura del cover sia l'inviluppo convesso.</strong> Un punto può soddisfare tutte le disuguaglianze del cover e comunque essere frazionario ([Esempio 5.8](#box-16-ex-guide-csp)).
+    - <strong>Credere che la chiusura delle coperture coincida con l'inviluppo convesso.</strong> Un punto può soddisfare tutte le disuguaglianze di copertura e comunque essere frazionario ([Esempio 5.8](#box-16-ex-guide-csp)).
 
 ## 5.9 In sintesi
 
 !!! chiave "In sintesi"
     - Una copertura è un insieme di variabili il cui coefficiente totale supera il lato destro; la sua disuguaglianza di copertura consente al massimo $|C|-1$ delle sue variabili di essere uguali a $1$, ed è valida per $X$.
 
-    - I rivestimenti minimi sono sufficienti: le loro disuguaglianze implicano tutte le altre, ma possono essere esponenzialmente numerosi, quindi vengono separati solo quando vengono violate.
+    - Le coperture minime sono sufficienti: le loro disuguaglianze implicano tutte le altre, ma il loro numero può essere esponenziale; perciò si cercano solo quando servono.
 
     - Separare una disuguaglianza di copertura significa trovare una copertura a costo minimo $\sum_{j\in C}(1-\tilde{x}_j)$: esiste una disuguaglianza violata se e solo se il costo minimo è inferiore a $1$; questo è un problema 0–1 con un vincolo $\le$, definito nel capitolo.
 
-    - Un'ineguaglianza di copertura estesa domina l'ineguaglianza di copertura della stessa copertura.
+    - Una disuguaglianza di copertura estesa domina la disuguaglianza di copertura della stessa copertura.
 
-    - La chiusura della copertura è più vicina a $\operatorname{conv}(X)$ rispetto al rilassamento LP, ma in generale non gli è uguale.
+    - La chiusura delle coperture è più vicina a $\operatorname{conv}(X)$ rispetto al rilassamento LP, ma in generale non gli è uguale.
 
     <strong>Cruscotto dell'istanza a quattro variabili.</strong> I limiti inferiori e superiori sul valore ottimale del problema binario di [Esempio 5.1](#box-8-ex-guide). I coefficienti dell'obiettivo sono interi, quindi il limite superiore è il valore arrotondato per difetto del rilassamento LP.
 
@@ -989,4 +988,4 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 
 ---
 
-**Esercizi su questo capitolo:** [:material-pencil: Coprire le disuguaglianze](../exercises/cover.md)
+**Esercizi su questo capitolo:** [:material-pencil: Disuguaglianze di copertura](../exercises/cover.md)
