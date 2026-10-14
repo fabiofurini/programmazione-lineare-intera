@@ -11,9 +11,9 @@ title: "Solver MIP: cosa fanno"
 </div>
 
 !!! nota "Prerequisiti"
-    - Da questo modulo, i capitoli «Algoritmi branch-and-bound basati su LP» e «Algoritmi branch-and-cut»: le operazioni di branching, bounding e pruning, i tagli e la soluzione incumbente.
+    - Da questo modulo, i capitoli «Algoritmi branch-and-bound basati su LP» e «Algoritmi branch-and-cut»: le operazioni di branching, bounding e pruning, i tagli e la soluzione incumbent.
 
-    - Da questo modulo, il capitolo «Limiti primal e duali»: i limiti inferiori e superiori e il divario di ottimalità.
+    - Da questo modulo, il capitolo «Bound primali e bound duali»: i limiti inferiori e superiori e il divario di ottimalità.
 
     - Per imparare a usare Gurobi nella pratica, vedi il modulo «Modellazione MIP» ([<u>fabiofurini.github.io/modellazione-mip</u>](https://fabiofurini.github.io/modellazione-mip/)), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/modellazione-mip/modellazione-3/).
 
@@ -22,7 +22,7 @@ title: "Solver MIP: cosa fanno"
 
     - nomina i componenti di un risolutore MIP e indica su quale lato dei vincoli agisce ciascuno di essi;
 
-    - spiega presolve, tagli, euristiche primal, regole di branching, tolleranze e il gap;
+    - spiega presolve, tagli, euristiche primali, regole di branching, tolleranze e il gap;
 
     - leggi il registro di Gurobi e segui i due limiti, la soluzione corrente e l'albero;
 
@@ -38,7 +38,7 @@ title: "Solver MIP: cosa fanno"
 - Intorno al nucleo, il risolutore aggiunge diversi componenti. Ognuno di essi agisce su un lato dei vincoli su $z(\ILP)$, qui per un problema di massimizzazione:
 
     $$
-    \underbrace{\LB}_{\text{primal side}} ~~\le~~ z(\ILP) ~~\le~~ \underbrace{\UB}_{\text{dual side}}
+    \underbrace{\LB}_{\text{lato primale}} ~~\le~~ z(\ILP) ~~\le~~ \underbrace{\UB}_{\text{lato duale}}
     $$
 
 - I componenti sono gli stessi in tutti i risolutori. I dettagli (quali tagli, quali euristiche, quali regole) differiscono da risolutore a risolutore e da versione a versione, e sono solo parzialmente documentati.
@@ -126,15 +126,15 @@ title: "Solver MIP: cosa fanno"
 
         In effetti, $x_1 = x_2 = 1$ viola sia ($12 > 10$ che $14 > 10$), mentre ogni altro punto soddisfa entrambi (i lati sinistri più grandi sono $9$ e $10$).
 
-    - La rilassamento LP del primo vincolo ha valore ottimale $z(\LP) = \frac{13}{6}$, ottenuto ad esempio in $\tilde{\vet x} = (1,\frac{1}{6},1)$: è frazionario, e $x_1 + x_2 = \frac{7}{6}$.
+    - Il rilassamento LP del primo vincolo ha valore ottimale $z(\LP) = \frac{13}{6}$, ottenuto ad esempio in $\tilde{\vet x} = (1,\frac{1}{6},1)$: è frazionario, e $x_1 + x_2 = \frac{7}{6}$.
 
-    - La rilassazione LP del secondo vincolo ha valore ottimale $2 = z(\ILP)$: il limite superiore diminuisce da $\frac{13}{6}$ a $2$ senza modificare le soluzioni intere e le dimensioni del modello.
+    - Il rilassamento LP del secondo vincolo ha valore ottimale $2 = z(\ILP)$: il limite superiore diminuisce da $\frac{13}{6}$ a $2$ senza modificare le soluzioni intere e le dimensioni del modello.
 
 - Lo stesso ragionamento può essere applicato a ogni nodo di diramazione (<strong>node presolve</strong>, o <strong>propagazione del dominio</strong>): un vincolo di diramazione $x_j \le 0$ può implicare che altre variabili possano essere fissate.
 
 ### 9.2.2 Piani di taglio
 
-- Nel nodo radice il risolutore esegue diverse <strong>serie di tagli</strong>. Alla fine, il registro riporta quante tagli di ciascuna famiglia sono stati aggiunti.
+- Nel nodo radice il risolutore esegue diverse <strong>serie di tagli</strong>. Alla fine, il registro riporta quanti tagli di ciascuna famiglia sono stati aggiunti.
 
 - Le famiglie che compaiono nei nostri registri sono <code>Gomory</code> (tagli di Gomory), <code>MIR</code> (tagli di arrotondamento misto intero, che generalizzano i tagli di Gomory ai problemi MIP), <code>StrongCG</code> (tagli di Chvátal–Gomory) e <code>Lift-and-project</code>.
 
@@ -142,19 +142,19 @@ title: "Solver MIP: cosa fanno"
 
 ### 9.2.3 Euristiche primali { #sez-sec-solver-heuristics }
 
-- <strong>Le euristiche primal</strong> cercano buone soluzioni intere ammissibili: forniscono la soluzione attuale e il limite $\LB$ (massimizzazione). Esempi includono l'arrotondamento della soluzione LP, il <strong>diving</strong> e la ricerca locale attorno alla soluzione attuale (capitolo «Euristiche MIP»).
+- <strong>Le euristiche primali</strong> cercano buone soluzioni intere ammissibili: forniscono la soluzione attuale e il limite $\LB$ (massimizzazione). Esempi includono l'arrotondamento della soluzione LP, il <strong>diving</strong> e la ricerca locale attorno alla soluzione attuale (capitolo «Euristiche MIP»).
 
-- Nel registro, una riga che inizia con <code>H</code> segnala una nuova soluzione corrente trovata da una euristica. Una riga che inizia con <code>*</code> segnala una soluzione trovata come soluzione ottimale intera di un problema LP di un nodo (potatura per integrità).
+- Nel registro, una riga che inizia con <code>H</code> segnala una nuova soluzione corrente trovata da un’euristica. Una riga che inizia con <code>*</code> segnala una soluzione trovata come soluzione ottimale intera di un problema LP di un nodo (potatura per integrità).
 
 - La linea <code>Found heuristic solution</code> segnala una soluzione trovata prima della LP di radice.
 
 ### 9.2.4 Selezione della variabile di ramificazione e del nodo di ramificazione
 
-- Le strategie di variabile di diramazione del capitolo B&amp;B (massima infeasibilità, strong branching, pseudocosti) sono tutte disponibili in un solver. Lo strong branching produce alberi piccoli ma è costoso; i pseudocosti sono economici ma inaffidabili all'inizio.
+- Le strategie di selezione della variabile di branching del capitolo B&amp;B (massima infeasibilità, strong branching, pseudocosti) sono tutte disponibili in un solver. Lo strong branching produce alberi piccoli ma è costoso; i pseudocosti sono economici ma inaffidabili all'inizio.
 
 - I risolutori li combinano nel <strong>ramificazione di affidabilità</strong>: ramificazione forte su una variabile fino a quando i suoi pseudocosti sono stati osservati abbastanza volte.
 
-- In Gurobi il parametro <code>VarBranch</code> seleziona la strategia: $-1$ automatica (predefinita), $0$ pseudo costo ridotto, $1$ pseudo prezzo ombra, $2$ massima infeasibilità, $3$ ramificazione forte.
+- In Gurobi il parametro <code>VarBranch</code> seleziona la strategia: $-1$ automatica (predefinita), $0$ pseudocosto ridotto, $1$ pseudo-prezzo ombra, $2$ massima infeasibilità, $3$ ramificazione forte.
 
 - La selezione dei nodi combina <strong>best bound</strong> (seleziona il nodo con il più grande $z(\LP_k)$, che diminuisce $\UB$) e <strong>depth first</strong> (che trova rapidamente soluzioni intere).
 
@@ -263,13 +263,13 @@ title: "Solver MIP: cosa fanno"
 
 - **14–18** <strong>Statistiche dei coefficienti</strong>: i valori assoluti più piccoli e più grandi dei coefficienti. Intervalli che coprono molti ordini di grandezza segnalano difficoltà numeriche; qui tutti i valori sono compresi tra $1$ e $6$.
 
-- **20** Un euristico trova una soluzione di valore $6$ prima del presolve, quindi $\LB = 6$.
+- **20** Un’euristica trova una soluzione di valore $6$ prima del presolve, quindi $\LB = 6$.
 
 - **21–23** La pre-risoluzione rimuove $2$ righe: il modello ha $2$ righe e $3$ colonne rimanenti.
 
-- **26** <strong>Rilassamento della radice</strong>: il valore è $11$ e $1$ un'iterazione semplice basta.
+- **26** <strong>Rilassamento LP alla radice</strong>: il valore è $11$; basta una sola iterazione del simplesso.
 
-- **31** La soluzione radice LP è intera, quindi il nodo viene risolto immediatamente (una riga che inizia con <code>\*</code>, vedi Sezione [9.2.3](#sez-sec-solver-heuristics)); $\LB = \UB = 11$, e la soluzione è ottimale.
+- **31** La soluzione radice LP è intera, quindi il problema del nodo viene risolto immediatamente (una riga che inizia con <code>\*</code>, vedi Sezione [9.2.3](#sez-sec-solver-heuristics)); $\LB = \UB = 11$, e la soluzione è ottimale.
 
 ### 9.3.2 Un MIP generico
 
@@ -382,17 +382,17 @@ title: "Solver MIP: cosa fanno"
 
 - **10–13** righe $10$, colonne $30$, valori non nulli $300$; <code>(Max)</code>: massimizzazione; le variabili sono intere ma non binarie.
 
-- **20** Una euristica trova una soluzione di valore $429$: $\LB = 429$.
+- **20** Un’euristica trova una soluzione di valore $429$: $\LB = 429$.
 
 - **21–23** La presolve non cambia la dimensione del modello.
 
-- **25** <strong>Rilassamento della radice</strong>: il valore è $599.17487$ (limite superiore), dopo $13$ iterazioni del simplesso.
+- **25** <strong>Rilassamento LP alla radice</strong>: il valore è $599.17487$ (limite superiore), dopo $13$ iterazioni del simplesso.
 
 - **27–28** Intestazione del <strong>log dei nodi</strong>: <code>Expl</code> e <code>Unexpl</code> sono i nodi esplorati e non esplorati; <code>Obj</code>, <code>Depth</code>, <code>IntInf</code> descrivono il nodo corrente; <code>Incumbent</code>, <code>BestBd</code>, <code>Gap</code> sono i due limiti e il divario.
 
 - **30** Nodo radice: $6$ le variabili intere sono frazionarie e il divario è $39.7\%$.
 
-- **31–35** Linee che iniziano con <code>H</code>: le euristiche primarie trovano soluzioni incumbent migliori, da $563$ a $588$, mentre il miglior limite resta a $599.17487$.
+- **31–35** Linee che iniziano con <code>H</code>: le euristiche primali trovano soluzioni incumbent migliori, da $563$ a $588$, mentre il miglior limite resta a $599.17487$.
 
 - **36–78** Il <strong>ciclo di taglio</strong>: ogni riga con $0$ nodi esplorati è un nuovo giro di tagli, e il miglior limite diminuisce da $599.17487$ a $596.73942$. Vengono trovate più soluzioni incumbenti, fino a $593$ (riga $45$).
 
@@ -456,7 +456,7 @@ title: "Solver MIP: cosa fanno"
     42| Best objective 5.930000000000e+02, best bound 5.930000000000e+02, gap 0.0000%
     ```
 
-- **22–23** Nessuna linea euristica e nessuna linea di pre-soluzione: non c'è ancora una soluzione incumbente.
+- **22–23** Nessuna linea euristica e nessuna linea di pre-soluzione: non c'è ancora una soluzione incumbent.
 
 - **30–32** Il vincolo di radice è $599.17487$ e diminuisce a $598.42295$ prima che la radice venga diramata; la colonna <code>Incumbent</code> contiene un trattino (<code>-</code>) poiché non è nota alcuna soluzione.
 
@@ -545,7 +545,7 @@ title: "Solver MIP: cosa fanno"
 <td><span class="arithmatex">\(566\)</span> (<span class="arithmatex">\(1144\)</span>)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(1\)</span> pseudo prezzo ombra</td>
+<td><span class="arithmatex">\(1\)</span> pseudo-prezzo ombra</td>
 <td><span class="arithmatex">\(176\)</span> (<span class="arithmatex">\(313\)</span>)</td>
 <td><span class="arithmatex">\(645\)</span> (<span class="arithmatex">\(1270\)</span>)</td>
 </tr>
@@ -565,7 +565,7 @@ title: "Solver MIP: cosa fanno"
 
 - La classifica delle regole cambia con l'istanza, quindi il comportamento di una regola è difficile da prevedere; la scelta automatica non è mai lontana dalla migliore.
 
-- Un ramificazione forte necessita di meno nodi ma ogni nodo è più costoso: il numero dei soli nodi non misura il tempo di esecuzione.
+- Il branching forte necessita di meno nodi ma ogni nodo è più costoso: il numero dei soli nodi non misura il tempo di esecuzione.
 
 !!! chiave ""
     Leggere un registro significa seguire i due limiti: la colonna <code>Incumbent</code> è il lato primale (euristiche e nodi interi), la colonna <code>BestBd</code> il lato duale (rilassamento, presolve, tagli, branching).

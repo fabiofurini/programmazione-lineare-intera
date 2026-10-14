@@ -110,7 +110,7 @@ soluzione "Solution"
 
     2. Scrivi una formulazione ideale del problema ILP.
 
-    3. La soluzione ottimale delil rilassamento LP della formulazione data è $\tilde{\vet x}(\LP) = (\tfrac{3}{2},\tfrac{7}{2})$. Mostra che non appartiene a $\mathrm{conv}(F)$ e concludi che la formulazione data non è ideale.
+    3. La soluzione ottimale del rilassamento LP della formulazione data è $\tilde{\vet x}(\LP) = (\tfrac{3}{2},\tfrac{7}{2})$. Mostra che non appartiene a $\mathrm{conv}(F)$ e concludi che la formulazione data non è ideale.
 
     4. Confronta i limiti superiori delle due formulazioni.
 
@@ -176,11 +176,11 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Dimostra che $P_A$ e $P_B$ sono due formulazioni dello stesso problema di PLI.
+    1. Dimostra che $P_A$ e $P_B$ sono due formulazioni dello stesso problema LPI.
 
     2. Calcola i vertici di $P_A$ e $P_B$, e decidi quale formulazione è più forte.
 
-    3. Confronta i limiti superiori forniti dalle rilassazioni LP delle due formulazioni.
+    3. Confronta i limiti superiori forniti dai rilassamenti LP delle due formulazioni.
 
     4. $P_B$ è una formulazione ideale?
 
@@ -208,7 +208,7 @@ soluzione "Solution"
 
         <em>La formulazione $P_A$ (rosso), la formulazione $P_B$ (blu, tratteggiato) e l'inviluppo convesso dei punti interi (verde), con i suoi vertici (quadrati neri).</em>
 
-    3. Le rilassazioni LP danno $\tilde{\vet x} = (1,\tfrac{21}{8})$ con $z = \dfrac{23}{2}$ su $P_A$, e $\tilde{\vet x} = (1,\tfrac{7}{3})$ con $z = \dfrac{31}{3}$ su $P_B$. I limiti arrotondati sono $11$ e $10$. Il punto ammissibile $(2,2)$ ha valore $10$, quindi $P_B$ certifica che è ottimale, mentre $P_A$ lascia un divario.
+    3. Le rilassamenti LP danno $\tilde{\vet x} = (1,\tfrac{21}{8})$ con $z = \dfrac{23}{2}$ su $P_A$, e $\tilde{\vet x} = (1,\tfrac{7}{3})$ con $z = \dfrac{31}{3}$ su $P_B$. I limiti arrotondati sono $11$ e $10$. Il punto ammissibile $(2,2)$ ha valore $10$, quindi $P_B$ certifica che è ottimale, mentre $P_A$ lascia un divario.
 
     4. No: il vertice $(1,\tfrac{7}{3})$ di $P_B$ è frazionario. L'inviluppo convesso ha i vertici $(1,1)$, $(5,1)$, $(2,2)$, $(1,2)$ e i lati su $x_2 \ge 1$, $x_1 + 3\,x_2 \le 8$, $x_2 \le 2$, $x_1 \ge 1$.
 
@@ -299,7 +299,7 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Calcola tutti i vertici del poliedro $P$ della rilassazione LP.
+    1. Calcola tutti i vertici del poliedro $P$ del rilassamento LP.
 
     2. La formulazione è ideale? Cosa implica questo per il rilassamento LP con qualsiasi funzione obiettivo?
 
@@ -350,4 +350,4 @@ soluzione "Solution"
     3. I valori di $x_1 + 2\,x_2 + 7\,x_3$ ai cinque vertici sono $0$, $7$, $4$, $2$, $6$: il vertice ottimale è $(0,0,1)$, con valore $7$.
 
         !!! chiave ""
-            La formulazione è ideale: il vertice ottimale $(0,0,1)$ delil rilassamento LP è intero, e $z(\LP) = z(\ILP) = 7$.
+            La formulazione è ideale: il vertice ottimale $(0,0,1)$ del rilassamento LP è intero, e $z(\LP) = z(\ILP) = 7$.

@@ -24,7 +24,7 @@ title: "Esercizi · Branch-and-cut"
         \end{array}
         $$
 
-        e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -41,7 +41,7 @@ title: "Esercizi · Branch-and-cut"
 
     2. Esegui un turno di un algoritmo branch-and-cut al nodo radice: genera il taglio frazionario di Gomory della riga con il termine noto frazionario più grande (indice più basso della variabile di base in caso di parità, l’ultima riga della funzione obiettivo), scritto nelle variabili originali e reso primitivo prima che la sua variabile slack venga aggiunta.
 
-    3. Rottimizzare il problema LP del nodo radice con il taglio, utilizzando l'algoritmo del simplesso duale (variabile uscente: la variabile base con valore negativo e indice più piccolo; in caso di parità nel test del rapporto, rompere con l'indice più piccolo). Mostrare l'effetto del taglio graficamente.
+    3. Riottimizzare il problema LP del nodo radice con il taglio, utilizzando l'algoritmo del simplesso duale (variabile uscente: la variabile base con valore negativo e indice più piccolo; in caso di parità nel test del rapporto, rompere con l'indice più piccolo). Mostrare l'effetto del taglio graficamente.
 
     4. Esegui l'algoritmo branch-and-bound sul problema rafforzato, con le stesse regole, e confronta il numero di problemi LP risolti con la prima domanda.
 
@@ -148,7 +148,7 @@ title: "Esercizi · Branch-and-cut"
 
         Al nodo radice non esiste alcun vincolo di diramazione, quindi il taglio è <strong>globale</strong>. Esclude $(0,\tfrac{8}{3})$: $0 \cdot 0 + 1 \cdot \tfrac{8}{3} = \tfrac{8}{3} > 2$.
 
-    3. Il taglio $x_2 \le 2$ è aggiunto con la sua variabile di scarto $x_4 = 2 - x_2 \ge 0$. Espressolo con le variabili non di base e aggiungendolo al dizionario ottimale otteniamo un dizionario che è duale fattibile ma non primale fattibile:
+    3. Il taglio $x_2 \le 2$ è aggiunto con la sua variabile di scarto $x_4 = 2 - x_2 \ge 0$. Espressolo con le variabili non di base e aggiungendolo al dizionario ottimale otteniamo un dizionario che è dualmente ammissibile ma non ammissibile primalmente:
 
         \begin{equation*}
         \begin{cases}
@@ -304,7 +304,7 @@ title: "Esercizi · Branch-and-cut"
 
         I vincoli $x_1 \ge 1$ e $x_2 \ge 1$ sono scritti in forma canonica come $-x_1 \le -1$ e $-x_2 \le -1$.
 
-        e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -323,7 +323,7 @@ title: "Esercizi · Branch-and-cut"
 
     2. Esegui un turno di un algoritmo branch-and-cut al nodo radice: genera il taglio frazionario di Gomory della riga con il termine noto frazionario più grande (indice più basso della variabile di base in caso di parità, l’ultima riga della funzione obiettivo), scritto nelle variabili originali e reso primitivo prima che la sua variabile slack venga aggiunta.
 
-    3. Riproottimizzare il problema LP del nodo radice con il taglio, usando l'algoritmo del simplesso duale (variabile uscente: la variabile base con valore negativo e indice più piccolo; in caso di parità nel test del rapporto, rompere con l'indice più piccolo). Mostrare l'effetto del taglio graficamente.
+    3. Riottimizzare il problema LP del nodo radice con il taglio, usando l'algoritmo del simplesso duale (variabile uscente: la variabile base con valore negativo e indice più piccolo; in caso di parità nel test del rapporto, rompere con l'indice più piccolo). Mostrare l'effetto del taglio graficamente.
 
     4. Esegui l'algoritmo branch-and-bound sul problema rafforzato, con le stesse regole, e confronta il numero di problemi LP risolti con la prima domanda.
 
@@ -434,7 +434,7 @@ title: "Esercizi · Branch-and-cut"
 
         Al nodo radice non esiste alcun vincolo di diramazione, quindi il taglio è <strong>globale</strong>. Esclude $(1,\tfrac{21}{8})$: $0 \cdot 1 + 1 \cdot \tfrac{21}{8} = \tfrac{21}{8} > 2$.
 
-    3. Il taglio $x_2 \le 2$ è aggiunto con la sua variabile slack $x_6 = 2 - x_2 \ge 0$. Esprimendolo con le variabili non di base e aggiungendolo al dizionario ottimale otteniamo un dizionario che è dualmente fattibile ma non primariamente fattibile:
+    3. Il taglio $x_2 \le 2$ è aggiunto con la sua variabile slack $x_6 = 2 - x_2 \ge 0$. Esprimendolo con le variabili non di base e aggiungendolo al dizionario ottimale otteniamo un dizionario che è dualmente ammissibile ma non ammissibile primalmente:
 
         \begin{equation*}
         \begin{cases}
@@ -611,7 +611,7 @@ title: "Esercizi · Branch-and-cut"
 
         I vincoli $x_1 \ge 1$ e $x_2 \ge 2$ sono scritti in forma canonica come $-x_1 \le -1$ e $-x_2 \le -2$.
 
-        e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -631,7 +631,7 @@ title: "Esercizi · Branch-and-cut"
 
     2. Esegui un turno di un algoritmo branch-and-cut al nodo radice: genera il taglio frazionario di Gomory della riga con il termine noto frazionario più grande (indice più basso della variabile di base in caso di parità, l’ultima riga della funzione obiettivo), scritto nelle variabili originali e reso primitivo prima che la sua variabile slack venga aggiunta.
 
-    3. Rottimizzare il problema LP del nodo radice con il taglio, utilizzando l'algoritmo del simplesso duale (variabile uscente: la variabile base con valore negativo e indice più piccolo; in caso di parità nel test del rapporto, si privilegia l'indice più piccolo). Mostrare l'effetto del taglio graficamente.
+    3. Riottimizzare il problema LP del nodo radice con il taglio, utilizzando l'algoritmo del simplesso duale (variabile uscente: la variabile base con valore negativo e indice più piccolo; in caso di parità nel test del rapporto, si privilegia l'indice più piccolo). Mostrare l'effetto del taglio graficamente.
 
     4. Esegui l'algoritmo branch-and-bound sul problema rafforzato, con le stesse regole, e confronta il numero di problemi LP risolti con la prima domanda.
 
@@ -768,7 +768,7 @@ title: "Esercizi · Branch-and-cut"
 
         Alla radice del nodo non esiste alcuna restrizione di diramazione, quindi il taglio è <strong>globale</strong>. Taglia $(\tfrac{3}{2},\tfrac{9}{2})$: $0 \cdot \tfrac{3}{2} + 1 \cdot \tfrac{9}{2} = \tfrac{9}{2} > 4$.
 
-    3. Il taglio $x_2 \le 4$ è aggiunto con la sua variabile di scarto $x_7 = 4 - x_2 \ge 0$. Espressolo con le variabili non di base e aggiungendolo al dizionario ottimale otteniamo un dizionario che è duale fattibile ma non primale fattibile:
+    3. Il taglio $x_2 \le 4$ è aggiunto con la sua variabile di scarto $x_7 = 4 - x_2 \ge 0$. Espressolo con le variabili non di base e aggiungendolo al dizionario ottimale otteniamo un dizionario che è dualmente ammissibile ma non ammissibile primalmente:
 
         \begin{equation*}
         \begin{cases}
@@ -850,7 +850,7 @@ title: "Esercizi · Branch-and-cut"
         = \dfrac{132}{7} - \dfrac{4}{7} \, x_3 - \dfrac{9}{7} \, x_7
         $$
 
-        Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+        Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
         \begin{equation*}
         \begin{cases}
@@ -1063,7 +1063,7 @@ title: "Esercizi · Branch-and-cut"
 
     2. La riga utilizzata contiene la variabile slack $x_5$ del vincolo di ramificazione $x_1 \le 3$ con il coefficiente non nullo $\tfrac{2}{3}$ nel taglio: la sua derivazione utilizza il vincolo di ramificazione, quindi l'algoritmo la tratta come un <strong>taglio locale</strong> del Nodo 2, valido solo nel sott'albero del Nodo 2.
 
-    3. Le soluzioni fattibili del Nodo 2 sono i punti $15$ di $F$ con $x_1 \le 3$: tutti soddisfano $x_1 + x_2 \le 5$ (il valore più grande di $x_1 + x_2$ tra di essi è $5$). Tra tutte le soluzioni fattibili $18$, invece, $(4,2)$ viola il taglio. Graficamente, abbiamo:
+    3. Le soluzioni ammissibili del Nodo 2 sono i punti $15$ di $F$ con $x_1 \le 3$: tutti soddisfano $x_1 + x_2 \le 5$ (il valore più grande di $x_1 + x_2$ tra di essi è $5$). Tra tutte le soluzioni ammissibili $18$, invece, $(4,2)$ viola il taglio. Graficamente, abbiamo:
 
         ![Figura 10](../img/ex-08-branch-and-cut/fig10.svg){ .fig .ovale loading=lazy  }
 
@@ -1074,7 +1074,7 @@ title: "Esercizi · Branch-and-cut"
     4. Il punto $(4,2)$ è la soluzione ottimale unica del problema ILP, con valore $14$. Con il taglio nel pool globale verrebbe rimosso anche dal Nodo 3 ($x_1 \ge 4$), e l'algoritmo restituirebbe $(2,3)$, di valore $13$.
 
         !!! chiave ""
-            Il taglio di Gomory $x_1 + x_2 \le 5$ del Nodo 2 è <strong>locale</strong>: deve rimanere nel sott'albero del Nodo 2. Usato a livello globale taglierebbe la soluzione ottimale $(4,2)$ e l'algoritmo restituirebbe una soluzione di valore $13$ invece di $14$.
+            Il taglio di Gomory $x_1 + x_2 \le 5$ del Nodo 2 è <strong>locale</strong>: deve rimanere nel sott'albero del Nodo 2. Usato a livello globai taglierebbe la soluzione ottimale $(4,2)$ e l'algoritmo restituirebbe una soluzione di valore $13$ invece di $14$.
 
 <a id="esercizio-8-5"></a>
 
@@ -1091,7 +1091,7 @@ title: "Esercizi · Branch-and-cut"
         \end{array}
         $$
 
-        e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -1205,7 +1205,7 @@ title: "Esercizi · Branch-and-cut"
         2\,x_1 + x_2 \le 9.
         $$
 
-    2. Il taglio $2\,x_1 + x_2 \le 9$ è aggiunto con la sua variabile slack $x_5 = 9 - 2\,x_1 - x_2 \ge 0$. Esprimendolo con le variabili non di base e aggiungendolo al dizionario ottimale otteniamo un dizionario che è dualmente fattibile ma non primariamente fattibile:
+    2. Il taglio $2\,x_1 + x_2 \le 9$ è aggiunto con la sua variabile slack $x_5 = 9 - 2\,x_1 - x_2 \ge 0$. Esprimendolo con le variabili non di base e aggiungendolo al dizionario ottimale otteniamo un dizionario che è dualmente ammissibile ma non ammissibile primalmente:
 
         \begin{equation*}
         \begin{cases}

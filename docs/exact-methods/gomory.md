@@ -13,14 +13,14 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 !!! nota "Prerequisiti"
     - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 10 «Algoritmo del Simplesso Duale»](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/): dizionari del simplesso, basi duali ammissibili e operazioni di pivoting duali. Un breve riepilogo è fornito in questo capitolo.
 
-    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Vincoli primali e duali»: problemi ILP, il rilassamento LP e il limite superiore dato dalil rilassamento LP.
+    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Vincoli primali e duali»: problemi ILP, il rilassamento LP e il limite superiore dato dal rilassamento LP.
 
     - Da questo modulo, il capitolo «Disuguaglianze valide»: disuguaglianze valide e tagli che rimuovono punti frazionari.
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - generare un taglio frazionario di Gomory da una riga di un dizionario simplex, e dimostrare che è valido e che esclude la soluzione di base corrente;
+    - generare un taglio frazionario di Gomory da una riga di un dizionario del simplesso, e dimostrare che è valido e che esclude la soluzione di base corrente;
 
     - inserire un taglio nel dizionario e riottimizzare con l'algoritmo del simplesso duale;
 
@@ -35,16 +35,16 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 <a id="box-1-def-cutting-plane"></a>
 
 !!! definizione "Definizione 6.1: piano di taglio"
-    Dato un problema ILP e una soluzione ottimale frazionaria $\tilde{\vet x}(\LP)$ della sua rilassamento LP, un <strong>piano di taglio</strong> (o <strong>taglio</strong>) è una disuguaglianza valida per il problema ILP che elimina $\tilde{\vet x}(\LP)$.
+    Dato un problema ILP e una soluzione ottimale frazionaria $\tilde{\vet x}(\LP)$ del suo rilassamento LP, un <strong>piano di taglio</strong> (o <strong>taglio</strong>) è una disuguaglianza valida per il problema ILP che elimina $\tilde{\vet x}(\LP)$.
 
 !!! chiave ""
-    I tagli frazionari di Gomory sono disuguaglianze valide che eliminano soluzioni di base frazionarie della rilassazione LP di un problema ILP senza escludere alcuna soluzione intera ammissibile.
+    I tagli frazionari di Gomory sono disuguaglianze valide che eliminano soluzioni di base frazionarie del rilassamento LP di un problema ILP senza escludere alcuna soluzione intera ammissibile.
 
-- <strong>Consideriamo i problemi di ILP nella forma canonica di massimizzazione con dati di input interi</strong>. Per questi problemi, le variabili di scarto introdotte nella rilassazione LP in forma standard assumono anche valori interi in ogni soluzione intera ammissibile del problema di ILP.
+- <strong>Consideriamo i problemi di ILP nella forma canonica di massimizzazione con dati di input interi</strong>. Per questi problemi, le variabili di scarto introdotte nelil rilassamento LP in forma standard assumono anche valori interi in ogni soluzione intera ammissibile del problema di ILP.
 
 - I tagli frazionari di Gomory sono validi <u>solo</u> se tutte le variabili, comprese le variabili di scarto, sono intere. Per i problemi MIP con variabili continue possono escludere soluzioni ammissibili, ed è necessaria una famiglia diversa di tagli.
 
-- Ricordiamo che un dizionario del simplesso della rilassazione LP in forma standard si presenta come segue
+- Ricordiamo che un dizionario del simplesso del rilassamento LP in forma standard si presenta come segue
 
     $$
     \begin{cases}
@@ -66,12 +66,12 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     Se, inoltre, almeno un $\bar{b}_i$ è frazionario, allora questa soluzione ammissibile di base è frazionaria.
 
-- I tagli frazionari di Gomory si ottengono dalle righe di un dizionario simplex associate a una soluzione di base frazionaria ammissibile della rilassata LP in forma standard di un problema ILP.
+- I tagli frazionari di Gomory si ottengono dalle righe di un dizionario del simplesso associate a una soluzione di base frazionaria ammissibile della rilassata LP in forma standard di un problema ILP.
 
     <a id="box-2-defXX"></a>
 
     !!! definizione "Definizione 6.2: taglio frazionario di Gomory"
-        Data una riga $i \in \pazocal{B}$ di un dizionario semplice associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -103,7 +103,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     \end{array}
     $$
 
-    La rilassazione LP in forma standard con variabili non negative $4$ (2 variabili di scarto) e vincoli lineari $2$ è la seguente:
+    Il rilassamento LP in forma standard con variabili non negative $4$ (2 variabili di scarto) e vincoli lineari $2$ è la seguente:
 
     $$
     \begin{array}{rrrrrrrrrr}
@@ -114,7 +114,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     \end{array}
     $$
 
-    Come esempio, consideriamo il seguente dizionario simplex associato a una soluzione frazionaria di base ammissibile delil rilassamento LP in forma standard del problema ILP:
+    Come esempio, consideriamo il seguente dizionario del simplesso associato a una soluzione frazionaria di base ammissibile del rilassamento LP in forma standard del problema ILP:
 
     \begin{equation*}
     \begin{cases}
@@ -183,7 +183,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     \tilde{x}_1=1,~~\tilde{x}_2=3
     $$
 
-    Il valore ottimale è $z(\ILP) = 14$. Una soluzione ottimale $\tilde{\vet x}(\LP)$ delil rilassamento LP è
+    Il valore ottimale è $z(\ILP) = 14$. Una soluzione ottimale $\tilde{\vet x}(\LP)$ del rilassamento LP è
 
     $$
     \tilde{x}_1=\frac{3}{2},~~\tilde{x}_2=\frac{7}{2}
@@ -191,7 +191,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     Il valore ottimale è $z(\LP) = 17$.
 
-    Consideriamo il seguente dizionario simplex associato a una soluzione frazionaria di base ammissibile delil rilassamento LP in forma standard del problema ILP di <span style="color:#1971c2">Esempio 1</span>:
+    Consideriamo il seguente dizionario del simplesso associato a una soluzione frazionaria di base ammissibile del rilassamento LP in forma standard del problema ILP di <span style="color:#1971c2">Esempio 1</span>:
 
     \begin{equation*}
     \begin{cases}
@@ -230,7 +230,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
         8\;x_3 + x_4 \ge 5
         \end{align*}
 
-        Dalla forma standard delil rilassamento LP, abbiamo:
+        Dalla forma standard del rilassamento LP, abbiamo:
 
         $$
         x_3= 2 + x_1 -x_2 \text{    and    }
@@ -260,14 +260,14 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
         Questo taglio frazionario di Gomory è lo stesso di quello generato dalla prima riga.
 
-    Effetto del taglio frazionario di Gomory sulla regione ammissibile della rilassazione LP in forma canonica.
+    Effetto del taglio frazionario di Gomory sulla regione ammissibile del rilassamento LP in forma canonica.
 
     ![Figura 2](../img/06-gomory/fig02.svg){ .fig .ovale loading=lazy style="width:59%" }
 
 !!! chiave ""
     Un taglio frazionario di Gomory può anche essere generato dalla riga della funzione obiettivo del dizionario del simplesso.
 
-- Considera la riga della funzione obiettivo di un dizionario simplex:
+- Considera la riga della funzione obiettivo di un dizionario del simplesso:
 
     $$
     z=\bar z+\sum_{j \in \pazocal{N}}\bar c_j x_j
@@ -296,7 +296,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 <a id="box-5-texexpbox1"></a>
 
 !!! esempio "Esempio 6.3: Tagli frazionari di Gomory"
-    Consideriamo il seguente dizionario simplex associato a una soluzione frazionaria di base ammissibile delil rilassamento LP in forma standard del problema ILP di <span style="color:#1971c2">Esempio 1</span>:
+    Consideriamo il seguente dizionario del simplesso associato a una soluzione frazionaria di base ammissibile del rilassamento LP in forma standard del problema ILP di <span style="color:#1971c2">Esempio 1</span>:
 
     \begin{equation*}
     \begin{cases}
@@ -322,7 +322,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     \end{pmatrix}
     \end{equation*}
 
-    - Questo dizionario non è ottimale ($\bar c_2 = \frac{7}{2} > 0$): un taglio frazionario di Gomory può essere generato da qualsiasi dizionario con una soluzione di base frazionaria, ottimale o meno. Nella figura la soluzione di base $(\frac{19}{8},0)$ è un vertice della regione ammissibile, non l'ottimo delil rilassamento LP.
+    - Questo dizionario non è ottimale ($\bar c_2 = \frac{7}{2} > 0$): un taglio frazionario di Gomory può essere generato da qualsiasi dizionario con una soluzione di base frazionaria, ottimale o meno. Nella figura la soluzione di base $(\frac{19}{8},0)$ è un vertice della regione ammissibile, non l'ottimo del rilassamento LP.
 
     - Il taglio frazionario di Gomory generato dalla prima riga è:
 
@@ -337,7 +337,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
         2\;x_2 + x_4 \ge 3
         \end{align*}
 
-        Dalla forma standard delil rilassamento LP, abbiamo:
+        Dalla forma standard del rilassamento LP, abbiamo:
 
         $$
         x_4= 19 - 8 \;x_1 - 2\;x_2
@@ -381,7 +381,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
         Questo taglio frazionario di Gomory è lo stesso di quello generato dalla prima riga.
 
-    Effetto del taglio frazionario di Gomory sulla regione ammissibile della rilassazione LP in forma canonica.
+    Effetto del taglio frazionario di Gomory sulla regione ammissibile del rilassamento LP in forma canonica.
 
     ![Figura 3](../img/06-gomory/fig03.svg){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -433,12 +433,12 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 <a id="box-7-gfc-validity"></a>
 
 !!! teorema "Osservazione 6.4"
-    Ogni soluzione intera ammissibile del problema ILP soddisfa ogni taglio frazionario di Gomory generato dalle righe di un dizionario simplex.
+    Ogni soluzione intera ammissibile del problema ILP soddisfa ogni taglio frazionario di Gomory generato dalle righe di un dizionario del simplesso.
 
 !!! nota ""
     ??? dimostrazione "Proof"
 
-        Consideriamo un taglio frazionario di Gomory generato dalla seguente riga $i \in \pazocal{B}$ di un dizionario di simplex:
+        Consideriamo un taglio frazionario di Gomory generato dalla seguente riga $i \in \pazocal{B}$ di un dizionario del simplesso:
 
         \begin{equation*}
         \tag{A}
@@ -523,7 +523,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
         \bar{b}_i - \left\lfloor \bar{b}_i \right\rfloor .
         $$
 
-        Questa è esattamente la taglio frazionario di Gomory generato dalla riga $i$. Pertanto, la soluzione fattibile intera soddisfa questo taglio.
+        Questa è esattamente la taglio frazionario di Gomory generato dalla riga $i$. Pertanto, la soluzione ammissibile intera soddisfa questo taglio.
 
         Poiché sia la soluzione intera ammissibile sia il taglio frazionario di Gomory sono stati scelti arbitrariamente, ogni soluzione intera ammissibile del problema ILP soddisfa ogni taglio frazionario di Gomory generato dalle righe del dizionario. <span class="qed">□</span>
 
@@ -644,7 +644,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
         \qquad x_5\ge 0.
         \end{align*}
 
-        Dal dizionario simplex attuale abbiamo
+        Dal dizionario del simplesso attuale abbiamo
 
         \begin{align*}
         x_2
@@ -681,7 +681,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
         \qquad x_5\ge 0.
         \end{align*}
 
-        Dal dizionario simplex attuale abbiamo
+        Dal dizionario del simplesso attuale abbiamo
 
         \begin{align*}
         x_1
@@ -712,13 +712,13 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 <a id="box-9-def-cpa"></a>
 
 !!! definizione "Definizione 6.5: algoritmo del piano di taglio basato sui tagli frazionari di Gomory"
-    Un <strong>algoritmo dei piani di taglio basato sui tagli frazionari di Gomory</strong> è un metodo esatto per risolvere problemi ILP basato sulla soluzione ripetuta delle rilassazioni LP. Partendo dalla rilassazione LP del problema ILP, l'algoritmo aggiunge progressivamente i tagli frazionari di Gomory con l'obiettivo di rimuovere soluzioni ottimali LP frazionarie mantenendo tutte le soluzioni intere fattibili:
+    Un <strong>algoritmo dei piani di taglio basato sui tagli frazionari di Gomory</strong> è un metodo esatto per risolvere problemi ILP basato sulla soluzione ripetuta deli rilassamenti LP. Partendo dal rilassamento LP del problema ILP, l'algoritmo aggiunge progressivamente i tagli frazionari di Gomory con l'obiettivo di rimuovere soluzioni ottimali LP frazionarie mantenendo tutte le soluzioni intere fattibili:
 
     $$
     \rightsquigarrow~\textbf{cut generation operations}
     $$
 
-    Dopo ogni passaggio di generazione dei tagli, la nuova rilassazione LP più restrittiva viene risolta di nuovo:
+    Dopo ogni passaggio di generazione dei tagli, la nuova rilassamento LP più restrittiva viene risolta di nuovo:
 
     $$
     \rightsquigarrow~\textbf{LP re-optimization operations}
@@ -749,9 +749,9 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     z(\ILP) ~~\le~~  \underbrace{\left \lfloor z(\LP_k) \right \rfloor}_{\UB}
     $$
 
-    Quando viene aggiunto un taglio frazionario di Gomory, la regione ammissibile delil rilassamento LP diventa più piccola o rimane invariata.
+    Quando viene aggiunto un taglio frazionario di Gomory, la regione ammissibile del rilassamento LP diventa più piccola o rimane invariata.
 
-- L'algoritmo può rimuovere punti che sono fattibili per il rilassamento LP, ma non rimuove alcuna soluzione intera fattibile del problema ILP originale. In questo senso, ogni nuovo taglio restringe il rilassamento LP corrente senza escludere alcuna soluzione intera fattibile del problema ILP originale.
+- L'algoritmo può rimuovere punti che sono ammissibili per il rilassamento LP, ma non rimuove alcuna soluzione intera fattibile del problema ILP originale. In questo senso, ogni nuovo taglio restringe il rilassamento LP corrente senza escludere alcuna soluzione intera fattibile del problema ILP originale.
 
 ### 6.2.2 Pseudocodice ad alto livello
 
@@ -772,7 +772,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     - **Passo 1:** <strong>Generazione dei tagli</strong>
 
-        1. Seleziona una o più righe $i \in \pazocal{B}$ del dizionario simplex ottimale del problema $\LP_k$ con frazionale $\bar{b}_i$ e genera il relativo <strong>taglio frazionario di Gomory:</strong>
+        1. Seleziona una o più righe $i \in \pazocal{B}$ del dizionario del simplesso ottimale del problema $\LP_k$ con frazionale $\bar{b}_i$ e genera il relativo <strong>taglio frazionario di Gomory:</strong>
 
             $$
             \sum_{j \in \pazocal{N}}
@@ -797,7 +797,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
         3. Sia $\tilde{\vet x}(\LP_k)$ una soluzione ottimale del problema $\LP_k$, e sia $z(\LP_k)$ il suo valore ottimale. Se $\tilde{\vet x}(\LP_k)$ è <strong>intero</strong>, allora è una soluzione ottimale del problema ILP e $z(\LP_k)$ è il valore ottimale del problema ILP. <code>STOP</code>. Altrimenti, vai al Passo 1.
 
-- Durante la fase di generazione dei tagli, è possibile generare più di un taglio frazionario di Gomory: selezionando più di una riga del dizionario semplice ottimale con $\bar{b}_i$ frazionario, o la riga della funzione obiettivo.
+- Durante la fase di generazione dei tagli, è possibile generare più di un taglio frazionario di Gomory: selezionando più di una riga del dizionario del simplesso ottimale con $\bar{b}_i$ frazionario, o la riga della funzione obiettivo.
 
 - Il pseudocodice non dice come i problemi di programmazione lineare vengano riottimizzati dopo l'inserimento dei tagli: la sezione successiva spiega l'uso dell'algoritmo del simplesso duale.
 
@@ -808,7 +808,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 - Il taglio fornisce una nuova riga con la variabile di scarto $x_s$ della disuguaglianza primitiva nella base. Il suo valore nella soluzione base corrente è negativo, poiché il taglio rimuove questa soluzione. I costi ridotti non cambiano.
 
 !!! chiave ""
-    Dopo l'inserimento di un taglio, il dizionario è <strong>dualmente fattibile</strong> ma non primalmente fattibile: questo è esattamente il punto di partenza dell'algoritmo del simplesso duale.
+    Dopo l'inserimento di un taglio, il dizionario è <strong>dualmente ammissibile</strong> ma non primalmente fattibile: questo è esattamente il punto di partenza dell'algoritmo del simplesso duale.
 
 !!! nota ""
     <strong>Operazione a doppio pivot</strong> su un dizionario $x_i = \bar b_i - \sum_{j \in \pazocal{N}} \bar a_{ij} \, x_j$, per $i \in \pazocal{B}$, e $z = \bar z + \sum_{j \in \pazocal{N}} \bar c_j \, x_j$, con $\bar c_j \le 0$ per tutti $j \in \pazocal{N}$:
@@ -819,7 +819,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
         r = \min \left\{~ i \in \pazocal{B} : \bar b_i < 0 ~\right\};
         $$
 
-    - **b.** se $\bar a_{rj} \ge 0$ per tutti $j \in \pazocal{N}$, il problema LP è <strong>inattuabile</strong>;
+    - **b.** se $\bar a_{rj} \ge 0$ per tutti $j \in \pazocal{N}$, il problema LP è <strong>inammissibile</strong>;
 
     - **c.** altrimenti la <strong>colonna pivot</strong> $x_p$ raggiunge il rapporto minimo (pareggi: indice più piccolo)
 
@@ -985,7 +985,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
             x_5 = -\dfrac{1}{2} + \dfrac{4}{5} \, x_3 + \dfrac{1}{10} \, x_4.
             $$
 
-        - Il dizionario sottostante è <strong>dualmente fattibile</strong> (i costi ridotti non cambiano) ma non primale fattibile, poiché $\bar b_{5} = -\dfrac{1}{2} < 0$:
+        - Il dizionario sottostante è <strong>dualmente ammissibile</strong> (i costi ridotti non cambiano) ma non ammissibile primalmente, poiché $\bar b_{5} = -\dfrac{1}{2} < 0$:
 
         \begin{equation*}
         \begin{cases}
@@ -1004,7 +1004,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
             \frac{\bar c_{3}}{\bar a_{5,3}} = \frac{-\tfrac{14}{5}}{-\tfrac{4}{5}} = \dfrac{7}{2},\qquad \frac{\bar c_{4}}{\bar a_{5,4}} = \frac{-\tfrac{3}{5}}{-\tfrac{1}{10}} = 6.
             $$
 
-        - La colonna pivot è $x_3$, con $s_m = \dfrac{7}{2}$, e il valore obiettivo diventa $\bar z + s_m \, \bar b_{5} = 17 + \dfrac{7}{2} \cdot \left(-\dfrac{1}{2}\right) = \dfrac{61}{4}$. Il nuovo dizionario è ammissibile sia primal che duale, quindi ottimale:
+        - La colonna pivot è $x_3$, con $s_m = \dfrac{7}{2}$, e il valore obiettivo diventa $\bar z + s_m \, \bar b_{5} = 17 + \dfrac{7}{2} \cdot \left(-\dfrac{1}{2}\right) = \dfrac{61}{4}$. Il nuovo dizionario è ammissibile sia primalmente sia dualmente, quindi ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -1041,7 +1041,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
     - **a)** <strong>Fase di generazione dei tagli</strong>
 
-        Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $\LP_2$ in forma standard:
+        Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $\LP_2$ in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -1182,7 +1182,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
             x_6 = -\dfrac{5}{8} + \dfrac{1}{8} \, x_4 + \dfrac{3}{4} \, x_5.
             $$
 
-        - Il dizionario sottostante è <strong>dualmente fattibile</strong> (i costi ridotti non cambiano) ma non primale fattibile, poiché $\bar b_{6} = -\dfrac{5}{8} < 0$:
+        - Il dizionario sottostante è <strong>dualmente ammissibile</strong> (i costi ridotti non cambiano) ma non ammissibile primalmente, poiché $\bar b_{6} = -\dfrac{5}{8} < 0$:
 
         \begin{equation*}
         \begin{cases}
@@ -1202,7 +1202,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
             \frac{\bar c_{4}}{\bar a_{6,4}} = \frac{-\tfrac{1}{4}}{-\tfrac{1}{8}} = 2,\qquad \frac{\bar c_{5}}{\bar a_{6,5}} = \frac{-\tfrac{7}{2}}{-\tfrac{3}{4}} = \dfrac{14}{3}.
             $$
 
-        - La colonna pivot è $x_4$, con $s_m = 2$, e il valore obiettivo diventa $\bar z + s_m \, \bar b_{6} = \dfrac{61}{4} + 2 \cdot \left(-\dfrac{5}{8}\right) = 14$. Il nuovo dizionario è ammissibile sia primal che duale, quindi ottimale:
+        - La colonna pivot è $x_4$, con $s_m = 2$, e il valore obiettivo diventa $\bar z + s_m \, \bar b_{6} = \dfrac{61}{4} + 2 \cdot \left(-\dfrac{5}{8}\right) = 14$. Il nuovo dizionario è ammissibile sia primalmente sia dualmente, quindi ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -1260,7 +1260,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 !!! chiave ""
     Prima di eseguire un algoritmo di cutting-plane, può essere eseguito un <strong>algoritmo euristico</strong> con l'obiettivo di trovare una soluzione ammissibile di alta qualità al problema ILP. Questa soluzione euristica fornisce un limite inferiore iniziale $\LB$ sul valore ottimale del problema ILP.
 
-- Ad ogni iterazione, il valore ottimale della rilassazione LP corrente fornisce un <strong>limite superiore</strong>
+- Ad ogni iterazione, il valore ottimale del rilassamento LP corrente fornisce un <strong>limite superiore</strong>
 
     $$
     \UB = \left \lfloor z(\LP_k) \right \rfloor
@@ -1282,7 +1282,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 
 - I tagli frazionari di Gomory sono solitamente molto efficaci nelle prime iterazioni, ma la loro efficacia diminuisce man mano che l'algoritmo procede (<strong>tailing off</strong>); la sezione successiva mostra un esempio.
 
-- Per questo motivo, i tagli frazionari di Gomory sono spesso utilizzati per rafforzare le rilassazioni LP risolte nei nodi di un albero di branch-and-bound: il metodo risultante è un <strong>algoritmo branch-and-cut</strong>.
+- Per questo motivo, i tagli frazionari di Gomory sono spesso utilizzati per rafforzare i rilassamenti LP risolte nei nodi di un albero di branch-and-bound: il metodo risultante è un <strong>algoritmo branch-and-cut</strong>.
 
 ## 6.3 L'esempio dell'auto
 
@@ -1350,7 +1350,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 ## 6.4 Errori tipici
 
 !!! attenzione "Avviso"
-    - <strong>Utilizzo del taglio per problemi con variabili continue.</strong> Il taglio frazionario è valido solo se tutte le variabili e i dati sono interi: con una variabile continua potrebbe eliminare soluzioni fattibili.
+    - <strong>Utilizzo del taglio per problemi con variabili continue.</strong> Il taglio frazionario è valido solo se tutte le variabili e i dati sono interi: con una variabile continua potrebbe eliminare soluzioni ammissibili.
 
     - <strong>Prendere il pavimento di un coefficiente o di un termine noto.</strong> Il taglio utilizza le parti frazionarie: $\bar a_{ij} - \lfloor \bar a_{ij} \rfloor$ è sempre in $[0,1)$, anche per un $\bar a_{ij}$ negativo.
 
@@ -1389,7 +1389,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
     <th>Da</th>
     </tr>
     <tr>
-    <td>Limiti primal e duali</td>
+    <td>Bound primali e bound duali</td>
     <td><span class="arithmatex">\(14\)</span></td>
     <td><span class="arithmatex">\(15\)</span></td>
     <td>soluzione euristica <span class="arithmatex">\((4, 1)\)</span>, e <span class="arithmatex">\(\lfloor z(\LP) \rfloor\)</span> con <span class="arithmatex">\(z(\LP) = \tfrac{31}{2}\)</span></td>

@@ -7,7 +7,7 @@ Le pagine del corso sono disponibili in italiano. Le dispense e i fascicoli PDF 
 
 ## Dispense · Parte I — Modelli, limiti e formulazioni
 
-Modelli ILP, MIP e BIP, soluzioni ammissibili e ottime, limiti primali e duali, gap di ottimalità, rilassamento lineare, formulazioni ideali e disuguaglianze valide.
+Modelli ILP, MIP e BIP, soluzioni ammissibili e ottime, bound primali e bound duali, gap di ottimalità, rilassamento lineare, formulazioni ideali e disuguaglianze valide.
 
 [:material-file-pdf-box: Dispense in inglese (PDF)](pdf/lecture-notes-1-models-bounds-formulations.pdf){ .md-button }
 

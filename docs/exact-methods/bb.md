@@ -15,12 +15,12 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
     - Da questo modulo, il capitolo «Programmazione lineare intera»: problemi ILP, soluzioni ammissibili e ottimali, e l'esempio dell'auto.
 
-    - Da questo modulo, il capitolo «Limiti primal e duali»: la rilassazione LP, i limiti inferiori dalle soluzioni ammissibili, i limiti superiori dalla rilassazione LP e il divario di ottimalità.
+    - Da questo modulo, il capitolo «Bound primali e bound duali»: il rilassamento LP, i limiti inferiori dalle soluzioni ammissibili, i limiti superiori dal rilassamento LP e il divario di ottimalità.
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - spiega come le operazioni di ramificazione dividono un problema ILP in problemi LP più piccoli e perché nessuna soluzione fattibile viene persa;
+    - spiega come le operazioni di ramificazione dividono un problema ILP in problemi LP più piccoli e perché nessuna soluzione ammissibile viene persa;
 
     - applicare i tre criteri di potatura e decidere quando il limite di un nodo può essere arrotondato per difetto;
 
@@ -32,13 +32,13 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
 - Questo capitolo definisce l'algoritmo di branch-and-bound basato su LP per problemi ILP in forma canonica di massimizzazione con dati interi, con le sue operazioni di ramificazione e di bounding.
 
-- L'istanza guida è l'esempio dell'auto, $\max \{ 3\,x_1 + 2\,x_2 : 10\,x_1 + 4\,x_2 \le 45,~ 4\,x_1 + 14\,x_2 \le 49,~ x_1, x_2 \in \Z_{\ge 0} \}$, la cui rilassazione LP ha la soluzione ottimale frazionaria $(\frac{7}{2},\frac{5}{2})$, con $z(\LP) = \frac{31}{2}$.
+- L'istanza guida è l'esempio dell'auto, $\max \{ 3\,x_1 + 2\,x_2 : 10\,x_1 + 4\,x_2 \le 45,~ 4\,x_1 + 14\,x_2 \le 49,~ x_1, x_2 \in \Z_{\ge 0} \}$, la cui rilassamento LP ha la soluzione ottimale frazionaria $(\frac{7}{2},\frac{5}{2})$, con $z(\LP) = \frac{31}{2}$.
 
 ## 7.1 L'idea in parole e in un'immagine
 
-- L'<strong>algoritmo branch-and-bound basato su LP</strong> (<strong>algoritmo B&amp;B</strong>, in breve) è un metodo esatto per i problemi ILP. È chiamato <strong>basato su LP</strong> perché risolve le rilassazioni LP per guidare la ricerca di una soluzione ottimale.
+- L'<strong>algoritmo branch-and-bound basato su LP</strong> (<strong>algoritmo B&amp;B</strong>, in breve) è un metodo esatto per i problemi ILP. È chiamato <strong>basato su LP</strong> perché risolve i rilassamenti LP per guidare la ricerca di una soluzione ottimale.
 
-- Nella soluzione ottimale della rilassazione LP dell'esempio dell'auto, la variabile $x_1$ assume un valore frazionario compreso tra $3$ e $4$. Ogni soluzione ammissibile del problema ILP soddisfa o $x_1 \le 3$ o $x_1 \ge 4$, quindi possiamo dividere il problema in due problemi LP più piccoli, uno per ciascun lato, e rimuovere la striscia intermedia, che non contiene alcun punto intero:
+- Nella soluzione ottimale del rilassamento LP dell'esempio dell'auto, la variabile $x_1$ assume un valore frazionario compreso tra $3$ e $4$. Ogni soluzione ammissibile del problema ILP soddisfa o $x_1 \le 3$ o $x_1 \ge 4$, quindi possiamo dividere il problema in due problemi LP più piccoli, uno per ciascun lato, e rimuovere la striscia intermedia, che non contiene alcun punto intero:
 
     $$
     \rightsquigarrow~\textbf{operazioni di ramificazione}.
@@ -82,7 +82,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 ### 7.2.2 Albero branch-and-bound, soluzione attuale e limite inferiore
 
 !!! chiave ""
-    Le <strong>operazioni di ramificazione</strong> generano un <strong>albero branch-and-bound</strong> contenente problemi LP. Ogni problema LP è ottenuto dalla rilassazione LP aggiungendo specifici <strong>vincoli di ramificazione</strong>.
+    Le <strong>operazioni di ramificazione</strong> generano un <strong>albero branch-and-bound</strong> contenente problemi LP. Ogni problema LP è ottenuto dal rilassamento LP aggiungendo specifici <strong>vincoli di ramificazione</strong>.
 
 - La struttura ricorsiva di un algoritmo B&amp;B induce l'albero. Ogni <strong>nodo di ramificazione</strong> dell'albero corrisponde a un problema LP; la radice è il problema $\LP_1$.
 
@@ -122,16 +122,16 @@ title: "Branch-and-bound basato sul rilassamento LP"
 - I due nodi figli sono chiamati <strong>nodo a biforcazione verso il basso</strong> e <strong>nodo a biforcazione verso l'alto</strong>. In entrambi $\tilde{\vet x}(\LP_k)$ non è più fattibile.
 
 !!! chiave ""
-    Ogni soluzione fattibile del problema ILP contenuta nella regione di $\LP_k$ soddisfa o $\eqref{bb:down}$ o $\eqref{bb:up}$, quindi è contenuta nella regione di uno dei due figli. <strong>Questo garantisce la correttezza dell'algoritmo B&amp;B</strong>.
+    Ogni soluzione ammissibile del problema ILP contenuta nella regione di $\LP_k$ soddisfa o $\eqref{bb:down}$ o $\eqref{bb:up}$, quindi è contenuta nella regione di uno dei due figli. <strong>Questo garantisce la correttezza dell'algoritmo B&amp;B</strong>.
 
 ### 7.2.4 Operazioni di delimitazione e il limite di un nodo
 
-- Il valore $z(\LP_k)$ è un limite superiore sul valore di ogni soluzione fattibile del problema ILP nella regione di $\LP_k$. Quando tutti i valori sono interi, questo limite può essere arrotondato per difetto.
+- Il valore $z(\LP_k)$ è un limite superiore sul valore di ogni soluzione ammissibile del problema ILP nella regione di $\LP_k$. Quando tutti i valori sono interi, questo limite può essere arrotondato per difetto.
 
 <a id="box-2-obs-bb-floor"></a>
 
 !!! teorema "Osservazione 7.2: arrotondamento del limite di un nodo"
-    Poiché tutte le variabili e tutti i costi sono interi, ogni soluzione fattibile nella regione di $\LP_k$ ha valore al massimo $\lfloor z(\LP_k) \rfloor$.
+    Poiché tutte le variabili e tutti i costi sono interi, ogni soluzione ammissibile nella regione di $\LP_k$ ha valore al massimo $\lfloor z(\LP_k) \rfloor$.
 
 ??? dimostrazione "Proof"
 
@@ -151,9 +151,9 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
 - Dato un nodo di ramificazione $k$, non viene eseguita alcuna operazione di ramificazione su di esso se si applica uno dei seguenti <strong>criteri di potatura</strong>. In questi casi il nodo si dice essere <strong>potato</strong>.
 
-    1. <strong>Potatura per impossibilità</strong>: il problema $\LP_k$ è impossibile, quindi la sua regione non contiene alcuna soluzione fattibile del problema ILP.
+    1. <strong>Potatura per impossibilità</strong>: il problema $\LP_k$ è impossibile, quindi la sua regione non contiene alcuna soluzione ammissibile del problema ILP.
 
-    2. <strong>Potatura per integrità</strong>: le variabili intere hanno valori interi in $\tilde{\vet x}(\LP_k)$, quindi $\tilde{\vet x}(\LP_k)$ è fattibile per il problema ILP, ed è ottimale nella regione di $\LP_k$. Se $z(\LP_k) > \LB$, il limite inferiore e la soluzione attuale vengono aggiornati.
+    2. <strong>Potatura per integrità</strong>: le variabili intere hanno valori interi in $\tilde{\vet x}(\LP_k)$, quindi $\tilde{\vet x}(\LP_k)$ è ammissibile per il problema ILP, ed è ottimale nella regione di $\LP_k$. Se $z(\LP_k) > \LB$, il limite inferiore e la soluzione attuale vengono aggiornati.
 
     3. <strong>Potatura per vincolo</strong>: il vincolo del nodo non supera il limite inferiore, $\mathrm{UB}(\LP_k) \le \LB$, quindi la regione di $\LP_k$ non contiene soluzioni migliori di quella attuale.
 
@@ -168,7 +168,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
 ### 7.2.6 Limite superiore e divario di ottimalità
 
-- Se la lista $L$ non è vuota, ogni soluzione fattibile migliore di quella corrente si trova nella regione di qualche nodo della lista. Di conseguenza, l'algoritmo B&amp;B ha il <strong>limite superiore</strong>
+- Se la lista $L$ non è vuota, ogni soluzione ammissibile migliore di quella corrente si trova nella regione di qualche nodo della lista. Di conseguenza, l'algoritmo B&amp;B ha il <strong>limite superiore</strong>
 
     \begin{equation*}
     \label{bb:UB}
@@ -187,7 +187,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 ### 7.2.7 Inizializzazione euristica
 
 !!! chiave ""
-    Prima dell'algoritmo B&amp;B, può essere eseguito un <strong>algoritmo euristico</strong> per trovare una buona soluzione fattibile. Il limite inferiore $\LB$ e la soluzione attuale $\bar{\vet x}$ vengono quindi inizializzati con questa soluzione.
+    Prima dell'algoritmo B&amp;B, può essere eseguito un <strong>algoritmo euristico</strong> per trovare una buona soluzione ammissibile. Il limite inferiore $\LB$ e la soluzione attuale $\bar{\vet x}$ vengono quindi inizializzati con questa soluzione.
 
 - Un buon limite inferiore iniziale permette all'algoritmo di potare i nodi grazie al limite più presto, e può ridurre considerevolmente la dimensione dell'albero branch-and-bound.
 
@@ -265,7 +265,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
 - Il pseudocodice non specifica come vengono risolti i problemi di programmazione lineare: può essere utilizzato qualsiasi metodo per i problemi di programmazione lineare.
 
-- Se viene utilizzato il <strong>algoritmo duale del simplesso</strong>, ogni figlio viene risolto partendo dal dizionario ottimale del suo genitore: dopo aver aggiunto il vincolo di ramificazione questo dizionario è ancora duale fattibile, quindi in generale sono sufficienti poche operazioni di pivot (Sezione [7.4](#sez-bb-sec-dualsimplex)).
+- Se viene utilizzato il <strong>algoritmo duale del simplesso</strong>, ogni figlio viene risolto partendo dal dizionario ottimale del suo genitore: dopo aver aggiunto il vincolo di ramificazione questo dizionario è ancora duale ammissibile, quindi in generale sono sufficienti poche operazioni di pivot (Sezione [7.4](#sez-bb-sec-dualsimplex)).
 
 ### 7.3.2 La regola dello skip e la numerazione dei nodi
 
@@ -322,7 +322,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
 ## 7.4 Un breve riepilogo dell'algoritmo del simplesso duale { #sez-bb-sec-dualsimplex }
 
-- Un bambino differisce dal suo genitore per <u>una</u> vincolo. Risolverlo da zero significherebbe sprecare il lavoro fatto per il genitore: l'algoritmo B&amp;B parte invece dal <strong>dizionario ottimale del genitore</strong> e lo riottimizza con il <strong>dual simplex algorithm</strong>.
+- Un nodo figlio differisce dal nodo padre per <u>un</u> vincolo. Risolverlo da zero significherebbe sprecare il lavoro fatto per il genitore: l'algoritmo B&amp;B parte invece dal <strong>dizionario ottimale del genitore</strong> e lo riottimizza con il <strong>algoritmo del simplesso duale</strong>.
 
 - Sia $x_j$ la variabile di diramazione. È basica nel dizionario ottimale di $\LP_k$, poiché il suo valore è frazionario, e la sua riga recita
 
@@ -351,7 +351,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
     x_q .
     \end{align*}
 
-    In entrambi i casi il valore di $x_s$ è negativo, mentre i costi ridotti non cambiano: il nuovo dizionario è <strong>dualmente fattibile</strong> ma non primalmente fattibile.
+    In entrambi i casi il valore di $x_s$ è negativo, mentre i costi ridotti non cambiano: il nuovo dizionario è <strong>dualmente ammissibile</strong> ma non primalmente fattibile.
 
 - Questo è esattamente il punto di partenza dell'algoritmo del duale simplesso. In queste note usiamo le stesse regole di pivotamento come nel modulo <em>Programmazione Lineare</em>.
 
@@ -377,14 +377,14 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
     L'algoritmo si ferma quando tutte le variabili di base sono non negative: il dizionario è allora ottimale.
 
-- In un nodo figlio una o due operazioni di pivoting doppio sono spesso sufficienti, mentre l'algoritmo simplex dalla base slack necessiterebbe di diverse operazioni di pivoting per ogni nodo.
+- In un nodo figlio una o due operazioni di pivoting doppio sono spesso sufficienti, mentre l'algoritmo del simplesso dalla base slack necessiterebbe di diverse operazioni di pivoting per ogni nodo.
 
 ## 7.5 Strategie di selezione della variabile di ramificazione
 
 - La scelta della variabile di diramazione ha un grande impatto sulla dimensione dell'albero di branch-and-bound.
 
 !!! chiave ""
-    Idealmente, la variabile di diramazione fornisce la più grande diminuzione dei limiti dei figli e conduce rapidamente a soluzioni fattibili. Tuttavia, anche il tempo impiegato per sceglierla conta: una regola costosa può rallentare l'intero algoritmo.
+    Idealmente, la variabile di diramazione fornisce la più grande diminuzione dei limiti dei figli e conduce rapidamente a soluzioni ammissibili. Tuttavia, anche il tempo impiegato per sceglierla conta: una regola costosa può rallentare l'intero algoritmo.
 
 - In tutte le strategie sottostanti, i pareggi vengono risolti dal <strong>numero d'indice più piccolo</strong>.
 
@@ -393,7 +393,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 !!! chiave ""
     La strategia <strong>lessicografica</strong> seleziona la variabile intera con un valore frazionario che ha l'indice più piccolo (o più grande).
 
-- Non richiede calcoli, ma non tiene conto né della diminuzione dei vincoli né della ricerca di soluzioni fattibili. È la regola usata negli esercizi, perché rende facile riprodurre l'esecuzione.
+- Non richiede calcoli, ma non tiene conto né della diminuzione dei vincoli né della ricerca di soluzioni ammissibili. È la regola usata negli esercizi, perché rende facile riprodurre l'esecuzione.
 
 ### 7.5.2 Infattibilità minima e massima
 
@@ -407,7 +407,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
     \right\} . \tag{7.10}
     \end{equation*}
 
-- L'infettibilità minima cerca di ridurre il numero di variabili frazionarie nei figli, per raggiungere soluzioni fattibili più rapidamente.
+- L'infettibilità minima cerca di ridurre il numero di variabili frazionarie nei figli, per raggiungere soluzioni ammissibili più rapidamente.
 
 - L'infattibilità massima rimuove prima le variabili che contribuiscono maggiormente all'infattibilità di $\tilde{\vet x}(\LP_k)$. Nessuna delle due regole considera i limiti dei figli.
 
@@ -435,7 +435,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
     \delta_k^u(x_j) = z(\LP_k) - z(\text{up-branching child}),
     $$
 
-    dove la diminuzione è $+\infty$ per un figlio non fattibile.
+    dove la diminuzione è $+\infty$ per un figlio inammissibile.
 
 - La variabile di ramificazione è $x_s$, con
 
@@ -508,7 +508,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 !!! chiave ""
     La strategia <strong>Last-In-First-Out</strong> (LIFO) elabora i nodi nell'ordine inverso di inserimento nella lista $L$. È equivalente a una <strong>ricerca in profondità</strong> (DFS).
 
-- La lista è implementata come uno <strong>stack</strong>. La ricerca scende in profondità nell'albero, dove le foglie spesso contengono soluzioni fattibili: l'obiettivo è aggiornare rapidamente il limite inferiore e la soluzione corrente. La lista rimane corta.
+- La lista è implementata come uno <strong>stack</strong>. La ricerca scende in profondità nell'albero, dove le foglie spesso contengono soluzioni ammissibili: l'obiettivo è aggiornare rapidamente il limite inferiore e la soluzione corrente. La lista rimane corta.
 
 !!! chiave ""
     La strategia <strong>First-In-First-Out</strong> (FIFO) elabora i nodi nell'ordine di inserimento nella lista $L$. È equivalente a una <strong>ricerca in ampiezza</strong> (BFS).
@@ -566,7 +566,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
     - <span style="color:#e03131"><strong>Inizializzazione</strong></span>
 
-        Il problema $\LP_1$ è la rilassazione LP dell'esempio dell'auto. L'algoritmo del simplesso con la regola di Bland, partendo dalla base delle variabili di slack, esegue 2 operazioni di pivot ($x_1$ entra e $x_3$ esce; $x_2$ entra e $x_4$ esce) e termina con il dizionario ottimale:
+        Il problema $\LP_1$ è il rilassamento LP dell'esempio dell'auto. L'algoritmo del simplesso con la regola di Bland, partendo dalla base delle variabili di slack, esegue 2 operazioni di pivot ($x_1$ entra e $x_3$ esce; $x_2$ entra e $x_4$ esce) e termina con il dizionario ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -614,7 +614,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
             x_5 = 3 - x_1 = 3 - \left( \dfrac{7}{2} - \dfrac{7}{62} \, x_3 + \dfrac{1}{31} \, x_4 \right) = -\dfrac{1}{2} + \dfrac{7}{62} \, x_3 - \dfrac{1}{31} \, x_4.
             $$
 
-            Aggiungiamo questa riga al dizionario ottimale di $\LP_{1}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente fattibile</strong>; non è primariamente fattibile, poiché $\bar b_{5} = -\tfrac{1}{2} < 0$:
+            Aggiungiamo questa riga al dizionario ottimale di $\LP_{1}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente ammissibile</strong>; non è primariamente ammissibile, poiché $\bar b_{5} = -\tfrac{1}{2} < 0$:
 
             \begin{equation*}
             \begin{cases}
@@ -641,7 +641,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
             \bar z + s_m \, \bar b_{5} = \dfrac{31}{2} + \dfrac{17}{7} \cdot \left( -\dfrac{1}{2} \right) = \dfrac{100}{7}.
             $$
 
-            Dopo l'operazione di pivot otteniamo il seguente dizionario, che è ammissibile primale e duale, quindi <strong>ottimale</strong>:
+            Dopo l'operazione di pivot otteniamo il seguente dizionario, che è ammissibile sia primalmente sia dualmente, quindi <strong>ottimale</strong>:
 
             \begin{equation*}
             \begin{cases}
@@ -680,7 +680,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
             x_5 = x_1 - 4 = \left( \dfrac{7}{2} - \dfrac{7}{62} \, x_3 + \dfrac{1}{31} \, x_4 \right) - 4 = -\dfrac{1}{2} - \dfrac{7}{62} \, x_3 + \dfrac{1}{31} \, x_4.
             $$
 
-            Aggiungiamo questa riga al dizionario ottimale di $\LP_{1}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente fattibile</strong>; non è primariamente fattibile, poiché $\bar b_{5} = -\tfrac{1}{2} < 0$:
+            Aggiungiamo questa riga al dizionario ottimale di $\LP_{1}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente ammissibile</strong>; non è primariamente ammissibile, poiché $\bar b_{5} = -\tfrac{1}{2} < 0$:
 
             \begin{equation*}
             \begin{cases}
@@ -707,7 +707,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
             \bar z + s_m \, \bar b_{5} = \dfrac{31}{2} + 2 \cdot \left( -\dfrac{1}{2} \right) = \dfrac{29}{2}.
             $$
 
-            Dopo l'operazione di pivot otteniamo il seguente dizionario, che è ammissibile primale e duale, quindi <strong>ottimale</strong>:
+            Dopo l'operazione di pivot otteniamo il seguente dizionario, che è ammissibile sia primalmente sia dualmente, quindi <strong>ottimale</strong>:
 
             \begin{equation*}
             \begin{cases}
@@ -766,7 +766,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
             x_6 = 1 - x_2 = 1 - \left( \dfrac{5}{4} - \dfrac{1}{4} \, x_3 - \dfrac{5}{2} \, x_5 \right) = -\dfrac{1}{4} + \dfrac{1}{4} \, x_3 + \dfrac{5}{2} \, x_5.
             $$
 
-            Aggiungiamo questa riga al dizionario ottimale di $\LP_{3}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente fattibile</strong>; non è primariamente fattibile, poiché $\bar b_{6} = -\tfrac{1}{4} < 0$:
+            Aggiungiamo questa riga al dizionario ottimale di $\LP_{3}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente ammissibile</strong>; non è primariamente ammissibile, poiché $\bar b_{6} = -\tfrac{1}{4} < 0$:
 
             \begin{equation*}
             \begin{cases}
@@ -798,7 +798,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
             \bar z + s_m \, \bar b_{6} = \dfrac{29}{2} + \dfrac{4}{5} \cdot \left( -\dfrac{1}{4} \right) = \dfrac{143}{10}.
             $$
 
-            Dopo l'operazione di pivot otteniamo il seguente dizionario, che è ammissibile primale e duale, quindi <strong>ottimale</strong>:
+            Dopo l'operazione di pivot otteniamo il seguente dizionario, che è ammissibile sia primalmente sia dualmente, quindi <strong>ottimale</strong>:
 
             \begin{equation*}
             \begin{cases}
@@ -838,7 +838,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
             x_6 = x_2 - 2 = \left( \dfrac{5}{4} - \dfrac{1}{4} \, x_3 - \dfrac{5}{2} \, x_5 \right) - 2 = -\dfrac{3}{4} - \dfrac{1}{4} \, x_3 - \dfrac{5}{2} \, x_5.
             $$
 
-            Aggiungiamo questa riga al dizionario ottimale di $\LP_{3}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente fattibile</strong>; non è primariamente fattibile, poiché $\bar b_{6} = -\tfrac{3}{4} < 0$:
+            Aggiungiamo questa riga al dizionario ottimale di $\LP_{3}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente ammissibile</strong>; non è primariamente ammissibile, poiché $\bar b_{6} = -\tfrac{3}{4} < 0$:
 
             \begin{equation*}
             \begin{cases}
@@ -896,7 +896,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
             x_7 = 4 - x_1 = 4 - \left( \dfrac{41}{10} - \dfrac{1}{10} \, x_3 + \dfrac{2}{5} \, x_6 \right) = -\dfrac{1}{10} + \dfrac{1}{10} \, x_3 - \dfrac{2}{5} \, x_6.
             $$
 
-            Aggiungiamo questa riga al dizionario ottimale di $\LP_{4}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente fattibile</strong>; non è primariamente fattibile, poiché $\bar b_{7} = -\tfrac{1}{10} < 0$:
+            Aggiungiamo questa riga al dizionario ottimale di $\LP_{4}$. I costi ridotti non cambiano, quindi il nuovo dizionario è <strong>dualmente ammissibile</strong>; non è primariamente ammissibile, poiché $\bar b_{7} = -\tfrac{1}{10} < 0$:
 
             \begin{equation*}
             \begin{cases}
@@ -925,7 +925,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
             \bar z + s_m \, \bar b_{7} = \dfrac{143}{10} + 3 \cdot \left( -\dfrac{1}{10} \right) = 14.
             $$
 
-            Dopo l'operazione di pivot otteniamo il seguente dizionario, che è ammissibile primale e duale, quindi <strong>ottimale</strong>:
+            Dopo l'operazione di pivot otteniamo il seguente dizionario, che è ammissibile sia primalmente sia dualmente, quindi <strong>ottimale</strong>:
 
             \begin{equation*}
             \begin{cases}
@@ -952,7 +952,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
             La soluzione $\tilde{\vet x}(\LP_{6})$ è <strong>intero</strong>.
 
-            Da $z(\LP_{6}) = 14 > \LB = -\infty$, il limite inferiore e la soluzione incumbente vengono aggiornati:
+            Da $z(\LP_{6}) = 14 > \LB = -\infty$, il limite inferiore e la soluzione incumbent vengono aggiornati:
 
             $$
             \LB \leftarrow 14, \qquad \bar{\vet x} \leftarrow (4, 1).
@@ -1343,7 +1343,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
     - L'esecuzione A risolve problemi LP $6$, l'esecuzione B risolve $8$. Entrambe certificano la stessa soluzione ottimale $\tilde x_1 = 4, \tilde x_2 = 1$ di valore $14$, che è unica.
 
-    - L'esecuzione B trova prima una prima soluzione incumbente di valore $13$, ma fare il branching prima su $x_2$ porta a un albero più grande in questo caso.
+    - L'esecuzione B trova prima una prima soluzione incumbent di valore $13$, ma fare il branching prima su $x_2$ porta a un albero più grande in questo caso.
 
 <a id="box-11-ex-bb-heur"></a>
 
@@ -1402,7 +1402,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 ## 7.8 Errori tipici
 
 !!! attenzione "Avviso"
-    - <strong>Arrotondamento della soluzione LP.</strong> Arrotondare una soluzione ottimale della rilassazione LP fornisce al massimo una soluzione fattibile, in generale non ottimale. Nell'esempio dell'auto, arrotondare per difetto $\tilde{\vet x}(\LP) = (\tfrac{7}{2}, \tfrac{5}{2})$ dà $(3, 2)$ di valore $13$, mentre $z(\ILP) = 14$ a $(4, 1)$.
+    - <strong>Arrotondamento della soluzione LP.</strong> Arrotondare una soluzione ottimale del rilassamento LP fornisce al massimo una soluzione ammissibile, in generale non ottimale. Nell'esempio dell'auto, arrotondare per difetto $\tilde{\vet x}(\LP) = (\tfrac{7}{2}, \tfrac{5}{2})$ dà $(3, 2)$ di valore $13$, mentre $z(\ILP) = 14$ a $(4, 1)$.
 
     - <strong>Ramificazione sulla variabile sbagliata.</strong> La variabile di ramificazione deve essere una variabile intera con un valore frazionario: una variabile con un valore intero non esclude $\tilde{\vet x}(\LP_k)$.
 
@@ -1412,7 +1412,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 
     - <strong>Numerazione dei bambini saltati.</strong> Un bambino che non viene risolto non riceve un indice di nodo.
 
-    - <strong>Risoluzione di ogni nodo da zero.</strong> La risposta è corretta, ma molto più lenta: ogni figlio inizia dal dizionario ottimale del suo genitore, che è dualmente fattibile.
+    - <strong>Risoluzione di ogni nodo da zero.</strong> La risposta è corretta, ma molto più lenta: ogni figlio inizia dal dizionario ottimale del suo genitore, che è dualmente ammissibile.
 
 ## 7.9 Estensioni
 
@@ -1443,7 +1443,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
     <th>Da</th>
     </tr>
     <tr>
-    <td>Limiti primal e duali</td>
+    <td>Bound primali e bound duali</td>
     <td><span class="arithmatex">\(14\)</span></td>
     <td><span class="arithmatex">\(15\)</span></td>
     <td>soluzione euristica <span class="arithmatex">\((4, 1)\)</span>, e <span class="arithmatex">\(\lfloor z(\LP) \rfloor\)</span> con <span class="arithmatex">\(z(\LP) = \tfrac{31}{2}\)</span></td>

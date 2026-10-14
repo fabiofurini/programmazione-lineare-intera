@@ -26,7 +26,7 @@
 
     ---
 
-    Un vincolo con coefficienti positivi e la sua rilassazione LP · Coperture e disuguaglianze di copertura · Interpretazione geometrica · Separazione delle disuguaglianze di copertura · …
+    Un vincolo con coefficienti positivi e il suo rilassamento LP · Coperture e disuguaglianze di copertura · Interpretazione geometrica · Separazione delle disuguaglianze di copertura · …
 
     [:octicons-arrow-right-24: Leggi il capitolo](cover.md) · [Esercizi](../exercises/cover.md)
 

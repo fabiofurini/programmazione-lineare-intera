@@ -194,7 +194,7 @@ title: "Programmazione lineare intera"
         \underbrace{\sum_{j=1}^n c_j x_j}_{\vet c\T \vet x} \tag{1.3}
         \fine{equazione*}
 
-- Sia $P = \{\, \vet x \in \R^n : \mat A\,\vet x \le \vet b,~ \vet x \ge \vet 0 \,\}$ il poliedro dei vincoli, cioè la regione ammissibile del problema di PL con gli stessi dati. La regione ammissibile del problema di PLI è
+- Sia $P = \{\, \vet x \in \R^n : \mat A\,\vet x \le \vet b,~ \vet x \ge \vet 0 \,\}$ il poliedro dei vincoli, cioè la regione ammissibile del problema LP con gli stessi dati. La regione ammissibile del problema LPI è
 
     $$
     F = P \cap \Z^n.
@@ -209,7 +209,7 @@ title: "Programmazione lineare intera"
 
     ![Figura 1](../img/01-ilp/fig01.svg){ .fig .ovale loading=lazy  }
 
-    <em>L'esempio dell'auto: la regione fattibile del problema ILP è l'insieme dei suoi punti interi $16$ (neri) all'interno del politopoedro (rosso). La soluzione ottimale $(4,1)$ è blu, con la linea obiettivo $3\,x_1 + 2\,x_2 = 14$ (tratteggiata).</em>
+    <em>L'esempio dell'auto: la regione fattibile del problema ILP è l'insieme dei suoi punti interi $16$ (neri) all'interno del politopo (rosso). La soluzione ottimale $(4,1)$ è blu, con la linea obiettivo $3\,x_1 + 2\,x_2 = 14$ (tratteggiata).</em>
 
     Il punto $\bar{\vet x} = (2,2)$ appartiene a $F$, perché $10 \cdot 2 + 4 \cdot 2 = 28 \le 45$ e $4 \cdot 2 + 14 \cdot 2 = 36 \le 49$. Il punto $(4,2)$ non appartiene a $F$, perché $10 \cdot 4 + 4 \cdot 2 = 48 > 45$. Il punto $(\frac{7}{2},\frac{5}{2})$ appartiene a $P$ ma non a $F$, perché non è intero.
 
@@ -251,13 +251,13 @@ title: "Programmazione lineare intera"
 
 ## 1.2 Possibili risultati
 
-- Come nella programmazione lineare, un problema ILP ha esattamente uno dei tre <strong>risultati</strong>: è <strong>inattuabile</strong> ($F = \emptyset$), <strong>illimitato</strong> (la funzione obiettivo non è limitata superiormente su $F$) o ha una <strong>soluzione ottimale</strong>.
+- Come nella programmazione lineare, un problema ILP ha esattamente uno dei tre <strong>risultati</strong>: è <strong>inammissibile</strong> ($F = \emptyset$), <strong>illimitato</strong> (la funzione obiettivo non è limitata superiormente su $F$) o ha una <strong>soluzione ottimale</strong>.
 
 - Se il poliedro $P$ è limitato, allora $F$ è un <strong>insieme finito</strong>, e una soluzione ottimale esiste non appena $F \neq \emptyset$.
 
 <a id="box-7-exInfeasILP"></a>
 
-!!! esempio "Esempio 1.4: un problema ILP non fattibile con un problema LP fattibile"
+!!! esempio "Esempio 1.4: un problema ILP inammissibile con un problema LP fattibile"
     Il problema ILP
 
     $$
@@ -275,11 +275,11 @@ title: "Programmazione lineare intera"
     \max \big\{\, x_1 + x_2 ~:~ x_1 - x_2 \le 1,~ x_1, x_2 \in \Z_{\ge 0} \,\big\}
     $$
 
-    è illimitato: i punti $(k,k)$, $k \in \Z_{\ge 0}$, sono fattibili, con valore $2k$.
+    è illimitato: i punti $(k,k)$, $k \in \Z_{\ge 0}$, sono ammissibili, con valore $2k$.
 
 ## 1.3 Enumerazione completa
 
-- Quando la regione fattibile è un insieme finito, possiamo trovare una soluzione ottimale mediante <strong>enumerazione completa</strong>: calcoliamo la funzione obiettivo per ogni soluzione fattibile e conserviamo la migliore. Per l'esempio dell'auto, ci sono $16$ punti:
+- Quando la regione fattibile è un insieme finito, possiamo trovare una soluzione ottimale mediante <strong>enumerazione completa</strong>: calcoliamo la funzione obiettivo per ogni soluzione ammissibile e conserviamo la migliore. Per l'esempio dell'auto, ci sono $16$ punti:
 
 $$
 \begin{array}{ccc|ccc}
@@ -362,29 +362,29 @@ $$
 !!! chiave ""
     La enumerazione completa è già impraticabile per modelli di dimensioni moderate. Un computer $1000$ volte più veloce guadagna solo circa $10$ variabili, perché $2^{10} = 1024 \approx 1000$.
 
-- La via d'uscita è <strong>evitare di elencare</strong>. Se conosciamo un limite inferiore e un limite superiore sul valore ottimale, possiamo escludere intere regioni di soluzioni fattibili senza visitarle. I due limiti provengono da due fonti diverse, le soluzioni fattibili e le rilassazioni: sono l'argomento del capitolo successivo, «Limiti primali e duali».
+- La via d'uscita è <strong>evitare di elencare</strong>. Se conosciamo un limite inferiore e un limite superiore sul valore ottimale, possiamo escludere intere regioni di soluzioni ammissibili senza visitarle. I due limiti provengono da due fonti diverse, le soluzioni ammissibili e i rilassamenti: sono l'argomento del capitolo successivo, «Bound primali e bound duali».
 
 ## 1.4 Errori tipici
 
 !!! attenzione "Avviso"
-    - <strong>Credere che la regione fattibile sia convessa.</strong> È l'insieme dei punti interi di un politopo, non il politopo stesso. Il punto medio di due soluzioni fattibili può essere non fattibile.
+    - <strong>Credere che la regione fattibile sia convessa.</strong> È l'insieme dei punti interi di un politopo, non il politopo stesso. Il punto medio di due soluzioni ammissibili può essere inammissibile.
 
     - <strong>Credere che la regione ammissibile sia sempre finita.</strong> Essa è finita solo se il politopo è limitato; altrimenti il problema ILP può essere illimitato.
 
     - <strong>Credere che un problema di LP fattibile dia un problema di ILP fattibile.</strong> Il problema di LP può avere soluzioni mentre nessun punto intero soddisfa i vincoli.
 
-    - <strong>Considerare una buona soluzione fattibile come ottimale.</strong> Senza un vincolo dall'altra parte (capitolo successivo) non c'è alcuna certificazione di ottimalità.
+    - <strong>Considerare una buona soluzione ammissibile come ottimale.</strong> Senza un vincolo dall'altra parte (capitolo successivo) non c'è alcuna certificazione di ottimalità.
 
 ## 1.5 In sintesi
 
 !!! chiave "In sintesi"
     - Un problema ILP massimizza una funzione lineare sui punti interi di un politopo; la sua regione ammissibile non è convessa e è finita quando il politopo è limitato.
 
-    - I risultati sono non fattibili, illimitati o ottimali, e un problema LP fattibile può avere una versione ILP non fattibile.
+    - I risultati sono non fattibili, illimitati o ottimali, e un problema LP fattibile può avere una versione ILP inammissibile.
 
     - La enumerazione completa costa $2^n$ valutazioni per $n$ variabili binarie: non è un'opzione al di là di modelli molto piccoli.
 
-    - Per evitare l'enumerazione abbiamo bisogno di limiti su $z(\ILP)$ da entrambi i lati: soluzioni fattibili e rilassamenti, l'argomento del prossimo capitolo.
+    - Per evitare l'enumerazione abbiamo bisogno di limiti su $z(\ILP)$ da entrambi i lati: soluzioni ammissibili e rilassamenti, l'argomento del prossimo capitolo.
 
     <strong>Cruscotto dell'esempio dell'auto.</strong> Ancora nessun limite: il capitolo successivo fornisce i primi limiti inferiori e superiori.
 

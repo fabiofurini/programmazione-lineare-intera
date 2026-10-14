@@ -47,7 +47,7 @@ title: "Disuguaglianze valide"
 
     - L'ineguaglianza è <strong>stretta</strong> se almeno un punto di $F$ la soddisfa con uguaglianza.
 
-- Una disuguaglianza valida non esclude alcun punto di $F$, ma può escludere punti frazionari delil rilassamento LP. Il lato destro di una disuguaglianza stretta non può essere diminuito senza perdere una soluzione ammissibile.
+- Una disuguaglianza valida non esclude alcun punto di $F$, ma può escludere punti frazionari del rilassamento LP. Il lato destro di una disuguaglianza stretta non può essere diminuito senza perdere una soluzione ammissibile.
 
 - Aggiungere un'ineguaglianza valida alla formulazione non cambia $F$ e riduce il poliedro $P$. La nuova formulazione è più forte, quindi il suo rilassamento LP fornisce un limite superiore che non è peggiore.
 
@@ -63,7 +63,7 @@ title: "Disuguaglianze valide"
 
 ## 4.2 Derivare disuguaglianze valide mediante arrotondamento
 
-- I vincoli sono combinati con moltiplicatori non negativi, come per i limiti duali; poiché le variabili sono intere, il lato destro della combinazione può essere arrotondato per difetto.
+- I vincoli sono combinati con moltiplicatori non negativi, come per i bound duali; poiché le variabili sono intere, il lato destro della combinazione può essere arrotondato per difetto.
 
 <a id="box-4-prop-rounding"></a>
 
@@ -79,7 +79,7 @@ title: "Disuguaglianze valide"
 
 ??? dimostrazione "Proof"
 
-    Per ogni soluzione fattibile, $\sum_j \alpha_j \, x_j \le \sum_j \big( \sum_i \pi_i \, a_{ij} \big) x_j \le \sum_i \pi_i \, b_i$, per $x_j \ge 0$ e per i vincoli moltiplicati per $\pi_i \ge 0$. Il lato sinistro è un numero intero, perché $\alpha_j$ e $x_j$ sono interi, quindi è al massimo la parte intera del lato destro. <span class="qed">□</span>
+    Per ogni soluzione ammissibile, $\sum_j \alpha_j \, x_j \le \sum_j \big( \sum_i \pi_i \, a_{ij} \big) x_j \le \sum_i \pi_i \, b_i$, per $x_j \ge 0$ e per i vincoli moltiplicati per $\pi_i \ge 0$. Il lato sinistro è un numero intero, perché $\alpha_j$ e $x_j$ sono interi, quindi è al massimo la parte intera del lato destro. <span class="qed">□</span>
 
 - La proposizione richiede che tutte le variabili siano intere e non negative. Con una variabile continua il lato sinistro non è un intero e il lato destro non può essere arrotondato.
 
@@ -98,7 +98,7 @@ title: "Disuguaglianze valide"
     2\,x_1 + 7\,x_2 \le 24.
     $$
 
-    Entrambe le disuguaglianze escludono la soluzione ottimale $(\frac{7}{2},\frac{5}{2})$ delil rilassamento LP: $5 \cdot \frac{7}{2} + 2 \cdot \frac{5}{2} = \frac{45}{2} > 22$ e $2 \cdot \frac{7}{2} + 7 \cdot \frac{5}{2} = \frac{49}{2} > 24$. I nuovi rilassamenti LP danno:
+    Entrambe le disuguaglianze escludono la soluzione ottimale $(\frac{7}{2},\frac{5}{2})$ del rilassamento LP: $5 \cdot \frac{7}{2} + 2 \cdot \frac{5}{2} = \frac{45}{2} > 22$ e $2 \cdot \frac{7}{2} + 7 \cdot \frac{5}{2} = \frac{49}{2} > 24$. I nuovi rilassamenti LP danno:
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -164,7 +164,7 @@ title: "Disuguaglianze valide"
 
     - <strong>Passo 1, $\beta = 6$.</strong> Lascia che $x_1 + x_2 = 6$, quindi $x_2 = 6 - x_1$. Il primo vincolo diventa $6\,x_1 + 24 \le 45$, cioè $x_1 \le \frac{7}{2}$, quindi $x_1 \le 3$. Il secondo diventa $84 - 10\,x_1 \le 49$, cioè $x_1 \ge \frac{7}{2}$, quindi $x_1 \ge 4$. I limiti si contraddicono a vicenda: nessun punto fattibile ha $x_1 + x_2 = 6$, e impostiamo $\beta = 5$.
 
-    - <strong>Passo 1, $\beta = 5$.</strong> Lasciate che $x_2 = 5 - x_1$. I vincoli diventano $x_1 \le \frac{25}{6}$, quindi $x_1 \le 4$, e $x_1 \ge \frac{21}{10}$, quindi $x_1 \ge 3$. Non c'è contraddizione, e i punti $(3,2)$ e $(4,1)$ sono fattibili con $x_1 + x_2 = 5$.
+    - <strong>Passo 1, $\beta = 5$.</strong> Lasciate che $x_2 = 5 - x_1$. I vincoli diventano $x_1 \le \frac{25}{6}$, quindi $x_1 \le 4$, e $x_1 \ge \frac{21}{10}$, quindi $x_1 \ge 3$. Non c'è contraddizione, e i punti $(3,2)$ e $(4,1)$ sono ammissibili con $x_1 + x_2 = 5$.
 
     - <strong>Passo 2.</strong> L'ineguaglianza $x_1 + x_2 \le 5$ è valida e stringente.
 
@@ -183,7 +183,7 @@ title: "Disuguaglianze valide"
 
     - <strong>Passo 1, $\beta = 8$.</strong> Lascia $x_1 = 8 - 2\,x_2$. Il primo vincolo diventa $80 - 16\,x_2 \le 45$, quindi $x_2 \ge 3$; il secondo diventa $32 + 6\,x_2 \le 49$, quindi $x_2 \le 2$. Si contraddicono a vicenda, e impostiamo $\beta = 7$.
 
-    - <strong>Fase 1, $\beta = 7$.</strong> Lascia che $x_1 = 7 - 2\,x_2$: le vincoli diventino $70 - 16\,x_2 \le 45$, dunque $x_2 \ge 2$, e $28 + 6\,x_2 \le 49$, dunque $x_2 \le 3$. I punti $(3,2)$ e $(1,3)$ sono fattibili con $x_1 + 2\,x_2 = 7$.
+    - <strong>Fase 1, $\beta = 7$.</strong> Lascia che $x_1 = 7 - 2\,x_2$: le vincoli diventino $70 - 16\,x_2 \le 45$, dunque $x_2 \ge 2$, e $28 + 6\,x_2 \le 49$, dunque $x_2 \le 3$. I punti $(3,2)$ e $(1,3)$ sono ammissibili con $x_1 + 2\,x_2 = 7$.
 
     - <strong>Passo 2.</strong> L'ineguaglianza $x_1 + 2\,x_2 \le 7$ è valida e stringente.
 
@@ -204,7 +204,7 @@ title: "Disuguaglianze valide"
 
 - Famiglie di disuguaglianze per strutture specifiche dei vincoli, come le <strong>disuguaglianze di copertura</strong> di un vincolo con coefficienti positivi di un problema binario (capitolo successivo).
 
-- La conclusione di questo capitolo, applicata sistematicamente alle righe del dizionario ottimale delil rilassamento LP: i <strong>tagli frazionari di Gomory</strong> dell'algoritmo del piano di taglio, e poi l'algoritmo <strong>branch-and-cut</strong>.
+- La conclusione di questo capitolo, applicata sistematicamente alle righe del dizionario ottimale del rilassamento LP: i <strong>tagli frazionari di Gomory</strong> dell'algoritmo del piano di taglio, e poi l'algoritmo <strong>branch-and-cut</strong>.
 
 ## 4.5 Errori tipici
 
@@ -222,7 +222,7 @@ title: "Disuguaglianze valide"
 ## 4.6 In sintesi
 
 !!! chiave "In sintesi"
-    - Un'ineguaglianza valida è soddisfatta da tutte le soluzioni intere ammissibili; può eliminare punti frazionari delil rilassamento LP e rende la formulazione più forte.
+    - Un'ineguaglianza valida è soddisfatta da tutte le soluzioni intere ammissibili; può eliminare punti frazionari del rilassamento LP e rende la formulazione più forte.
 
     - Moltiplicatori non negativi dei vincoli, con il lato destro arrotondato per difetto, forniscono disuguaglianze valide per i problemi ILP.
 
@@ -242,7 +242,7 @@ title: "Disuguaglianze valide"
     <th>Da</th>
     </tr>
     <tr>
-    <td>Limiti primal e duali</td>
+    <td>Bound primali e bound duali</td>
     <td><span class="arithmatex">\(14\)</span></td>
     <td><span class="arithmatex">\(15\)</span></td>
     <td>soluzione euristica <span class="arithmatex">\((4, 1)\)</span>, e <span class="arithmatex">\(\lfloor z(\LP) \rfloor\)</span> con <span class="arithmatex">\(z(\LP) = \tfrac{31}{2}\)</span></td>

@@ -1,12 +1,12 @@
 ---
-title: "Esercizi · Limiti primali e duali"
+title: "Esercizi · Bound primali e bound duali"
 ---
 
-# Esercizi · Limiti primali e duali
+# Esercizi · Bound primali e bound duali
 
 <div class="info-capitolo" markdown>
 
-**Esercizi · Capitolo 2** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 2: Limiti primal e dual](../models-and-bounds/lp-relaxation.md) · [:material-file-pdf-box: Esercizi, volume 1 (PDF)](../pdf/exercises-1-models-bounds-formulations.pdf)
+**Esercizi · Capitolo 2** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 2: Bound primali e bound duali](../models-and-bounds/lp-relaxation.md) · [:material-file-pdf-box: Esercizi, volume 1 (PDF)](../pdf/exercises-1-models-bounds-formulations.pdf)
 
 </div>
 
@@ -27,9 +27,9 @@ title: "Esercizi · Limiti primali e duali"
 
     **Domande**
 
-    1. Applica l'euristica a una variabile e l'euristica in due fasi, in entrambi gli ordini delle variabili, e fornisci il miglior limite primale $\LB$.
+    1. Applica l'euristica a una variabile e l'euristica in due fasi, in entrambi gli ordini delle variabili, e fornisci il miglior bound primale $\LB$.
 
-    2. Risolvi il rilassamento LP graficamente e fornisci il limite duale $\UB$ che esso fornisce.
+    2. Risolvi il rilassamento LP graficamente e fornisci il bound duale $\UB$ che esso fornisce.
 
     3. Calcola il divario di ottimalità. La migliore soluzione euristica è certificata come ottimale?
 
@@ -83,7 +83,7 @@ title: "Esercizi · Limiti primali e duali"
         </tr>
         </table></div>
 
-        Il miglior limite primale è $\LB = 13$, dato da $\bar{\vet x} = (2,3)$.
+        Il miglior bound primale è $\LB = 13$, dato da $\bar{\vet x} = (2,3)$.
 
     2. Graficamente, abbiamo:
 
@@ -101,13 +101,13 @@ title: "Esercizi · Limiti primali e duali"
         \qquad\Longrightarrow\qquad x_1 = \dfrac{7}{2}, \quad x_2 = \dfrac{8}{3}
         $$
 
-        Il valore ottimale è $z(\LP) = 2 \cdot \tfrac{7}{2} + 3 \cdot \tfrac{8}{3} = 15$. I dati sono interi, quindi il limite duale è
+        Il valore ottimale è $z(\LP) = 2 \cdot \tfrac{7}{2} + 3 \cdot \tfrac{8}{3} = 15$. I dati sono interi, quindi il bound duale è
 
         $$
         z(\ILP) \le z(\LP) = 15
         $$
 
-    3. Con $\LB = 13$ e $\UB = 15$ il divario di optimalità è
+    3. Con $\LB = 13$ e $\UB = 15$ il divario di ottimalità è
 
         $$
         \frac{\UB - \LB}{|\LB|} = \frac{15 - 13}{13} = \dfrac{2}{13} \approx 15.4\%
@@ -135,13 +135,13 @@ title: "Esercizi · Limiti primali e duali"
 
     **Domande**
 
-    1. Risolvi il rilassamento LP graficamente e fornisci il limite duale $\UB$.
+    1. Risolvi il rilassamento LP graficamente e fornisci il bound duale $\UB$.
 
-    2. Arrotonda la soluzione ottimale del rilassamento LP nei quattro modi possibili (ogni componente in basso o in alto). Quali punti arrotondati sono fattibili? Fornisci il miglior limite primale $\LB$ ottenuto arrotondando.
+    2. Arrotonda la soluzione ottimale del rilassamento LP nei quattro modi possibili (ogni componente in basso o in alto). Quali punti arrotondati sono ammissibili? Fornisci il miglior bound primale $\LB$ ottenuto arrotondando.
 
     3. Calcola il divario di ottimalità.
 
-    4. Dimostra che il punto $(6,2)$ è fattibile e certifica che è una soluzione ottimale.
+    4. Dimostra che il punto $(6,2)$ è ammissibile e certifica che è una soluzione ottimale.
 
 soluzione "Solution"
 
@@ -167,7 +167,7 @@ soluzione "Solution"
         z(\ILP) \le \left\lfloor z(\LP) \right\rfloor = \left\lfloor \dfrac{110}{3} \right\rfloor = 36
         $$
 
-    2. La soluzione ottimale delil rilassamento LP è $(\dfrac{16}{3},\dfrac{10}{3})$, e il suo arrotondamento al punto intero più vicino è $(5,3)$. I quattro punti arrotondati sono:
+    2. La soluzione ottimale del rilassamento LP è $(\dfrac{16}{3},\dfrac{10}{3})$, e il suo arrotondamento al punto intero più vicino è $(5,3)$. I quattro punti arrotondati sono:
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -202,9 +202,9 @@ soluzione "Solution"
         </tr>
         </table></div>
 
-        Solo $(5,3)$ è fattibile, quindi l'arrotondamento dà $\LB = 5 \cdot 5 + 3 \cdot 3 = 34$.
+        Solo $(5,3)$ è ammissibile, quindi l'arrotondamento dà $\LB = 5 \cdot 5 + 3 \cdot 3 = 34$.
 
-    3. Con $\LB = 34$ e $\UB = 36$ il divario di optimalità è
+    3. Con $\LB = 34$ e $\UB = 36$ il divario di ottimalità è
 
         $$
         \frac{\UB - \LB}{|\LB|} = \frac{36 - 34}{34} = \dfrac{1}{17} \approx 5.9\%
@@ -213,7 +213,7 @@ soluzione "Solution"
     4. Il punto $(6,2)$ soddisfa i vincoli, $2 \cdot 6 + 1 \cdot 2 = 14 \le 14, \quad 1 \cdot 6 + 8 \cdot 2 = 22 \le 32$, e il suo valore è $5 \cdot 6 + 3 \cdot 2 = 36$. Pertanto $\LB = 36 = \UB$: il divario di ottimalità è zero.
 
         !!! chiave ""
-            La soluzione fattibile $(6,2)$ ha valore $36 = \lfloor z(\LP) \rfloor$: è <strong>certificata ottimale</strong>, $z(\ILP) = 36$. Approssimare la soluzione LP fornisce solo $(5,3)$, di valore $34$.
+            La soluzione ammissibile $(6,2)$ ha valore $36 = \lfloor z(\LP) \rfloor$: è <strong>certificata ottimale</strong>, $z(\ILP) = 36$. Approssimare la soluzione LP fornisce solo $(5,3)$, di valore $34$.
 
 <a id="esercizio-2-3"></a>
 
@@ -232,9 +232,9 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Risolvi il rilassamento LP graficamente e fornisci il limite duale $\UB$.
+    1. Risolvi il rilassamento LP graficamente e fornisci il bound duale $\UB$.
 
-    2. Arrotonda la soluzione ottimale del rilassamento LP nei quattro modi possibili. L'arrotondamento per difetto è fattibile? L'arrotondamento al punto intero più vicino è fattibile? Fornisci il miglior limite primale ottenuto tramite l'arrotondamento.
+    2. Arrotonda la soluzione ottimale del rilassamento LP nei quattro modi possibili. L'arrotondamento per difetto è ammissibile? L'arrotondamento al punto intero più vicino è ammissibile? Fornisci il miglior bound primale ottenuto tramite l'arrotondamento.
 
     3. Trova una soluzione ottimale del problema ILP graficamente e confrontala con la soluzione del rilassamento LP.
 
@@ -244,7 +244,7 @@ soluzione "Solution"
 
         ![Figura 3](../img/ex-02-lp-relaxation/fig03.svg){ .fig .ovale loading=lazy  }
 
-        <em>Regione ammissibile delil rilassamento LP (rosso), i suoi punti interi (nero), la soluzione ottimale delil rilassamento LP (blu) con la linea dell'obiettivo attraverso di essa (tratteggiata), e la soluzione ILP ottimale $(5,0)$ (cerchio blu).</em>
+        <em>Regione ammissibile del rilassamento LP (rosso), i suoi punti interi (nero), la soluzione ottimale del rilassamento LP (blu) con la linea dell'obiettivo attraverso di essa (tratteggiata), e la soluzione ILP ottimale $(5,0)$ (cerchio blu).</em>
 
         Il vertice ottimale è l'intersezione delle linee dei vincoli 1 e 2:
 
@@ -297,7 +297,7 @@ soluzione "Solution"
         </tr>
         </table></div>
 
-        L'arrotondamento verso il basso $(0,2)$ e l'arrotondamento al punto più vicino $(1,3)$ sono entrambi <strong>inattuabili</strong>. L'unico arrotondamento fattibile è $(1,2)$, con $\LB = 18$.
+        L'arrotondamento verso il basso $(0,2)$ e l'arrotondamento al punto più vicino $(1,3)$ sono entrambi <strong>inammissibili</strong>. L'unico arrotondamento fattibile è $(1,2)$, con $\LB = 18$.
 
     3. Il gradiente della funzione obiettivo è $\nabla f = (4,7)$. I punti interi vicini all'ottimo LP si trovano sotto la linea ripida del vincolo 2, e l'ultimo punto di $F$ raggiunto dalla linea di livello è $(5,0)$, sulla linea $4\,x_1 + 7\,x_2 = 20$. Il suo valore $20$ è uguale a $\UB = 20$, quindi è certificato ottimale.
 
@@ -306,7 +306,7 @@ soluzione "Solution"
 
 <a id="esercizio-2-4"></a>
 
-!!! esercizio "Esercizio 2.4: Limiti duali (P2)"
+!!! esercizio "Esercizio 2.4: Bound duali (P2)"
     !!! nota ""
         Considera il seguente problema ILP in forma canonica di massimizzazione con $n=2$ variabili intere e $m=2$ vincoli:
 
@@ -319,7 +319,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-        La soluzione ottimale della sua rilassamento LP è $\tilde{\vet x}(\LP) = (\dfrac{5}{2},\dfrac{9}{2})$, con $z(\LP) = 16$.
+        La soluzione ottimale del suo rilassamento LP è $\tilde{\vet x}(\LP) = (\dfrac{5}{2},\dfrac{9}{2})$, con $z(\LP) = 16$.
 
     **Domande**
 
@@ -331,7 +331,7 @@ soluzione "Solution"
 
     2. Scrivi il problema duale D(LP) del rilassamento LP e verifica che $\tilde{\vet\pi} = (\tfrac{4}{17},\tfrac{11}{17})$ sia una soluzione duale ottimale.
 
-    3. Derivare i limiti superiori sulle variabili dalle vincoli. Migliorano il limite delil rilassamento LP?
+    3. Derivare i limiti superiori sulle variabili dalle vincoli. Migliorano il limite del rilassamento LP?
 
 ??? soluzione "Soluzione"
 
@@ -389,7 +389,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-        Il punto $(\tfrac{4}{17},\tfrac{11}{17})$ è fattibile, poiché $-4 \cdot \tfrac{4}{17} + 3 \cdot \tfrac{11}{17} = 1 \ge 1$ e $10 \cdot \tfrac{4}{17} + 1 \cdot \tfrac{11}{17} = 3 \ge 3$, e il suo valore è $35 \cdot \tfrac{4}{17} + 12 \cdot \tfrac{11}{17} = 16 = z(\LP)$. Per la dualità debole nessuna soluzione duale fattibile ha un valore più piccolo, quindi è ottimale.
+        Il punto $(\tfrac{4}{17},\tfrac{11}{17})$ è ammissibile, poiché $-4 \cdot \tfrac{4}{17} + 3 \cdot \tfrac{11}{17} = 1 \ge 1$ e $10 \cdot \tfrac{4}{17} + 1 \cdot \tfrac{11}{17} = 3 \ge 3$, e il suo valore è $35 \cdot \tfrac{4}{17} + 12 \cdot \tfrac{11}{17} = 16 = z(\LP)$. Per la dualità debole nessuna soluzione dualmente ammissibile ha un valore più piccolo, quindi è ottimale.
 
     3. Solo il vincolo 2, $3\,x_1 + x_2 \le 12$, ha coefficienti non negativi; il vincolo 1 ha un coefficiente negativo e non fornisce alcun limite. Dal vincolo 2:
 
@@ -418,17 +418,17 @@ soluzione "Solution"
         \end{array}
         $$
 
-        La soluzione ottimale della sua rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{17}{25},\tfrac{49}{25},\tfrac{12}{25})$, con $z(\LP) = \dfrac{499}{25}$.
+        La soluzione ottimale del suo rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{17}{25},\tfrac{49}{25},\tfrac{12}{25})$, con $z(\LP) = \dfrac{499}{25}$.
 
     **Domande**
 
-    1. Fornire il limite duale $\UB$ fornito dal rilassamento LP.
+    1. Fornire il bound duale $\UB$ fornito dal rilassamento LP.
 
-    2. Arrotonda per difetto la soluzione ottimale della rilassazione LP. Il punto arrotondato è fattibile e quale bound primale fornisce?
+    2. Arrotonda per difetto la soluzione ottimale del rilassamento LP. Il punto arrotondato è ammissibile e quale bound primale fornisce?
 
     3. Applica l'euristica a due fasi (estesa a tre fasi) con le variabili in ordine di costo decrescente, $x_3$, $x_2$, $x_1$.
 
-    4. Calcola il divario di ottimalità con il miglior limite primale.
+    4. Calcola il divario di ottimalità con il miglior bound primale.
 
 ??? soluzione "Soluzione"
 
@@ -438,7 +438,7 @@ soluzione "Solution"
         z(\ILP) \le \left\lfloor z(\LP) \right\rfloor = \left\lfloor \dfrac{499}{25} \right\rfloor = 19
         $$
 
-    2. Arrotondare per difetto dà $(0,1,0)$, che è fattibile: $9 \cdot 0 + 2 \cdot 1 + 2 \cdot 0 = 2 \le 11, \quad 2 \cdot 0 + 6 \cdot 1 + 6 \cdot 0 = 6 \le 16, \quad 4 \cdot 0 + 2 \cdot 1 + 7 \cdot 0 = 2 \le 10$. Il suo valore dà $\LB = 5 \cdot 0 + 6 \cdot 1 + 10 \cdot 0 = 6$, lontano dal limite superiore.
+    2. Arrotondare per difetto dà $(0,1,0)$, che è ammissibile: $9 \cdot 0 + 2 \cdot 1 + 2 \cdot 0 = 2 \le 11, \quad 2 \cdot 0 + 6 \cdot 1 + 6 \cdot 0 = 6 \le 16, \quad 4 \cdot 0 + 2 \cdot 1 + 7 \cdot 0 = 2 \le 10$. Il suo valore dà $\LB = 5 \cdot 0 + 6 \cdot 1 + 10 \cdot 0 = 6$, lontano dal limite superiore.
 
     3. Ogni variabile, nell'ordine $x_3$, $x_2$, $x_1$, assume il suo valore massimo con i termini noti residui:
 
@@ -450,7 +450,7 @@ soluzione "Solution"
 
         La soluzione euristica è $\bar{\vet x} = (0,1,1)$, con $\LB = 5 \cdot 0 + 6 \cdot 1 + 10 \cdot 1 = 16$.
 
-    4. Con $\LB = 16$ e $\UB = 19$ il divario di optimalità è
+    4. Con $\LB = 16$ e $\UB = 19$ il divario di ottimalità è
 
         $$
         \frac{\UB - \LB}{|\LB|} = \frac{19 - 16}{16} = \dfrac{3}{16} \approx 18.8\%

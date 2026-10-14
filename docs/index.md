@@ -32,9 +32,9 @@ Ogni capitolo segue la numerazione delle dispense. Definizioni, risultati, esemp
 
   ---
 
-  Modelli ILP, MIP e BIP; soluzioni ammissibili e ottime; limiti primali e duali, gap di ottimalità e rilassamento lineare.
+  Modelli ILP, MIP e BIP; soluzioni ammissibili e ottime; bound primali e bound duali, gap di ottimalità e rilassamento lineare.
 
-  Capitoli 1–2 · Modelli, limiti primali e duali
+  Capitoli 1–2 · Modelli, bound primali e bound duali
 
       [:octicons-arrow-right-24: Vai ai capitoli](models-and-bounds/index.md)
 
@@ -82,7 +82,7 @@ Ogni capitolo segue la numerazione delle dispense. Definizioni, risultati, esemp
 
 ## Altri corsi
 
-- [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/) — poliedri, algoritmo del simplesso, dualità e dual simplesso.
+- [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/) — poliedri, algoritmo del simplesso, dualità e simplesso duale.
 - [Ottimizzazione convessa](https://fabiofurini.github.io/ottimizzazione-convessa/) — insiemi e funzioni convesse, problemi di ottimizzazione e laboratorio interattivo.
 - [Algoritmi](https://fabiofurini.github.io/algoritmi/) — rappresentazione dei numeri, pseudocodice, ordinamento e ricerca, analisi e algoritmi ricorsivi.
 - [Ottimizzazione combinatoria](https://fabiofurini.github.io/ottimizzazione-combinatoria/) — zaino, bin packing, colorazione, commesso viaggiatore, scheduling e lot sizing.

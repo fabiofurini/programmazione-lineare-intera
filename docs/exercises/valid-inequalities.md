@@ -25,13 +25,13 @@ title: "Esercizi · Disuguaglianze valide"
         \end{array}
         $$
 
-        La soluzione ottimale della sua rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{5}{2},\tfrac{9}{2})$, con $z(\LP) = 16$.
+        La soluzione ottimale del suo rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{5}{2},\tfrac{9}{2})$, con $z(\LP) = 16$.
 
     **Domande**
 
     1. Usando i moltiplicatori $(\frac{3}{34}, \frac{2}{17})$, mostra che $x_2 \le 4$ è una disuguaglianza valida.
 
-    2. L'ineguaglianza è stretta? Taglia via la soluzione ottimale della rilassazione LP?
+    2. L'ineguaglianza è stretta? Taglia via la soluzione ottimale del rilassamento LP?
 
     3. Aggiungi la disuguaglianza alla formulazione e calcola il nuovo limite superiore.
 
@@ -43,7 +43,7 @@ title: "Esercizi · Disuguaglianze valide"
         x_2 \le \dfrac{9}{2}.
         $$
 
-        Poiché $x_j \ge 0$ e i coefficienti $0 \ge 0$, $1 \ge 1$ sono almeno quelli di $x_2$, ogni soluzione fattibile soddisfa $x_2 \le x_2 \le \tfrac{9}{2}$. Il lato sinistro è un numero intero, quindi
+        Poiché $x_j \ge 0$ e i coefficienti $0 \ge 0$, $1 \ge 1$ sono almeno quelli di $x_2$, ogni soluzione ammissibile soddisfa $x_2 \le x_2 \le \tfrac{9}{2}$. Il lato sinistro è un numero intero, quindi
 
         $$
         x_2 \le \left\lfloor \dfrac{9}{2} \right\rfloor = 4
@@ -51,13 +51,13 @@ title: "Esercizi · Disuguaglianze valide"
 
         è una <strong>disuguaglianza valida</strong>.
 
-    2. Le soluzioni fattibili $(2,4)$ soddisfano $x_2 = 4$, quindi l'ineguaglianza è <strong>stretta</strong>. Essa <strong>esclude</strong> $\tilde{\vet x}(\LP) = (\tfrac{5}{2},\tfrac{9}{2})$, poiché $0 \cdot \tfrac{5}{2} + 1 \cdot \tfrac{9}{2} = \tfrac{9}{2} > 4$.
+    2. Le soluzioni ammissibili $(2,4)$ soddisfano $x_2 = 4$, quindi l'ineguaglianza è <strong>stretta</strong>. Essa <strong>esclude</strong> $\tilde{\vet x}(\LP) = (\tfrac{5}{2},\tfrac{9}{2})$, poiché $0 \cdot \tfrac{5}{2} + 1 \cdot \tfrac{9}{2} = \tfrac{9}{2} > 4$.
 
     3. Graficamente, abbiamo:
 
         ![Figura 1](../img/ex-04-valid-inequalities/fig01.svg){ .fig .ovale loading=lazy  }
 
-        <em>La rilassamento LP con la disuguaglianza valida $x_2 \le 4$ (verde): la soluzione ottimale $(\frac{5}{2},\frac{9}{2})$ del rilassamento LP originale (cerchio blu) viene esclusa, e la nuova soluzione ottimale è blu, con la sua linea obiettivo (tratteggiata).</em>
+        <em>Il rilassamento LP con la disuguaglianza valida $x_2 \le 4$ (verde): la soluzione ottimale $(\frac{5}{2},\frac{9}{2})$ del rilassamento LP originale (cerchio blu) viene esclusa, e la nuova soluzione ottimale è blu, con la sua linea obiettivo (tratteggiata).</em>
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -98,7 +98,7 @@ title: "Esercizi · Disuguaglianze valide"
         \end{array}
         $$
 
-        La soluzione ottimale della sua rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{16}{3},\tfrac{10}{3})$, con $z(\LP) = \dfrac{110}{3}$.
+        La soluzione ottimale del suo rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{16}{3},\tfrac{10}{3})$, con $z(\LP) = \dfrac{110}{3}$.
 
     **Domande**
 
@@ -106,11 +106,11 @@ title: "Esercizi · Disuguaglianze valide"
 
     2. Mostra che $x_1 + x_2 \le 8$ è un'ineguaglianza valida, utilizzando i moltiplicatori $(\frac{7}{15},\frac{1}{15})$. Essa esclude la soluzione ottimale della rilassata LP?
 
-    3. Aggiungi $x_1 + x_2 \le 8$ alla formulazione e risolvi la nuova rilassazione LP. Cosa puoi concludere?
+    3. Aggiungi $x_1 + x_2 \le 8$ alla formulazione e risolvi la nuova rilassamento LP. Cosa puoi concludere?
 
 ??? soluzione "Soluzione"
 
-    1. No. Il punto $(6,2)$ è fattibile, $2 \cdot 6 + 1 \cdot 2 = 14 \le 14, \quad 1 \cdot 6 + 8 \cdot 2 = 22 \le 32$, e viola l'ineguaglianza: $6 + 2 = 8 > 7$; lo stesso vale per il punto fattibile $(5,3)$. Un'ineguaglianza valida deve essere soddisfatta da <strong>tutte</strong> le soluzioni fattibili.
+    1. No. Il punto $(6,2)$ è ammissibile, $2 \cdot 6 + 1 \cdot 2 = 14 \le 14, \quad 1 \cdot 6 + 8 \cdot 2 = 22 \le 32$, e viola l'ineguaglianza: $6 + 2 = 8 > 7$; lo stesso vale per il punto fattibile $(5,3)$. Un'ineguaglianza valida deve essere soddisfatta da <strong>tutte</strong> le soluzioni ammissibili.
 
     2. Moltiplicando i vincoli per i moltiplicatori non negativi $(\tfrac{7}{15}, \tfrac{1}{15})$ e sommando, $\tfrac{7}{15} \cdot (2\,x_1 + x_2 \le 14) + \tfrac{1}{15} \cdot (x_1 + 8\,x_2 \le 32)$, otteniamo
 
@@ -118,7 +118,7 @@ title: "Esercizi · Disuguaglianze valide"
         x_1 + x_2 \le \dfrac{26}{3}.
         $$
 
-        Poiché $x_j \ge 0$ e i coefficienti $1 \ge 1$, $1 \ge 1$ sono almeno quelli di $x_1 + x_2$, ogni soluzione fattibile soddisfa $x_1 + x_2 \le x_1 + x_2 \le \tfrac{26}{3}$. Il lato sinistro è un numero intero, quindi
+        Poiché $x_j \ge 0$ e i coefficienti $1 \ge 1$, $1 \ge 1$ sono almeno quelli di $x_1 + x_2$, ogni soluzione ammissibile soddisfa $x_1 + x_2 \le x_1 + x_2 \le \tfrac{26}{3}$. Il lato sinistro è un numero intero, quindi
 
         $$
         x_1 + x_2 \le \left\lfloor \dfrac{26}{3} \right\rfloor = 8
@@ -171,7 +171,7 @@ title: "Esercizi · Disuguaglianze valide"
         \end{array}
         $$
 
-        La soluzione ottimale della sua rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{7}{2},\tfrac{8}{3})$, con $z(\LP) = 15$.
+        La soluzione ottimale del suo rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{7}{2},\tfrac{8}{3})$, con $z(\LP) = 15$.
 
     **Domande**
 
@@ -189,7 +189,7 @@ title: "Esercizi · Disuguaglianze valide"
         2\,x_1 + \dfrac{24}{7}\,x_2 \le \dfrac{113}{7}.
         $$
 
-        Poiché $x_j \ge 0$ e i coefficienti $2 \ge 2$, $\tfrac{24}{7} \ge 3$ sono almeno quelli di $2\,x_1 + 3\,x_2$, ogni soluzione fattibile soddisfa $2\,x_1 + 3\,x_2 \le 2\,x_1 + \tfrac{24}{7}\,x_2 \le \tfrac{113}{7}$. Il lato sinistro è un numero intero, quindi
+        Poiché $x_j \ge 0$ e i coefficienti $2 \ge 2$, $\tfrac{24}{7} \ge 3$ sono almeno quelli di $2\,x_1 + 3\,x_2$, ogni soluzione ammissibile soddisfa $2\,x_1 + 3\,x_2 \le 2\,x_1 + \tfrac{24}{7}\,x_2 \le \tfrac{113}{7}$. Il lato sinistro è un numero intero, quindi
 
         $$
         2\,x_1 + 3\,x_2 \le \left\lfloor \dfrac{113}{7} \right\rfloor = 16
@@ -205,7 +205,7 @@ title: "Esercizi · Disuguaglianze valide"
 
         - <strong>$\beta = 14$.</strong> I punti interi di $2\,x_1 + 3\,x_2 = 14$ con $x \ge 0$: $(1,4)$ viola il vincolo 1 ($6 \cdot 1 + 21 \cdot 4 = 90 > 77$); $(4,2)$ viola il vincolo 2 ($8 \cdot 4 + 3 \cdot 2 = 38 > 36$); $(7,0)$ viola il vincolo 2 ($8 \cdot 7 + 3 \cdot 0 = 56 > 36$). Pertanto nessun punto fattibile: insieme $\beta = 13$.
 
-        - <strong>$\beta = 13$.</strong> I punti interi di $2\,x_1 + 3\,x_2 = 13$ con $x \ge 0$: $(2,3)$ è fattibile; $(5,1)$ viola il vincolo 2 ($8 \cdot 5 + 3 \cdot 1 = 43 > 36$). Pertanto esiste un punto fattibile: l'inequazione è stretta. <code>STOP</code>.
+        - <strong>$\beta = 13$.</strong> I punti interi di $2\,x_1 + 3\,x_2 = 13$ con $x \ge 0$: $(2,3)$ è ammissibile; $(5,1)$ viola il vincolo 2 ($8 \cdot 5 + 3 \cdot 1 = 43 > 36$). Pertanto esiste un punto fattibile: l'inequazione è stretta. <code>STOP</code>.
 
         L'ineguaglianza valida stretta è $2\,x_1 + 3\,x_2 \le 13$. Essa <strong>esclude</strong> $\tilde{\vet x}(\LP) = (\tfrac{7}{2},\tfrac{8}{3})$, poiché $2 \cdot \tfrac{7}{2} + 3 \cdot \tfrac{8}{3} = 15 > 13$.
 
@@ -249,7 +249,7 @@ title: "Esercizi · Disuguaglianze valide"
         \end{array}
         $$
 
-        La soluzione ottimale della sua rilassamento LP è $\tilde{\vet x}(\LP) = (0,\tfrac{8}{3})$, con $z(\LP) = \dfrac{64}{3}$.
+        La soluzione ottimale del suo rilassamento LP è $\tilde{\vet x}(\LP) = (0,\tfrac{8}{3})$, con $z(\LP) = \dfrac{64}{3}$.
 
     **Domande**
 
@@ -267,7 +267,7 @@ title: "Esercizi · Disuguaglianze valide"
             \dfrac{1}{2}\,x_1 + x_2 \le \dfrac{8}{3}.
             $$
 
-            Poiché $x_j \ge 0$ e i coefficienti $\tfrac{1}{2} \ge 0$, $1 \ge 1$ sono almeno quelli di $x_2$, ogni soluzione fattibile soddisfa $x_2 \le \tfrac{1}{2}\,x_1 + x_2 \le \tfrac{8}{3}$. Il lato sinistro è un numero intero, quindi
+            Poiché $x_j \ge 0$ e i coefficienti $\tfrac{1}{2} \ge 0$, $1 \ge 1$ sono almeno quelli di $x_2$, ogni soluzione ammissibile soddisfa $x_2 \le \tfrac{1}{2}\,x_1 + x_2 \le \tfrac{8}{3}$. Il lato sinistro è un numero intero, quindi
 
             $$
             x_2 \le \left\lfloor \dfrac{8}{3} \right\rfloor = 2
@@ -281,7 +281,7 @@ title: "Esercizi · Disuguaglianze valide"
             x_1 + 2\,x_2 \le \dfrac{16}{3}.
             $$
 
-            Poiché $x_j \ge 0$ e i coefficienti $1 \ge 1$, $2 \ge 2$ sono almeno quelli di $x_1 + 2\,x_2$, ogni soluzione fattibile soddisfa $x_1 + 2\,x_2 \le x_1 + 2\,x_2 \le \tfrac{16}{3}$. Il lato sinistro è un numero intero, quindi
+            Poiché $x_j \ge 0$ e i coefficienti $1 \ge 1$, $2 \ge 2$ sono almeno quelli di $x_1 + 2\,x_2$, ogni soluzione ammissibile soddisfa $x_1 + 2\,x_2 \le x_1 + 2\,x_2 \le \tfrac{16}{3}$. Il lato sinistro è un numero intero, quindi
 
             $$
             x_1 + 2\,x_2 \le \left\lfloor \dfrac{16}{3} \right\rfloor = 5
@@ -351,7 +351,7 @@ title: "Esercizi · Disuguaglianze valide"
         \end{array}
         $$
 
-        La soluzione ottimale della sua rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{5}{2},\tfrac{3}{2},0)$, con $z(\LP) = \dfrac{21}{2}$.
+        La soluzione ottimale del suo rilassamento LP è $\tilde{\vet x}(\LP) = (\tfrac{5}{2},\tfrac{3}{2},0)$, con $z(\LP) = \dfrac{21}{2}$.
 
     **Domande**
 
@@ -369,7 +369,7 @@ soluzione "Solution"
         x_1 + \dfrac{3}{2}\,x_3 \le \dfrac{5}{2}.
         $$
 
-        Dato che $x_j \ge 0$ e i coefficienti $1 \ge 1$, $0 \ge 0$, $\tfrac{3}{2} \ge 1$ sono almeno quelli di $x_1 + x_3$, ogni soluzione fattibile soddisfa $x_1 + x_3 \le x_1 + \tfrac{3}{2}\,x_3 \le \tfrac{5}{2}$. Il lato sinistro è un intero, quindi
+        Dato che $x_j \ge 0$ e i coefficienti $1 \ge 1$, $0 \ge 0$, $\tfrac{3}{2} \ge 1$ sono almeno quelli di $x_1 + x_3$, ogni soluzione ammissibile soddisfa $x_1 + x_3 \le x_1 + \tfrac{3}{2}\,x_3 \le \tfrac{5}{2}$. Il lato sinistro è un intero, quindi
 
         $$
         x_1 + x_3 \le \left\lfloor \dfrac{5}{2} \right\rfloor = 2

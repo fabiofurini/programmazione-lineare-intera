@@ -23,7 +23,7 @@ title: "Esercizi · Piani di taglio di Gomory"
     \end{array}
     $$
 
-    e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+    e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
     \begin{equation*}
     \begin{cases}
@@ -42,12 +42,12 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         2. il lato destro più grande come strategia di selezione del taglio.
 
-        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema di PL a ogni iterazione.
+        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
     2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario semplice associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -78,7 +78,7 @@ title: "Esercizi · Piani di taglio di Gomory"
         \end{array}
         $$
 
-        e il suo dizionario simplex ottimale:
+        e il suo dizionario del simplesso ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -125,7 +125,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei cut</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -266,7 +266,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{2,4\}$ e $\pazocal{N}=\{1,3\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \bar x_2=\dfrac{8}{3},~~
@@ -406,7 +406,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei cut</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -529,7 +529,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B} = \{1, 2, 5\}$ e $\pazocal{N} = \{3, 4\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \bar x_1 = \dfrac{4}{3}, \quad
@@ -541,7 +541,7 @@ title: "Esercizi · Piani di taglio di Gomory"
                 \text{of value }  \dfrac{52}{3}
                 $$
 
-            - la soluzione duale fattibile di base è:
+            - la soluzione dualmente ammissibile di base è:
 
                 $$
                 \bar \pi_1 = 0, \quad
@@ -683,7 +683,7 @@ title: "Esercizi · Piani di taglio di Gomory"
     \end{array}
     $$
 
-    e un dizionario ottimale della sua rilassazione LP in forma standard:
+    e un dizionario ottimale del suo rilassamento LP in forma standard:
 
     \begin{equation*}
     \begin{cases}
@@ -703,12 +703,12 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         2. il lato destro più grande come strategia di selezione del taglio.
 
-        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema di PL a ogni iterazione.
+        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
     2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario semplice associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -740,7 +740,7 @@ title: "Esercizi · Piani di taglio di Gomory"
         \end{array}
         $$
 
-        e il suo dizionario simplex ottimale:
+        e il suo dizionario del simplesso ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -789,7 +789,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione del taglio</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -934,7 +934,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \bar x_1=\dfrac{5}{2},~~
@@ -1078,7 +1078,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione del taglio</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -1367,7 +1367,7 @@ title: "Esercizi · Piani di taglio di Gomory"
     \end{array}
     $$
 
-    e un dizionario ottimale della sua rilassazione LP in forma standard:
+    e un dizionario ottimale del suo rilassamento LP in forma standard:
 
     \begin{equation*}
     \begin{cases}
@@ -1387,12 +1387,12 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         2. il lato destro più grande come strategia di selezione del taglio.
 
-        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema di PL a ogni iterazione.
+        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
     2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario semplice associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -1424,7 +1424,7 @@ title: "Esercizi · Piani di taglio di Gomory"
         \end{array}
         $$
 
-        e il suo dizionario simplex ottimale:
+        e il suo dizionario del simplesso ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -1473,7 +1473,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei tagli</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -1561,7 +1561,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             Selezioniamo il taglio frazionario di Gomory con il lato destro più grande e creiamo il problema $LP_2$ aggiungendolo al problema $LP_1$.
 
-        - **b)** <strong>Fase di riperazione del simplesso duale</strong>
+        - **b)** <strong>Fase di riottimizzazione del simplesso duale</strong>
 
             Consideriamo il problema $LP_2$ nella forma standard:
 
@@ -1598,7 +1598,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \bar x_1=\dfrac{3}{2},~~
@@ -1723,7 +1723,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei tagli</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -1814,7 +1814,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             Selezioniamo il taglio frazionario di Gomory con il lato destro più grande e creiamo il problema $LP_3$ aggiungendolo al problema $LP_2$.
 
-        - **b)** <strong>Fase di riperazione del simplesso duale</strong>
+        - **b)** <strong>Fase di riottimizzazione del simplesso duale</strong>
 
             Consideriamo il problema $LP_3$ nella forma standard:
 
@@ -1853,7 +1853,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-            - la soluzione di base primaria non fattibile è:
+            - la soluzione di base primaria inammissibile è:
 
                 $$
                 \bar x_1=\dfrac{13}{8},~~
@@ -2025,7 +2025,7 @@ title: "Esercizi · Piani di taglio di Gomory"
     \end{array}
     $$
 
-    e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+    e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
     \begin{equation*}
     \begin{cases}
@@ -2045,12 +2045,12 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         2. il lato destro più grande come strategia di selezione del taglio.
 
-        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema di PL a ogni iterazione.
+        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
     2. Mostra graficamente l'effetto di ogni taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario semplice associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -2082,7 +2082,7 @@ title: "Esercizi · Piani di taglio di Gomory"
         \end{array}
         $$
 
-        e il suo dizionario simplex ottimale:
+        e il suo dizionario del simplesso ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -2131,7 +2131,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei tagli</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -2237,7 +2237,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             Entrambi i tagli frazionari di Gomory hanno lo stesso lato destro, uguale a $\dfrac{1}{3}$. Selezioniamo il taglio frazionario di Gomory generato dalla seconda riga e creiamo il problema $LP_2$ aggiungendolo al problema $LP_1$.
 
-        - **b)** <strong>Fase di riperazione del simplesso duale</strong>
+        - **b)** <strong>Fase di riottimizzazione del simplesso duale</strong>
 
             Consideriamo il problema $LP_2$ nella forma standard:
 
@@ -2273,7 +2273,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \bar x_1=\dfrac{16}{3},~~
@@ -2426,7 +2426,7 @@ title: "Esercizi · Piani di taglio di Gomory"
     \end{array}
     $$
 
-    e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+    e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
     \begin{equation*}
     \begin{cases}
@@ -2446,12 +2446,12 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         2. il lato destro più grande come strategia di selezione del taglio.
 
-        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema di PL a ogni iterazione.
+        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
     2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario semplice associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -2483,7 +2483,7 @@ title: "Esercizi · Piani di taglio di Gomory"
         \end{array}
         $$
 
-        e il suo dizionario simplex ottimale:
+        e il suo dizionario del simplesso ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -2532,7 +2532,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei tagli</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -2654,7 +2654,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,3,5\}$ e $\pazocal{N}=\{2,4\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \bar x_1=\dfrac{5}{2},~~
@@ -2816,7 +2816,7 @@ title: "Esercizi · Piani di taglio di Gomory"
     \end{array}
     $$
 
-    e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+    e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
     \begin{equation*}
     \begin{cases}
@@ -2836,12 +2836,12 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         2. il lato destro più grande come strategia di selezione del taglio.
 
-        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema di PL a ogni iterazione.
+        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
     2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario semplice associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -2873,7 +2873,7 @@ title: "Esercizi · Piani di taglio di Gomory"
         \end{array}
         $$
 
-        e il suo dizionario simplex ottimale:
+        e il suo dizionario del simplesso ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -2922,7 +2922,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione del taglio</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -3067,7 +3067,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \bar x_1=\dfrac{4}{3},~~
@@ -3230,7 +3230,7 @@ title: "Esercizi · Piani di taglio di Gomory"
     \end{array}
     $$
 
-    e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+    e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
     \begin{equation*}
     \begin{cases}
@@ -3251,12 +3251,12 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         2. il lato destro più grande come strategia di selezione del taglio.
 
-        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema di PL a ogni iterazione.
+        Risolvi i problemi di PL dopo aver aggiunto il taglio frazionario di Gomory utilizzando l'algoritmo del simplesso duale. Mostra graficamente la soluzione ottimale del problema LP a ogni iterazione.
 
     2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario semplice associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base fattibile tale che $\bar{b}_i$ è frazionaria, la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -3289,7 +3289,7 @@ title: "Esercizi · Piani di taglio di Gomory"
         \end{array}
         $$
 
-        e il suo dizionario simplex ottimale:
+        e il suo dizionario del simplesso ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -3340,7 +3340,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei tagli</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -3492,7 +3492,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \bar x_1=5,~~
@@ -3654,7 +3654,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei tagli</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -3825,7 +3825,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,3,5,7\}$ e $\pazocal{N}=\{4,6\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \begin{gathered}
@@ -4016,7 +4016,7 @@ title: "Esercizi · Piani di taglio di Gomory"
     \end{array}
     $$
 
-    e il seguente dizionario semplice ottimale della sua rilassamento LP in forma standard:
+    e il seguente dizionario ottimale del suo rilassamento LP in forma standard:
 
     \begin{equation*}
     \begin{cases}
@@ -4042,7 +4042,7 @@ title: "Esercizi · Piani di taglio di Gomory"
     2. Mostra graficamente l'effetto di ciascun taglio frazionario di Gomory sulil rilassamento LP del problema ILP in forma canonica.
 
     !!! nota ""
-        Data una riga $i \in \pazocal{B}$ di un dizionario semplice associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
+        Data una riga $i \in \pazocal{B}$ di un dizionario del simplesso associato a una soluzione di base ammissibile tale che $\bar{b}_i$ sia frazionaria, l'inequazione lineare
 
         \begin{equation*}
         \sum_{j \in \pazocal{N}}
@@ -4075,7 +4075,7 @@ title: "Esercizi · Piani di taglio di Gomory"
         \end{array}
         $$
 
-        e il suo dizionario simplex ottimale:
+        e il suo dizionario del simplesso ottimale:
 
         \begin{equation*}
         \begin{cases}
@@ -4126,7 +4126,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei tagli</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_1$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -4278,7 +4278,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \bar x_1=\dfrac{7}{2},~~
@@ -4440,7 +4440,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione del taglio</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_2$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -4613,7 +4613,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,3,4,7\}$ e $\pazocal{N}=\{5,6\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \begin{gathered}
@@ -4792,7 +4792,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
         - **a)** <strong>Fase di generazione dei tagli</strong>
 
-            Abbiamo il seguente dizionario simplex associato a una soluzione di base ammissibile frazionaria del problema $LP_3$ in forma standard:
+            Abbiamo il seguente dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del problema $LP_3$ in forma standard:
 
             \begin{equation*}
             \begin{cases}
@@ -5010,7 +5010,7 @@ title: "Esercizi · Piani di taglio di Gomory"
 
             dove $\pazocal{B}=\{1,2,3,4,6,8\}$ e $\pazocal{N}=\{5,7\}$ e
 
-            - la soluzione primale di base non fattibile è:
+            - la soluzione primale di base inammissibile è:
 
                 $$
                 \begin{gathered}

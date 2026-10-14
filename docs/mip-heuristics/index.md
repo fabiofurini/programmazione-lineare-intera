@@ -10,7 +10,7 @@
 
     ---
 
-    Euristiche basate su MIP · Gli esempi del capitolo · Arrotondamento · Immersione · …
+    Euristiche basate su MIP · Gli esempi del capitolo · Arrotondamento · Diving · …
 
     [:octicons-arrow-right-24: Leggi il capitolo](mip-heuristics.md) · [Esercizi](../exercises/mip-heuristics.md)
 

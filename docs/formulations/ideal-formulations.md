@@ -13,7 +13,7 @@ title: "Formulazioni ideali"
 !!! nota "Prerequisiti"
     - Da questo modulo, i capitoli «Programmazione lineare intera» e «Vincoli primali e duali»: la regione ammissibile di un problema ILP, il rilassamento LP e il suo vincolo, e l'esempio dell'auto.
 
-    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 15 «La geometria della Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): vertici di un poliedro, e il fatto che un problema di PL con una soluzione ottimale abbia un vertice ottimale.
+    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 15 «La geometria della Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): vertici di un poliedro, e il fatto che un problema LP con una soluzione ottimale abbia un vertice ottimale.
 
     - Dal modulo <em>Ottimizzazione convessa</em>, [Capitolo 1 «Insiemi convessi»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/01-insiemi-convessi/): combinazioni convesse e involucri convessi. Un breve riepilogo è fornito in questo capitolo.
 
@@ -26,7 +26,7 @@ title: "Formulazioni ideali"
 
     - spiega perché un problema di programmazione lineare su una formulazione ideale risolve il problema ILP;
 
-    - confrontare due formulazioni dello stesso problema attraverso le loro rilassazioni LP;
+    - confrontare due formulazioni dello stesso problema attraverso le loro rilassamenti LP;
 
     - spiegare perché le formulazioni ideali esistono ma sono difficili da trovare.
 
@@ -42,7 +42,7 @@ title: "Formulazioni ideali"
 
 - L'involucro convesso è il più piccolo insieme convesso contenente $S$. Se $S$ è un insieme finito di punti, l'involucro convesso è un poliedro limitato (un <strong>poliedro</strong>), e i suoi <strong>vertici</strong> sono punti di $S$. Gli altri punti di $S$ si trovano o sul bordo del poliedro, o all'interno di esso: non sono necessari per descriverlo.
 
-- Per un problema di PLI prendiamo $S = F$, l'insieme delle soluzioni ammissibili. I vertici di $\mathrm{conv}(F)$ sono soluzioni ammissibili intere.
+- Per un problema LPI prendiamo $S = F$, l'insieme delle soluzioni ammissibili. I vertici di $\mathrm{conv}(F)$ sono soluzioni ammissibili intere.
 
 <a id="box-2-ex-hull-car"></a>
 
@@ -75,7 +75,7 @@ title: "Formulazioni ideali"
 <a id="box-4-def-ideal"></a>
 
 !!! definizione "Definizione 3.3: di formulazione ideale"
-    Una formulazione $P$ di un problema ILP è <strong>ideale</strong> se $P = \mathrm{conv}(F)$, cioè se la regione ammissibile della sua rilassamento LP è esattamente l'inviluppo convesso delle soluzioni intere ammissibili.
+    Una formulazione $P$ di un problema ILP è <strong>ideale</strong> se $P = \mathrm{conv}(F)$, cioè se la regione ammissibile del suo rilassamento LP è esattamente l'inviluppo convesso delle soluzioni intere ammissibili.
 
 <a id="box-5-theo-ideal"></a>
 
@@ -84,12 +84,12 @@ title: "Formulazioni ideali"
 
 ??? dimostrazione "Proof"
 
-    Il poliedro $P = \mathrm{conv}(F)$ è non vuoto e limitato, quindi il problema LP ha un vertice ottimale $P$. I vertici di $\mathrm{conv}(F)$ appartengono a $F$, quindi questo vertice è una soluzione ILP fattibile, il cui valore è $z(\LP)$. Poiché $z(\ILP) \le z(\LP)$, il vertice è ottimale per il problema ILP. <span class="qed">□</span>
+    Il poliedro $P = \mathrm{conv}(F)$ è non vuoto e limitato, quindi il problema LP ha un vertice ottimale $P$. I vertici di $\mathrm{conv}(F)$ appartengono a $F$, quindi questo vertice è una soluzione ILP ammissibile, il cui valore è $z(\LP)$. Poiché $z(\ILP) \le z(\LP)$, il vertice è ottimale per il problema ILP. <span class="qed">□</span>
 
 - L'algoritmo del simplesso restituisce un vertice ottimale, quindi con una formulazione ideale restituisce una soluzione intera. Se il problema di programmazione lineare ha diverse soluzioni ottimali, un metodo che non restituisce vertici può dare un punto frazionario sulla faccia ottimale: ecco perché il teorema parla di un vertice ottimale.
 
 !!! chiave ""
-    Con una formulazione ideale, un problema ILP si risolve come un problema LP: un vertice ottimale della rilassazione LP è una soluzione ILP ottimale.
+    Con una formulazione ideale, un problema ILP si risolve come un problema LP: un vertice ottimale del rilassamento LP è una soluzione ILP ottimale.
 
 <a id="box-6-ex-car-not-ideal"></a>
 
@@ -98,7 +98,7 @@ title: "Formulazioni ideali"
 
     ![Figura 2](../img/03-ideal-formulations/fig02.svg){ .fig .ovale loading=lazy  }
 
-    <em>L'esempio dell'auto: il poliedro delil rilassamento LP (rosso) contiene l'inviluppo convesso dei punti interi (verde), e la soluzione ottimale delil rilassamento LP (blu) è fuori dall'inviluppo.</em>
+    <em>L'esempio dell'auto: il poliedro del rilassamento LP (rosso) contiene l'inviluppo convesso dei punti interi (verde), e la soluzione ottimale del rilassamento LP (blu) è fuori dall'inviluppo.</em>
 
 <a id="box-7-ex-car-ideal"></a>
 
@@ -138,7 +138,7 @@ title: "Formulazioni ideali"
 - La formulazione ideale è la più forte di tutte, perché è contenuta in ogni formulazione. Nell'esempio dell'auto, la formulazione originale fornisce il limite $\lfloor \frac{31}{2} \rfloor = 15$, e quella ideale di <span style="color:#1971c2">[Esempio 3.3](#box-7-ex-car-ideal)</span> fornisce il limite $14$.
 
 !!! chiave ""
-    Tra le formulazioni dello stesso problema ILP, preferiamo quelle con il poliedro più piccolo: le loro rilassazioni LP forniscono i migliori limiti superiori, e la formulazione ideale dà il valore ottimale.
+    Tra le formulazioni dello stesso problema ILP, preferiamo quelle con il poliedro più piccolo: le loro rilassamenti LP forniscono i migliori limiti superiori, e la formulazione ideale dà il valore ottimale.
 
 ## 3.4 Esistenza di formulazioni ideali
 
@@ -182,7 +182,7 @@ title: "Formulazioni ideali"
     <th>Da</th>
     </tr>
     <tr>
-    <td>Limiti primal e duali</td>
+    <td>Bound primali e bound duali</td>
     <td><span class="arithmatex">\(14\)</span></td>
     <td><span class="arithmatex">\(15\)</span></td>
     <td>soluzione euristica <span class="arithmatex">\((4, 1)\)</span>, e <span class="arithmatex">\(\lfloor z(\LP) \rfloor\)</span> con <span class="arithmatex">\(z(\LP) = \tfrac{31}{2}\)</span></td>

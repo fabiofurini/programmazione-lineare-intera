@@ -1328,7 +1328,7 @@ title: "Esercizi · Disuguaglianze di copertura"
 
             è violato da $\tilde{\boldsymbol{x}}$: $\frac{1}{5}+1+1-2=\frac{1}{5}$.
 
-        - **c)** <strong>Verifica dell'ottimalità</strong> <br> Nessun indice con $q_j>0$ soddisfa il vincolo con il membro destro $3$ da solo, quindi ogni soluzione fattibile di $\CSPKP$ ha valore $0$. Pertanto $z(\CSPKP)=0$, la soluzione greedy, è ottimale, $z(\CSP)=\frac{4}{5}<1$, e la massima violazione di un'ineguaglianza di copertura è $\frac{1}{5}$.
+        - **c)** <strong>Verifica dell'ottimalità</strong> <br> Nessun indice con $q_j>0$ soddisfa il vincolo con il membro destro $3$ da solo, quindi ogni soluzione ammissibile di $\CSPKP$ ha valore $0$. Pertanto $z(\CSPKP)=0$, la soluzione greedy, è ottimale, $z(\CSP)=\frac{4}{5}<1$, e la massima violazione di un'ineguaglianza di copertura è $\frac{1}{5}$.
 
             La copertura $\bar{C}$ non è minima: rimuovendo un indice con $q_j=0$ si ottiene la copertura minima $\{1,2\}$, con lo stesso costo $\frac{4}{5}$. La sua disuguaglianza di copertura $x_1+x_2\le 1$ ha la stessa violazione $\frac{1}{5}$ ed è più forte.
 
@@ -2729,7 +2729,7 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata al LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata all’LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
 
     2. Qual è il valore ottimale sulla chiusura del copri? La soluzione finale è intera?
 
@@ -2937,7 +2937,7 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata al LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata all’LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
 
     2. Qual è il valore ottimale sulla chiusura della copertura? La soluzione finale è intera?
 
@@ -3102,7 +3102,7 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata al LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata all’LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
 
     2. Qual è il valore ottimale sulla chiusura della copertura? La soluzione finale è intera?
 
@@ -3267,7 +3267,7 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata al LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata all’LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
 
     2. Qual è il valore ottimale sulla chiusura della copertura? La soluzione finale è intera?
 
@@ -3475,7 +3475,7 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata al LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo il problema complementare $\CSPKP$ fino all'ottimalità. Aggiungere la disuguaglianza di copertura massimamente violata all’LP, risolverlo di nuovo e ripetere fino a quando nessuna disuguaglianza di copertura viene violata. Se $\CSPKP$ ha diverse soluzioni ottimali, scegliere quella che seleziona il maggior numero di variabili.
 
     2. Qual è il valore ottimale sulla chiusura della copertura? La soluzione finale è intera?
 

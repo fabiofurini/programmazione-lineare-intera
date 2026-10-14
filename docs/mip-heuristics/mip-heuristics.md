@@ -13,11 +13,11 @@ title: "Euristiche MIP"
 <span class="arithmatex">\(\newcommand{\rnd}[1]{\left[\,#1\,\right]}\)</span>
 
 !!! nota "Prerequisiti"
-    - Da questo modulo, i capitoli «Limiti primal e duali» e «Algoritmi branch-and-bound basati su LP»: il rilassamento LP, i limiti inferiori e superiori, il divario di ottimalità e le operazioni di branching.
+    - Da questo modulo, i capitoli «Bound primali e bound duali» e «Algoritmi branch-and-bound basati su LP»: il rilassamento LP, i limiti inferiori e superiori, il divario di ottimalità e le operazioni di branching.
 
     - Da questo modulo, il capitolo «Risolutori MIP: cosa fanno»: la soluzione corrente, i sotto-problemi risolti da un risolutore e le euristiche al suo interno.
 
-    - Dal modulo <em>Programmazione Lineare</em>: il [dual simplex algorithm (Capitolo 10)](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/), che riottimizza un LP dopo una modifica di un vincolo.
+    - Dal modulo <em>Programmazione Lineare</em>: l’[algoritmo del simplesso duale (Capitolo 10)](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/), che riottimizza un LP dopo una modifica di un vincolo.
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
@@ -28,7 +28,7 @@ title: "Euristiche MIP"
 
     - eseguire relax-and-fix e fix-and-optimize su un MIP le cui variabili sono suddivise in blocchi;
 
-    - decidere quale metodo usare quando manca una soluzione fattibile o quando una soluzione corrente deve essere migliorata;
+    - decidere quale metodo usare quando manca una soluzione ammissibile o quando una soluzione corrente deve essere migliorata;
 
     - calcolare il divario di una soluzione euristica quando è disponibile un vincolo duale.
 
@@ -48,39 +48,39 @@ title: "Euristiche MIP"
     && x_j &\in \Z, & \forall j \in \mathscr{D}, \label{eq:mip-int} \tag{10.1d}
     \end{align*}
 
-    dove $f$ è una funzione lineare e $\mathscr{D}\subseteq\{1,2,\dots,N\}$ è l'insieme degli indici delle <strong>variabili intere</strong>. La regione ammissibile della <strong>rilassamento LP</strong> è
+    dove $f$ è una funzione lineare e $\mathscr{D}\subseteq\{1,2,\dots,N\}$ è l'insieme degli indici delle <strong>variabili intere</strong>. La regione ammissibile del <strong>rilassamento LP</strong> è
 
     $$
     \mathcal{L} = \big\{\vet x\in\R^N : A\,\vet x\le b,~ l\le \vet x\le u\big\},
     $$
 
-    e $z(\LP)=\min\{f(\vet x): \vet x\in\mathcal{L}\}$ è il valore delil rilassamento LP.
+    e $z(\LP)=\min\{f(\vet x): \vet x\in\mathcal{L}\}$ è il valore del rilassamento LP.
 
 - Un problema di massimizzazione, come l'esempio dell'auto, viene gestito nello stesso modo, scambiando $\min$ e $\max$, $\le$ e $\ge$ nei confronti dei valori obiettivi.
 
 <a id="box-2-def-mipheur"></a>
 
 !!! definizione "Definizione 10.2: euristica basata su MIP"
-    Un <strong>algoritmo euristico</strong> restituisce una soluzione fattibile di un problema MIP [(10.1)](#eq-eq-mip) senza alcuna garanzia di ottimalità. È <strong>basato su MIP</strong> (un <strong>matheuristico</strong>) se utilizza il rilassamento LP e un risolutore MIP per cercare la soluzione.
+    Un <strong>algoritmo euristico</strong> restituisce una soluzione ammissibile di un problema MIP [(10.1)](#eq-eq-mip) senza alcuna garanzia di ottimalità. È <strong>basato su MIP</strong> (un <strong>matheuristico</strong>) se utilizza il rilassamento LP e un risolutore MIP per cercare la soluzione.
 
-- Un euristico fornisce un limite primale (un limite superiore per un problema di minimizzazione, un limite inferiore per un problema di massimizzazione), mai un limite duale. L'algoritmo branch-and-bound di questo modulo trova la soluzione incidere solo per caso, come foglia dell'albero.
+- Un’euristica fornisce un bound primale (un limite superiore per un problema di minimizzazione, un limite inferiore per un problema di massimizzazione), mai un bound duale. L'algoritmo branch-and-bound di questo modulo trova la soluzione incumbent solo per caso, come foglia dell'albero.
 
-- La soluzione ottimale della <strong>rilassamento LP</strong> indica <em>dove guardare</em>: è la soluzione di un problema più semplice, spesso vicina alle buone soluzioni di quello originale.
+- La soluzione ottimale del <strong>rilassamento LP</strong> indica <em>dove guardare</em>: è la soluzione di un problema più semplice, spesso vicina alle buone soluzioni di quello originale.
 
 - Il <strong>risolutore MIP</strong> esplora <em>esattamente</em> un insieme di soluzioni troppo grande per essere enumerato, a condizione che l'insieme sia descritto da vincoli lineari.
 
 <a id="box-3-def-incumbent"></a>
 
-!!! definizione "Definizione 10.3: incumbente, arrotondamento e completamento"
-    - Una soluzione fattibile $\bar{\vet x}$ del MIP [(10.1)](#eq-eq-mip), la migliore conosciuta, è l'<strong>incumbent</strong>, e $f(\bar{\vet x})$ è il suo valore.
+!!! definizione "Definizione 10.3: incumbent, arrotondamento e completamento"
+    - Una soluzione ammissibile $\bar{\vet x}$ del MIP [(10.1)](#eq-eq-mip), la migliore conosciuta, è l'<strong>incumbent</strong>, e $f(\bar{\vet x})$ è il suo valore.
 
     - L'<strong>approssimazione</strong> di un numero reale $v$ all'intero più vicino è $\rnd{v} = \big\lfloor v + \frac12 \big\rfloor$, in modo che un valore $\frac12$ venga arrotondato per eccesso.
 
-    - Un punto $\bar{\vet x}$ con $\bar x_j \in \Z$ per tutti i $j \in \mathscr{D}$ è <strong>completato</strong> fissando le variabili intere ai valori $\bar x_j$ e risolvendo il LP sulle variabili continue.
+    - Un punto $\bar{\vet x}$ con $\bar x_j \in \Z$ per tutti i $j \in \mathscr{D}$ è <strong>completato</strong> fissando le variabili intere ai valori $\bar x_j$ e risolvendo l’LP sulle variabili continue.
 
 - In tutto il capitolo, $\tilde{\vet x}$ indica una soluzione ottimale di un rilassamento LP, e $\bar{\vet x}$ un punto i cui componenti $\bar x_j$, $j\in\mathscr{D}$, sono interi.
 
-- Se il LP del completamento ha una soluzione ottimale, $\bar{\vet x}$ viene trasformato in una soluzione fattibile del MIP; se è infeasible, anche $\bar{\vet x}$ lo è. Quando tutte le variabili sono intere, il completamento controlla semplicemente i vincoli.
+- Se l’LP del completamento ha una soluzione ottimale, $\bar{\vet x}$ viene trasformato in una soluzione ammissibile del MIP; se è infeasible, anche $\bar{\vet x}$ lo è. Quando tutte le variabili sono intere, il completamento controlla semplicemente i vincoli.
 
 - I metodi si basano su cinque idee, una o due per sezione.
 
@@ -91,7 +91,7 @@ title: "Euristiche MIP"
 </tr>
 <tr>
 <td>intorno al rilassamento</td>
-<td>approssimazione; immersione (fissare una variabile, risolvere di nuovo, ripetere)</td>
+<td>arrotondamento; diving (fissare una variabile, risolvere di nuovo, ripetere)</td>
 </tr>
 <tr>
 <td>inseguire la fattibilità</td>
@@ -156,7 +156,7 @@ title: "Euristiche MIP"
 </tr>
 </table></div>
 
-- La tabella seguente riporta il valore $z(\LP)$ delil rilassamento LP, il limite superiore $\lfloor z(\LP)\rfloor$ (l'obiettivo assume valori interi) e il valore ottimale $z(\ILP)$, tutti calcolati con l'algoritmo simplex esatto e verificati con Gurobi.
+- La tabella seguente riporta il valore $z(\LP)$ del rilassamento LP, il limite superiore $\lfloor z(\LP)\rfloor$ (l'obiettivo assume valori interi) e il valore ottimale $z(\ILP)$, tutti calcolati con l'algoritmo simplesso esatto e verificati con Gurobi.
 
 <div class="tabella" markdown="0"><table>
 <tr>
@@ -246,7 +246,7 @@ title: "Euristiche MIP"
 <a id="box-5-def-rounding"></a>
 
 !!! definizione "Definizione 10.4: arrotondamento"
-    <em>Arrotondamento</em> è l'euristica basata su MIP più semplice. Risolve il rilassamento LP, arrotonda ogni variabile intera della soluzione LP all'intero più vicino e completa le variabili continue. Restituisce una soluzione fattibile, oppure fallisce se il punto arrotondato viola un vincolo.
+    <em>Arrotondamento</em> è l'euristica basata su MIP più semplice. Risolve il rilassamento LP, arrotonda ogni variabile intera della soluzione LP all'intero più vicino e completa le variabili continue. Restituisce una soluzione ammissibile, oppure fallisce se il punto arrotondato viola un vincolo.
 
 - Il pseudo-codice dell'arrotondamento è il seguente:
 
@@ -257,8 +257,8 @@ title: "Euristiche MIP"
     &emsp;&emsp;$\tilde{\vet x} :=$ soluzione ottimale del rilassamento LP&emsp;*// $\min\{f(\vet x): \vet x\in\mathcal{L}\}$*
     &emsp;&emsp;<strong>per</strong> $j\in\mathscr{D}$ <strong>fai</strong>
     &emsp;&emsp;&emsp;&emsp;$\bar x_j \leftarrow \rnd{\tilde x_j}$&emsp;*// arrotonda al numero intero più vicino*
-    &emsp;&emsp;fissare $x_j:=\bar x_j$ per tutti $j\in\mathscr{D}$ e risolvere il LP sulle variabili continue
-    &emsp;&emsp;<strong>se</strong> il LP è fattibile <strong>allora</strong>
+    &emsp;&emsp;fissare $x_j:=\bar x_j$ per tutti $j\in\mathscr{D}$ e risolvere l’LP sulle variabili continue
+    &emsp;&emsp;<strong>se</strong> l’LP è ammissibile <strong>allora</strong>
     &emsp;&emsp;&emsp;&emsp;<strong>ritorno</strong> $\bar{\vet x}$ completato con la parte continua della soluzione LP
     &emsp;&emsp;<strong>else</strong>
     &emsp;&emsp;&emsp;&emsp;<strong>return</strong> FAIL&emsp;*// il punto arrotondato viola un vincolo*
@@ -295,61 +295,61 @@ title: "Euristiche MIP"
 
     <strong>$P72$.</strong> La soluzione LP viene arrotondata a $(1,0,2,3,1)$, il che viola il primo vincolo: $1+10-6+2=7>4$. <strong>L'arrotondamento fallisce.</strong>
 
-- I due esempi riassumono il metodo: l'arrotondamento al numero intero più vicino fallisce quando diverse variabili sono frazionarie allo stesso tempo e i vincoli sono rigidi; l'arrotondamento verso il basso è sicuro, ma lascia parte del valore del PL sul tavolo.
+- I due esempi riassumono il metodo: l'arrotondamento al numero intero più vicino fallisce quando diverse variabili sono frazionarie allo stesso tempo e i vincoli sono rigidi; l'arrotondamento verso il basso è sicuro, ma lascia parte del valore dell’LP sul tavolo.
 
-## 10.4 Immersione { #sez-sec-diving }
+## 10.4 Diving { #sez-sec-diving }
 
 - L'arrotondamento prende tutte le sue decisioni contemporaneamente, sulla base di una singola soluzione LP. <strong>Diving</strong> le prende una alla volta, e dopo ogni decisione interroga nuovamente l'LP: la soluzione LP viene ricalcolata con le decisioni prese fino a quel momento, e si adatta a esse.
 
 <a id="box-8-def-diving"></a>
 
-!!! definizione "Definizione 10.6: immersione"
-    <em>Immersione</em> risolve ripetutamente il rilassamento LP, seleziona una variabile intera con un valore frazionario, la fissa a un valore intero e risolve di nuovo l’LP. Si ferma con una soluzione fattibile quando la soluzione LP è intera su tutte le variabili intere, e fallisce quando l’LP diventa impossibile. Una <em>regola</em> decide quale variabile viene fissata e a quale valore.
+!!! definizione "Definizione 10.6: euristica di diving"
+    L’<em>euristica di diving</em> risolve ripetutamente il rilassamento LP, seleziona una variabile intera con un valore frazionario, la fissa a un valore intero e risolve di nuovo l’LP. Si ferma con una soluzione ammissibile quando la soluzione LP è intera su tutte le variabili intere, e fallisce quando l’LP diventa impossibile. Una <em>regola</em> decide quale variabile viene fissata e a quale valore.
 
-- Il pseudo-codice del diving è il seguente:
+- Il pseudocodice dell’euristica di diving è il seguente:
 
-!!! algoritmo "Algoritmo: Immersione"
-    <strong>Input:</strong> MIP [(10.1)](#eq-eq-mip); una regola; per immersioni guidate, un incumbent $\bar{\vet x}$
-    <strong>Output:</strong> Soluzione fattibile, o FALLIMENTO
+!!! algoritmo "Algoritmo: Diving"
+    <strong>Input:</strong> MIP [(10.1)](#eq-eq-mip); una regola; per diving guidate, un incumbent $\bar{\vet x}$
+    <strong>Output:</strong> Soluzione ammissibile, o FALLIMENTO
     <strong>funzione</strong> Diving(MIP, regola)
     &emsp;&emsp;<strong>mentre</strong> vero <strong>fai</strong>
     &emsp;&emsp;&emsp;&emsp;risolvere il rilassamento LP con i limiti attuali $l,u$
-    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> il LP è irrealizzabile <strong>allora</strong>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>return</strong> FALLIMENTO&emsp;*// il tuffo termina in un LP non fattibile*
-    &emsp;&emsp;&emsp;&emsp;$\tilde{\vet x} :=$ soluzione ottimale del LP
+    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> l’LP è irrealizzabile <strong>allora</strong>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>return</strong> FALLIMENTO&emsp;*// il diving termina quando il problema LP diventa inammissibile*
+    &emsp;&emsp;&emsp;&emsp;$\tilde{\vet x} :=$ soluzione ottimale dell’LP
     &emsp;&emsp;&emsp;&emsp;$F := \{j\in\mathscr{D} : \tilde x_j\notin\Z\}$&emsp;*// variabili intere frazionarie*
     &emsp;&emsp;&emsp;&emsp;<strong>se</strong> $F=\emptyset$ <strong>allora</strong>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>restituisci</strong> $\tilde{\vet x}$&emsp;*// intero su $\mathscr{D}$: fattibile*
     &emsp;&emsp;&emsp;&emsp;seleziona $j\in F$ e un valore $v\in\Z$ secondo la regola
     &emsp;&emsp;&emsp;&emsp;$l_j\leftarrow v$;   $u_j\leftarrow v$&emsp;*// correggi $x_j:=v$*
 
-- <strong>Immersione frazionaria.</strong> Seleziona la variabile che è <em>meno</em> frazionaria, cioè la $j\in F$ che minimizza $\big|\tilde x_j-\rnd{\tilde x_j}\big|$, e fissala a $v=\rnd{\tilde x_j}$. L'LP è quasi sicuro su questa variabile, quindi il fissaggio cambia la soluzione dell'LP il meno possibile. Nei codici di questo capitolo, i pareggi vengono risolti a favore della variabile con l'indice più piccolo.
+- <strong>Diving frazionario.</strong> Seleziona la variabile che è <em>meno</em> frazionaria, cioè la $j\in F$ che minimizza $\big|\tilde x_j-\rnd{\tilde x_j}\big|$, e fissala a $v=\rnd{\tilde x_j}$. L'LP è quasi sicuro su questa variabile, quindi il fissaggio cambia la soluzione dell'LP il meno possibile. Nei codici di questo capitolo, i pareggi vengono risolti a favore della variabile con l'indice più piccolo.
 
-- <strong>Immersioni guidate</strong> [\[3\]](#ref-DRL05). Con un incumbent $\bar{\vet x}$, selezionare il $j\in F$ che minimizza $|\tilde x_j-\bar x_j|$ e fissarlo a $v=\bar x_j$. Il incumbent guida l'immersione verso una regione di buone soluzioni, e il LP decide in quale ordine i suoi valori vengono adottati.
+- <strong>Diving guidato</strong> [\[3\]](#ref-DRL05). Con un incumbent $\bar{\vet x}$, selezionare il $j\in F$ che minimizza $|\tilde x_j-\bar x_j|$ e fissarlo a $v=\bar x_j$. L’incumbent guida il diving verso una regione di buone soluzioni, e l’LP decide in quale ordine i suoi valori vengono adottati.
 
 - Esistono molte altre regole: <em>coefficient diving</em> fissa la variabile che appare nel minor numero di vincoli che possono essere violati arrotondandola; <em>pseudo-cost diving</em> utilizza la storia dell'albero branch-and-bound; <em>vector-length diving</em> è progettato per i vincoli di set covering. I solver moderni ne eseguono diversi.
 
-- <strong>Immersione e branch-and-bound.</strong> Fissare $x_j:=\rnd{\tilde x_j}$ è una decisione di ramificazione. Un'immersione è un percorso singolo dalla radice dell'albero branch-and-bound a una foglia, prendendo sempre uno dei due figli, senza mai tornare indietro: ricerca in profondità senza backtracking.
+- <strong>Diving e branch-and-bound.</strong> Fissare $x_j:=\rnd{\tilde x_j}$ è una decisione di ramificazione. Il diving segue un unico percorso dalla radice dell'albero branch-and-bound a una foglia, prendendo sempre uno dei due figli, senza mai tornare indietro: ricerca in profondità senza backtracking.
 
-- <strong>Costo.</strong> Ogni passo risolve un LP che differisce dal precedente per un singolo vincolo, quindi l'algoritmo del simplesso duale lo riottimizza partendo dalla base precedente in poche iterazioni. Un'immersione con $|\mathscr{D}|$ variabili intere richiede al massimo $|\mathscr{D}|$ LP, di solito molti meno, poiché una soluzione LP ha già molte componenti intere.
+- <strong>Costo.</strong> Ogni passo risolve un LP che differisce dal precedente per un singolo vincolo, quindi l'algoritmo del simplesso duale lo riottimizza partendo dalla base precedente in poche iterazioni. Il diving con $|\mathscr{D}|$ variabili intere richiede al massimo $|\mathscr{D}|$ LP, di solito molti meno, poiché una soluzione LP ha già molte componenti intere.
 
 - <strong>Fallimento.</strong> Il programma lineare diventa irrealizzabile quando le fissazioni fatte finora sono incompatibili. Le implementazioni quindi annullano l'ultima fissazione e provano l'altro valore (un singolo backtracking), oppure rinunciano.
 
 <a id="box-9-ex-divecar"></a>
 
-!!! esempio "Esempio 10.3: Immersione frazionaria sull'esempio dell'auto"
+!!! esempio "Esempio 10.3: Diving frazionario sull'esempio dell'auto"
     <strong>Fase 1.</strong> La soluzione LP è $\tilde{\vet x}=\big(\frac72,\frac52\big)$, di valore $\frac{31}{2}$. Entrambe le variabili sono a distanza $\frac12$ dall'intero più vicino; il pareggio viene risolto dall'indice: $x_1:=\rnd{\frac72}=4$.
 
     <strong>Passo 2.</strong> Con $x_1=4$ i vincoli diventano $4x_2\le5$ e $14x_2\le33$, quindi la soluzione LP è $\tilde{\vet x}=\big(4,\frac54\big)$, di valore $12+\frac52=\frac{29}{2}$. Fissa $x_2:=\rnd{\frac54}=1$.
 
-    <strong>Passo 3.</strong> La soluzione LP $(4,1)$, di valore $14$, è intera: il dive restituisce $(4,1)$, che è la soluzione <strong>ottimale</strong> del problema ILP.
+    <strong>Passo 3.</strong> La soluzione LP $(4,1)$, di valore $14$, è intera: il diving restituisce $(4,1)$, che è la soluzione <strong>ottimale</strong> del problema ILP.
 
     ![Figura 1](../img/10-mip-heuristics/fig01.svg){ .fig loading=lazy  }
 
 <a id="box-10-ex-guided"></a>
 
-!!! esempio "Esempio 10.4: Immersione guidata sull'esempio dell'auto e su $P7$"
-    <strong>Esempio di auto.</strong> Il incumbent è $\bar{\vet x}=(3,2)$, di valore $13$ (arrotondato per difetto). Nella soluzione LP $\big(\frac72,\frac52\big)$ entrambe le variabili sono a distanza $\frac12$ da $\bar{\vet x}$; fissa $x_1:=3$. La nuova soluzione LP è $\big(3,\frac{37}{14}\big)$, di valore $\frac{100}{7}$; fissa $x_2:=\bar x_2=2$. La soluzione LP $(3,2)$ è intera, di valore $13$: il dive <strong>restituisce il incumbent</strong>, senza migliorarlo.
+!!! esempio "Esempio 10.4: Diving guidato sull'esempio dell'auto e su $P7$"
+    <strong>Esempio di auto.</strong> L’incumbent è $\bar{\vet x}=(3,2)$, di valore $13$ (arrotondato per difetto). Nella soluzione LP $\big(\frac72,\frac52\big)$ entrambe le variabili sono a distanza $\frac12$ da $\bar{\vet x}$; fissa $x_1:=3$. La nuova soluzione LP è $\big(3,\frac{37}{14}\big)$, di valore $\frac{100}{7}$; fissa $x_2:=\bar x_2=2$. La soluzione LP $(3,2)$ è intera, di valore $13$: il diving <strong>restituisce l’incumbent</strong>, senza migliorarlo.
 
     <strong>$P7$.</strong> Il candidato attuale è $\bar{\vet x}=(2,0)$, di valore $6$ (arrotondato per difetto da $\big(\frac52,0\big)$). L'unica variabile frazionaria è $x_1$: fissare $x_1:=2$. La soluzione LP $(2,1)$, di valore $7$, è intera: la discesa guidata trova la soluzione <strong>ottimale</strong> dopo un fissaggio, anche se il candidato attuale ha $\bar x_2=0$, perché l'LP ricostruisce le variabili che non sono fissate.
 
@@ -357,18 +357,18 @@ title: "Euristiche MIP"
 
 <a id="box-11-ex-divefail"></a>
 
-!!! esempio "Esempio 10.5: Un'immersione che fallisce su $P42$ e su $P72$"
-    <strong>$P42$.</strong> La soluzione LP è $\big(\frac52,\frac32,0\big)$; $x_1$ e $x_2$ sono alla distanza $\frac12$, e il pareggio viene risolto dall'indice: $x_1:=\rnd{\frac52}=3$. La seconda vincolo dà $2\cdot3+3x_3\le5$, che è violato per ogni $x_3\ge0$: l'LP non è fattibile, <strong>il tuffo fallisce al primo passo</strong>.
+!!! esempio "Esempio 10.5: Il diving che fallisce su $P42$ e su $P72$"
+    <strong>$P42$.</strong> La soluzione LP è $\big(\frac52,\frac32,0\big)$; $x_1$ e $x_2$ sono alla distanza $\frac12$, e il pareggio viene risolto dall'indice: $x_1:=\rnd{\frac52}=3$. La secondo vincolo dà $2\cdot3+3x_3\le5$, che è violato per ogni $x_3\ge0$: l'LP è inammissibile, <strong>il diving fallisce al primo passo</strong>.
 
     <strong>$P72$.</strong> Le parti frazionarie della soluzione LP sono $\frac{39}{59},\frac{91}{59},\frac{166}{59},\frac{37}{59}$ (per $x_1,x_3,x_4,x_5$), e la frazionaria minore è $x_4$, a distanza $\frac{11}{59}$ da $3$: $x_4:=3$. La nuova LP ha valore $\frac{728}{85}$ e soluzione $\big(\frac{56}{85},0,\frac{138}{85},3,\frac{52}{85}\big)$; la variabile frazionaria minore è $x_1$, arrotondata a $1$. Fissare $x_1:=1$ e $x_4:=3$ rende la LP <strong>inammissibile</strong>.
 
-- In entrambi i casi le prime fissazioni seguono l'LP, che non vede che i vincoli, insieme, non lasciano alcuno spazio. Un tuffo che fallisce non dà alcuna soluzione: questa è la ragione della pompa di fattibilità della sezione successiva.
+- In entrambi i casi le prime fissazioni seguono l'LP, che non vede che i vincoli, insieme, non lasciano alcuno spazio. Un diving che fallisce non dà alcuna soluzione: questa è la ragione della pompa di fattibilità della sezione successiva.
 
 ## 10.5 La pompa di fattibilità { #sez-sec-fp }
 
-- L'arrotondamento e il diving falliscono su $P42$ e su $P72$, e su molte MIP falliscono la maggior parte del tempo: per una MIP generale, persino <em>decidere se esiste una soluzione fattibile</em> è NP-completo. Il <strong>feasibility pump</strong> di Fischetti, Glover e Lodi [\[4\]](#ref-FGL05) rinuncia alla funzione obiettivo e si concentra su un unico obiettivo: trovare una soluzione fattibile.
+- L'arrotondamento e il diving falliscono su $P42$ e su $P72$, e su molte MIP falliscono la maggior parte del tempo: per una MIP generale, persino <em>decidere se esiste una soluzione ammissibile</em> è NP-completo. Il <strong>feasibility pump</strong> di Fischetti, Glover e Lodi [\[4\]](#ref-FGL05) rinuncia alla funzione obiettivo e si concentra su un unico obiettivo: trovare una soluzione ammissibile.
 
-- L'idea è lavorare con due punti contemporaneamente. Un punto di $\mathcal{L}$ soddisfa tutti i vincoli lineari, ma può essere frazionario; un punto intero è intero, ma può violare i vincoli. Una soluzione fattibile è un punto che sia entrambi. La pompa fa sì che i due punti si inseguano fino a coincidere, e per farlo ha bisogno di misurare quanto sono distanti l'uno dall'altro.
+- L'idea è lavorare con due punti contemporaneamente. Un punto di $\mathcal{L}$ soddisfa tutti i vincoli lineari, ma può essere frazionario; un punto a coordinate intere può violare i vincoli. Una soluzione ammissibile soddisfa entrambe le condizioni. La pompa fa sì che i due punti si inseguano fino a coincidere, e per farlo ha bisogno di misurare quanto sono distanti l'uno dall'altro.
 
 <a id="box-12-def-distance"></a>
 
@@ -394,13 +394,13 @@ title: "Euristiche MIP"
 <a id="box-13-def-fp"></a>
 
 !!! definizione "Definizione 10.8: pompa di fattibilità"
-    La <em>feasibility pump</em> costruisce due sequenze di punti: punti $\tilde{\vet x}^{0},\tilde{\vet x}^{1},\tilde{\vet x}^{2},\dots$ di $\mathcal{L}$, che soddisfano i vincoli lineari, e punti interi $\bar{\vet x}^0,\bar{\vet x}^1,\bar{\vet x}^2,\dots$, che soddisfano i vincoli di integrità. Inizia dalla soluzione LP $\tilde{\vet x}^{0}$; ogni punto intero è il <em>rounding</em> dell'ultimo punto di $\mathcal{L}$, e ogni punto di $\mathcal{L}$ è la <em>proiezione</em> dell'ultimo punto intero, cioè il punto di $\mathcal{L}$ alla minima distanza da esso. Si ferma quando la distanza è $0$: i due punti coincidono e sono una soluzione fattibile. Quando il rounding restituisce un punto intero già visitato, la pump lo <em>perturba</em>.
+    La <em>feasibility pump</em> costruisce due sequenze di punti: punti $\tilde{\vet x}^{0},\tilde{\vet x}^{1},\tilde{\vet x}^{2},\dots$ di $\mathcal{L}$, che soddisfano i vincoli lineari, e punti interi $\bar{\vet x}^0,\bar{\vet x}^1,\bar{\vet x}^2,\dots$, che soddisfano i vincoli di integrità. Inizia dalla soluzione LP $\tilde{\vet x}^{0}$; ogni punto intero è il <em>rounding</em> dell'ultimo punto di $\mathcal{L}$, e ogni punto di $\mathcal{L}$ è la <em>proiezione</em> dell'ultimo punto intero, cioè il punto di $\mathcal{L}$ alla minima distanza da esso. Si ferma quando la distanza è $0$: i due punti coincidono e sono una soluzione ammissibile. Quando il rounding restituisce un punto intero già visitato, la pump lo <em>perturba</em>.
 
 - Il pseudo-codice della pompa di fattibilità è il seguente:
 
 !!! algoritmo "Algoritmo: Pompa di fattibilità"
     <strong>Input:</strong> MIP [(10.1)](#eq-eq-mip); numero massimo di iterazioni $maxIter$; seme dei numeri casuali
-    <strong>Output:</strong> Soluzione fattibile, o FALLIMENTO
+    <strong>Output:</strong> Soluzione ammissibile, o FALLIMENTO
     <strong>funzione</strong> FeasibilityPump(MIP, $maxIter$, $seed$)
     &emsp;&emsp;$\tilde{\vet x} :=$ soluzione ottimale del rilassamento LP
     &emsp;&emsp;<strong>se</strong> $\tilde x_j\in\Z$ per tutti $j\in\mathscr{D}$ <strong>allora</strong>
@@ -438,7 +438,7 @@ title: "Euristiche MIP"
 
     e nella pompa $\rho_j=u-0.3$. Fissare il seme iniziale rende ogni esecuzione riproducibile.
 
-- <strong>L'obiettivo.</strong> Dopo il primo LP, l'obiettivo originale $f$ viene ignorato: la pompa trova una soluzione fattibile, ma non necessariamente buona. La <em>pompa di fattibilità dell'obiettivo</em> di Achterberg e Berthold [\[1\]](#ref-AB07) minimizza una combinazione $(1-\alpha)\,\Delta(\vet x,\bar{\vet x})+\alpha\, f(\vet x)$ con un peso $\alpha$ che diminuisce a ogni iterazione: le soluzioni trovate sono molto migliori, al prezzo di qualche iterazione in più.
+- <strong>L'obiettivo.</strong> Dopo il primo LP, l'obiettivo originale $f$ viene ignorato: la pompa trova una soluzione ammissibile, ma non necessariamente buona. La <em>pompa di fattibilità dell'obiettivo</em> di Achterberg e Berthold [\[1\]](#ref-AB07) minimizza una combinazione $(1-\alpha)\,\Delta(\vet x,\bar{\vet x})+\alpha\, f(\vet x)$ con un peso $\alpha$ che diminuisce a ogni iterazione: le soluzioni trovate sono molto migliori, al prezzo di qualche iterazione in più.
 
 - <strong>Variabili intere generali.</strong> La pompa è stata progettata per variabili binarie, dove il flip cambia $\bar x_j$ in $1-\bar x_j$; per variabili intere generali sposta $\bar x_j$ di una unità verso $\tilde x_j$, e la distanza utilizza le variabili ausiliarie $d_j$ [\[2\]](#ref-BFL07).
 
@@ -510,7 +510,7 @@ title: "Euristiche MIP"
 <a id="box-15-ex-fpcar"></a>
 
 !!! esempio "Esempio 10.7: La pompa di fattibilità sull'esempio dell'auto e su $P72$"
-    <strong>Esempio di auto.</strong> Approssimare la soluzione LP dà $\bar{\vet x}^0=(4,3)$, che non è fattibile.
+    <strong>Esempio di auto.</strong> Approssimare la soluzione LP dà $\bar{\vet x}^0=(4,3)$, che è inammissibile.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -539,9 +539,9 @@ title: "Euristiche MIP"
     </tr>
     </table></div>
 
-    All'iterazione $1$ i due componenti di $\tilde{\vet x}^1$ sono alla stessa distanza $\frac12$ da $\bar{\vet x}^0$, e il flip prende il primo. La pompa necessita di <strong>due flip</strong> e restituisce $(3,2)$, di valore $13$: è fattibile, ma non ottimale ($z(\ILP)=14$), perché dopo il primo LP l'obiettivo viene ignorato.
+    All'iterazione $1$ i due componenti di $\tilde{\vet x}^1$ sono alla stessa distanza $\frac12$ da $\bar{\vet x}^0$, e il flip prende il primo. La pompa necessita di <strong>due flip</strong> e restituisce $(3,2)$, di valore $13$: è ammissibile, ma non ottimale ($z(\ILP)=14$), perché dopo il primo LP l'obiettivo viene ignorato.
 
-    <strong>$P72$.</strong> L'arrotondamento e il diving falliscono (Esempi [10.2](#box-7-ex-rounding), [Esempio 10.5](#box-11-ex-divefail)). La pompa arrotonda la soluzione LP a $\bar{\vet x}^0=(1,0,2,3,1)$, il che viola il primo vincolo, e richiede tre proiezioni e un ribaltamento (di $x_3$, da $2$ a $1$) per raggiungere la soluzione fattibile
+    <strong>$P72$.</strong> L'arrotondamento e il diving falliscono (Esempi [10.2](#box-7-ex-rounding), [Esempio 10.5](#box-11-ex-divefail)). La pompa arrotonda la soluzione LP a $\bar{\vet x}^0=(1,0,2,3,1)$, il che viola il primo vincolo, e richiede tre proiezioni e un ribaltamento (di $x_3$, da $2$ a $1$) per raggiungere la soluzione ammissibile
 
     $$
     \bar{\vet x}=(0,0,1,3,1), \qquad f(\bar{\vet x})=2 ,
@@ -549,7 +549,7 @@ title: "Euristiche MIP"
 
     molto lontano da $z(\ILP)=7$ e dal limite superiore $8$.
 
-- La pompa è un metodo per trovare una <em>prima</em> soluzione fattibile, e lo fa bene. La qualità della soluzione è compito dei metodi di miglioramento delle sezioni successive, che partono da una soluzione già esistente.
+- La pompa è un metodo per trovare una <em>prima</em> soluzione ammissibile, e lo fa bene. La qualità della soluzione è compito dei metodi di miglioramento delle sezioni successive, che partono da una soluzione già esistente.
 
 ## 10.6 Migliorare un incumbent con un sub-MIP { #sez-sec-submip }
 
@@ -576,7 +576,7 @@ title: "Euristiche MIP"
 <a id="box-16-def-rins"></a>
 
 !!! definizione "Definizione 10.9: RINS"
-    <em>RINS</em> (Ricerca di Quartiere Indotta dal Rilassamento) [\[3\]](#ref-DRL05) confronta l'attuale $\bar{\vet x}$ con la soluzione $\tilde{\vet x}$ della rilassazione LP. Le variabili intere sulle quali le due soluzioni <em>sono d'accordo</em> vengono fissate al loro valore comune; il sotto-MIP sulle variabili rimanenti, con il vincolo di cutoff, viene risolto dal risolutore MIP.
+    <em>RINS</em> (Ricerca di Quartiere Indotta dal Rilassamento) [\[3\]](#ref-DRL05) confronta l'attuale $\bar{\vet x}$ con la soluzione $\tilde{\vet x}$ del rilassamento LP. Le variabili intere sulle quali le due soluzioni <em>sono d'accordo</em> vengono fissate al loro valore comune; il sotto-MIP sulle variabili rimanenti, con il vincolo di cutoff, viene risolto dal risolutore MIP.
 
 - Il pseudo-codice di RINS è il seguente:
 
@@ -584,18 +584,18 @@ title: "Euristiche MIP"
     <strong>Input:</strong> MIP [(10.1)](#eq-eq-mip); incumbent $\bar{\vet x}$; passo di miglioramento $\theta$
     <strong>Output:</strong> Una soluzione almeno buona quanto $\bar{\vet x}$
     <strong>funzione</strong> RINS(MIP, $\bar{\vet x}$, $\theta$)
-    &emsp;&emsp;$\tilde{\vet x} :=$ soluzione ottimale delil rilassamento LP
+    &emsp;&emsp;$\tilde{\vet x} :=$ soluzione ottimale del rilassamento LP
     &emsp;&emsp;<strong>per</strong> $j\in\mathscr{D}$ <strong>fai</strong>
     &emsp;&emsp;&emsp;&emsp;<strong>se</strong> $\tilde x_j=\bar x_j$ <strong>allora</strong>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;correggi $x_j:=\bar x_j$&emsp;*// LP e incumbent sono d'accordo*
     &emsp;&emsp;aggiungi il vincolo di cutoff $f(\vet x)\le f(\bar{\vet x})-\theta$
     &emsp;&emsp;ripristinare il sub-MIP con il risolutore MIP (con un limite di nodi)
-    &emsp;&emsp;<strong>se</strong> il sub-MIP ha una soluzione fattibile $\vet x'$ <strong>allora</strong>
+    &emsp;&emsp;<strong>se</strong> il sub-MIP ha una soluzione ammissibile $\vet x'$ <strong>allora</strong>
     &emsp;&emsp;&emsp;&emsp;<strong>return</strong> $\vet x'$&emsp;*// meglio di $\bar{\vet x}$*
     &emsp;&emsp;<strong>else</strong>
     &emsp;&emsp;&emsp;&emsp;<strong>return</strong> $\bar{\vet x}$&emsp;*// nessuna soluzione migliore nel quartiere*
 
-- <strong>Perché l'accordo.</strong> La soluzione LP è ottimistica e possibilmente infattibile, l'incumbent è fattibile e possibilmente scarsa: due consulenti con difetti opposti. Dove sono d'accordo, il valore è probabilmente corretto anche nelle buone soluzioni; dove non sono d'accordo, c'è qualcosa da decidere, e la decisione è lasciata al risolutore.
+- <strong>Perché l'accordo.</strong> La soluzione LP è ottimistica e possibilmente inammissibile, l'incumbent è ammissibile e possibilmente scarsa: due consulenti con difetti opposti. Dove sono d'accordo, il valore è probabilmente corretto anche nelle buone soluzioni; dove non sono d'accordo, c'è qualcosa da decidere, e la decisione è lasciata al risolutore.
 
 - <strong>La dimensione del quartiere non è scelta.</strong> È il numero di variabili sulle quali $\tilde{\vet x}$ e $\bar{\vet x}$ non sono d'accordo: piccolo se l'incumbent è già vicino alla soluzione LP, grande altrimenti. Per questo motivo il sub-MIP viene risolto con un limite sul numero di nodi.
 
@@ -632,7 +632,7 @@ title: "Euristiche MIP"
 <a id="box-18-def-lb"></a>
 
 !!! definizione "Definizione 10.10: ramificazione locale"
-    <em>Local branching</em> risolve, con il risolutore MIP, il sub-MIP costituito dal MIP, dal vincolo di cutoff e dal vincolo di local branching $\Delta(\vet x,\bar{\vet x})\le k$. Se trova una soluzione migliore, la nuova soluzione diventa incumbente e il quartiere è centrato su di essa. Se dimostra che il quartiere non contiene soluzioni migliori, il raggio $k$ viene aumentato. In entrambi i casi, il quartiere esplorato è escluso dai successivi sub-MIP tramite il vincolo <em>reverse</em> $\Delta(\vet x,\bar{\vet x})\ge k+1$.
+    <em>Local branching</em> risolve, con il risolutore MIP, il sub-MIP costituito dal MIP, dal vincolo di cutoff e dal vincolo di local branching $\Delta(\vet x,\bar{\vet x})\le k$. Se trova una soluzione migliore, la nuova soluzione diventa incumbent e il quartiere è centrato su di essa. Se dimostra che il quartiere non contiene soluzioni migliori, il raggio $k$ viene aumentato. In entrambi i casi, il quartiere esplorato è escluso dai successivi sub-MIP tramite il vincolo <em>reverse</em> $\Delta(\vet x,\bar{\vet x})\ge k+1$.
 
 !!! algoritmo "Algoritmo: ramificazione locale"
     <strong>Input:</strong> MIP [(10.1)](#eq-eq-mip); incumbent $\bar{\vet x}$; raggio $k$; raggio massimo $k_{\max}$; passo $k_{step}$; passo di miglioramento $\theta$
@@ -642,7 +642,7 @@ title: "Euristiche MIP"
     &emsp;&emsp;<strong>mentre</strong> $k\le k_{\max}$ <strong>fai</strong>
     &emsp;&emsp;&emsp;&emsp;risolvi il MIP con i vincoli $\mathscr{R}$, $\Delta(\vet x,\bar{\vet x})\le k$ e $f(\vet x)\le f(\bar{\vet x})-\theta$
     &emsp;&emsp;&emsp;&emsp;$\mathscr{R} \leftarrow \mathscr{R}\cup\big\{\Delta(\vet x,\bar{\vet x})\ge k+1\big\}$&emsp;*// non esplorarlo mai più*
-    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> viene trovata una soluzione fattibile $\vet x'$ <strong>allora</strong>
+    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> viene trovata una soluzione ammissibile $\vet x'$ <strong>allora</strong>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;$\bar{\vet x} \leftarrow \vet x'$&emsp;*// rie-centra il quartiere*
     &emsp;&emsp;&emsp;&emsp;<strong>altrimenti</strong>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;$k \leftarrow k+k_{step}$&emsp;*// nessuna soluzione migliore entro la distanza $k$*
@@ -731,15 +731,15 @@ title: "Euristiche MIP"
     <strong>funzione</strong> ProximitySearch(MIP, $\bar{\vet x}$, $\theta$)
     &emsp;&emsp;<strong>mentre</strong> vero <strong>fai</strong>
     &emsp;&emsp;&emsp;&emsp;risolvi $\min\{\Delta(\vet x,\bar{\vet x}) : \vet x \text{ feasible for the MIP},~ f(\vet x)\le f(\bar{\vet x})-\theta\}$
-    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> il sotto-MIP di prossimità non è fattibile <strong>allora</strong>
+    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> il sotto-MIP di prossimità è inammissibile <strong>allora</strong>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>return</strong> $\bar{\vet x}$&emsp;*// nessuna soluzione migliore di $f(\bar{\vet x})-\theta$*
     &emsp;&emsp;&emsp;&emsp;$\vet x' :=$ la sua soluzione ottimale
     &emsp;&emsp;&emsp;&emsp;correggi $x_j:=x'_j$ in $j\in\mathscr{D}$ e riorganizza $f$ sulle variabili continue
     &emsp;&emsp;&emsp;&emsp;$\bar{\vet x}\leftarrow \vet x'$&emsp;*// la soluzione migliorativa più vicina*
 
-- <strong>Perché minimizzare la distanza.</strong> L'obiettivo originale è spesso ciò che rende un MIP difficile: la sua rilassazione LP spinge il risolutore verso punti frazionari lontani dalle soluzioni ammissibili. Nel sub-MIP di prossimità, l'obiettivo è la distanza, e la soluzione LP resta vicina a $\bar{\vet x}$, che è quasi ammissibile: le euristiche del risolutore funzionano bene e una soluzione ammissibile viene solitamente trovata rapidamente.
+- <strong>Perché minimizzare la distanza.</strong> L'obiettivo originale è spesso ciò che rende un MIP difficile: il suo rilassamento LP spinge il risolutore verso punti frazionari lontani dalle soluzioni ammissibili. Nel sub-MIP di prossimità, l'obiettivo è la distanza, e la soluzione LP resta vicina a $\bar{\vet x}$, che è quasi ammissibile: le euristiche del risolutore funzionano bene e una soluzione ammissibile viene solitamente trovata rapidamente.
 
-- In pratica il sotto-MIP di prossimità non viene risolto in modo ottimale: qualsiasi soluzione fattibile rappresenta un miglioramento.
+- In pratica il sotto-MIP di prossimità non viene risolto in modo ottimale: qualsiasi soluzione ammissibile rappresenta un miglioramento.
 
 - <strong>Nessun raggio da scegliere.</strong> La dimensione dello spostamento è decisa dal sub-MIP stesso: la più piccola modifica che migliora l'obiettivo di almeno $\theta$.
 
@@ -754,7 +754,7 @@ title: "Euristiche MIP"
 
 ??? dimostrazione "Proof"
 
-    La regione fattibile del sub-MIP di prossimità è l'insieme delle soluzioni fattibili $\vet x$ del MIP con $f(\vet x)\le f(\bar{\vet x})-1$; non dipende dall'obiettivo $\Delta$. Se è vuota, ogni soluzione fattibile ha $f(\vet x)>f(\bar{\vet x})-1$, quindi $f(\vet x)\ge f(\bar{\vet x})$ poiché entrambi i valori sono interi. Quindi $\bar{\vet x}$ è ottimale. <span class="qed">□</span>
+    La regione fattibile del sub-MIP di prossimità è l'insieme delle soluzioni ammissibili $\vet x$ del MIP con $f(\vet x)\le f(\bar{\vet x})-1$; non dipende dall'obiettivo $\Delta$. Se è vuota, ogni soluzione ammissibile ha $f(\vet x)>f(\bar{\vet x})-1$, quindi $f(\vet x)\ge f(\bar{\vet x})$ poiché entrambi i valori sono interi. Quindi $\bar{\vet x}$ è ottimale. <span class="qed">□</span>
 
 <a id="box-22-ex-ps"></a>
 
@@ -789,14 +789,14 @@ title: "Euristiche MIP"
     <td><span class="arithmatex">\(3\)</span></td>
     <td><span class="arithmatex">\(f(\vet x)\ge 8\)</span></td>
     <td>—</td>
-    <td>inattuabile</td>
+    <td>inammissibile</td>
     <td>—</td>
     </tr>
     </table></div>
 
     Alla terza iterazione il sub-MIP è irrealizzabile, e [Proposizione 10.12](#box-21-prop-ps) dimostra che $7$ è ottimale, anche se il limite superiore $\lfloor z(\LP)\rfloor=8$ della radice non lo è.
 
-- La prova di ottimalità viene dal risolutore, che dimostra l'infattibilità dell'ultimo sub-MIP con i propri limiti duali: la ricerca per prossimità, usata con $\theta=1$, è un metodo esatto che migliora l'incumbent lungo il percorso.
+- La prova di ottimalità viene dal risolutore, che dimostra l'infattibilità dell'ultimo sub-MIP con i propri bound duali: la ricerca per prossimità, usata con $\theta=1$, è un metodo esatto che migliora l'incumbent lungo il percorso.
 
 ## 10.7 Rilassare-e-riparare e riparare-e-ottimizzare { #sez-sec-rf }
 
@@ -809,15 +809,15 @@ title: "Euristiche MIP"
 <a id="box-23-def-rf"></a>
 
 !!! definizione "Definizione 10.13: rilassare-e-fissare"
-    <em>Relax-and-fix</em> suddivide le variabili intere in blocchi $B_1,B_2,\dots,B_p$, in un ordine dato. Al passo $r$ risolve il MIP in cui le variabili di $B_r$ sono intere, quelle di $B_1,\dots,B_{r-1}$ sono fissate ai valori decisi nei passaggi precedenti, e quelle di $B_{r+1},\dots,B_p$ sono <em>rilassate</em> (continue). Poi fissa le variabili di $B_r$ ai loro valori e passa al blocco successivo. La soluzione dell'ultimo passo è fattibile.
+    <em>Relax-and-fix</em> suddivide le variabili intere in blocchi $B_1,B_2,\dots,B_p$, in un ordine dato. Al passo $r$ risolve il MIP in cui le variabili di $B_r$ sono intere, quelle di $B_1,\dots,B_{r-1}$ sono fissate ai valori decisi nei passaggi precedenti, e quelle di $B_{r+1},\dots,B_p$ sono <em>rilassate</em> (continue). Poi fissa le variabili di $B_r$ ai loro valori e passa al blocco successivo. La soluzione dell'ultimo passo è ammissibile.
 
 !!! algoritmo "Algoritmo: Rilassa-e-ripara"
     <strong>Input:</strong> MIP [(10.1)](#eq-eq-mip); partizione $B_1,B_2,\dots,B_p$ di $\mathscr{D}$, in un ordine dato
-    <strong>Output:</strong> Soluzione fattibile, o FALLIMENTO
+    <strong>Output:</strong> Soluzione ammissibile, o FALLIMENTO
     <strong>funzione</strong> RelaxAndFix(MIP, $B_1,\dots,B_p$)
     &emsp;&emsp;<strong>per</strong> $r := 1$ <strong>a</strong> $p$ <strong>fare</strong>
     &emsp;&emsp;&emsp;&emsp;risolvi l'MIP con: $x_j$ fissato per $j\in B_1\cup\dots\cup B_{r-1}$, $x_j$ intero per $j\in B_r$, $x_j$ continuo per $j\in B_{r+1}\cup\dots\cup B_p$
-    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> non è fattibile <strong>allora</strong>
+    &emsp;&emsp;&emsp;&emsp;<strong>se</strong> è inammissibile <strong>allora</strong>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>restituisci</strong> FAIL
     &emsp;&emsp;&emsp;&emsp;$\vet x' :=$ la sua soluzione ottimale
     &emsp;&emsp;&emsp;&emsp;correggi $x_j:=x'_j$ per tutti $j\in B_r$
@@ -825,14 +825,14 @@ title: "Euristiche MIP"
 
 - <strong>Perché.</strong> Le decisioni dei primi blocchi vengono prese con attenzione (intero), mentre gli altri sono solo stimati (rallentati). Ogni MIP ha le variabili intere di un singolo blocco, quindi è piccolo.
 
-- <strong>Miopeia.</strong> I blocchi rilassati sono ottimistici: la rilassazione può ottenere una frazione di una decisione per una frazione del suo costo. Una decisione che sembra buona perché il resto è economico può rivelarsi cattiva quando il resto diventa intero. Le decisioni fissate possono persino rendere un passo successivo non realizzabile.
+- <strong>Miopia.</strong> I blocchi rilassati sono ottimistici: il rilassamento può prendere una decisione solo in parte, pagando solo una frazione del relativo costo. Una decisione che sembra buona perché il resto è economico può rivelarsi cattiva quando il resto diventa intero. Le decisioni fissate possono persino rendere un passo successivo non realizzabile.
 
 - <strong>Varianti.</strong> Blocchi più grandi danno soluzioni migliori e MIP più difficili; i blocchi <em>sovrapposti</em> risolvono $B_r\cup B_{r+1}$ come intero ma fissano solo $B_r$, per vedere un po' più avanti.
 
 <a id="box-24-ex-rf"></a>
 
 !!! esempio "Esempio 10.11: Rilassa-e-fissa su $P46$"
-    Le variabili intere sono $x_1,x_2,x_3$. La rilassamento LP ha valore $\frac{499}{25}$, il limite superiore è $19$ e $z(\ILP)=16$, raggiunto da $(0,1,1)$.
+    Le variabili intere sono $x_1,x_2,x_3$. Il rilassamento LP ha valore $\frac{499}{25}$, il limite superiore è $19$ e $z(\ILP)=16$, raggiunto da $(0,1,1)$.
 
     <strong>Una variabile per blocco, $B_1=\{x_1\}$, $B_2=\{x_2\}$, $B_3=\{x_3\}$.</strong>
 
@@ -885,7 +885,7 @@ title: "Euristiche MIP"
     &emsp;&emsp;&emsp;&emsp;$improved \leftarrow$ falso
     &emsp;&emsp;&emsp;&emsp;<strong>per</strong> $r := 1$ <strong>a</strong> $q$ <strong>fai</strong>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;risolvi il MIP con $x_j:=\bar x_j$ per $j\in\mathscr{D}\setminus W_r$ e $f(\vet x)\le f(\bar{\vet x})-\theta$
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>se</strong> viene trovata una soluzione fattibile $\vet x'$ <strong>allora</strong>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>se</strong> viene trovata una soluzione ammissibile $\vet x'$ <strong>allora</strong>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;$\bar{\vet x}\leftarrow \vet x'$;   $improved\leftarrow$ vero
     &emsp;&emsp;<strong>ritorna</strong> $\bar{\vet x}$
 
@@ -897,7 +897,7 @@ title: "Euristiche MIP"
     <div class="tabella" markdown="0"><table>
     <tr>
     <th>finestra</th>
-    <th>incumbente dopo la finestra</th>
+    <th>incumbent dopo la finestra</th>
     <th></th>
     </tr>
     <tr>
@@ -931,7 +931,7 @@ title: "Euristiche MIP"
 
     - <em>prima della LP radice</em>, le euristiche che non necessitano di rilassamento cercano una prima soluzione;
 
-    - <em>alla radice</em>, dopo l'LP, vengono eseguiti l'arrotondamento, diverse euristiche di immersione e la pompa di fattibilità;
+    - <em>alla radice</em>, dopo l'LP, vengono eseguiti l'arrotondamento, diverse euristiche di diving e la pompa di fattibilità;
 
     - <em>durante il branch-and-bound</em>, RINS e altre euristiche sub-MIP vengono eseguite su alcuni nodi, con la soluzione LP del nodo, e i nuovi incumbent vengono riportati nel log da una riga che inizia con <code>H</code> (euristica) invece di <code>*</code> (soluzione LP intera di un nodo).
 
@@ -951,7 +951,7 @@ title: "Euristiche MIP"
 <tr>
 <td><code>MIPFocus</code></td>
 <td><span class="arithmatex">\(0\)</span></td>
-<td><span class="arithmatex">\(1\)</span>: concentrarsi sul trovare soluzioni fattibili e buone piuttosto che sul limite</td>
+<td><span class="arithmatex">\(1\)</span>: concentrarsi sul trovare soluzioni ammissibili e buone piuttosto che sul limite</td>
 </tr>
 <tr>
 <td><code>RISCIACQUA</code></td>
@@ -986,7 +986,7 @@ title: "Euristiche MIP"
 
 ## 10.9 Quali euristiche basate su MIP forniscono { #sez-sec-give }
 
-- Una euristica fornisce solo un lato del divario e senza un vincolo duale non si può dire nulla sulla qualità della sua soluzione. Un'euristica basata su MIP lavora con un modello MIP, e il modello include la sua rilassazione LP; eseguita all'interno di un risolutore MIP, include anche il vincolo duale del branch-and-bound. L'euristica <strong>sa quanto è lontana dall'ottimo</strong> mentre viene eseguita: il divario di ottimalità
+- Un’euristica fornisce solo un lato del divario e senza un vincolo duale non si può dire nulla sulla qualità della sua soluzione. Un'euristica basata su MIP lavora con un modello MIP, e il modello include il suo rilassamento LP; eseguita all'interno di un risolutore MIP, include anche il vincolo duale del branch-and-bound. L'euristica <strong>sa quanto è lontana dall'ottimo</strong> mentre viene eseguita: il divario di ottimalità
 
     $$
     \text{optimality gap} = \frac{\UB - \LB}{|\LB|}
@@ -1012,7 +1012,7 @@ title: "Euristiche MIP"
 <td>—</td>
 </tr>
 <tr>
-<td>auto, immersione</td>
+<td>auto, diving</td>
 <td><span class="arithmatex">\((4,1)\)</span></td>
 <td><span class="arithmatex">\(14\)</span></td>
 <td><span class="arithmatex">\(15\)</span></td>
@@ -1080,7 +1080,7 @@ title: "Euristiche MIP"
 - Su $P7$ e $P42$ l'arrotondamento intero del valore LP è già il valore ottimale: la difficoltà è trovare una soluzione che raggiunga il limite, non dimostrarlo. Negli altri casi il limite $\lfloor z(\LP)\rfloor$ non è stretto, e il certificato proviene dalla ricerca per prossimità ([Proposizione 10.12](#box-21-prop-ps)) o dal branch-and-bound del risolutore.
 
 !!! chiave ""
-    Un euristico basato su MIP non trova soltanto soluzioni: all'interno di un risolutore MIP lavora con un vincolo duale, quindi il divario della sua soluzione è sempre noto, e un divario pari a $0$ certifica l'ottimalità.
+    Un’euristica basato su MIP non trova soltanto soluzioni: all'interno di un risolutore MIP lavora con un vincolo duale, quindi il divario della sua soluzione è sempre noto, e un divario pari a $0$ certifica l'ottimalità.
 
 - I metodi di questo capitolo, in sintesi:
 
@@ -1100,11 +1100,11 @@ title: "Euristiche MIP"
 <td>arrotonda la soluzione LP</td>
 </tr>
 <tr>
-<td>immersione</td>
+<td>diving</td>
 <td>sì</td>
 <td>guidato: sì</td>
 <td>uno alla volta</td>
-<td>fissare una variabile, risolvere di nuovo il LP, ripetere</td>
+<td>fissare una variabile, risolvere di nuovo l’LP, ripetere</td>
 </tr>
 <tr>
 <td>pompa di fattibilità</td>
@@ -1180,7 +1180,7 @@ def è_integrale(v):
     return abs(v - round(v)) <= EPS
 
 def risolvi_lp(m):
-    soluzione ottimale del rilassamento LP di m (con i suoi limiti attuali), None se non fattibile
+    soluzione ottimale del rilassamento LP di m (con i suoi limiti attuali), None se inammissibile
     m.aggiorna()
     r = m.rilassati()
     r.optimize()
@@ -1202,7 +1202,7 @@ def arrotonda_punto(x_star, I):
 
 def valuta(m, x_int):
     fissare le variabili intere a x_int e ottimizzare quelle continue:
-       restituisce (valore, x), o None se il punto non può essere completato in una soluzione fattibile
+       restituisce (valore, x), o None se il punto non può essere completato in una soluzione ammissibile
     f = m.copy()
     V = f.getVars()
     per j in int_index(f):
@@ -1213,7 +1213,7 @@ def valuta(m, x_int):
     return f.ObjVal, [v.X per v in V]
 
 def risolvi_mip(m):
-    valore ottimale e soluzione del MIP m, None se non è fattibile
+    valore ottimale e soluzione del MIP m, None se è inammissibile
     m.optimize()
     se m.SolCount == 0:
         restituisci None
@@ -1272,7 +1272,7 @@ def build_mip(c, A, b, ub=None, name="MIP"):
     restituisci m
 ```
 
-- Arrotondamento e immersione:
+- Arrotondamento e diving:
 
 ```python
 def rounding(m, trace=None):
@@ -1293,7 +1293,7 @@ def diving(m, rule="fractional", x_inc=None, trace=None):
         x_star = solve_lp(d)                   # LP relaxation with the current bounds
         if x_star is None:
             note(trace, "LP infeasible")
-            return None                        # the dive fails
+            return None                        # il diving fallisce
         F = [j for j in I if not is_integral(x_star[j])]
         note(trace, "LP", obj_of(d, x_star), x_star)
         if not F:
@@ -1349,7 +1349,7 @@ def pompa_di_fattibilità(m, max_iter=100, seed=1, trace=None):
             nota(traccia, "riavvia", x_nuovo)
         x_tilde = x_nuovo
         storia.append(x_tilde)
-    return None                                # nessuna soluzione fattibile trovata
+    return None                                # nessuna soluzione ammissibile trovata
 ```
 
 - RINS, ramificazione locale e ricerca di prossimità:
@@ -1464,15 +1464,15 @@ def fix_and_optimize(m, x_tilde, windows, theta=1, trace=None):
 ## 10.11 Errori tipici { #sez-sec-mistakes }
 
 !!! attenzione "Avviso"
-    - <strong>Arrotondamento di un problema con vincoli di uguaglianza.</strong> Gli arrotondamenti indipendenti delle variabili di un vincolo di uguaglianza quasi mai lo soddisfano: l'arrotondamento fallisce, ed è necessario un tuffo.
+    - <strong>Arrotondamento di un problema con vincoli di uguaglianza.</strong> Gli arrotondamenti indipendenti delle variabili di un vincolo di uguaglianza quasi mai lo soddisfano: l'arrotondamento fallisce, ed è necessario un diving.
 
-    - <strong>Credere che un'immersione possa annullare una decisione.</strong> Un'immersione è un percorso dell'albero, senza ripensamenti: una correzione errata non viene mai rivista e una correzione che rende il LP non fattibile termina l'immersione.
+    - <strong>Credere che il diving possa annullare una decisione.</strong> Il diving è un percorso dell'albero, senza ripensamenti: una correzione errata non viene mai rivista e una correzione che rende l’LP inammissibile termina il diving.
 
     - <strong>Usare la pompa di fattibilità per ottenere una buona soluzione.</strong> Dopo il primo LP, la pompa ignora l'obiettivo: su $P72$ restituisce una soluzione di valore $2$, rispetto al valore ottimale $7$.
 
     - <strong>Fidarsi della risoluzione fissa.</strong> RINS fissa le variabili su cui l'LP e l'incumbent sono d'accordo, quindi non può trovare una soluzione migliore che le cambi ($P7$).
 
-    - <strong>Dimenticando il vincolo di cutoff.</strong> Senza $f(\vet x)\le f(\bar{\vet x})-\theta$ il sub-MIP restituisce di nuovo la soluzione corrente; con esso, un sub-MIP non fattibile dimostra un ottimo locale.
+    - <strong>Dimenticando il vincolo di cutoff.</strong> Senza $f(\vet x)\le f(\bar{\vet x})-\theta$ il sub-MIP restituisce di nuovo la soluzione corrente; con esso, un sub-MIP inammissibile dimostra un ottimo locale.
 
     - <strong>Affermare l'ottimalità senza le condizioni.</strong> [Proposizione 10.12](#box-21-prop-ps) richiede $\theta=1$ e valori interi dell'obiettivo su tutte le soluzioni ammissibili.
 
@@ -1485,7 +1485,7 @@ def fix_and_optimize(m, x_tilde, windows, theta=1, trace=None):
 !!! chiave "In sintesi"
     - Le euristiche basate su MIP utilizzano il rilassamento LP per decidere dove cercare e un risolutore MIP per esplorare esattamente un vasto vicinato.
 
-    - Il rounding e il diving costruiscono una soluzione dall'LP; la feasibility pump cerca solo la fattibilità; RINS, il local branching e la proximity search migliorano una soluzione incumbente con un sub-MIP.
+    - Il rounding e il diving costruiscono una soluzione dall'LP; la feasibility pump cerca solo la fattibilità; RINS, il local branching e la proximity search migliorano una soluzione incumbent con un sub-MIP.
 
     - Relax-and-fix costruisce una soluzione blocco per blocco, fix-and-optimize la migliora finestra per finestra.
 
@@ -1507,7 +1507,7 @@ def fix_and_optimize(m, x_tilde, windows, theta=1, trace=None):
     <td>soluzioni euristiche <span class="arithmatex">\((4, 0)\)</span> e <span class="arithmatex">\((4, 1)\)</span></td>
     </tr>
     <tr>
-    <td>Rilassamento LP e limiti duali</td>
+    <td>Rilassamento LP e bound duali</td>
     <td>–</td>
     <td><span class="arithmatex">\(15\)</span></td>
     <td><span class="arithmatex">\(\lfloor z(\LP) \rfloor\)</span>, con <span class="arithmatex">\(z(\LP) = \tfrac{31}{2}\)</span></td>
@@ -1531,7 +1531,7 @@ def fix_and_optimize(m, x_tilde, windows, theta=1, trace=None):
     <td><span class="arithmatex">\((3,2)\)</span></td>
     </tr>
     <tr>
-    <td>Questo capitolo, immersione</td>
+    <td>Questo capitolo, diving</td>
     <td><span class="arithmatex">\(14\)</span></td>
     <td><span class="arithmatex">\(15\)</span></td>
     <td><span class="arithmatex">\((4,1)\),</span> certificato ottimale tramite ricerca di prossimità</td>
@@ -1542,7 +1542,7 @@ def fix_and_optimize(m, x_tilde, windows, theta=1, trace=None):
 
 <a id="ref-AB07"></a>**[1]** T. Achterberg, T. Berthold, Migliorare la feasibility pump, <em>Discrete Optimization</em> 4 (2007) 77–86.
 
-<a id="ref-BFL07"></a>**[2]** L. Bertacco, M. Fischetti, A. Lodi, Una euristica della pompa di fattibilità per problemi misti interi generali, <em>Discrete Optimization</em> 4 (2007) 63–76.
+<a id="ref-BFL07"></a>**[2]** L. Bertacco, M. Fischetti, A. Lodi, Un’euristica della pompa di fattibilità per problemi misti interi generali, <em>Discrete Optimization</em> 4 (2007) 63–76.
 
 <a id="ref-DRL05"></a>**[3]** E. Danna, E. Rothberg, C. Le Pape, Esplorazione dei quartieri indotti dal rilassamento per migliorare le soluzioni MIP, <em>Mathematical Programming</em> 102 (2005) 71–90.
 

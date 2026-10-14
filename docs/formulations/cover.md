@@ -17,7 +17,7 @@ title: "Disuguaglianze di copertura"
 
     - Da questo modulo, [Capitolo 3 «Formulazioni ideali»](https://fabiofurini.github.io/programmazione-lineare-intera/formulations/ideal-formulations/) e [Capitolo 4 «Disuguaglianze valide»](https://fabiofurini.github.io/programmazione-lineare-intera/formulations/valid-inequalities/): l'inviluppo convesso delle soluzioni intere, disuguaglianze valide e tagli che rimuovono punti frazionari.
 
-    - La rilassamento LP di un problema binario con un vincolo, risolto inserendo le variabili in ordine non decrescente del rapporto $c_j/a_j$ tra i coefficienti dell'obiettivo e del vincolo (regola di Dantzig).
+    - Il rilassamento LP di un problema binario con un vincolo, risolto inserendo le variabili in ordine non decrescente del rapporto $c_j/a_j$ tra i coefficienti dell'obiettivo e del vincolo (regola di Dantzig).
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
@@ -280,7 +280,7 @@ title: "Disuguaglianze di copertura"
     </tr>
     </table></div>
 
-    Solo le prime tre coperture sono minime; le loro disuguaglianze descrivono già la chiusura della copertura. Denotiamo con $\LPcov$ il LP ottenuto aggiungendole a $\LP$. Una soluzione ottimale $\tilde{\vet x}(\LPcov)$ è:
+    Solo le prime tre coperture sono minime; le loro disuguaglianze descrivono già la chiusura della copertura. Denotiamo con $\LPcov$ l’LP ottenuto aggiungendole a $\LP$. Una soluzione ottimale $\tilde{\vet x}(\LPcov)$ è:
 
     $$
     \tilde{x}_1=1,\qquad \tilde{x}_2=\frac35,\qquad
@@ -443,7 +443,7 @@ title: "Disuguaglianze di copertura"
     \sum_{j\in C}\tilde{x}_j\le|C|-1\qquad\forall\, C\in\mathcal{C}.
     $$
 
-- Tipicamente, $\tilde{\vet x}$ è una soluzione ottimale delil rilassamento LP attuale, ma qualsiasi punto di $P$ può essere separato.
+- Tipicamente, $\tilde{\vet x}$ è una soluzione ottimale del rilassamento LP attuale, ma qualsiasi punto di $P$ può essere separato.
 
 - Per una cover $C$, l'ineguaglianza della cover è violata da $\tilde{\vet x}$ se
 
@@ -488,7 +488,7 @@ title: "Disuguaglianze di copertura"
 
 ??? dimostrazione "Proof"
 
-    Ogni assegnazione fattibile delle variabili binarie $z_j$ rappresenta una copertura $C=\{j:z_j=1\}$, e il suo obiettivo è $\sum_{j\in C}(1-\tilde{x}_j)$. Per $\eqref{eq:cost-test}$, questo è minore di $1$ esattamente quando il taglio corrispondente è violato. Prendere il minimo su tutte le coperture dimostra entrambe le implicazioni. Il CSP è fattibile perché $\mathscr{I}$ stesso è una copertura. <span class="qed">□</span>
+    Ogni assegnazione fattibile delle variabili binarie $z_j$ rappresenta una copertura $C=\{j:z_j=1\}$, e il suo obiettivo è $\sum_{j\in C}(1-\tilde{x}_j)$. Per $\eqref{eq:cost-test}$, questo è minore di $1$ esattamente quando il taglio corrispondente è violato. Prendere il minimo su tutte le coperture dimostra entrambe le implicazioni. Il CSP è ammissibile perché $\mathscr{I}$ stesso è una copertura. <span class="qed">□</span>
 
 !!! chiave ""
     Sia $\tilde{z}_1,\tilde{z}_2,\dots,\tilde{z}_n$ una soluzione ottimale di $\CSP$. Se $z(\CSP)<1$, la copertura
@@ -499,16 +499,16 @@ title: "Disuguaglianze di copertura"
 
     è associato con l'ineguaglianza di copertura $\sum_{j\in\tilde{C}}x_j\le|\tilde{C}|-1$ massimamente violata da $\tilde{\vet x}$. Altrimenti, nessuna ineguaglianza di copertura è violata da $\tilde{\vet x}$.
 
-- Per trovare un'ineguaglianza di copertura violata, non è necessario risolvere $\CSP$ in modo ottimale: qualsiasi soluzione fattibile $\bar{z}_1,\dots,\bar{z}_n$ di costo inferiore a $1$ fornisce la copertura $\bar{C}=\{j\in\mathscr{I}:\ \bar{z}_j=1\}$, la cui disuguaglianza di copertura è violata da $\tilde{\vet x}$.
+- Per trovare un'ineguaglianza di copertura violata, non è necessario risolvere $\CSP$ in modo ottimale: qualsiasi soluzione ammissibile $\bar{z}_1,\dots,\bar{z}_n$ di costo inferiore a $1$ fornisce la copertura $\bar{C}=\{j\in\mathscr{I}:\ \bar{z}_j=1\}$, la cui disuguaglianza di copertura è violata da $\tilde{\vet x}$.
 
-- Al contrario, una soluzione fattibile di costo almeno $1$ <em>non</em> dimostra che non esiste alcuna disuguaglianza di copertura violata: questo richiede il valore ottimale (o un limite inferiore) di $\CSP$.
+- Al contrario, una soluzione ammissibile di costo almeno $1$ <em>non</em> dimostra che non esiste alcuna disuguaglianza di copertura violata: questo richiede il valore ottimale (o un limite inferiore) di $\CSP$.
 
 - Se $z(\CSP)<1$, la massima violazione di un'ineguaglianza di copertura in $\tilde{\vet x}$ è $1-z(\CSP)$.
 
 <a id="box-16-ex-guide-csp"></a>
 
 !!! esempio "Esempio 5.8: Separazione delle disuguaglianze di copertura"
-    Consideriamo di nuovo [Esempio 5.1](#box-8-ex-guide). Le disuguaglianze di copertura vengono separate in modo iterativo: ad ogni iterazione, il LP corrente viene risolto, lo $\CSP$ viene risolto per la sua soluzione ottimale $\tilde{\vet x}$, e viene aggiunta la disuguaglianza di copertura massimamente violata, fino a quando nessuna disuguaglianza di copertura è violata.
+    Consideriamo di nuovo [Esempio 5.1](#box-8-ex-guide). Le disuguaglianze di copertura vengono separate in modo iterativo: ad ogni iterazione, l’LP corrente viene risolto, lo $\CSP$ viene risolto per la sua soluzione ottimale $\tilde{\vet x}$, e viene aggiunta la disuguaglianza di copertura massimamente violata, fino a quando nessuna disuguaglianza di copertura è violata.
 
     <span style="color:#e03131"><strong>Iterazione 1.</strong></span> Una soluzione ottimale di $\LP$ è
 
@@ -674,9 +674,9 @@ title: "Disuguaglianze di copertura"
 
     è associato con l'ineguaglianza di copertura $\sum_{j\in\tilde{C}}x_j\le|\tilde{C}|-1$ massimamente violata da $\tilde{\vet x}$. Altrimenti, nessuna ineguaglianza di copertura è violata da $\tilde{\vet x}$.
 
-- Qualsiasi soluzione praticabile $\bar{y}_1,\dots,\bar{y}_n$ di $\CSPKP$ fornisce la copertura $\bar{C}=\{j\in\mathscr{I}:\ \bar{y}_j=0\}$, con costo $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\bar{y}_j$: se questo costo è inferiore a $1$, l'ineguaglianza di copertura di $\bar{C}$ è violata da $\tilde{\vet x}$.
+- Qualsiasi soluzione ammissibile $\bar{y}_1,\dots,\bar{y}_n$ di $\CSPKP$ fornisce la copertura $\bar{C}=\{j\in\mathscr{I}:\ \bar{y}_j=0\}$, con costo $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\bar{y}_j$: se questo costo è inferiore a $1$, l'ineguaglianza di copertura di $\bar{C}$ è violata da $\tilde{\vet x}$.
 
-### 5.5.1 Una euristica di separazione avido
+### 5.5.1 Un’euristica di separazione avido
 
 La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il problema complementare.
 
@@ -958,7 +958,7 @@ La seguente procedura golosa costruisce valori fattibili $\bar{y}_j$ per il prob
 
     - La chiusura della copertura è più vicina a $\operatorname{conv}(X)$ rispetto al rilassamento LP, ma in generale non gli è uguale.
 
-    <strong>Cruscotto dell'istanza a quattro variabili.</strong> I limiti inferiori e superiori sul valore ottimale del problema binario di [Esempio 5.1](#box-8-ex-guide). I coefficienti dell'obiettivo sono interi, quindi il limite superiore è il valore arrotondato per difetto della rilassazione LP.
+    <strong>Cruscotto dell'istanza a quattro variabili.</strong> I limiti inferiori e superiori sul valore ottimale del problema binario di [Esempio 5.1](#box-8-ex-guide). I coefficienti dell'obiettivo sono interi, quindi il limite superiore è il valore arrotondato per difetto del rilassamento LP.
 
     <div class="tabella" markdown="0"><table>
     <tr>

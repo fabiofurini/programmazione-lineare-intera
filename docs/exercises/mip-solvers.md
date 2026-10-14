@@ -34,7 +34,7 @@ title: "Esercizi · Solver MIP"
 
     2. Controlla i nuovi limiti mediante enumerazione. Sono i più piccoli possibili?
 
-    3. Confronta il valore ottimale delil rilassamento LP prima e dopo il restringimento dei vincoli.
+    3. Confronta il valore ottimale del rilassamento LP prima e dopo il restringimento dei vincoli.
 
 soluzione "Solution"
 
@@ -64,18 +64,18 @@ soluzione "Solution"
         1 \le x_1 \le 5,\qquad 0 \le x_2 \le 4,\qquad 0 \le x_3 \le 3.
         $$
 
-    2. Il problema ILP ha $6$ soluzioni fattibili, e tutte soddisfano i nuovi vincoli: nessuna soluzione fattibile è persa. Il valore più piccolo e quello più grande di ogni variabile sulle soluzioni fattibili sono
+    2. Il problema ILP ha $6$ soluzioni ammissibili, e tutte soddisfano i nuovi vincoli: nessuna soluzione ammissibile è persa. Il valore più piccolo e quello più grande di ogni variabile sulle soluzioni ammissibili sono
 
         $$
         1 \le x_1 \le 3,\qquad 0 \le x_2 \le 2,\qquad 0 \le x_3 \le 3.
         $$
 
-        I limiti propagati sono validi ma non tutti sono i più piccoli possibili: per esempio $x_1 = 5$ richiede $x_2 = x_3 = 0$ secondo il primo vincolo, il che viola $x_2 + x_3 \ge 2$. L’inedirizzamento dei limiti esamina un vincolo alla volta.
+        I limiti propagati sono validi ma non tutti sono i più piccoli possibili: per esempio $x_1 = 5$ richiede $x_2 = x_3 = 0$ secondo il primo vincolo, il che viola $x_2 + x_3 \ge 2$. Il rafforzamento dei limiti esamina un vincolo alla volta.
 
-    3. La rilassazione LP con i vincoli originali ha valore ottimale $19$, e con i vincoli resi più stretti $\tfrac{75}{4}$. I dati sono interi, quindi il limite superiore passa da $19$ a $18$.
+    3. Il rilassamento LP con i vincoli originali ha valore ottimale $19$, e con i vincoli resi più stretti $\tfrac{75}{4}$. I dati sono interi, quindi il limite superiore passa da $19$ a $18$.
 
         !!! chiave ""
-            L'irrigidimento dei vincoli fornisce $1 \le x_1 \le 5, 0 \le x_2 \le 4, 0 \le x_3 \le 3$ senza perdere alcuna soluzione fattibile; il limite superiore passa da $19$ a $18$, uguale a $z(\ILP)$.
+            L'irrigidimento dei vincoli fornisce $1 \le x_1 \le 5, 0 \le x_2 \le 4, 0 \le x_3 \le 3$ senza perdere alcuna soluzione ammissibile; il limite superiore passa da $19$ a $18$, uguale a $z(\ILP)$.
 
 <a id="esercizio-9-2"></a>
 
@@ -91,11 +91,11 @@ soluzione "Solution"
 
     **Domande**
 
-    1. Applica l'applicazione del coefficiente ai coefficienti $a_1, \dots, a_4$, uno alla volta: il coefficiente $a_j$ può essere aumentato a $b - M_j$, dove $M_j$ è il valore più grande di $\sum_{k \ne j} a_k\,x_k$ sui punti binari con $x_j = 1$ che soddisfano il vincolo (attuale).
+    1. Applica il rafforzamento dei coefficienti ai coefficienti $a_1, \dots, a_4$, uno alla volta: il coefficiente $a_j$ può essere aumentato a $b - M_j$, dove $M_j$ è il valore più grande di $\sum_{k \ne j} a_k\,x_k$ sui punti binari con $x_j = 1$ che soddisfano il vincolo (attuale).
 
     2. Verifica che i due vincoli abbiano le stesse soluzioni binarie.
 
-    3. Confronta i valori ottimali delle rilassazioni LP ($0 \le x_j \le 1$) dei due vincoli con il valore ottimale del problema binario.
+    3. Confronta i valori ottimali deli rilassamenti LP ($0 \le x_j \le 1$) dei due vincoli con il valore ottimale del problema binario.
 
 ??? soluzione "Soluzione"
 
@@ -117,7 +117,7 @@ soluzione "Solution"
 
     2. Entrambi i vincoli sono soddisfatti dagli stessi punti binari $10$ (dello $2^4 = 16$), ossia $(0,0,0,0)$, $(0,0,0,1)$, $(0,0,1,0)$, $(0,0,1,1)$, $(0,1,0,0)$, $(0,1,0,1)$, $(0,1,1,0)$, $(1,0,0,0)$, $(1,0,0,1)$, $(1,0,1,0)$.
 
-    3. La rilassamento LP del vincolo originale ha come soluzione ottimale $(0,\tfrac{3}{5},1,1)$ con valore $\dfrac{13}{5}$; il rilassamento LP del vincolo rafforzato ha come soluzione ottimale $(\tfrac{1}{3},0,1,1)$ con valore $\dfrac{7}{3}$. Il problema binario ha valore ottimale $2$.
+    3. Il rilassamento LP del vincolo originale ha come soluzione ottimale $(0,\tfrac{3}{5},1,1)$ con valore $\dfrac{13}{5}$; il rilassamento LP del vincolo rafforzato ha come soluzione ottimale $(\tfrac{1}{3},0,1,1)$ con valore $\dfrac{7}{3}$. Il problema binario ha valore ottimale $2$.
 
         !!! chiave ""
             Il restringimento dei coefficienti trasforma $6\,x_1 + 5\,x_2 + 4\,x_3 + 3\,x_4 \le 10$ in $6\,x_1 + 6\,x_2 + 4\,x_3 + 4\,x_4 \le 10$: stesse soluzioni binarie, stessa dimensione, e il limite LP migliora da $\dfrac{13}{5}$ a $\dfrac{7}{3}$ (il valore ottimale è $2$).
@@ -181,7 +181,7 @@ soluzione "Solution"
 
     1. Il problema è un problema di massimizzazione o di minimizzazione? Quante variabili e vincoli ha?
 
-    2. Quale riga fornisce il limite della rilassazione LP del nodo radice? Quale valore di $\UB$ fornisce?
+    2. Quale riga fornisce il limite del rilassamento LP del nodo radice? Quale valore di $\UB$ fornisce?
 
     3. Quali righe riportano nuove soluzioni incumbent e come vengono trovate? Fornisci il limite inferiore $\LB$ dopo ciascuna di esse.
 
@@ -193,7 +193,7 @@ soluzione "Solution"
 
     1. Riga 13: <code>(Max)</code>, quindi è un problema di <strong>massimizzazione</strong>, con $3$ righe (vincoli) e $10$ colonne (variabili), tutte intere e non binarie.
 
-    2. Riga 25: la rilassamento radice ha valore ottimale $229.61033$ (esattamente $z(\LP) = \dfrac{48907}{213}$). I dati sono interi, quindi $\UB = \lfloor \dfrac{48907}{213} \rfloor = 229$. La colonna <code>BestBd</code> della riga 30 riporta lo stesso valore; a quel punto non esiste alcun incumbente (il trattino in <code>Incumbent</code>).
+    2. Riga 25: il rilassamento radice ha valore ottimale $229.61033$ (esattamente $z(\LP) = \dfrac{48907}{213}$). I dati sono interi, quindi $\UB = \lfloor \dfrac{48907}{213} \rfloor = 229$. La colonna <code>BestBd</code> della riga 30 riporta lo stesso valore; a quel punto non esiste alcun incumbent (il trattino in <code>Incumbent</code>).
 
     3. - Riga 33 (nodo 12): $\LB = 220$.
 
@@ -285,9 +285,9 @@ soluzione "Solution"
 
 soluzione "Solution"
 
-    1. In un problema di minimizzazione i ruoli sono invertiti: <code>Incumbent</code> è il valore della migliore soluzione fattibile, un <strong>limite superiore</strong> $\UB$ sul valore ottimale, e <code>BestBd</code> è un <strong>limite inferiore</strong> $\LB$.
+    1. In un problema di minimizzazione i ruoli sono invertiti: <code>Incumbent</code> è il valore della migliore soluzione ammissibile, un <strong>limite superiore</strong> $\UB$ sul valore ottimale, e <code>BestBd</code> è un <strong>limite inferiore</strong> $\LB$.
 
-    2. - Riga 20: un euristico trova una soluzione praticabile di valore $161$ prima del presolve, quindi $\UB = 161$.
+    2. - Riga 20: un’euristica trova una soluzione ammissibile di valore $161$ prima del presolve, quindi $\UB = 161$.
 
         - Riga 22: il presolve non riduce il modello (righe $4$, colonne $12$).
 

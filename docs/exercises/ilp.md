@@ -83,7 +83,7 @@ title: "Esercizi · Programmazione lineare intera"
 
     3. Il gradiente della funzione obiettivo è $\nabla f = (3,1)$. Spostando la linea di livello $3\,x_1 + x_2 = z$ nella direzione di $\nabla f$, l'ultimo punto di $F$ raggiunto è $(2,1)$, sulla linea tratteggiata $3\,x_1 + x_2 = 7$ della figura; nessun altro punto di $F$ giace su questa linea.
 
-        La enumerazione completa delle soluzioni fattibili $9$ lo conferma (l'ottimo in grassetto):
+        La enumerazione completa delle soluzioni ammissibili $9$ lo conferma (l'ottimo in grassetto):
 
         $$
         \begin{array}{ccc|ccc|ccc}
@@ -198,7 +198,7 @@ title: "Esercizi · Programmazione lineare intera"
 
     1. Scrivi il problema ILP in forma canonica di massimizzazione.
 
-    2. Ottieni un limite superiore su ciascuna variabile dai vincoli e elenca tutte le soluzioni fattibili.
+    2. Ottieni un limite superiore su ciascuna variabile dai vincoli e elenca tutte le soluzioni ammissibili.
 
     3. Trova una soluzione ottimale mediante enumerazione completa. È unica?
 
@@ -265,7 +265,7 @@ title: "Esercizi · Programmazione lineare intera"
 
     **Domande**
 
-    1. Disegna il poliedro $P$ dei vincoli e decidi se il problema di programmazione lineare con gli stessi dati (con $x_1, x_2 \ge 0$ al posto di $x_1, x_2 \in \Z_{\ge 0}$) è fattibile.
+    1. Disegna il poliedro $P$ dei vincoli e decidi se il problema di programmazione lineare con gli stessi dati (con $x_1, x_2 \ge 0$ al posto di $x_1, x_2 \in \Z_{\ge 0}$) è ammissibile.
 
     2. Decidi l'esito del problema ILP.
 
@@ -277,7 +277,7 @@ soluzione "Solution"
 
         ![Figura 3](../img/ex-01-ilp/fig03.svg){ .fig .ovale loading=lazy  }
 
-        <em>Il poliedro $P$ (rosso) non contiene nessun punto intero: i quattro punti interi più vicini ad esso (neri) sono all'esterno. La soluzione ottimale $(\frac{1}{2},1)$ del problema di PL è blu, con la retta obiettivo $x_1 + 2\,x_2 = \frac{5}{2}$ (tratteggiata).</em>
+        <em>Il poliedro $P$ (rosso) non contiene nessun punto intero: i quattro punti interi più vicini ad esso (neri) sono all'esterno. La soluzione ottimale $(\frac{1}{2},1)$ del problema LP è blu, con la retta obiettivo $x_1 + 2\,x_2 = \frac{5}{2}$ (tratteggiata).</em>
 
         Il punto $(\frac{1}{2},\frac{1}{2})$ soddisfa tutti i vincoli, quindi il problema di programmazione lineare è <strong>fattibile</strong>.
 
@@ -286,9 +286,9 @@ soluzione "Solution"
         - Con $x_1 = x_2$ le ultime due restrizioni leggono $1 \le 4\,x_1 \le 3$, cioè $\frac{1}{4} \le x_1 \le \frac{3}{4}$: nessun valore intero di $x_1$ le soddisfa.
 
         !!! chiave ""
-            La regione fattibile $F = P \cap \Z^2$ è vuota: il problema ILP è <strong>infattibile</strong>, anche se il problema LP con gli stessi dati è fattibile.
+            La regione fattibile $F = P \cap \Z^2$ è vuota: il problema ILP è <strong>infattibile</strong>, anche se il problema LP con gli stessi dati è ammissibile.
 
-    3. Il poliedro $P$ è limitato e non vuoto, quindi il problema di PL ha un vertice ottimale. I valori di $x_1 + 2\,x_2$ ai quattro vertici sono
+    3. Il poliedro $P$ è limitato e non vuoto, quindi il problema LP ha un vertice ottimale. I valori di $x_1 + 2\,x_2$ ai quattro vertici sono
 
         $$
         (0,\tfrac{1}{2}) \mapsto 1,\qquad (\tfrac{1}{2},0) \mapsto \dfrac{1}{2},\qquad (\tfrac{1}{2},1) \mapsto \dfrac{5}{2},\qquad (1,\tfrac{1}{2}) \mapsto 2
@@ -330,11 +330,11 @@ soluzione "Solution"
 
         <em>Regione ammissibile all'interno della scatola $0 \le x_1 \le 6$, $0 \le x_2 \le 4$ (rosso), i suoi punti interi (nero), i punti $(2k,k)$ (cerchi blu) e le soluzioni ottimali $(0,2)$ di (b) e $(2,0)$ di (c) (blu) con le loro linee obiettivo (tratteggiate).</em>
 
-    2. - <strong>(a)</strong> I punti $(2k,k)$ sono fattibili con valore $3k$, che cresce senza limiti: il problema ILP (a) è <strong>illimitato</strong>.
+    2. - <strong>(a)</strong> I punti $(2k,k)$ sono ammissibili con valore $3k$, che cresce senza limiti: il problema ILP (a) è <strong>illimitato</strong>.
 
-        - <strong>(b)</strong> Per ogni punto fattibile, $-2\,x_1 + x_2 = (-x_1 + x_2) - x_1 \le 2 - x_1 \le 2$. Il valore $2$ richiede $x_1 = 0$ e $-x_1 + x_2 = 2$, cioè, il punto $(0,2)$, che è fattibile: la soluzione <strong>unica</strong> ottimale è $(0,2)$, con valore ottimale $2$.
+        - <strong>(b)</strong> Per ogni punto ammissibile, $-2\,x_1 + x_2 = (-x_1 + x_2) - x_1 \le 2 - x_1 \le 2$. Il valore $2$ richiede $x_1 = 0$ e $-x_1 + x_2 = 2$, cioè, il punto $(0,2)$, che è ammissibile: la soluzione <strong>unica</strong> ottimale è $(0,2)$, con valore ottimale $2$.
 
-        - <strong>(c)</strong> Per ogni punto fattibile, $x_1 - 3\,x_2 = (x_1 - 2\,x_2) - x_2 \le 2 - x_2 \le 2$. Il valore $2$ richiede $x_2 = 0$ e $x_1 - 2\,x_2 = 2$, cioè, il punto $(2,0)$: la <strong>soluzione ottimale</strong> unica è $(2,0)$, con valore ottimale $2$.
+        - <strong>(c)</strong> Per ogni punto ammissibile, $x_1 - 3\,x_2 = (x_1 - 2\,x_2) - x_2 \le 2 - x_2 \le 2$. Il valore $2$ richiede $x_2 = 0$ e $x_1 - 2\,x_2 = 2$, cioè, il punto $(2,0)$: la <strong>soluzione ottimale</strong> unica è $(2,0)$, con valore ottimale $2$.
 
         !!! chiave ""
             Con la stessa regione fattibile illimitata, il problema (a) è <strong>illimitato</strong>, mentre i problemi (b) e (c) hanno una <strong>soluzione ottimale</strong>: $(0,2)$ e $(2,0)$, entrambi di valore $2$.

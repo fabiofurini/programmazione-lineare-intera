@@ -1,6 +1,6 @@
 # Solver MIP
 
-*Parte IV del corso.* Cosa fa un risolutore MIP (presolve, tagli, euristiche primal, strategie di albero, tolleranze) e come leggere il suo log, con esempi reali.
+*Parte IV del corso.* Cosa fa un risolutore MIP (presolve, tagli, euristiche primali, strategie di selezione dei nodi, tolleranze) e come leggere il suo log, con esempi reali.
 
 [:material-file-pdf-box: Appunti delle lezioni, volume 3 (PDF)](../pdf/lecture-notes-3-mip-solvers.pdf){ .md-button }
 

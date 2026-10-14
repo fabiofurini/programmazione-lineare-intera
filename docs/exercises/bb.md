@@ -26,7 +26,7 @@ title: "Esercizi · Branch-and-bound"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -69,7 +69,7 @@ title: "Esercizi · Branch-and-bound"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -135,7 +135,7 @@ title: "Esercizi · Branch-and-bound"
                 x_2 + x_4 = 2 \quad \quad \Rightarrow \quad x_4 = 2 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_4 = 2 - \left(\dfrac{8}{3} - \dfrac{1}{2} \; x_1 - \dfrac{1}{6} \; x_3 \right)
@@ -143,7 +143,7 @@ title: "Esercizi · Branch-and-bound"
                 x_4 = -\dfrac{2}{3} + \dfrac{1}{2} \, x_1 + \dfrac{1}{6} \, x_3
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -157,7 +157,7 @@ title: "Esercizi · Branch-and-bound"
 
                 dove $\pazocal{B}=\{2,4\}$ e $\pazocal{N}=\{1,3\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_2=\dfrac{8}{3},~~
@@ -167,7 +167,7 @@ title: "Esercizi · Branch-and-bound"
                     \mathrm{~~of~value~~~} \dfrac{64}{3}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_2=0,~~
@@ -305,7 +305,7 @@ title: "Esercizi · Branch-and-bound"
                 x_2 - x_4 = 3 \quad \quad \Rightarrow \quad x_4 = -3 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_4 = -3 + \left(\dfrac{8}{3} - \dfrac{1}{2} \; x_1 - \dfrac{1}{6} \; x_3 \right)
@@ -313,7 +313,7 @@ title: "Esercizi · Branch-and-bound"
                 x_4 = -\dfrac{1}{3} - \dfrac{1}{2} \, x_1 - \dfrac{1}{6} \, x_3
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -327,7 +327,7 @@ title: "Esercizi · Branch-and-bound"
 
                 dove $\pazocal{B}=\{2,4\}$ e $\pazocal{N}=\{1,3\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_2=\dfrac{8}{3},~~
@@ -337,7 +337,7 @@ title: "Esercizi · Branch-and-bound"
                     \mathrm{~~of~value~~~} \dfrac{64}{3}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_2=0,~~
@@ -412,7 +412,7 @@ title: "Esercizi · Branch-and-bound"
                 x_1 + x_5 = 1 \quad \quad \Rightarrow \quad x_5 = 1 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = 1 - \left(\dfrac{4}{3} - \dfrac{1}{3} \; x_3 + 2 \; x_4 \right)
@@ -420,7 +420,7 @@ title: "Esercizi · Branch-and-bound"
                 x_5 = -\dfrac{1}{3} + \dfrac{1}{3} \, x_3 - 2 \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -435,7 +435,7 @@ title: "Esercizi · Branch-and-bound"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{4}{3},~~
@@ -446,7 +446,7 @@ title: "Esercizi · Branch-and-bound"
                     \mathrm{~~of~value~~~} \dfrac{52}{3}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -506,7 +506,7 @@ title: "Esercizi · Branch-and-bound"
                 = 17 - 8 \, x_4 - x_5
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -605,7 +605,7 @@ title: "Esercizi · Branch-and-bound"
 
         - Il nodo ramificato verso l'alto del Nodo 2 non è risolto e non è disegnato, poiché $\lfloor z(\LP_{2})\rfloor = 17$ $\le \LB = 17$ dopo il suo primo figlio.
 
-        - Il Nodo 3 è escluso per impossibilità: il problema $\LP_{3}$ non ha soluzioni fattibili.
+        - Il Nodo 3 è escluso per impossibilità: il problema $\LP_{3}$ non ha soluzioni ammissibili.
 
         - Il nodo 4 viene scartato per integrità: $\tilde{\boldsymbol x}(\LP_{4}) = (1, 2)$ è un numero intero, con valore $17$, che diventa la soluzione corrente.
 
@@ -626,7 +626,7 @@ title: "Esercizi · Branch-and-bound"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -671,7 +671,7 @@ title: "Esercizi · Branch-and-bound"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -739,7 +739,7 @@ title: "Esercizi · Branch-and-bound"
                 x_1 + x_5 = 2 \quad \quad \Rightarrow \quad x_5 = 2 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = 2 - \left(\dfrac{5}{2} + \dfrac{1}{34} \; x_3 - \dfrac{5}{17} \; x_4 \right)
@@ -747,7 +747,7 @@ title: "Esercizi · Branch-and-bound"
                 x_5 = -\dfrac{1}{2} - \dfrac{1}{34} \, x_3 + \dfrac{5}{17} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -762,7 +762,7 @@ title: "Esercizi · Branch-and-bound"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{5}{2},~~
@@ -773,7 +773,7 @@ title: "Esercizi · Branch-and-bound"
                     \mathrm{~~of~value~~~} 16
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -922,7 +922,7 @@ title: "Esercizi · Branch-and-bound"
                 x_1 - x_5 = 3 \quad \quad \Rightarrow \quad x_5 = -3 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = -3 + \left(\dfrac{5}{2} + \dfrac{1}{34} \; x_3 - \dfrac{5}{17} \; x_4 \right)
@@ -930,7 +930,7 @@ title: "Esercizi · Branch-and-bound"
                 x_5 = -\dfrac{1}{2} + \dfrac{1}{34} \, x_3 - \dfrac{5}{17} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -945,7 +945,7 @@ title: "Esercizi · Branch-and-bound"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{5}{2},~~
@@ -956,7 +956,7 @@ title: "Esercizi · Branch-and-bound"
                     \mathrm{~~of~value~~~} 16
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -1022,7 +1022,7 @@ title: "Esercizi · Branch-and-bound"
                 = 12 - 3 \, x_4 - 8 \, x_5
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -1130,7 +1130,7 @@ title: "Esercizi · Branch-and-bound"
                 x_2 + x_6 = 4 \quad \quad \Rightarrow \quad x_6 = 4 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 4 - \left(\dfrac{43}{10} - \dfrac{1}{10} \; x_3 - \dfrac{2}{5} \; x_5 \right)
@@ -1138,7 +1138,7 @@ title: "Esercizi · Branch-and-bound"
                 x_6 = -\dfrac{3}{10} + \dfrac{1}{10} \, x_3 + \dfrac{2}{5} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -1154,7 +1154,7 @@ title: "Esercizi · Branch-and-bound"
 
                 dove $\pazocal{B}=\{1,2,4,6\}$ e $\pazocal{N}=\{3,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -1168,7 +1168,7 @@ title: "Esercizi · Branch-and-bound"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -1364,7 +1364,7 @@ title: "Esercizi · Branch-and-bound"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -1409,7 +1409,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -1477,7 +1477,7 @@ soluzione "Solution"
                 x_2 + x_5 = 3 \quad \quad \Rightarrow \quad x_5 = 3 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = 3 - \left(\dfrac{7}{2} - \dfrac{4}{5} \; x_3 - \dfrac{1}{10} \; x_4 \right)
@@ -1485,7 +1485,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{1}{2} + \dfrac{4}{5} \, x_3 + \dfrac{1}{10} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -1500,7 +1500,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{3}{2},~~
@@ -1511,7 +1511,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} 17
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -1660,7 +1660,7 @@ soluzione "Solution"
                 x_2 - x_5 = 4 \quad \quad \Rightarrow \quad x_5 = -4 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = -4 + \left(\dfrac{7}{2} - \dfrac{4}{5} \; x_3 - \dfrac{1}{10} \; x_4 \right)
@@ -1668,7 +1668,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{1}{2} - \dfrac{4}{5} \, x_3 - \dfrac{1}{10} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -1683,7 +1683,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{3}{2},~~
@@ -1694,7 +1694,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} 17
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -1771,7 +1771,7 @@ soluzione "Solution"
                 x_1 + x_6 = 1 \quad \quad \Rightarrow \quad x_6 = 1 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 1 - \left(\dfrac{13}{8} - \dfrac{1}{8} \; x_4 + \dfrac{1}{4} \; x_5 \right)
@@ -1779,7 +1779,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{5}{8} + \dfrac{1}{8} \, x_4 - \dfrac{1}{4} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -1795,7 +1795,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -1809,7 +1809,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -1971,7 +1971,7 @@ soluzione "Solution"
                 x_1 - x_6 = 2 \quad \quad \Rightarrow \quad x_6 = -2 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = -2 + \left(\dfrac{13}{8} - \dfrac{1}{8} \; x_4 + \dfrac{1}{4} \; x_5 \right)
@@ -1979,7 +1979,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{3}{8} - \dfrac{1}{8} \, x_4 + \dfrac{1}{4} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -1995,7 +1995,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -2009,7 +2009,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -2180,7 +2180,7 @@ soluzione "Solution"
 
         - Il Nodo 2 ha una soluzione ottimale frazionaria con $\lfloor z(\LP_{2})\rfloor = 15$: è ramificato su $x_1$.
 
-        - Il Nodo 3 è escluso per impossibilità: il problema $\LP_{3}$ non ha soluzioni fattibili.
+        - Il Nodo 3 è escluso per impossibilità: il problema $\LP_{3}$ non ha soluzioni ammissibili.
 
         - Il nodo 4 viene scartato per integrità: $\tilde{\boldsymbol x}(\LP_{4}) = (1, 3)$ è un numero intero, con valore $14$, che diventa la soluzione corrente.
 
@@ -2203,7 +2203,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -2248,7 +2248,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -2316,7 +2316,7 @@ soluzione "Solution"
                 x_2 + x_5 = 3 \quad \quad \Rightarrow \quad x_5 = 3 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = 3 - \left(\dfrac{10}{3} + \dfrac{1}{15} \; x_3 - \dfrac{2}{15} \; x_4 \right)
@@ -2324,7 +2324,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{1}{3} - \dfrac{1}{15} \, x_3 + \dfrac{2}{15} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -2339,7 +2339,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{16}{3},~~
@@ -2350,7 +2350,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} \dfrac{110}{3}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -2416,7 +2416,7 @@ soluzione "Solution"
                 = \dfrac{73}{2} - \dfrac{5}{2} \, x_3 - \dfrac{1}{2} \, x_5
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -2499,7 +2499,7 @@ soluzione "Solution"
                 x_2 - x_5 = 4 \quad \quad \Rightarrow \quad x_5 = -4 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = -4 + \left(\dfrac{10}{3} + \dfrac{1}{15} \; x_3 - \dfrac{2}{15} \; x_4 \right)
@@ -2507,7 +2507,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{2}{3} + \dfrac{1}{15} \, x_3 - \dfrac{2}{15} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -2522,7 +2522,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{16}{3},~~
@@ -2533,7 +2533,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} \dfrac{110}{3}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -2707,7 +2707,7 @@ soluzione "Solution"
                 x_1 + x_6 = 5 \quad \quad \Rightarrow \quad x_6 = 5 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 5 - \left(\dfrac{11}{2} - \dfrac{1}{2} \; x_3 + \dfrac{1}{2} \; x_5 \right)
@@ -2715,7 +2715,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{2} + \dfrac{1}{2} \, x_3 - \dfrac{1}{2} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -2731,7 +2731,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,6\}$ e $\pazocal{N}=\{3,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -2745,7 +2745,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -2814,7 +2814,7 @@ soluzione "Solution"
                 = 34 - 3 \, x_5 - 5 \, x_6
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -2907,7 +2907,7 @@ soluzione "Solution"
                 x_1 - x_6 = 6 \quad \quad \Rightarrow \quad x_6 = -6 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = -6 + \left(\dfrac{11}{2} - \dfrac{1}{2} \; x_3 + \dfrac{1}{2} \; x_5 \right)
@@ -2915,7 +2915,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{2} - \dfrac{1}{2} \, x_3 + \dfrac{1}{2} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -2931,7 +2931,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,6\}$ e $\pazocal{N}=\{3,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -2945,7 +2945,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -3141,7 +3141,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -3186,7 +3186,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -3254,7 +3254,7 @@ soluzione "Solution"
                 x_1 + x_5 = 3 \quad \quad \Rightarrow \quad x_5 = 3 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = 3 - \left(\dfrac{7}{2} + \dfrac{1}{50} \; x_3 - \dfrac{7}{50} \; x_4 \right)
@@ -3262,7 +3262,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{1}{2} - \dfrac{1}{50} \, x_3 + \dfrac{7}{50} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -3277,7 +3277,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{7}{2},~~
@@ -3288,7 +3288,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} 15
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -3437,7 +3437,7 @@ soluzione "Solution"
                 x_1 - x_5 = 4 \quad \quad \Rightarrow \quad x_5 = -4 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = -4 + \left(\dfrac{7}{2} + \dfrac{1}{50} \; x_3 - \dfrac{7}{50} \; x_4 \right)
@@ -3445,7 +3445,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{1}{2} + \dfrac{1}{50} \, x_3 - \dfrac{7}{50} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -3460,7 +3460,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{7}{2},~~
@@ -3471,7 +3471,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} 15
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -3643,7 +3643,7 @@ soluzione "Solution"
                 x_2 + x_6 = 1 \quad \quad \Rightarrow \quad x_6 = 1 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 1 - \left(\dfrac{4}{3} - \dfrac{1}{3} \; x_4 - \dfrac{8}{3} \; x_5 \right)
@@ -3651,7 +3651,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{3} + \dfrac{1}{3} \, x_4 + \dfrac{8}{3} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -3667,7 +3667,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -3681,7 +3681,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -3847,7 +3847,7 @@ soluzione "Solution"
                 x_2 - x_6 = 2 \quad \quad \Rightarrow \quad x_6 = -2 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = -2 + \left(\dfrac{4}{3} - \dfrac{1}{3} \; x_4 - \dfrac{8}{3} \; x_5 \right)
@@ -3855,7 +3855,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{2}{3} - \dfrac{1}{3} \, x_4 - \dfrac{8}{3} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -3871,7 +3871,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -3885,7 +3885,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -3966,7 +3966,7 @@ soluzione "Solution"
                 x_1 + x_7 = 4 \quad \quad \Rightarrow \quad x_7 = 4 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = 4 - \left(\dfrac{33}{8} - \dfrac{1}{8} \; x_4 + \dfrac{3}{8} \; x_6 \right)
@@ -3974,7 +3974,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{1}{8} + \dfrac{1}{8} \, x_4 - \dfrac{3}{8} \, x_6
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -3991,7 +3991,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,5,7\}$ e $\pazocal{N}=\{4,6\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -4006,7 +4006,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -4206,7 +4206,7 @@ soluzione "Solution"
                 x_2 + x_6 = 2 \quad \quad \Rightarrow \quad x_6 = 2 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 2 - \left(\dfrac{59}{21} - \dfrac{1}{21} \; x_3 + \dfrac{2}{7} \; x_5 \right)
@@ -4214,7 +4214,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{17}{21} + \dfrac{1}{21} \, x_3 - \dfrac{2}{7} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -4230,7 +4230,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,6\}$ e $\pazocal{N}=\{3,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -4244,7 +4244,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -4406,7 +4406,7 @@ soluzione "Solution"
                 x_2 - x_6 = 3 \quad \quad \Rightarrow \quad x_6 = -3 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = -3 + \left(\dfrac{59}{21} - \dfrac{1}{21} \; x_3 + \dfrac{2}{7} \; x_5 \right)
@@ -4414,7 +4414,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{4}{21} - \dfrac{1}{21} \, x_3 + \dfrac{2}{7} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -4430,7 +4430,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,6\}$ e $\pazocal{N}=\{3,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -4444,7 +4444,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -4633,7 +4633,7 @@ soluzione "Solution"
                 x_1 + x_7 = 2 \quad \quad \Rightarrow \quad x_7 = 2 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = 2 - \left(\dfrac{7}{3} - \dfrac{1}{6} \; x_3 - \dfrac{7}{2} \; x_6 \right)
@@ -4641,7 +4641,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{1}{3} + \dfrac{1}{6} \, x_3 + \dfrac{7}{2} \, x_6
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -4658,7 +4658,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,5,7\}$ e $\pazocal{N}=\{3,6\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -4673,7 +4673,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -4850,7 +4850,7 @@ soluzione "Solution"
                 x_1 - x_7 = 3 \quad \quad \Rightarrow \quad x_7 = -3 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = -3 + \left(\dfrac{7}{3} - \dfrac{1}{6} \; x_3 - \dfrac{7}{2} \; x_6 \right)
@@ -4858,7 +4858,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{2}{3} - \dfrac{1}{6} \, x_3 - \dfrac{7}{2} \, x_6
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -4875,7 +4875,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,5,7\}$ e $\pazocal{N}=\{3,6\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -4890,7 +4890,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -4973,7 +4973,7 @@ soluzione "Solution"
                 x_2 + x_8 = 3 \quad \quad \Rightarrow \quad x_8 = 3 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_8 = 3 - \left(\dfrac{65}{21} - \dfrac{1}{21} \; x_3 + \dfrac{2}{7} \; x_7 \right)
@@ -4981,7 +4981,7 @@ soluzione "Solution"
                 x_8 = -\dfrac{2}{21} + \dfrac{1}{21} \, x_3 - \dfrac{2}{7} \, x_7
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -4999,7 +4999,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,5,6,8\}$ e $\pazocal{N}=\{3,7\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -5015,7 +5015,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -5208,7 +5208,7 @@ soluzione "Solution"
 
         - Il nodo ramificato verso l'alto del Nodo 4 non è risolto e non è disegnato, poiché $\lfloor z(\LP_{4})\rfloor = 11$ $\le \LB = 11$ dopo il suo primo figlio.
 
-        - Il nodo 5 è stato potato per impossibilità: il problema $\LP_{5}$ non ha soluzioni fattibili.
+        - Il nodo 5 è stato potato per impossibilità: il problema $\LP_{5}$ non ha soluzioni ammissibili.
 
         - Il nodo 6 viene scartato per integrità: $\tilde{\boldsymbol x}(\LP_{6}) = (4, 1)$ è un numero intero, con valore $11$, che diventa la soluzione corrente.
 
@@ -5220,7 +5220,7 @@ soluzione "Solution"
 
         - Il nodo ramificato verso l'alto del Nodo 9 non è risolto e non è disegnato, poiché $\lfloor z(\LP_{9})\rfloor = 13$ $\le \LB = 13$ dopo il suo primo figlio.
 
-        - Il nodo 10 è stato potato per impossibilità: il problema $\LP_{10}$ non ha soluzioni fattibili.
+        - Il nodo 10 è stato potato per impossibilità: il problema $\LP_{10}$ non ha soluzioni ammissibili.
 
         - Il nodo 11 viene scartato per integrità: $\tilde{\boldsymbol x}(\LP_{11}) = (2, 3)$ è un numero intero, con valore $13$, che diventa la soluzione corrente.
 
@@ -5241,7 +5241,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -5286,7 +5286,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -5354,7 +5354,7 @@ soluzione "Solution"
                 x_1 + x_5 = 3 \quad \quad \Rightarrow \quad x_5 = 3 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = 3 - \left(\dfrac{95}{28} + \dfrac{1}{56} \; x_3 - \dfrac{5}{56} \; x_4 \right)
@@ -5362,7 +5362,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{11}{28} - \dfrac{1}{56} \, x_3 + \dfrac{5}{56} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -5377,7 +5377,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{95}{28},~~
@@ -5388,7 +5388,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} \dfrac{601}{84}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -5537,7 +5537,7 @@ soluzione "Solution"
                 x_1 - x_5 = 4 \quad \quad \Rightarrow \quad x_5 = -4 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = -4 + \left(\dfrac{95}{28} + \dfrac{1}{56} \; x_3 - \dfrac{5}{56} \; x_4 \right)
@@ -5545,7 +5545,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{17}{28} + \dfrac{1}{56} \, x_3 - \dfrac{5}{56} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -5560,7 +5560,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{95}{28},~~
@@ -5571,7 +5571,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} \dfrac{601}{84}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -5637,7 +5637,7 @@ soluzione "Solution"
                 = \dfrac{16}{3} - \dfrac{1}{3} \, x_4 - 3 \, x_5
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -5743,7 +5743,7 @@ soluzione "Solution"
                 x_2 + x_6 = 1 \quad \quad \Rightarrow \quad x_6 = 1 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 1 - \left(\dfrac{4}{3} - \dfrac{1}{3} \; x_4 - 4 \; x_5 \right)
@@ -5751,7 +5751,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{3} + \dfrac{1}{3} \, x_4 + 4 \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -5767,7 +5767,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -5781,7 +5781,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -5947,7 +5947,7 @@ soluzione "Solution"
                 x_2 - x_6 = 2 \quad \quad \Rightarrow \quad x_6 = -2 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = -2 + \left(\dfrac{4}{3} - \dfrac{1}{3} \; x_4 - 4 \; x_5 \right)
@@ -5955,7 +5955,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{2}{3} - \dfrac{1}{3} \, x_4 - 4 \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -5971,7 +5971,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -5985,7 +5985,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -6066,7 +6066,7 @@ soluzione "Solution"
                 x_1 + x_7 = 4 \quad \quad \Rightarrow \quad x_7 = 4 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = 4 - \left(\dfrac{49}{12} - \dfrac{1}{12} \; x_4 + \dfrac{1}{4} \; x_6 \right)
@@ -6074,7 +6074,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{1}{12} + \dfrac{1}{12} \, x_4 - \dfrac{1}{4} \, x_6
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -6091,7 +6091,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,5,7\}$ e $\pazocal{N}=\{4,6\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -6106,7 +6106,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -6306,7 +6306,7 @@ soluzione "Solution"
                 x_2 + x_6 = 3 \quad \quad \Rightarrow \quad x_6 = 3 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 3 - \left(\dfrac{58}{15} - \dfrac{1}{15} \; x_3 + \dfrac{4}{15} \; x_5 \right)
@@ -6314,7 +6314,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{13}{15} + \dfrac{1}{15} \, x_3 - \dfrac{4}{15} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -6330,7 +6330,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,6\}$ e $\pazocal{N}=\{3,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -6344,7 +6344,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -6525,7 +6525,7 @@ soluzione "Solution"
 
         - Il nodo ramificato verso l'alto del Nodo 4 non è risolto e non è disegnato, poiché $\lfloor z(\LP_{4})\rfloor = 5$ $\le \LB = 5$ dopo il suo primo figlio.
 
-        - Il nodo 5 è stato potato per impossibilità: il problema $\LP_{5}$ non ha soluzioni fattibili.
+        - Il nodo 5 è stato potato per impossibilità: il problema $\LP_{5}$ non ha soluzioni ammissibili.
 
         - Il nodo 6 viene scartato per integrità: $\tilde{\boldsymbol x}(\LP_{6}) = (4, 1)$ è un numero intero, con valore $5$, che diventa la soluzione corrente.
 
@@ -6548,7 +6548,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -6593,7 +6593,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -6661,7 +6661,7 @@ soluzione "Solution"
                 x_1 + x_5 = 2 \quad \quad \Rightarrow \quad x_5 = 2 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = 2 - \left(\dfrac{5}{2} - \dfrac{1}{2} \; x_2 - \dfrac{1}{2} \; x_4 \right)
@@ -6669,7 +6669,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{1}{2} + \dfrac{1}{2} \, x_2 + \dfrac{1}{2} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -6684,7 +6684,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,3,5\}$ e $\pazocal{N}=\{2,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{5}{2},~~
@@ -6695,7 +6695,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} \dfrac{15}{2}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -6877,7 +6877,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -6922,7 +6922,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -6990,7 +6990,7 @@ soluzione "Solution"
                 x_1 + x_5 = 6 \quad \quad \Rightarrow \quad x_5 = 6 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = 6 - \left(\dfrac{13}{2} - \dfrac{2}{3} \; x_2 - \dfrac{1}{6} \; x_4 \right)
@@ -6998,7 +6998,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{1}{2} + \dfrac{2}{3} \, x_2 + \dfrac{1}{6} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -7013,7 +7013,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,3,5\}$ e $\pazocal{N}=\{2,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{13}{2},~~
@@ -7024,7 +7024,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} 13
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -7090,7 +7090,7 @@ soluzione "Solution"
                 = \dfrac{51}{4} - \dfrac{1}{4} \, x_4 - \dfrac{1}{2} \, x_5
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -7173,7 +7173,7 @@ soluzione "Solution"
                 x_1 - x_5 = 7 \quad \quad \Rightarrow \quad x_5 = -7 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_5 = -7 + \left(\dfrac{13}{2} - \dfrac{2}{3} \; x_2 - \dfrac{1}{6} \; x_4 \right)
@@ -7181,7 +7181,7 @@ soluzione "Solution"
                 x_5 = -\dfrac{1}{2} - \dfrac{2}{3} \, x_2 - \dfrac{1}{6} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -7196,7 +7196,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,3,5\}$ e $\pazocal{N}=\{2,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \bar x_1=\dfrac{13}{2},~~
@@ -7207,7 +7207,7 @@ soluzione "Solution"
                     \mathrm{~~of~value~~~} 13
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \bar \pi_1=0,~~
@@ -7284,7 +7284,7 @@ soluzione "Solution"
                 x_2 + x_6 = 0 \quad \quad \Rightarrow \quad x_6 = 0 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 0 - \left(\dfrac{3}{4} - \dfrac{1}{4} \; x_4 + \dfrac{3}{2} \; x_5 \right)
@@ -7292,7 +7292,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{3}{4} + \dfrac{1}{4} \, x_4 - \dfrac{3}{2} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -7308,7 +7308,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -7322,7 +7322,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -7497,7 +7497,7 @@ soluzione "Solution"
 
         - Il nodo ramificato verso l'alto del Nodo 2 non è risolto e non è disegnato, poiché $\lfloor z(\LP_{2})\rfloor = 12$ $\le \LB = 12$ dopo il suo primo figlio.
 
-        - Il Nodo 3 è stato potato per impossibilità: il problema $\LP_{3}$ non ha soluzioni fattibili.
+        - Il Nodo 3 è stato potato per impossibilità: il problema $\LP_{3}$ non ha soluzioni ammissibili.
 
         - Il nodo 4 viene scartato per integrità: $\tilde{\boldsymbol x}(\LP_{4}) = (6, 0)$ è un numero intero, con valore $12$, che diventa la soluzione corrente.
 
@@ -7519,7 +7519,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -7566,7 +7566,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -7636,7 +7636,7 @@ soluzione "Solution"
                 x_2 + x_6 = 3 \quad \quad \Rightarrow \quad x_6 = 3 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 3 - \left(\dfrac{7}{2} - \dfrac{3}{8} \; x_4 + \dfrac{1}{8} \; x_5 \right)
@@ -7644,7 +7644,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{2} + \dfrac{3}{8} \, x_4 - \dfrac{1}{8} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -7660,7 +7660,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -7674,7 +7674,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -7840,7 +7840,7 @@ soluzione "Solution"
                 x_2 - x_6 = 4 \quad \quad \Rightarrow \quad x_6 = -4 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = -4 + \left(\dfrac{7}{2} - \dfrac{3}{8} \; x_4 + \dfrac{1}{8} \; x_5 \right)
@@ -7848,7 +7848,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{2} - \dfrac{3}{8} \, x_4 + \dfrac{1}{8} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -7864,7 +7864,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -7878,7 +7878,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -7953,7 +7953,7 @@ soluzione "Solution"
                 = 28 - 5 \, x_4 - 8 \, x_6
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -8069,7 +8069,7 @@ soluzione "Solution"
                 x_1 + x_7 = 4 \quad \quad \Rightarrow \quad x_7 = 4 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = 4 - \left(\dfrac{14}{3} - \dfrac{1}{3} \; x_5 - \dfrac{2}{3} \; x_6 \right)
@@ -8077,7 +8077,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{2}{3} + \dfrac{1}{3} \, x_5 + \dfrac{2}{3} \, x_6
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -8094,7 +8094,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,4,7\}$ e $\pazocal{N}=\{5,6\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -8109,7 +8109,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -8185,7 +8185,7 @@ soluzione "Solution"
                 = 26 - 2 \, x_6 - 5 \, x_7
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -8282,7 +8282,7 @@ soluzione "Solution"
                 x_1 - x_7 = 5 \quad \quad \Rightarrow \quad x_7 = -5 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = -5 + \left(\dfrac{14}{3} - \dfrac{1}{3} \; x_5 - \dfrac{2}{3} \; x_6 \right)
@@ -8290,7 +8290,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{1}{3} - \dfrac{1}{3} \, x_5 - \dfrac{2}{3} \, x_6
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -8307,7 +8307,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,4,7\}$ e $\pazocal{N}=\{5,6\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -8322,7 +8322,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -8390,7 +8390,7 @@ soluzione "Solution"
 
         - Il nodo 4 è potato dall'integralità: $\tilde{\boldsymbol x}(\LP_{4}) = (4, 3)$ è intero, con valore $26$, che non migliora il limite inferiore $\LB = 28$.
 
-        - Il nodo 5 è stato potato per impossibilità: il problema $\LP_{5}$ non ha soluzioni fattibili.
+        - Il nodo 5 è stato potato per impossibilità: il problema $\LP_{5}$ non ha soluzioni ammissibili.
 
         Il valore ottimale è $z(\ILP) = 28$ e l'algoritmo branch-and-bound restituisce la soluzione ottimale $\tilde{\boldsymbol x}(\ILP) = (4, 4)$.
 
@@ -8410,7 +8410,7 @@ soluzione "Solution"
         \end{array}
         $$
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -8459,7 +8459,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -8529,7 +8529,7 @@ soluzione "Solution"
                 x_2 + x_6 = 3 \quad \quad \Rightarrow \quad x_6 = 3 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 3 - \left(\dfrac{7}{2} + \dfrac{1}{22} \; x_4 - \dfrac{2}{11} \; x_5 \right)
@@ -8537,7 +8537,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{2} - \dfrac{1}{22} \, x_4 + \dfrac{2}{11} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -8553,7 +8553,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -8567,7 +8567,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -8642,7 +8642,7 @@ soluzione "Solution"
                 = \dfrac{37}{4} - \dfrac{1}{4} \, x_4 - \dfrac{5}{2} \, x_6
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -8733,7 +8733,7 @@ soluzione "Solution"
                 x_2 - x_6 = 4 \quad \quad \Rightarrow \quad x_6 = -4 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = -4 + \left(\dfrac{7}{2} + \dfrac{1}{22} \; x_4 - \dfrac{2}{11} \; x_5 \right)
@@ -8741,7 +8741,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{2} + \dfrac{1}{22} \, x_4 - \dfrac{2}{11} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -8757,7 +8757,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -8771,7 +8771,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -8970,7 +8970,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -9040,7 +9040,7 @@ soluzione "Solution"
                 x_1 + x_6 = 3 \quad \quad \Rightarrow \quad x_6 = 3 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 3 - \left(\dfrac{7}{2} - \dfrac{5}{22} \; x_4 - \dfrac{1}{11} \; x_5 \right)
@@ -9048,7 +9048,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{2} + \dfrac{5}{22} \, x_4 + \dfrac{1}{11} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -9064,7 +9064,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -9078,7 +9078,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -9244,7 +9244,7 @@ soluzione "Solution"
                 x_1 - x_6 = 4 \quad \quad \Rightarrow \quad x_6 = -4 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = -4 + \left(\dfrac{7}{2} - \dfrac{5}{22} \; x_4 - \dfrac{1}{11} \; x_5 \right)
@@ -9252,7 +9252,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{1}{2} - \dfrac{5}{22} \, x_4 - \dfrac{1}{11} \, x_5
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -9268,7 +9268,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,6\}$ e $\pazocal{N}=\{4,5\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -9282,7 +9282,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -9363,7 +9363,7 @@ soluzione "Solution"
                 x_2 + x_7 = 3 \quad \quad \Rightarrow \quad x_7 = 3 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = 3 - \left(\dfrac{18}{5} - \dfrac{1}{5} \; x_5 + \dfrac{1}{5} \; x_6 \right)
@@ -9371,7 +9371,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{3}{5} + \dfrac{1}{5} \, x_5 - \dfrac{1}{5} \, x_6
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -9388,7 +9388,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,4,7\}$ e $\pazocal{N}=\{5,6\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -9403,7 +9403,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -9576,7 +9576,7 @@ soluzione "Solution"
                 x_2 - x_7 = 4 \quad \quad \Rightarrow \quad x_7 = -4 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = -4 + \left(\dfrac{18}{5} - \dfrac{1}{5} \; x_5 + \dfrac{1}{5} \; x_6 \right)
@@ -9584,7 +9584,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{2}{5} - \dfrac{1}{5} \, x_5 + \dfrac{1}{5} \, x_6
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -9601,7 +9601,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,3,4,7\}$ e $\pazocal{N}=\{5,6\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -9616,7 +9616,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -9799,7 +9799,7 @@ soluzione "Solution"
 
         - Il Nodo 2 ha una soluzione ottimale frazionaria con $\lfloor z(\LP_{2})\rfloor = 10$: è ramificato su $x_2$.
 
-        - Il Nodo 3 è stato potato per impossibilità: il problema $\LP_{3}$ non ha soluzioni fattibili.
+        - Il Nodo 3 è stato potato per impossibilità: il problema $\LP_{3}$ non ha soluzioni ammissibili.
 
         - Il Nodo 4 viene scartato per integrità: $\tilde{\boldsymbol x}(\LP_{4}) = (3, 3)$ è un numero intero, con valore $9$, che diventa la soluzione corrente.
 
@@ -9827,7 +9827,7 @@ soluzione "Solution"
 
         I vincoli $x_1\ge 1$ e $x_2\ge 1$ sono scritti in forma canonica come $-x_1\le -1$ e $-x_2\le -1$.
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -9874,7 +9874,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -9944,7 +9944,7 @@ soluzione "Solution"
                 x_2 + x_6 = 2 \quad \quad \Rightarrow \quad x_6 = 2 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = 2 - \left(\dfrac{21}{8} - \dfrac{1}{8} \; x_3 - \dfrac{3}{8} \; x_4 \right)
@@ -9952,7 +9952,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{5}{8} + \dfrac{1}{8} \, x_3 + \dfrac{3}{8} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -9968,7 +9968,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5,6\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -9982,7 +9982,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -10148,7 +10148,7 @@ soluzione "Solution"
                 x_2 - x_6 = 3 \quad \quad \Rightarrow \quad x_6 = -3 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_6 = -3 + \left(\dfrac{21}{8} - \dfrac{1}{8} \; x_3 - \dfrac{3}{8} \; x_4 \right)
@@ -10156,7 +10156,7 @@ soluzione "Solution"
                 x_6 = -\dfrac{3}{8} - \dfrac{1}{8} \, x_3 - \dfrac{3}{8} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -10172,7 +10172,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5,6\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -10186,7 +10186,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -10267,7 +10267,7 @@ soluzione "Solution"
                 x_1 + x_7 = 2 \quad \quad \Rightarrow \quad x_7 = 2 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = 2 - \left(\dfrac{8}{3} - \dfrac{1}{3} \; x_3 + \dfrac{8}{3} \; x_6 \right)
@@ -10275,7 +10275,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{2}{3} + \dfrac{1}{3} \, x_3 - \dfrac{8}{3} \, x_6
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -10292,7 +10292,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,5,7\}$ e $\pazocal{N}=\{3,6\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -10307,7 +10307,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -10486,7 +10486,7 @@ soluzione "Solution"
 
         - Il nodo ramificato verso l'alto del Nodo 2 non è risolto e non è disegnato, poiché $\lfloor z(\LP_{2})\rfloor = 10$ $\le \LB = 10$ dopo il suo primo figlio.
 
-        - Il Nodo 3 è stato potato per impossibilità: il problema $\LP_{3}$ non ha soluzioni fattibili.
+        - Il Nodo 3 è stato potato per impossibilità: il problema $\LP_{3}$ non ha soluzioni ammissibili.
 
         - Il Nodo 4 viene scartato per integrità: $\tilde{\boldsymbol x}(\LP_{4}) = (2, 2)$ è un numero intero, con valore $10$, che diventa la soluzione corrente.
 
@@ -10511,7 +10511,7 @@ soluzione "Solution"
 
         I vincoli $x_1\ge 1$ e $x_2\ge 2$ sono scritti in forma canonica come $-x_1\le -1$ e $-x_2\le -2$.
 
-        e un dizionario semplice ottimale della sua rilassamento LP in forma standard:
+        e un dizionario ottimale del suo rilassamento LP in forma standard:
 
         \begin{equation*}
         \begin{cases}
@@ -10560,7 +10560,7 @@ soluzione "Solution"
             \end{array}
             $$
 
-            e il suo dizionario simplex ottimale:
+            e il suo dizionario del simplesso ottimale:
 
             \begin{equation*}
             \begin{cases}
@@ -10632,7 +10632,7 @@ soluzione "Solution"
                 x_2 + x_7 = 4 \quad \quad \Rightarrow \quad x_7 = 4 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = 4 - \left(\dfrac{9}{2} - \dfrac{1}{10} \; x_3 - \dfrac{7}{10} \; x_4 \right)
@@ -10640,7 +10640,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{1}{2} + \dfrac{1}{10} \, x_3 + \dfrac{7}{10} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -10657,7 +10657,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5,6,7\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -10672,7 +10672,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -10849,7 +10849,7 @@ soluzione "Solution"
                 x_2 - x_7 = 5 \quad \quad \Rightarrow \quad x_7 = -5 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_7 = -5 + \left(\dfrac{9}{2} - \dfrac{1}{10} \; x_3 - \dfrac{7}{10} \; x_4 \right)
@@ -10857,7 +10857,7 @@ soluzione "Solution"
                 x_7 = -\dfrac{1}{2} - \dfrac{1}{10} \, x_3 - \dfrac{7}{10} \, x_4
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -10874,7 +10874,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,5,6,7\}$ e $\pazocal{N}=\{3,4\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -10889,7 +10889,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -10972,7 +10972,7 @@ soluzione "Solution"
                 x_1 + x_8 = 1 \quad \quad \Rightarrow \quad x_8 = 1 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_8 = 1 - \left(\dfrac{12}{7} - \dfrac{1}{7} \; x_3 + \dfrac{3}{7} \; x_7 \right)
@@ -10980,7 +10980,7 @@ soluzione "Solution"
                 x_8 = -\dfrac{5}{7} + \dfrac{1}{7} \, x_3 - \dfrac{3}{7} \, x_7
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -10998,7 +10998,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,5,6,8\}$ e $\pazocal{N}=\{3,7\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -11014,7 +11014,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -11091,7 +11091,7 @@ soluzione "Solution"
                 = 16 - 3 \, x_7 - 4 \, x_8
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -11192,7 +11192,7 @@ soluzione "Solution"
                 x_1 - x_8 = 2 \quad \quad \Rightarrow \quad x_8 = -2 + x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_8 = -2 + \left(\dfrac{12}{7} - \dfrac{1}{7} \; x_3 + \dfrac{3}{7} \; x_7 \right)
@@ -11200,7 +11200,7 @@ soluzione "Solution"
                 x_8 = -\dfrac{2}{7} - \dfrac{1}{7} \, x_3 + \dfrac{3}{7} \, x_7
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -11218,7 +11218,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,5,6,8\}$ e $\pazocal{N}=\{3,7\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -11234,7 +11234,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -11323,7 +11323,7 @@ soluzione "Solution"
                 = 18 - x_3 - 3 \, x_8
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -11445,7 +11445,7 @@ soluzione "Solution"
                 x_2 + x_9 = 3 \quad \quad \Rightarrow \quad x_9 = 3 - x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_9 = 3 - \left(\dfrac{10}{3} - \dfrac{1}{3} \; x_3 - \dfrac{7}{3} \; x_8 \right)
@@ -11453,7 +11453,7 @@ soluzione "Solution"
                 x_9 = -\dfrac{1}{3} + \dfrac{1}{3} \, x_3 + \dfrac{7}{3} \, x_8
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -11472,7 +11472,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,5,6,7,9\}$ e $\pazocal{N}=\{3,8\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -11489,7 +11489,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -11688,7 +11688,7 @@ soluzione "Solution"
                 x_2 - x_9 = 4 \quad \quad \Rightarrow \quad x_9 = -4 + x_2
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_9 = -4 + \left(\dfrac{10}{3} - \dfrac{1}{3} \; x_3 - \dfrac{7}{3} \; x_8 \right)
@@ -11696,7 +11696,7 @@ soluzione "Solution"
                 x_9 = -\dfrac{2}{3} - \dfrac{1}{3} \, x_3 - \dfrac{7}{3} \, x_8
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -11715,7 +11715,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,5,6,7,9\}$ e $\pazocal{N}=\{3,8\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -11732,7 +11732,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -11819,7 +11819,7 @@ soluzione "Solution"
                 x_1 + x_{10} = 2 \quad \quad \Rightarrow \quad x_{10} = 2 - x_1
                 $$
 
-                Usando le equazioni del dizionario simplex ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
+                Usando le equazioni del dizionario del simplesso ottimale possiamo esprimere questo vincolo di ramificazione come funzione delle variabili non di base. Sostituendo, otteniamo
 
                 $$
                 x_{10} = 2 - \left(\dfrac{15}{7} - \dfrac{1}{7} \; x_3 + \dfrac{3}{7} \; x_9 \right)
@@ -11827,7 +11827,7 @@ soluzione "Solution"
                 x_{10} = -\dfrac{1}{7} + \dfrac{1}{7} \, x_3 - \dfrac{3}{7} \, x_9
                 $$
 
-                Aggiungiamo quindi questa equazione al precedente dizionario simplex ottimale e otteniamo il seguente dizionario simplex:
+                Aggiungiamo quindi questa equazione al precedente dizionario del simplesso ottimale e otteniamo il seguente dizionario del simplesso:
 
                 \begin{equation*}
                 \begin{cases}
@@ -11847,7 +11847,7 @@ soluzione "Solution"
 
                 dove $\pazocal{B}=\{1,2,4,5,6,7,8,10\}$ e $\pazocal{N}=\{3,9\}$ e
 
-                - la soluzione primale di base non fattibile è:
+                - la soluzione primale di base inammissibile è:
 
                     $$
                     \begin{gathered}
@@ -11865,7 +11865,7 @@ soluzione "Solution"
                     \end{gathered}
                     $$
 
-                - la soluzione duale fattibile di base è:
+                - la soluzione dualmente ammissibile di base è:
 
                     $$
                     \begin{gathered}
@@ -11950,7 +11950,7 @@ soluzione "Solution"
                 = 17 - 3 \, x_9 - 4 \, x_{10}
                 $$
 
-                Di conseguenza, ora disponiamo del seguente dizionario primale semplice aggiornato:
+                Di conseguenza, ora disponiamo del seguente dizionario primale del simplesso aggiornato:
 
                 \begin{equation*}
                 \begin{cases}
@@ -12066,7 +12066,7 @@ soluzione "Solution"
 
         - Il Nodo 2 ha una soluzione ottimale frazionaria con $\lfloor z(\LP_{2})\rfloor = 18$: è ramificato su $x_1$.
 
-        - Il Nodo 3 è stato potato per impossibilità: il problema $\LP_{3}$ non ha soluzioni fattibili.
+        - Il Nodo 3 è stato potato per impossibilità: il problema $\LP_{3}$ non ha soluzioni ammissibili.
 
         - Il nodo 4 viene scartato per integrità: $\tilde{\boldsymbol x}(\LP_{4}) = (1, 4)$ è un numero intero, con valore $16$, che diventa la soluzione corrente.
 
@@ -12076,7 +12076,7 @@ soluzione "Solution"
 
         - Il nodo ramificato verso l'alto del Nodo 6 non è risolto e non è disegnato, poiché $\lfloor z(\LP_{6})\rfloor = 17$ $\le \LB = 17$ dopo il suo primo figlio.
 
-        - Il nodo 7 è stato potato per impossibilità: il problema $\LP_{7}$ non ha soluzioni fattibili.
+        - Il nodo 7 è stato potato per impossibilità: il problema $\LP_{7}$ non ha soluzioni ammissibili.
 
         - Il nodo 8 viene potato per integrità: $\tilde{\boldsymbol x}(\LP_{8}) = (2, 3)$ è un numero intero, con valore $17$, che diventa la soluzione corrente.
 
@@ -12113,7 +12113,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 
@@ -12199,7 +12199,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 
@@ -12323,7 +12323,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 
@@ -12447,7 +12447,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 
@@ -12577,7 +12577,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 
@@ -12707,7 +12707,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 
@@ -12837,7 +12837,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 
@@ -12923,7 +12923,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 
@@ -13043,7 +13043,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 
@@ -13130,7 +13130,7 @@ soluzione "Solution"
         \delta_1^d(x_j) = z(\LP_{1}) - z(\LP_{2}), \qquad \delta_1^u(x_j) = z(\LP_{1}) - z(\LP_{3}),
         $$
 
-        con $\delta = +\infty$ per un nodo non praticabile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
+        con $\delta = +\infty$ per un nodo inammissibile. Il forte branching seleziona la variabile con il punteggio più alto $\min\{\delta_1^d(x_j),\,\delta_1^u(x_j)\}$.
 
     1. Per il problema $\LP_{1}$, graficamente abbiamo:
 

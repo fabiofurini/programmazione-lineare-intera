@@ -3,7 +3,7 @@
 ## Parte I · Modelli e limiti
 
 - [1. Programmazione lineare intera](models-and-bounds/ilp.md)
-- [2. Limiti primali e duali](models-and-bounds/lp-relaxation.md)
+- [2. Bound primali e bound duali](models-and-bounds/lp-relaxation.md)
 - [Esercizi](exercises/index.md)
 
 ## Parte II · Formulazioni più forti

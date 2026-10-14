@@ -1,12 +1,12 @@
 ---
-title: "Limiti primali e duali"
+title: "Bound primali e bound duali"
 ---
 
-# Limiti primali e duali
+# Bound primali e bound duali
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Modelli e limiti · Capitolo 2** · [:material-file-pdf-box: Appunti delle lezioni, volume 1 (PDF)](../pdf/lecture-notes-1-models-bounds-formulations.pdf) · [:material-pencil: Esercizi: Limiti primal e dual](../exercises/lp-relaxation.md) · [:material-gesture-tap: App: Punti interi e il rilassamento LP](../lab/integer-points.md)
+**Parte 1 · Modelli e limiti · Capitolo 2** · [:material-file-pdf-box: Appunti delle lezioni, volume 1 (PDF)](../pdf/lecture-notes-1-models-bounds-formulations.pdf) · [:material-pencil: Esercizi: Bound primali e bound duali](../exercises/lp-relaxation.md) · [:material-gesture-tap: App: Punti interi e il rilassamento LP](../lab/integer-points.md)
 
 </div>
 
@@ -15,76 +15,76 @@ title: "Limiti primali e duali"
 
     - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/): il problema duale, dualità debole e dualità forte.
 
-    - Dallo stesso modulo, [Capitolo 6 «Algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/simplesso/06-simplesso/): un problema di PL che ha una soluzione ottimale ha un vertice ottimale.
+    - Dallo stesso modulo, [Capitolo 6 «Algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/simplesso/06-simplesso/): un problema LP che ha una soluzione ottimale ha un vertice ottimale.
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
 
-    - ottenere un vincolo primale (un limite inferiore) sul valore ottimale a partire da una soluzione fattibile, anche con un semplice algoritmo euristico;
+    - ottenere un vincolo primale (un limite inferiore) sul valore ottimale a partire da una soluzione ammissibile, anche con un semplice algoritmo euristico;
 
     - costruire il rilassamento LP di un problema ILP e utilizzare il suo valore ottimale come vincolo duale (un limite superiore), arrotondato per difetto quando è valido;
 
-    - calcolare il divario di ottimalità a partire da un limite primale e un limite duale;
+    - calcolare il divario di ottimalità a partire da un bound primale e un bound duale;
 
-    - spiega perché arrotondare una soluzione ottimale di LP fornisce al massimo una soluzione fattibile;
+    - spiega perché arrotondare una soluzione ottimale di LP fornisce al massimo una soluzione ammissibile;
 
     - derivare limiti superiori sulle variabili dai vincoli e dire quando sono utili;
 
     - ottenere un vincolo duale dai moltiplicatori non negativi dei vincoli e riconoscere il problema duale come il problema dei migliori moltiplicatori.
 
 !!! nota "Dove eravamo"
-    Nel capitolo precedente abbiamo visto che l'enumerazione completa non è un'opzione e che abbiamo bisogno di limiti sul valore ottimale da entrambe le parti. Ora li otteniamo: <strong>limiti primali</strong> dalle soluzioni ammissibili e <strong>limiti duali</strong> dalle rilassazioni.
+    Nel capitolo precedente abbiamo visto che l'enumerazione completa non è un'opzione e che abbiamo bisogno di limiti sul valore ottimale da entrambe le parti. Ora li otteniamo: <strong>bound primali</strong> dalle soluzioni ammissibili e <strong>bound duali</strong> dai rilassamenti.
 
-## 2.1 Limiti primal e duali
+## 2.1 Bound primali e bound duali
 
 <a id="box-1-def-bounds"></a>
 
-!!! definizione "Definizione 2.1: limite primale, limite duale e divario di optimalità"
+!!! definizione "Definizione 2.1: bound primale, bound duale e divario di ottimalità"
     Considera un problema ILP in forma canonica di massimizzazione, con regione fattibile $F$ e valore ottimale $z(\ILP)$.
 
-    - Data una soluzione fattibile $\bar{\vet x} \in F$, il suo valore $\LB(\bar{\vet x}) = \sum_{j=1}^n c_j \, \bar{x}_j$ è un <strong>limite primale</strong> su $z(\ILP)$.
+    - Data una soluzione ammissibile $\bar{\vet x} \in F$, il suo valore $\LB(\bar{\vet x}) = \sum_{j=1}^n c_j \, \bar{x}_j$ è un <strong>bound primale</strong> su $z(\ILP)$.
 
-    - Un valore $\UB$ tale che $\sum_{j=1}^n c_j \, x_j \le \UB$ per ogni $\vet x \in F$ è un <strong>limite duale</strong> su $z(\ILP)$.
+    - Un valore $\UB$ tale che $\sum_{j=1}^n c_j \, x_j \le \UB$ per ogni $\vet x \in F$ è un <strong>bound duale</strong> su $z(\ILP)$.
 
-    - Dato un limite primale $\LB \ne 0$ e un limite duale $\UB$, il <strong>gap di ottimalità</strong> è
+    - Dato un bound primale $\LB \ne 0$ e un bound duale $\UB$, il <strong>gap di ottimalità</strong> è
 
         \begin{equation*}
         \label{gap}
         \text{optimality gap} = \frac{\UB - \LB}{|\LB|} . \tag{2.1}
         \end{equation*}
 
-- In un problema di massimizzazione, i limiti primali sono <strong>limiti inferiori</strong> e i limiti duali sono <strong>limiti superiori</strong>. Un limite primale deriva da una soluzione ammissibile; un limite duale è un'affermazione su <u>tutte</u> le soluzioni ammissibili contemporaneamente.
+- In un problema di massimizzazione, i bound primali sono <strong>limiti inferiori</strong> e i bound duali sono <strong>limiti superiori</strong>. Un bound primale deriva da una soluzione ammissibile; un bound duale è un'affermazione su <u>tutte</u> le soluzioni ammissibili contemporaneamente.
 
 !!! chiave ""
-    Per ogni soluzione fattibile $\bar{\vet x}$ e ogni limite duale $\UB$:
+    Per ogni soluzione ammissibile $\bar{\vet x}$ e ogni bound duale $\UB$:
 
     $$
     \LB(\bar{\vet x}) ~\le~ z(\ILP) ~\le~ \UB .
     $$
 
-    Una soluzione fattibile è <strong>certificata ottimale</strong> quando il divario di ottimalità è zero.
+    Una soluzione ammissibile è <strong>certificata ottimale</strong> quando il divario di ottimalità è zero.
 
 <a id="box-2-def-relaxation"></a>
 
 !!! definizione "Definizione 2.2: rilassamento"
-    Dato un problema ILP $\max \{ \vet c\T \vet x : \vet x \in F \}$, il problema $\max \{ \vet c\T \vet x : \vet x \in R \}$ è una <strong>rilassazione</strong> del problema ILP se $F \subseteq R$. Denotiamo il suo valore ottimale con $z(R)$.
+    Dato un problema ILP $\max \{ \vet c\T \vet x : \vet x \in F \}$, il problema $\max \{ \vet c\T \vet x : \vet x \in R \}$ è un <strong>rilassamento</strong> del problema ILP se $F \subseteq R$. Denotiamo il suo valore ottimale con $z(R)$.
 
-- Una massimizzazione su una regione più ampia non può dare un valore più piccolo: il valore ottimale di un rilassamento è un limite duale, $z(\ILP) \le z(R)$.
+- Una massimizzazione su una regione più ampia non può dare un valore più piccolo: il valore ottimale di un rilassamento è un bound duale, $z(\ILP) \le z(R)$.
 
-## 2.2 Limiti primitivi: soluzioni euristiche { #sez-sec-primal }
+## 2.2 Bound primali: soluzioni euristiche { #sez-sec-primal }
 
 <a id="box-3-def-heuristic"></a>
 
 !!! definizione "Definizione 2.3: algoritmo euristico"
-    Un <strong>algoritmo euristico</strong> è un metodo che trova soluzioni fattibili rapidamente, senza garanzia di ottimalità. Il valore di ogni soluzione che trova è un limite primale.
+    Un <strong>algoritmo euristico</strong> è un metodo che trova soluzioni ammissibili rapidamente, senza garanzia di ottimalità. Il valore di ogni soluzione che trova è un bound primale.
 
 !!! chiave ""
-    Una buona soluzione fattibile è un buon limite primale.
+    Una buona soluzione ammissibile è un buon bound primale.
 
 <a id="box-4-ex-primal-car"></a>
 
-!!! esempio "Esempio 2.1: limite primale"
-    Per la soluzione fattibile $(2,2)$ dell'esempio dell'auto otteniamo $\LB = 3 \cdot 2 + 2 \cdot 2 = 10$, quindi $z(\ILP) \ge 10$.
+!!! esempio "Esempio 2.1: bound primale"
+    Per la soluzione ammissibile $(2,2)$ dell'esempio dell'auto otteniamo $\LB = 3 \cdot 2 + 2 \cdot 2 = 10$, quindi $z(\ILP) \ge 10$.
 
 <a id="box-5-def-floor"></a>
 
@@ -146,7 +146,7 @@ title: "Limiti primali e duali"
 
 - L'euristica a due fasi fornisce un vincolo primale migliore, ma richiede più calcolo. Questo compromesso tra la qualità della soluzione e lo sforzo computazionale è tipico degli algoritmi euristici.
 
-- Qui il miglior limite primale è $\LB = 14$, in $(4,1)$. Un limite primale da solo non è una certificazione di ottimalità: è necessaria una soglia duale.
+- Qui il miglior bound primale è $\LB = 14$, in $(4,1)$. Un bound primale da solo non è una certificazione di ottimalità: è necessaria una soglia duale.
 
 ## 2.3 Il rilassamento LP
 
@@ -163,24 +163,24 @@ title: "Limiti primali e duali"
     &&x_j                        &\ge  0, & \forall j \in \{1,2,\dots,n\}. \label{non_negativity_LP} \tag{2.2c}
     \end{align*}
 
-- Indichiamo con $z(\LP)$ il valore ottimale delil rilassamento LP, e con $\tilde{\vet x}(\LP)$ una soluzione ottimale. Scriviamo sempre l'argomento, perché nello stesso esempio $\tilde{\vet x}(\ILP)$ e $\tilde{\vet x}(\LP)$ sono punti diversi.
+- Indichiamo con $z(\LP)$ il valore ottimale del rilassamento LP, e con $\tilde{\vet x}(\LP)$ una soluzione ottimale. Scriviamo sempre l'argomento, perché nello stesso esempio $\tilde{\vet x}(\ILP)$ e $\tilde{\vet x}(\LP)$ sono punti diversi.
 
 <a id="box-8-prop-lp-bound"></a>
 
-!!! teorema "Proposizione 2.6: limite superiore dalil rilassamento LP"
-    Ogni soluzione fattibile del problema ILP è fattibile per la sua rilassazione LP, quindi
+!!! teorema "Proposizione 2.6: limite superiore dal rilassamento LP"
+    Ogni soluzione ammissibile del problema ILP è ammissibile per il suo rilassamento LP, quindi
 
     \begin{equation*}
     z(\ILP) \le z(\LP). \label{LP_BOUND} \tag{2.3}
     \end{equation*}
 
-    Inoltre, se una soluzione ottimale delil rilassamento LP è intera, allora essa è una soluzione ottimale del problema ILP.
+    Inoltre, se una soluzione ottimale del rilassamento LP è intera, allora essa è una soluzione ottimale del problema ILP.
 
 ??? dimostrazione "Proof"
 
-    La regione ammissibile $F$ del problema ILP è contenuta nel politopo delil rilassamento LP, e la funzione obiettivo è la stessa. Il massimo su un insieme più grande non è minore del massimo su un sottoinsieme. Se $\tilde{\vet x}(\LP)$ è intero, appartiene a $F$ e ha valore $z(\LP) \ge z(\ILP)$: è ottimale per il problema ILP. <span class="qed">□</span>
+    La regione ammissibile $F$ del problema ILP è contenuta nel politopo del rilassamento LP, e la funzione obiettivo è la stessa. Il massimo su un insieme più grande non è minore del massimo su un sottoinsieme. Se $\tilde{\vet x}(\LP)$ è intero, appartiene a $F$ e ha valore $z(\LP) \ge z(\ILP)$: è ottimale per il problema ILP. <span class="qed">□</span>
 
-- Il valore di una soluzione fattibile può essere un numero intero, e al massimo è $z(\LP)$: allora è al massimo il più grande numero intero non superiore a $z(\LP)$.
+- Il valore di una soluzione ammissibile può essere un numero intero, e al massimo è $z(\LP)$: allora è al massimo il più grande numero intero non superiore a $z(\LP)$.
 
 <a id="box-9-obs-floor"></a>
 
@@ -197,16 +197,16 @@ title: "Limiti primali e duali"
 
 <a id="box-10-ex-lp-car"></a>
 
-!!! esempio "Esempio 2.3: la rilassazione LP dell'esempio dell'auto"
-    - La rilassamento LP dell'esempio dell'auto ha la soluzione ottimale
+!!! esempio "Esempio 2.3: il rilassamento LP dell'esempio dell'auto"
+    - Il rilassamento LP dell'esempio dell'auto ha la soluzione ottimale
 
         $$
         \tilde{x}_1 = \frac{7}{2}, \quad \tilde{x}_2 = \frac{5}{2}, \qquad z(\LP) = \frac{31}{2},
         $$
 
-        ed è frazionario: non è fattibile per il problema ILP.
+        ed è frazionario: è inammissibile per il problema ILP.
 
-    - Poiché i costi sono interi, abbiamo il limite superiore $\lfloor z(\LP) \rfloor = 15$. Insieme al limite primale $14$ della soluzione ammissibile $(4,1)$ di <span style="color:#1971c2">[Esempio 2.2](#box-6-ex-heur-car)</span>:
+    - Poiché i costi sono interi, abbiamo il limite superiore $\lfloor z(\LP) \rfloor = 15$. Insieme al bound primale $14$ della soluzione ammissibile $(4,1)$ di <span style="color:#1971c2">[Esempio 2.2](#box-6-ex-heur-car)</span>:
 
         $$
         14 ~\le~ z(\ILP) ~\le~ 15.
@@ -214,26 +214,26 @@ title: "Limiti primali e duali"
 
     ![Figura 1](../img/02-lp-relaxation/fig01.svg){ .fig .ovale loading=lazy  }
 
-    <em>La rilassazione LP dell'esempio dell'auto: la regione ammissibile (rossa), i suoi punti interi $16$ (neri) e la soluzione ottimale $(\frac{7}{2},\frac{5}{2})$ della rilassazione LP (blu), con la linea obiettivo $3\,x_1 + 2\,x_2 = \frac{31}{2}$ attraverso di essa (tratteggiata). La linea grigia tratteggiata è la linea obiettivo della soluzione ILP ottimale.</em>
+    <em>Il rilassamento LP dell'esempio dell'auto: la regione ammissibile (rossa), i suoi punti interi $16$ (neri) e la soluzione ottimale $(\frac{7}{2},\frac{5}{2})$ del rilassamento LP (blu), con la linea obiettivo $3\,x_1 + 2\,x_2 = \frac{31}{2}$ attraverso di essa (tratteggiata). La linea grigia tratteggiata è la linea obiettivo della soluzione ILP ottimale.</em>
 
-    - Il valore ottimale è $14$ o $15$. Con $\UB = 15$ e $\LB = 14$ il divario di optimalità $\eqref{gap}$ è $\frac{1}{14} \approx 7.1\%$: la soluzione $(4,1)$ non è ancora certificata come ottimale.
+    - Il valore ottimale è $14$ o $15$. Con $\UB = 15$ e $\LB = 14$ il divario di ottimalità $\eqref{gap}$ è $\frac{1}{14} \approx 7.1\%$: la soluzione $(4,1)$ non è ancora certificata come ottimale.
 
-## 2.4 Arrotondamento della soluzione della rilassazione LP
+## 2.4 Arrotondamento della soluzione del rilassamento LP
 
 !!! chiave ""
-    Le soluzioni ILP fattibili possono generalmente essere ottenute arrotondando una soluzione ottimale delil rilassamento LP. Ma nessuna tecnica di arrotondamento garantisce di trovare una soluzione ILP ottimale.
+    Le soluzioni ILP fattibili possono generalmente essere ottenute arrotondando una soluzione ottimale del rilassamento LP. Ma nessuna tecnica di arrotondamento garantisce di trovare una soluzione ILP ottimale.
 
 <a id="box-11-ex-round-car"></a>
 
 !!! esempio "Esempio 2.4: arrotondamento nell'esempio dell'auto"
-    - La soluzione ottimale del rilassamento LP è $\tilde{\vet x}(\LP) = (\frac{7}{2},\frac{5}{2})$. Arrotondando al numero intero più vicino si ottiene $(4,3)$, che è non fattibile: $10 \cdot 4 + 4 \cdot 3 = 52 > 45$.
+    - La soluzione ottimale del rilassamento LP è $\tilde{\vet x}(\LP) = (\frac{7}{2},\frac{5}{2})$. Arrotondando al numero intero più vicino si ottiene $(4,3)$, che è inammissibile: $10 \cdot 4 + 4 \cdot 3 = 52 > 45$.
 
-    - Arrotondando verso il basso entrambe le componenti si ottiene la soluzione fattibile $\bar{\vet x} = (3,2)$, con $\LB = 3 \cdot 3 + 2 \cdot 2 = 13$. La soluzione ILP ottimale è $\tilde{\vet x}(\ILP) = (4,1)$, con $z(\ILP) = 14$: l'arrotondamento non dà l'ottimo, e i limiti sono $13 \le z(\ILP) \le 15$.
+    - Arrotondando verso il basso entrambe le componenti si ottiene la soluzione ammissibile $\bar{\vet x} = (3,2)$, con $\LB = 3 \cdot 3 + 2 \cdot 2 = 13$. La soluzione ILP ottimale è $\tilde{\vet x}(\ILP) = (4,1)$, con $z(\ILP) = 14$: l'arrotondamento non dà l'ottimo, e i limiti sono $13 \le z(\ILP) \le 15$.
 
 <a id="box-12-ex-round-good"></a>
 
 !!! esempio "Esempio 2.5: l'arrotondamento funziona, ma il limite non è stretto"
-    Considera il seguente problema ILP; la sua rilassazione LP ha $x_1, x_2 \ge 0$ invece dei vincoli di integralità:
+    Considera il seguente problema ILP; il suo rilassamento LP ha $x_1, x_2 \ge 0$ invece dei vincoli di integralità:
 
     $$
     \begin{array}{rrrrrrr}
@@ -244,15 +244,15 @@ title: "Limiti primali e duali"
     \end{array}
     $$
 
-    - La soluzione ottimale delil rilassamento LP è $\tilde{\vet x}(\LP) = (\frac{3}{2},\frac{7}{2})$, con $z(\LP) = 17$ e $\lfloor z(\LP) \rfloor = 17$, quindi $z(\ILP) \le 17$.
+    - La soluzione ottimale del rilassamento LP è $\tilde{\vet x}(\LP) = (\frac{3}{2},\frac{7}{2})$, con $z(\LP) = 17$ e $\lfloor z(\LP) \rfloor = 17$, quindi $z(\ILP) \le 17$.
 
-    - Arrotondando per difetto entrambe le componenti otteniamo la soluzione fattibile $\bar{\vet x} = (\lfloor \frac{3}{2} \rfloor, \lfloor \frac{7}{2} \rfloor) = (1,3)$, con $\LB = 2 \cdot 1 + 4 \cdot 3 = 14$.
+    - Arrotondando per difetto entrambe le componenti otteniamo la soluzione ammissibile $\bar{\vet x} = (\lfloor \frac{3}{2} \rfloor, \lfloor \frac{7}{2} \rfloor) = (1,3)$, con $\LB = 2 \cdot 1 + 4 \cdot 3 = 14$.
 
     - La soluzione ILP ottimale è $\tilde{\vet x}(\ILP) = (1,3)$, con $z(\ILP) = 14$: la soluzione arrotondata è ottimale. Ma i limiti $14 \le z(\ILP) \le 17$ non lo dimostrano.
 
     ![Figura 2](../img/02-lp-relaxation/fig02.svg){ .fig .ovale loading=lazy  }
 
-    <em>Il secondo esempio: la regione ammissibile delil rilassamento LP (rossa), i punti interi (neri) e la soluzione ottimale delil rilassamento LP (blu), con la linea obiettivo $2\,x_1 + 4\,x_2 = 17$ (tratteggiata).</em>
+    <em>Il secondo esempio: la regione ammissibile del rilassamento LP (rossa), i punti interi (neri) e la soluzione ottimale del rilassamento LP (blu), con la linea obiettivo $2\,x_1 + 4\,x_2 = 17$ (tratteggiata).</em>
 
 <a id="box-13-ex-round-bad"></a>
 
@@ -270,7 +270,7 @@ title: "Limiti primali e duali"
 
     - La soluzione ottimale del rilassamento LP è $\tilde{\vet x}(\LP) = (\frac{376}{193}, \frac{950}{193}) \approx (1.94, 4.92)$, con $z(\LP) = \frac{24600}{193} \approx 127.46$. Pertanto $z(\ILP) \le \lfloor z(\LP) \rfloor = 127$.
 
-    - Arrotondando all'intero più vicino si ottiene $(2,5)$, che non è realizzabile: $50 \cdot 2 + 31 \cdot 5 = 255 > 250$. Arrotondando $\tilde{x}_1$ verso l'alto e $\tilde{x}_2$ verso il basso si ottiene la soluzione fattibile $\bar{\vet x} = (2,4)$, con $\LB = 25 \cdot 2 + 16 \cdot 4 = 114$.
+    - Arrotondando all'intero più vicino si ottiene $(2,5)$, che non è realizzabile: $50 \cdot 2 + 31 \cdot 5 = 255 > 250$. Arrotondando $\tilde{x}_1$ verso l'alto e $\tilde{x}_2$ verso il basso si ottiene la soluzione ammissibile $\bar{\vet x} = (2,4)$, con $\LB = 25 \cdot 2 + 16 \cdot 4 = 114$.
 
     - La soluzione ILP ottimale è $\tilde{\vet x}(\ILP) = (5,0)$, con $z(\ILP) = 125$. È lontana da $\tilde{\vet x}(\LP)$, e nessun arrotondamento di $\tilde{\vet x}(\LP)$ la trova.
 
@@ -286,7 +286,7 @@ title: "Limiti primali e duali"
 <a id="box-14-prop-vub"></a>
 
 !!! teorema "Proposizione 2.8: limiti superiori sulle variabili"
-    Sia $\sum_{j=1}^n a_{ij} \, x_j \le b_i$ un vincolo con $a_{ij} \ge 0$ per tutti $j$. Allora ogni soluzione fattibile del problema ILP soddisfa
+    Sia $\sum_{j=1}^n a_{ij} \, x_j \le b_i$ un vincolo con $a_{ij} \ge 0$ per tutti $j$. Allora ogni soluzione ammissibile del problema ILP soddisfa
 
     \begin{equation*}
     \label{vub}
@@ -318,7 +318,7 @@ title: "Limiti primali e duali"
 
     ![Figura 4](../img/02-lp-relaxation/fig04.svg){ .fig .ovale loading=lazy  }
 
-    <em>I limiti superiori variabili $x_1 \le 4$ e $x_2 \le 3$ (verdi) tagliano le due regioni grigie delil rilassamento LP (rosso) e nessun punto intero. La soluzione ottimale del rilassamento LP (blu) non è tagliata.</em>
+    <em>I limiti superiori variabili $x_1 \le 4$ e $x_2 \le 3$ (verdi) tagliano le due regioni grigie del rilassamento LP (rosso) e nessun punto intero. La soluzione ottimale del rilassamento LP (blu) non è tagliata.</em>
 
     - La soluzione ottimale del rilassamento LP, $(\frac{7}{2},\frac{5}{2})$, soddisfa entrambe le disuguaglianze. Non viene esclusa, quindi il valore ottimale del rilassamento LP non cambia, e il limite superiore è ancora $15$.
 
@@ -340,7 +340,7 @@ title: "Limiti primali e duali"
 <a id="box-17-def-dlp"></a>
 
 !!! definizione "Definizione 2.9: problema duale del rilassamento LP"
-    Il <strong>problema duale</strong> D(LP) delil rilassamento LP [(2.2)](#eq-LP) è il seguente problema LP, con valore ottimale $z(\mathrm{D(LP)})$:
+    Il <strong>problema duale</strong> D(LP) del rilassamento LP [(2.2)](#eq-LP) è il seguente problema LP, con valore ottimale $z(\mathrm{D(LP)})$:
 
     <a id="eq-DLP"></a>
 
@@ -361,19 +361,19 @@ title: "Limiti primali e duali"
     z(\ILP) ~\le~ z(\LP) ~\le~ \sum_{i=1}^m b_i \, \bar{\pi}_i .
     $$
 
-    Per la forte dualità, $z(\mathrm{D(LP)}) = z(\LP)$: i migliori moltiplicatori danno esattamente il valore delil rilassamento LP.
+    Per la forte dualità, $z(\mathrm{D(LP)}) = z(\LP)$: i migliori moltiplicatori danno esattamente il valore del rilassamento LP.
 
 ??? dimostrazione "Proof"
 
     Sia $\vet x$ fattibile per il rilassamento LP. Moltiplicando il vincolo $i$ per $\bar{\pi}_i \ge 0$ e sommando, $\sum_{j=1}^n \big( \sum_{i=1}^m a_{ij} \, \bar{\pi}_i \big) x_j \le \sum_{i=1}^m b_i \, \bar{\pi}_i$. Per $\eqref{Cons_D}$ e $x_j \ge 0$, il lato sinistro è almeno $\sum_{j=1}^n c_j \, x_j$. Da ciò segue $\sum_{j=1}^n c_j \, x_j \le \sum_{i=1}^m b_i \, \bar{\pi}_i$ per ogni $\vet x$ fattibile. <span class="qed">□</span>
 
 !!! chiave ""
-    Ogni soluzione fattibile del problema duale è un certificato di un limite superiore, trovato senza risolvere il rilassamento LP. Il miglior certificato è una soluzione duale ottimale, e ha lo stesso valore del rilassamento LP.
+    Ogni soluzione ammissibile del problema duale è un certificato di un limite superiore, trovato senza risolvere il rilassamento LP. Il miglior certificato è una soluzione duale ottimale, e ha lo stesso valore del rilassamento LP.
 
 <a id="box-19-ex-mult-car"></a>
 
 !!! esempio "Esempio 2.9: moltiplicatori per l'esempio dell'auto"
-    - Una soluzione fattibile del rilassamento LP non fornisce un vincolo duale: il suo valore non è né un limite inferiore né un limite superiore su $z(\ILP)$.
+    - Una soluzione ammissibile del rilassamento LP non fornisce un vincolo duale: il suo valore non è né un limite inferiore né un limite superiore su $z(\ILP)$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -475,7 +475,7 @@ title: "Limiti primali e duali"
 
 - <strong>Problema ILP</strong>: soluzione ottimale $\tilde{\vet x}(\ILP)$, valore ottimale $z(\ILP)$.
 
-- <strong>Limite primale</strong>: soluzione fattibile $\bar{\vet x}$ con $\LB(\bar{\vet x}) = \sum_{j} c_j \, \bar{x}_j \le z(\ILP)$.
+- <strong>Bound primale</strong>: soluzione ammissibile $\bar{\vet x}$ con $\LB(\bar{\vet x}) = \sum_{j} c_j \, \bar{x}_j \le z(\ILP)$.
 
 - <strong>Rilassamento LP</strong>: soluzione ottimale $\tilde{\vet x}(\LP)$, valore ottimale $z(\LP)$, limite superiore $z(\ILP) \le z(\LP)$.
 
@@ -484,13 +484,13 @@ title: "Limiti primali e duali"
 ## 2.7 Errori tipici
 
 !!! attenzione "Avviso"
-    - <strong>Considerare una soluzione euristica come ottimale.</strong> Una soluzione fattibile fornisce solo un limite primale. Senza un limite duale dello stesso valore non esiste alcun certificato di ottimalità.
+    - <strong>Considerare una soluzione euristica come ottimale.</strong> Una soluzione ammissibile fornisce solo un bound primale. Senza un bound duale dello stesso valore non esiste alcun certificato di ottimalità.
 
     - <strong>Arrotondamento del limite quando non è valido.</strong> Il limite $\lfloor z(\LP) \rfloor$ richiede che tutte le variabili e tutti i costi siano interi. In un problema MIP il limite è $z(\LP)$.
 
-    - <strong>Arrotondare la soluzione e chiamarla ottimale.</strong> Una soluzione arrotondata è al massimo fattibile e, in generale, non ottimale. Può essere anche non fattibile, come il punto intero più vicino $(2,5)$ di <span style="color:#1971c2">[Esempio 2.6](#box-13-ex-round-bad)</span>.
+    - <strong>Arrotondare la soluzione e chiamarla ottimale.</strong> Una soluzione arrotondata è al massimo fattibile e, in generale, non ottimale. Può essere anche inammissibile, come il punto intero più vicino $(2,5)$ di <span style="color:#1971c2">[Esempio 2.6](#box-13-ex-round-bad)</span>.
 
-    - <strong>Usare il valore di una soluzione LP fattibile come limite.</strong> Solo il valore ottimale del rilassamento LP, o il valore di una soluzione duale fattibile, è un limite superiore.
+    - <strong>Usare il valore di una soluzione LP fattibile come limite.</strong> Solo il valore ottimale del rilassamento LP, o il valore di una soluzione duale ammissibile, è un limite superiore.
 
     - <strong>Moltiplicatori con segno negativo.</strong> I moltiplicatori dei vincoli $\le$ devono essere non negativi e i coefficienti combinati devono essere almeno pari ai costi.
 
@@ -501,17 +501,17 @@ title: "Limiti primali e duali"
 ## 2.8 In sintesi
 
 !!! chiave "In sintesi"
-    - Ogni soluzione fattibile è un limite primale (un limite inferiore) su $z(\ILP)$, e gli algoritmi euristici trovano rapidamente buone soluzioni fattibili.
+    - Ogni soluzione ammissibile è un bound primale (un limite inferiore) su $z(\ILP)$, e gli algoritmi euristici trovano rapidamente buone soluzioni ammissibili.
 
-    - Il rilassamento LP elimina l'integralità, quindi $z(\ILP) \le z(\LP)$; con variabili intere e costi interi questo limite duale (un limite superiore) può essere arrotondato per difetto a $\lfloor z(\LP) \rfloor$.
+    - Il rilassamento LP elimina l'integralità, quindi $z(\ILP) \le z(\LP)$; con variabili intere e costi interi questo bound duale (un limite superiore) può essere arrotondato per difetto a $\lfloor z(\LP) \rfloor$.
 
     - Il vincolo primale e duale definiscono il margine di ottimalità; l'ottimalità è certificata quando il margine è zero.
 
-    - Arrotondare una soluzione ottimale di LP fornisce al massimo una soluzione fattibile, mai una certificazione.
+    - Arrotondare una soluzione ottimale di LP fornisce al massimo una soluzione ammissibile, mai una certificazione.
 
-    - I limiti superiori sulle variabili $x_j \le \lfloor b_i / a_{ij} \rfloor$ derivano da vincoli con coefficienti non negativi e sono utili solo se eliminano l'ottimo del LP.
+    - I limiti superiori sulle variabili $x_j \le \lfloor b_i / a_{ij} \rfloor$ derivano da vincoli con coefficienti non negativi e sono utili solo se eliminano l'ottimo dell’LP.
 
-    - I moltiplicatori non negativi dei vincoli forniscono limiti duali; i migliori risolvono il problema duale, il cui valore ottimale è $z(\LP)$.
+    - I moltiplicatori non negativi dei vincoli forniscono bound duali; i migliori risolvono il problema duale, il cui valore ottimale è $z(\LP)$.
 
     <strong>Cruscotto dell'esempio dell'auto.</strong> I vincoli su $z(\ILP)$ trovati finora in questo modulo (vincolo primale: inferiore; vincolo duale: superiore):
 
@@ -523,7 +523,7 @@ title: "Limiti primali e duali"
     <th>Da</th>
     </tr>
     <tr>
-    <td>Limiti primal e duali</td>
+    <td>Bound primali e bound duali</td>
     <td><span class="arithmatex">\(14\)</span></td>
     <td><span class="arithmatex">\(15\)</span></td>
     <td>soluzione euristica <span class="arithmatex">\((4, 1)\)</span>, e <span class="arithmatex">\(\lfloor z(\LP) \rfloor\)</span> con <span class="arithmatex">\(z(\LP) = \tfrac{31}{2}\)</span></td>
@@ -532,13 +532,13 @@ title: "Limiti primali e duali"
 
 ---
 
-**Esercizi su questo capitolo:** [:material-pencil: Limiti primal e duali](../exercises/lp-relaxation.md)
+**Esercizi su questo capitolo:** [:material-pencil: Bound primali e bound duali](../exercises/lp-relaxation.md)
 
 <!-- laboratorio-interattivo: sezione generata da interattivi.py -->
 
 ## Laboratorio interattivo { #interactive-lab }
 
 Le idee del capitolo, pratica: muovi i cursori e trascina i punti.
-Ogni app apre anche una pagina completa nel [laboratorio interattivo](../lab/index.md): [Punti interi e la rilassazione LP](../lab/integer-points.md).
+Ogni app apre anche una pagina completa nel [laboratorio interattivo](../lab/index.md): [Punti interi e il rilassamento LP](../lab/integer-points.md).
 
 <div class="gi" data-grafico="pli-punti-interi"></div>

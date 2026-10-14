@@ -9,7 +9,7 @@ Esercizi con **soluzioni svolte**, capitolo per capitolo. Prova ogni esercizio d
     ---
 
     - [1. Programmazione lineare intera](ilp.md) · 5 esercizi
-    - [2. Limiti primal e duali](lp-relaxation.md) · 5 esercizi
+    - [2. Bound primali e bound duali](lp-relaxation.md) · 5 esercizi
 
 -   **Rafforzare la formulazione**
 

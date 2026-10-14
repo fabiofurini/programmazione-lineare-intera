@@ -13,7 +13,7 @@ title: "Branch-and-cut"
 !!! nota "Prerequisiti"
     - Da questo modulo, i capitoli «Disuguaglianze valide» e «Disuguaglianze di copertura»: disuguaglianze valide e la separazione di una disuguaglianza violata di una famiglia.
 
-    - Da questo modulo, il capitolo «Algoritmo del piano di taglio»: tagli frazionari di Gomory e la riodottimizzazione del problema LP con l'algoritmo del simplesso duale dopo l'inserimento di un taglio.
+    - Da questo modulo, il capitolo «Algoritmo del piano di taglio»: tagli frazionari di Gomory e la riottimizzazione del problema LP con l'algoritmo del simplesso duale dopo l'inserimento di un taglio.
 
     - Da questo modulo, il capitolo «Branch-and-Bound basato su LP»: l'elenco dei problemi LP, i criteri di potatura e le strategie di selezione delle variabili e dei nodi su cui eseguire il branching.
 
@@ -89,7 +89,7 @@ title: "Branch-and-cut"
 
 - I tagli globali sono memorizzati in un <strong>pool globale</strong>, utilizzabile in ogni nodo. I tagli locali sono memorizzati con il loro nodo e vengono ereditati solo dai suoi discendenti.
 
-- Ogni taglio aggiunge una vincolo ai problemi di programmazione lineare. I tagli che rimangono inattivi per molte iterazioni vengono rimossi dal problema di programmazione lineare e mantenuti solo nel pool.
+- Ogni taglio aggiunge un vincolo ai problemi di programmazione lineare. I tagli che rimangono inattivi per molte iterazioni vengono rimossi dal problema di programmazione lineare e mantenuti solo nel pool.
 
 ### 8.3.2 Pseudocodice di alto livello
 
@@ -122,7 +122,7 @@ title: "Branch-and-cut"
 
 - Con $R = 0$ in ogni nodo eccetto la radice otteniamo un algoritmo di taglio e ramificazione; con $R = 0$ in ogni nodo otteniamo l'algoritmo branch-and-bound.
 
-- Il pseudocodice non indica come vengono generate le cortesie o come il problema LP venga riottimizzato. Dopo l'inserimento di una corte, il dizionario è dualmente fattibile, quindi l'<strong>algoritmo del simplesso duale</strong> parte dal dizionario ottimale del problema precedente, come dopo un vincolo di branching.
+- Il pseudocodice non indica come vengono generati i tagli o come il problema LP venga riottimizzato. Dopo l'inserimento di un taglio, il dizionario è dualmente ammissibile, quindi l'<strong>algoritmo del simplesso duale</strong> parte dal dizionario ottimale del problema precedente, come dopo un vincolo di branching.
 
 ## 8.4 Esempio pratico: cut-and-branch con tagli di Gomory { #sez-sec-bc-example }
 
@@ -209,7 +209,7 @@ title: "Branch-and-cut"
 
         È un taglio globale, e taglia $\tilde{\vet x}(\LP_1)$: $3 \cdot 5 - \frac{7}{2} = \frac{23}{2} > 11$.
 
-    - <span style="color:#e03131"><strong>Radice: ri-ottimizzazione.</strong></span> Aggiungiamo il taglio al problema $\LP_1$ e lo ri-ottimizziamo con l'algoritmo del simplesso duale. Una soluzione ottimale è
+    - <span style="color:#e03131"><strong>Radice: riottimizzazione.</strong></span> Aggiungiamo il taglio al problema $\LP_1$ e lo ri-ottimizziamo con l'algoritmo del simplesso duale. Una soluzione ottimale è
 
         $$
         \tilde{\vet x}(\LP_1) = (\tfrac{34}{7},\tfrac{25}{7}), \qquad z(\LP_1) = \tfrac{220}{7}, \qquad \UB = 31 .
@@ -397,7 +397,7 @@ title: "Branch-and-cut"
         x_6 = -\dfrac{1}{4} + \dfrac{1}{4} \, x_3 + \dfrac{5}{2} \, x_5.
         $$
 
-    - Il dizionario sottostante è <strong>dualmente fattibile</strong> ma non primale fattibile, poiché $\bar b_{6} = -\dfrac{1}{4} < 0$:
+    - Il dizionario sottostante è <strong>dualmente ammissibile</strong> ma non ammissibile primalmente, poiché $\bar b_{6} = -\dfrac{1}{4} < 0$:
 
     \begin{equation*}
     \begin{cases}
@@ -417,7 +417,7 @@ title: "Branch-and-cut"
         \frac{\bar c_{3}}{\bar a_{6,3}} = \frac{-\tfrac{1}{2}}{-\tfrac{1}{4}} = 2,\qquad \frac{\bar c_{5}}{\bar a_{6,5}} = \frac{-2}{-\tfrac{5}{2}} = \dfrac{4}{5}.
         $$
 
-    - La colonna pivot è $x_5$, con $s_m = \dfrac{4}{5}$, e il valore obiettivo diventa $\bar z + s_m \, \bar b_{6} = \dfrac{29}{2} + \dfrac{4}{5} \cdot \left(-\dfrac{1}{4}\right) = \dfrac{143}{10}$. Il nuovo dizionario è ammissibile sia primal che duale, quindi ottimale:
+    - La colonna pivot è $x_5$, con $s_m = \dfrac{4}{5}$, e il valore obiettivo diventa $\bar z + s_m \, \bar b_{6} = \dfrac{29}{2} + \dfrac{4}{5} \cdot \left(-\dfrac{1}{4}\right) = \dfrac{143}{10}$. Il nuovo dizionario è ammissibile sia primalmente sia dualmente, quindi ottimale:
 
     \begin{equation*}
     \begin{cases}
