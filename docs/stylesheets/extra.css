@@ -161,7 +161,7 @@
   border-radius: 14px;
   padding: 10px;
   max-width: 100%;
-  min-width: min(280px, 100%);
+  min-width: min(160px, 100%);   /* le figure piccole restano alla loro scala (280px le ingrandiva fino a 3 volte) */
   box-shadow: 0 2px 12px rgba(22, 50, 74, .10);
   margin: 1em auto;
 }
@@ -211,3 +211,14 @@
 
 /* minipage delle note affiancate */
 .md-typeset .minipage { display: inline-block; vertical-align: top; }
+
+/* tabelle in stile booktabs, come nelle dispense (niente caselle, un solo scorrimento) */
+.md-typeset .tabella .md-typeset__scrollwrap { overflow: visible; margin: 0; }
+.md-typeset .tabella .md-typeset__table { padding: 0; }
+.md-typeset .tabella table:not([class]) { display: table; width: auto; border: 0; border-radius: 0; box-shadow: none;
+  font-size: .78rem; border-top: 1.5px solid var(--md-default-fg-color); border-bottom: 1.5px solid var(--md-default-fg-color); }
+.md-typeset .tabella table:not([class]) th, .md-typeset .tabella table:not([class]) td { border: 0; background: none;
+  padding: .3em .75em; text-align: center; }
+.md-typeset .tabella table:not([class]) tr:first-child > * { border-bottom: 1px solid var(--md-default-fg-color--light); }
+.md-typeset .tabella table:not([class]) tbody tr:hover { background: none; box-shadow: none; }
+.md-typeset .tabella table:not([class]) th, .md-typeset .tabella table:not([class]) td { min-width: 0; }
