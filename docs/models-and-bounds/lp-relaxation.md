@@ -13,9 +13,9 @@ title: "Limiti primali e duali"
 !!! nota "Prerequisiti"
     - Da questo modulo, il capitolo «Programmazione lineare intera»: problemi ILP, soluzioni ammissibili e ottimali, enumerazione completa, e l'esempio dell'auto.
 
-    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/duality/09-duality/): il problema duale, dualità debole e dualità forte.
+    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/): il problema duale, dualità debole e dualità forte.
 
-    - Dallo stesso modulo, [Capitolo 6 «Algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/simplex/06-simplex/): un problema di PL che ha una soluzione ottimale ha un vertice ottimale.
+    - Dallo stesso modulo, [Capitolo 6 «Algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/simplesso/06-simplesso/): un problema di PL che ha una soluzione ottimale ha un vertice ottimale.
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:

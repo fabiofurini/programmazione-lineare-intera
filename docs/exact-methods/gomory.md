@@ -11,7 +11,7 @@ title: "Algoritmo dei piani di taglio con tagli frazionari di Gomory"
 </div>
 
 !!! nota "Prerequisiti"
-    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 10 «Algoritmo del Simplesso Duale»](https://fabiofurini.github.io/programmazione-lineare/duality/10-dual-simplex/): dizionari del simplesso, basi duali ammissibili e operazioni di pivoting duali. Un breve riepilogo è fornito in questo capitolo.
+    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 10 «Algoritmo del Simplesso Duale»](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/): dizionari del simplesso, basi duali ammissibili e operazioni di pivoting duali. Un breve riepilogo è fornito in questo capitolo.
 
     - Da questo modulo, i capitoli «Programmazione lineare intera» e «Vincoli primali e duali»: problemi ILP, il rilassamento LP e il limite superiore dato dalil rilassamento LP.
 

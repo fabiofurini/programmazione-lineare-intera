@@ -13,9 +13,9 @@ title: "Formulazioni ideali"
 !!! nota "Prerequisiti"
     - Da questo modulo, i capitoli «Programmazione lineare intera» e «Vincoli primali e duali»: la regione ammissibile di un problema ILP, il rilassamento LP e il suo vincolo, e l'esempio dell'auto.
 
-    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 15 «La geometria della Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/advanced-methods/15-geometry/): vertici di un poliedro, e il fatto che un problema di PL con una soluzione ottimale abbia un vertice ottimale.
+    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 15 «La geometria della Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): vertici di un poliedro, e il fatto che un problema di PL con una soluzione ottimale abbia un vertice ottimale.
 
-    - Dal modulo <em>Ottimizzazione convessa</em>, [Capitolo 1 «Insiemi convessi»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminaries/01-convex-sets/): combinazioni convesse e involucri convessi. Un breve riepilogo è fornito in questo capitolo.
+    - Dal modulo <em>Ottimizzazione convessa</em>, [Capitolo 1 «Insiemi convessi»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/01-insiemi-convessi/): combinazioni convesse e involucri convessi. Un breve riepilogo è fornito in questo capitolo.
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:

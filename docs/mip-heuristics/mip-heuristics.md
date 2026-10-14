@@ -17,7 +17,7 @@ title: "Euristiche MIP"
 
     - Da questo modulo, il capitolo «Risolutori MIP: cosa fanno»: la soluzione corrente, i sotto-problemi risolti da un risolutore e le euristiche al suo interno.
 
-    - Dal modulo <em>Programmazione Lineare</em>: il [dual simplex algorithm (Capitolo 10)](https://fabiofurini.github.io/programmazione-lineare/duality/10-dual-simplex/), che riottimizza un LP dopo una modifica di un vincolo.
+    - Dal modulo <em>Programmazione Lineare</em>: il [dual simplex algorithm (Capitolo 10)](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/), che riottimizza un LP dopo una modifica di un vincolo.
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:
@@ -111,7 +111,7 @@ title: "Euristiche MIP"
 </tr>
 </table></div>
 
-- Gli esempi sono risolti con il risolutore MIP Gurobi, utilizzato da Python tramite <code>gurobipy</code>; il modulo <em>MIP Modelling</em> ([<u>fabiofurini.github.io/mip-modelling</u>](https://fabiofurini.github.io/modellazione-mip/), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/modellazione-mip/modelling-3/)) spiega come usarlo. Quando un LP ha diverse soluzioni ottimali, il testo riporta quella restituita dal risolutore; tutti i codici sono nell'ultima sezione.
+- Gli esempi sono risolti con il risolutore MIP Gurobi, utilizzato da Python tramite <code>gurobipy</code>; il modulo <em>Modellazione MIP</em> ([<u>fabiofurini.github.io/modellazione-mip</u>](https://fabiofurini.github.io/modellazione-mip/), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/modellazione-mip/modellazione-3/)) spiega come usarlo. Quando un LP ha diverse soluzioni ottimali, il testo riporta quella restituita dal risolutore; tutti i codici sono nell'ultima sezione.
 
 ## 10.2 Gli esempi del capitolo { #sez-sec-modelli }
 

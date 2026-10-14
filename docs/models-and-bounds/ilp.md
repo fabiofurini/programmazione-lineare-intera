@@ -11,7 +11,7 @@ title: "Programmazione lineare intera"
 </div>
 
 !!! nota "Prerequisiti"
-    - Dal modulo <em>Programmazione Lineare</em>: [Capitolo 2 «Semispazi e poliedri»](https://fabiofurini.github.io/programmazione-lineare/lp-problems/02-polyhedra/) e [Capitolo 4 «Problemi di Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/lp-problems/04-lp-problems/) (la forma canonica di massimizzazione, la regione ammissibile, le soluzioni ottimali e il valore ottimale), e [Capitolo 5 «Possibili risultati e formulazioni equivalenti»](https://fabiofurini.github.io/programmazione-lineare/lp-problems/05-outcomes-equivalences/) (problemi insoddisfacibili, illimitati e ottimali).
+    - Dal modulo <em>Programmazione Lineare</em>: [Capitolo 2 «Semispazi e poliedri»](https://fabiofurini.github.io/programmazione-lineare/problemi-pl/02-poliedri/) e [Capitolo 4 «Problemi di Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/problemi-pl/04-problemi-pl/) (la forma canonica di massimizzazione, la regione ammissibile, le soluzioni ottimali e il valore ottimale), e [Capitolo 5 «Possibili risultati e formulazioni equivalenti»](https://fabiofurini.github.io/programmazione-lineare/problemi-pl/05-esiti-equivalenze/) (problemi insoddisfacibili, illimitati e ottimali).
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:

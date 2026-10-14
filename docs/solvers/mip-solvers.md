@@ -15,7 +15,7 @@ title: "Solver MIP: cosa fanno"
 
     - Da questo modulo, il capitolo «Limiti primal e duali»: i limiti inferiori e superiori e il divario di ottimalità.
 
-    - Per imparare a usare Gurobi nella pratica, vedi il modulo «MIP Modelling» ([<u>fabiofurini.github.io/mip-modelling</u>](https://fabiofurini.github.io/modellazione-mip/)), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/modellazione-mip/modelling-3/).
+    - Per imparare a usare Gurobi nella pratica, vedi il modulo «Modellazione MIP» ([<u>fabiofurini.github.io/modellazione-mip</u>](https://fabiofurini.github.io/modellazione-mip/)), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/modellazione-mip/modellazione-3/).
 
 !!! chiave "Obiettivi"
     Alla fine di questo capitolo sarai in grado di:

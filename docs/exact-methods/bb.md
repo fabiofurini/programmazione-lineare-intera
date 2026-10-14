@@ -11,7 +11,7 @@ title: "Branch-and-bound basato sul rilassamento LP"
 </div>
 
 !!! nota "Prerequisiti"
-    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 10 «Algoritmo del Simplesso Duale»](https://fabiofurini.github.io/programmazione-lineare/duality/10-dual-simplex/): dizionari del simplesso, basi duali ammissibili e operazioni di pivot duale. Un breve riepilogo è fornito in questo capitolo.
+    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 10 «Algoritmo del Simplesso Duale»](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/): dizionari del simplesso, basi duali ammissibili e operazioni di pivot duale. Un breve riepilogo è fornito in questo capitolo.
 
     - Da questo modulo, il capitolo «Programmazione lineare intera»: problemi ILP, soluzioni ammissibili e ottimali, e l'esempio dell'auto.
 
