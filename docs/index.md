@@ -9,89 +9,116 @@ hide:
 
 # Programmazione lineare intera
 
-Materiale didattico di **[Fabio Furini](https://fabiofurini.github.io/)**, professore associato presso il [DIAG](https://www.diag.uniroma1.it/) della Sapienza Università di Roma.
+Materiale didattico ideato e sviluppato da **[Fabio Furini](https://fabiofurini.github.io/)**, professore
+associato al [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma.
 
-Il corso presenta modelli di programmazione lineare intera e mista, rilassamenti lineari, formulazioni ideali, disuguaglianze valide, piani di taglio, branch-and-bound, branch-and-cut, solver MIP ed euristiche. Le spiegazioni includono definizioni, dimostrazioni, esempi svolti ed esercizi con soluzione.
+**Le dispense del corso, online**: programmazione lineare intera e mista, rilassamento lineare e bound, disuguaglianze valide, piani di taglio, branch-and-bound e branch-and-cut, solver MIP ed euristiche, con definizioni, esempi svolti passo per passo ed esercizi con soluzioni.
 
-[Inizia dai capitoli :material-arrow-right:](models-and-bounds/index.md){ .md-button .md-button--primary }
-[Vai agli esercizi](exercises/index.md){ .md-button }
-[Apri il laboratorio interattivo](lab/index.md){ .md-button }
-[Materiali scaricabili](downloads.md){ .md-button }
+[Comincia dai capitoli :material-arrow-right:](modelli-e-bound/index.md){ .md-button .md-button--primary }
+[Gli esercizi](esercizi/index.md){ .md-button }
+[:material-download: Scarica le dispense (PDF)](materiale.md){ .md-button }
 
 </div>
 
-## Come è organizzato il corso
+## Come è organizzato ogni capitolo
 
-Ogni capitolo segue la numerazione delle dispense. Definizioni, risultati, esempi, algoritmi e dimostrazioni sono evidenziati; le dimostrazioni e le soluzioni si possono aprire quando servono.
+Ogni capitolo è una delle note del corso, con gli stessi numeri e gli stessi colori della
+dispensa: sul sito e nel PDF trovi tutto allo stesso posto.
+
+<div class="grid" markdown>
+
+!!! definizione "Definizione"
+    Il significato preciso di un concetto nuovo.
+
+!!! teorema "Teorema, proposizione, osservazione"
+    Un risultato da ricordare, con le sue ipotesi.
+
+!!! esempio "Esempio"
+    Un calcolo svolto per intero, un passo alla volta.
+
+!!! chiave ""
+    **In verde** il punto chiave da portare a casa.
+
+!!! algoritmo "Algoritmo"
+    Lo pseudocodice di un metodo, in rosso.
+
+</div>
+
+??? dimostrazione "Dimostrazione — si apre con un clic"
+    Le dimostrazioni ci sono tutte, ma chiuse: prima leggi l'enunciato, poi apri
+    la dimostrazione quando vuoi studiarla. Lo stesso vale per le soluzioni degli esercizi.
 
 ## Le parti del corso
 
 <div class="grid cards" markdown>
 
-- :material-sigma: **I · Modelli e limiti**
+-   :material-sigma: **I · Modelli e bound**
 
-  ---
+    ---
 
-  Modelli ILP, MIP e BIP; soluzioni ammissibili e ottime; bound primali e bound duali, gap di ottimalità e rilassamento lineare.
+    Che cos'è un problema di programmazione lineare intera (MIP, ILP, BIP), le sue soluzioni e i suoi esiti; bound primali e duali, gap e rilassamento lineare.
 
-  Capitoli 1–2 · Modelli, bound primali e bound duali
+    1\. La programmazione lineare intera · 2\. Bound primali e duali
 
-      [:octicons-arrow-right-24: Vai ai capitoli](models-and-bounds/index.md)
+    [:octicons-arrow-right-24: I capitoli](modelli-e-bound/index.md)
 
-- :material-vector-polygon: **II · Formulazioni più forti**
+-   :material-vector-polygon: **II · Rafforzare la formulazione**
 
-  ---
+    ---
 
-  Formulazioni ideali, disuguaglianze valide e disuguaglianze di copertura per descrivere meglio l’inviluppo convesso delle soluzioni.
+    Formulazioni ideali, disuguaglianze valide e disuguaglianze di cover: come rafforzare una formulazione.
 
-  Capitoli 3–5 · Formulazioni ideali, disuguaglianze valide e di copertura
+    3\. Formulazioni ideali · 4\. Disuguaglianze valide · 5\. Disuguaglianze di cover
 
-      [:octicons-arrow-right-24: Vai ai capitoli](formulations/index.md)
+    [:octicons-arrow-right-24: I capitoli](formulazioni/index.md)
 
-- :material-file-tree: **III · Metodi esatti**
+-   :material-file-tree: **III · Metodi esatti**
 
-  ---
+    ---
 
-  Piani di taglio con tagli frazionari di Gomory, branch-and-bound basato sul rilassamento lineare e branch-and-cut.
+    L'algoritmo dei piani di taglio con i tagli frazionari di Gomory, il branch-and-bound basato sulla programmazione lineare e il branch-and-cut. Esempi svolti passo per passo ed esercizi con la soluzione completa.
 
-  Capitoli 6–8 · Piani di taglio, branch-and-bound e branch-and-cut
+    6\. L'algoritmo dei piani di taglio con i tagli frazionari di Gomory · 7\. Il branch-and-bound basato sulla programmazione lineare · 8\. Il branch-and-cut
 
-      [:octicons-arrow-right-24: Vai ai capitoli](exact-methods/index.md)
+    [:octicons-arrow-right-24: I capitoli](metodi-esatti/index.md)
 
-- :material-cog-outline: **IV · Solver MIP**
+-   :material-cog-outline: **IV · I solver MIP**
 
-  ---
+    ---
 
-  Presolve, tagli, euristiche primali, strategie di branching e tolleranze; impariamo a leggere i log dei solver attraverso esempi concreti.
+    Che cosa fa un solver MIP (presolve, tagli, euristiche primali, strategie dell'albero, tolleranze) e come si legge il suo log, con esempi reali.
 
-  Capitolo 9 · Solver MIP
+    9\. I solver MIP: che cosa fanno
 
-      [:octicons-arrow-right-24: Vai al capitolo](solvers/index.md)
+    [:octicons-arrow-right-24: I capitoli](solver/index.md)
 
-- :material-lightning-bolt: **V · Euristiche MIP**
+-   :material-lightning-bolt: **V · Euristiche MIP**
 
-  ---
+    ---
 
-  Arrotondamento, feasibility pump, RINS, local branching, relax-and-fix e fix-and-optimize, con esempi ed esercizi.
+    Arrotondamento, diving, feasibility pump, RINS, local branching, relax-and-fix e fix-and-optimize. Esempi ed esercizi con la soluzione completa.
 
-  Capitolo 10 · Euristiche MIP
+    10\. Euristiche MIP
 
-      [:octicons-arrow-right-24: Vai al capitolo](mip-heuristics/index.md)
+    [:octicons-arrow-right-24: I capitoli](euristiche-mip/index.md)
 
 </div>
 
-## Altri corsi
+---
 
-- [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/) — poliedri, algoritmo del simplesso, dualità e simplesso duale.
-- [Ottimizzazione convessa](https://fabiofurini.github.io/ottimizzazione-convessa/) — insiemi e funzioni convesse, problemi di ottimizzazione e laboratorio interattivo.
-- [Algoritmi](https://fabiofurini.github.io/algoritmi/) — rappresentazione dei numeri, pseudocodice, ordinamento e ricerca, analisi e algoritmi ricorsivi.
-- [Ottimizzazione combinatoria](https://fabiofurini.github.io/ottimizzazione-combinatoria/) — zaino, bin packing, colorazione, commesso viaggiatore, scheduling e lot sizing.
-- [Ottimizzazione su reti](https://fabiofurini.github.io/ottimizzazione-su-reti/) — grafi, alberi ricoprenti, cammini minimi, flussi, simplesso su reti e project management.
-- [Modellazione MIP](https://fabiofurini.github.io/modellazione-mip/) — formulazione di modelli di programmazione lineare intera e risoluzione con solver.
-- [Laboratorio di ricerca operativa](https://fabiofurini.github.io/laboratorio-ricerca-operativa/) — modellare e risolvere problemi di ottimizzazione con Python e solver.
-- [Analisi matematica 1](https://fabiofurini.github.io/analisi-matematica-1/) — numeri reali, funzioni, limiti, derivate e serie.
-- [Algebra lineare](https://fabiofurini.github.io/algebra-lineare/) — vettori, matrici, determinanti, sistemi lineari e autovalori.
+Dello stesso autore:
 
-*Questo corso è disponibile anche in [inglese](https://fabiofurini.github.io/integer-linear-programming/).*
+- **[Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/)** — poliedri, algoritmo del simplesso, dualità e simplesso duale, con il laboratorio interattivo;
+- **[Ottimizzazione convessa](https://fabiofurini.github.io/ottimizzazione-convessa/)** — insiemi e funzioni convesse, problemi di ottimizzazione convessa, con grafici interattivi;
+- **[Algoritmi](https://fabiofurini.github.io/algoritmi/)** — rappresentazione dei numeri, pseudocodice, ordinamento e ricerca, analisi e algoritmi ricorsivi;
+- **[Ottimizzazione combinatoria](https://fabiofurini.github.io/ottimizzazione-combinatoria/)** — zaino, bin packing, colorazione, TSP, scheduling e lot sizing, risolti in tutti i modi;
+- **[Ottimizzazione su reti](https://fabiofurini.github.io/ottimizzazione-su-reti/)** — grafi, alberi ricoprenti, cammini minimi, flussi su reti, simplesso su reti e gestione dei progetti;
+- **[Modellazione MIP](https://fabiofurini.github.io/modellazione-mip/)** — modelli di programmazione lineare a variabili intere, dalla formulazione alla soluzione con i solver;
+- **[Laboratorio di Ricerca Operativa](https://fabiofurini.github.io/laboratorio-ricerca-operativa/)** — modellazione e risoluzione di problemi di ottimizzazione con Python e i solver;
+- **[Analisi Matematica 1](https://fabiofurini.github.io/analisi-matematica-1/)** — numeri reali, funzioni, limiti, derivate e serie, con i grafici interattivi;
+- **[Algebra lineare](https://fabiofurini.github.io/algebra-lineare/)** — vettori, matrici, determinanti, sistemi lineari e autovalori, con il laboratorio di calcolo.
 
-**Materiali:** le pagine del corso e il laboratorio interattivo sono disponibili in italiano. Le slide e i PDF scaricabili non sono ancora stati tradotti; i PDF attualmente disponibili sono in inglese.
+Materiale didattico di **[Fabio Furini](https://fabiofurini.github.io/)** —
+[DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma.
+
+*Questo sito è disponibile anche in [inglese](https://fabiofurini.github.io/integer-linear-programming/).*

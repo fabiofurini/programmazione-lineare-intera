@@ -1,4 +1,6 @@
-# Modello del sito italiano di Programmazione lineare intera.
+# Modello del sito italiano di Programmazione lineare intera: genera_sito.py lo usa per scrivere mkdocs.yml
+# (il menu delle parti al posto di NAV_PARTI, gli script del laboratorio al posto di GI_RICETTE).
+# Non modificare mkdocs.yml a mano.
 site_name: Programmazione lineare intera · Fabio Furini
 site_description: >-
   Corso di programmazione lineare intera: modelli, formulazioni, metodi esatti, solver ed euristiche MIP,
@@ -94,7 +96,7 @@ extra:
       lang: en
 
 extra_css:
-  - stylesheets/extra.css?v=f70f7801ce
+  - stylesheets/extra.css?v=1aa75eceb4
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css
   - stylesheets/interattivi.css?v=5d53d6f224
 
@@ -110,56 +112,56 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
-      title: In questa pagina
+      title: On this page
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
   - javascripts/cloudflare-analytics.js?v=bff73345a1
-  - javascripts/mathjax.js?v=bb7dec5d26
+  - javascripts/mathjax.js?v=e9c4fa78ae
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
   # grafici interattivi: JSXGraph, il motore, il catalogo dei problemi, poi le ricette (gi-*.js, le aggiunge genera_sito.py)
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js
   - javascripts/interattivi.js?v=5452c77472
   - javascripts/gi-comune.js?v=40df75e3e5
   - javascripts/gi-pli-dati.js?v=8ebd23eab0
-  - javascripts/gi-pli.js?v=c760264fa1
+  - javascripts/gi-pli.js?v=26662f1816
 
 nav:
   - Home: index.md
-  - Modelli e limiti:
-      - models-and-bounds/index.md
-      - "1. Programmazione lineare intera": models-and-bounds/ilp.md
-      - "2. Bound primali e bound duali": models-and-bounds/lp-relaxation.md
+  - Bound:
+      - modelli-e-bound/index.md
+      - "1. La programmazione lineare intera": modelli-e-bound/ilp.md
+      - "2. Bound primali e duali": modelli-e-bound/lp-relaxation.md
   - Formulazioni:
-      - formulations/index.md
-      - "3. Formulazioni ideali": formulations/ideal-formulations.md
-      - "4. Disuguaglianze valide": formulations/valid-inequalities.md
-      - "5. Disuguaglianze di copertura": formulations/cover.md
+      - formulazioni/index.md
+      - "3. Formulazioni ideali": formulazioni/ideal-formulations.md
+      - "4. Disuguaglianze valide": formulazioni/valid-inequalities.md
+      - "5. Disuguaglianze di cover": formulazioni/cover.md
   - Metodi esatti:
-      - exact-methods/index.md
-      - "6. Piani di taglio": exact-methods/gomory.md
-      - "7. Branch-and-bound": exact-methods/bb.md
-      - "8. Branch-and-cut": exact-methods/branch-and-cut.md
-  - Solver MIP:
-      - solvers/index.md
-      - "9. Solver MIP": solvers/mip-solvers.md
-  - Euristiche MIP:
-      - mip-heuristics/index.md
-      - "10. Euristiche MIP": mip-heuristics/mip-heuristics.md
+      - metodi-esatti/index.md
+      - "6. Piani di taglio": metodi-esatti/gomory.md
+      - "7. Branch-and-bound": metodi-esatti/bb.md
+      - "8. Branch-and-cut": metodi-esatti/branch-and-cut.md
+  - Solver:
+      - solver/index.md
+      - "9. Solver MIP": solver/mip-solvers.md
+  - Euristiche:
+      - euristiche-mip/index.md
+      - "10. Euristiche MIP": euristiche-mip/mip-heuristics.md
   - Esercizi:
-      - exercises/index.md
-      - "1. Programmazione lineare intera": exercises/ilp.md
-      - "2. Bound primali e bound duali": exercises/lp-relaxation.md
-      - "3. Formulazioni ideali": exercises/ideal-formulations.md
-      - "4. Disuguaglianze valide": exercises/valid-inequalities.md
-      - "5. Disuguaglianze di copertura": exercises/cover.md
-      - "6. Piani di taglio": exercises/gomory.md
-      - "7. Branch-and-bound": exercises/bb.md
-      - "8. Branch-and-cut": exercises/branch-and-cut.md
-      - "9. Solver MIP": exercises/mip-solvers.md
-      - "10. Euristiche MIP": exercises/mip-heuristics.md
-  - Laboratorio: lab/index.md
-  - Materiali scaricabili: downloads.md
+      - esercizi/index.md
+      - "1. La programmazione lineare intera": esercizi/ilp.md
+      - "2. Bound primali e duali": esercizi/lp-relaxation.md
+      - "3. Formulazioni ideali": esercizi/ideal-formulations.md
+      - "4. Disuguaglianze valide": esercizi/valid-inequalities.md
+      - "5. Disuguaglianze di cover": esercizi/cover.md
+      - "6. Piani di taglio": esercizi/gomory.md
+      - "7. Branch-and-bound": esercizi/bb.md
+      - "8. Branch-and-cut": esercizi/branch-and-cut.md
+      - "9. Solver MIP": esercizi/mip-solvers.md
+      - "10. Euristiche MIP": esercizi/mip-heuristics.md
+  - Laboratorio: laboratorio/index.md
+  - Materiale: materiale.md
   - Indice: indice.md
