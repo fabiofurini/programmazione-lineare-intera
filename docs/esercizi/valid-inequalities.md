@@ -397,4 +397,4 @@ title: "Esercizi · Disuguaglianze valide"
 
         !!! chiave ""
 
-            La disuguaglianza valida $x_1 + x_3 \le 2$ abbassa l'upper bound da $\lfloor \dfrac{21}{2} \rfloor = 10$ a $10$ e dà la soluzione ottima $(2,2,0)$, $z(\ILP) = 10$.
+            La disuguaglianza valida $x_1 + x_3 \le 2$ abbassa il bound del rilassamento lineare da $\dfrac{21}{2}$ a $10$ e ne rende intera la soluzione ottima: $(2,2,0)$, $z(\ILP) = 10$.

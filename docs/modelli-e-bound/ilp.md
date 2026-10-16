@@ -6,13 +6,13 @@ title: "La programmazione lineare intera"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Modelli e bound · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-modelli-bound-formulazioni.pdf) · [:material-pencil: Esercizi: La programmazione lineare intera](../esercizi/ilp.md)
+**Parte 1 · Modelli e bound · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-modelli-bound-formulazioni.pdf) · [:material-presentation: Slide](../pdf/slide-01-ilp.pdf) · [:material-pencil: Esercizi: La programmazione lineare intera](../esercizi/ilp.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Dal modulo <em>Programmazione Lineare</em>: [Capitolo 2 «Semispazi e poliedri»](https://fabiofurini.github.io/linear-programming/lp-problems/02-polyhedra/) e [Capitolo 4 «Problemi di programmazione lineare»](https://fabiofurini.github.io/linear-programming/lp-problems/04-lp-problems/) (la forma canonica di massimizzazione, la regione ammissibile, le soluzioni ottime e il valore ottimo), e [Capitolo 5 «Esiti possibili e formulazioni equivalenti»](https://fabiofurini.github.io/linear-programming/lp-problems/05-outcomes-equivalences/) (problemi inammissibili, illimitati e con soluzione ottima).
+    - Dal modulo <em>Programmazione Lineare</em>: [Capitolo 2 «Semispazi e poliedri»](https://fabiofurini.github.io/programmazione-lineare/problemi-pl/02-poliedri/) e [Capitolo 4 «Problemi di programmazione lineare»](https://fabiofurini.github.io/programmazione-lineare/problemi-pl/04-problemi-pl/) (la forma canonica di massimizzazione, la regione ammissibile, le soluzioni ottime e il valore ottimo), e [Capitolo 5 «Esiti possibili e formulazioni equivalenti»](https://fabiofurini.github.io/programmazione-lineare/problemi-pl/05-esiti-equivalenze/) (problemi inammissibili, illimitati e con soluzione ottima).
 
 !!! chiave "Obiettivi"
 
@@ -349,26 +349,26 @@ $$
 <tr>
 <td>50</td>
 <td><span class="arithmatex">\(\approx 1.13 \cdot 10^{15}\)</span></td>
-<td><span class="arithmatex">\(\approx 13.0\,\mathrm{days}\)</span></td>
+<td><span class="arithmatex">\(\approx 13.0\,\mathrm{giorni}\)</span></td>
 <td><span class="arithmatex">\(\approx 18.8\,\mathrm{min}\)</span></td>
 </tr>
 <tr>
 <td>60</td>
 <td><span class="arithmatex">\(\approx 1.15 \cdot 10^{18}\)</span></td>
-<td><span class="arithmatex">\(\approx 36.5\,\mathrm{years}\)</span></td>
-<td><span class="arithmatex">\(\approx 13.3\,\mathrm{days}\)</span></td>
+<td><span class="arithmatex">\(\approx 36.5\,\mathrm{anni}\)</span></td>
+<td><span class="arithmatex">\(\approx 13.3\,\mathrm{giorni}\)</span></td>
 </tr>
 <tr>
 <td>70</td>
 <td><span class="arithmatex">\(\approx 1.18 \cdot 10^{21}\)</span></td>
-<td><span class="arithmatex">\(\approx 374\,\mathrm{centuries}\)</span></td>
-<td><span class="arithmatex">\(\approx 37.4\,\mathrm{years}\)</span></td>
+<td><span class="arithmatex">\(\approx 374\,\mathrm{secoli}\)</span></td>
+<td><span class="arithmatex">\(\approx 37.4\,\mathrm{anni}\)</span></td>
 </tr>
 <tr>
 <td>80</td>
 <td><span class="arithmatex">\(\approx 1.21 \cdot 10^{24}\)</span></td>
-<td><span class="arithmatex">\(\approx 3.8 \cdot 10^{5}\,\mathrm{centuries}\)</span></td>
-<td><span class="arithmatex">\(\approx 383\,\mathrm{centuries}\)</span></td>
+<td><span class="arithmatex">\(\approx 3.8 \cdot 10^{5}\,\mathrm{secoli}\)</span></td>
+<td><span class="arithmatex">\(\approx 383\,\mathrm{secoli}\)</span></td>
 </tr>
 </table></div>
 
@@ -376,7 +376,7 @@ $$
 
     L'enumerazione completa è impraticabile già per modelli di dimensione moderata. Un computer $1000$ volte più veloce guadagna solo circa $10$ variabili, perché $2^{10} = 1024 \approx 1000$.
 
-- La via d'uscita è <strong>evitare di enumerare</strong>. Se conosciamo un lower bound e un upper bound sul valore ottimo, possiamo escludere intere regioni di soluzioni ammissibili senza visitarle. I due bound vengono da due fonti diverse, le soluzioni ammissibili e i rilassamenti: sono l'argomento del capitolo successivo, «Bound primali e bound duali».
+- La via d'uscita è <strong>evitare di enumerare</strong>. Se conosciamo un lower bound e un upper bound sul valore ottimo, possiamo escludere intere regioni di soluzioni ammissibili senza visitarle. I due bound vengono da due fonti diverse, le soluzioni ammissibili e i rilassamenti: sono l'argomento del capitolo successivo, «Bound primali e duali».
 
 ## 1.4 Errori tipici
 

@@ -6,17 +6,17 @@ title: "I solver MIP: che cosa fanno"
 
 <div class="info-capitolo" markdown>
 
-**Parte 4 · I solver MIP · Capitolo 9** · [:material-file-pdf-box: Dispensa, volume 3 (PDF)](../pdf/dispensa-3-solver-mip.pdf) · [:material-pencil: Esercizi: Solver MIP](../esercizi/mip-solvers.md)
+**Parte 4 · I solver MIP · Capitolo 9** · [:material-file-pdf-box: Dispensa, volume 3 (PDF)](../pdf/dispensa-3-solver-mip.pdf) · [:material-presentation: Slide](../pdf/slide-09-mip-solvers.pdf) · [:material-pencil: Esercizi: Solver MIP](../esercizi/mip-solvers.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, i capitoli «Algoritmi branch-and-bound basati su LP» e «Algoritmi branch-and-cut»: le operazioni di branching, bounding e pruning, i tagli e la soluzione incumbent.
+    - Da questo modulo, i capitoli «Branch-and-bound basato sulla programmazione lineare» e «Algoritmi branch-and-cut»: le operazioni di branching, bounding e pruning, i tagli e la soluzione incumbent.
 
-    - Da questo modulo, il capitolo «Bound primali e bound duali»: i lower bound e gli upper bound e il gap di ottimalità.
+    - Da questo modulo, il capitolo «Bound primali e duali»: i lower bound e gli upper bound e il gap di ottimalità.
 
-    - Per imparare a usare Gurobi nella pratica, vedi il modulo «Modellazione MIP» ([<u>fabiofurini.github.io/modellazione-mip</u>](https://fabiofurini.github.io/mip-modelling/)), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/mip-modelling/modelling-3/).
+    - Per imparare a usare Gurobi nella pratica, vedi il modulo «Modellazione MIP» ([<u>fabiofurini.github.io/modellazione-mip</u>](https://fabiofurini.github.io/modellazione-mip/)), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/modellazione-mip/modellazione-3/).
 
 !!! chiave "Obiettivi"
 
@@ -34,7 +34,7 @@ title: "I solver MIP: che cosa fanno"
 
 <a id="box-1-def-solver"></a>
 
-!!! definizione "Definizione 9.1: Risolutore MIP"
+!!! definizione "Definizione 9.1: Solver MIP"
 
     Un <strong>solver MIP</strong> (Gurobi, CPLEX, Xpress, HiGHS, SCIP) è un programma che calcola soluzioni ottime di problemi MIP. Il suo nucleo è l'algoritmo branch-and-cut del capitolo precedente.
 
@@ -216,8 +216,14 @@ title: "I solver MIP: che cosa fanno"
 - Partiamo dal problema $P41$ del catalogo dei problemi MIP: tre variabili intere non negative e quattro vincoli,
 
     $$
-    \max~ 2x_1 + x_2 + 3x_3 \quad \text{soggetto a} \quad x_1 + x_2 + x_3 \le 4,~~ x_2 \le 2,~~ x_3 \le 3,~~
-    3x_1 + x_3 \le 6 .
+    \begin{array}{rrcrcrcl}
+    \max & 2x_1 & + & x_2 & + & 3x_3 & & \\[1ex]
+    \text{soggetto a} & x_1 & + & x_2 & + & x_3 & \le & 4 \\
+    & & & x_2 & & & \le & 2 \\
+    & & & & & x_3 & \le & 3 \\
+    & 3x_1 & & & + & x_3 & \le & 6 \\[1ex]
+    & x_1, & & x_2, & & x_3 & \in & \Z_{\ge 0}
+    \end{array}
     $$
 
 ??? codice "Log di Gurobi: problema $P41$, parametri predefiniti"
@@ -268,7 +274,7 @@ title: "I solver MIP: che cosa fanno"
 
 - **10–13** Dimensione del modello: $4$ righe, $3$ colonne, $7$ elementi non nulli, <code>(Max)</code>; i tipi delle variabili ($3$ intere, nessuna binaria).
 
-- **14–18** <strong>Statistiche dei coefficienti</strong>: il più piccolo e il più grande valore assoluto dei coefficienti. Intervalli che coprono molti ordini di grandezza segnalano difficoltà numeriche; qui tutti i valori sono compresi tra $1$ e $6$.
+- **14–18** <strong>Statistiche dei coefficienti</strong>: il più piccolo e il più grande valore assoluto dei coefficienti. Intervalli che coprono molti ordini di grandezza segnalano difficoltà numeriche; qui i coefficienti sono compresi tra $1$ e $6$, e le variabili non hanno limiti espliciti (<code>Bounds range</code> $[0,0]$).
 
 - **20** Un'euristica trova una soluzione di valore $6$ prima del presolve, quindi $\LB = 6$.
 
@@ -401,9 +407,9 @@ title: "I solver MIP: che cosa fanno"
 
 - **31–35** Righe che iniziano con <code>H</code>: le euristiche primali trovano soluzioni incumbent migliori, da $563$ a $588$, mentre il best bound resta $599.17487$.
 
-- **36–78** Il <strong>ciclo dei tagli</strong>: ogni riga con $0$ nodi esplorati è un nuovo round di tagli, e il best bound scende da $599.17487$ a $596.73942$. Si trovano altre soluzioni incumbent, fino a $593$ (riga $45$).
+- **36–77** Il <strong>ciclo dei tagli</strong>: ogni riga con $0$ nodi esplorati è un nuovo round di tagli, e il best bound scende da $599.17487$ a $596.73942$. Si trovano altre soluzioni incumbent, fino a $593$ (riga $45$).
 
-- **79** Sulla radice si esegue il branching: $2$ nodi attendono nella lista, il gap è $0.62\%$.
+- **78** Sulla radice si esegue il branching: $2$ nodi attendono nella lista, il gap è $0.62\%$.
 
 - **81–84** Tagli aggiunti: $1$ di Gomory, $1$ lift-and-project, $5$ MIR, $3$ StrongCG.
 

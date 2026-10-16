@@ -36,12 +36,12 @@
     - 4.6 In sintesi
 5. [Disuguaglianze di cover](formulazioni/cover.md)
     - 5.1 Un vincolo con coefficienti positivi e il suo rilassamento lineare
-    - 5.2 Coperture e disuguaglianze di copertura
+    - 5.2 Cover e disuguaglianze di cover
     - 5.3 Interpretazione geometrica
-    - 5.4 Separazione delle disuguaglianze di copertura
+    - 5.4 Separazione delle disuguaglianze di cover
     - 5.5 Dal CSP a un problema complementare
-    - 5.6 Disuguaglianze di copertura estese
-    - 5.7 Violazione e distanza da una disuguaglianza di copertura
+    - 5.6 Disuguaglianze di cover estese
+    - 5.7 Violazione e distanza da una disuguaglianza di cover
     - 5.8 Errori tipici
     - 5.9 In sintesi
 

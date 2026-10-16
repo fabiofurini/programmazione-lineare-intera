@@ -6,7 +6,7 @@ title: "Euristiche MIP"
 
 <div class="info-capitolo" markdown>
 
-**Parte 5 · Euristiche MIP · Capitolo 10** · [:material-file-pdf-box: Dispensa, volume 4 (PDF)](../pdf/dispensa-4-euristiche-mip.pdf) · [:material-pencil: Esercizi: Euristiche MIP](../esercizi/mip-heuristics.md)
+**Parte 5 · Euristiche MIP · Capitolo 10** · [:material-file-pdf-box: Dispensa, volume 4 (PDF)](../pdf/dispensa-4-euristiche-mip.pdf) · [:material-presentation: Slide](../pdf/slide-10-mip-heuristics.pdf) · [:material-pencil: Esercizi: Euristiche MIP](../esercizi/mip-heuristics.md)
 
 </div>
 
@@ -14,11 +14,11 @@ title: "Euristiche MIP"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, i capitoli «Bound primali e bound duali» e «Algoritmi branch-and-bound basati su LP»: il rilassamento lineare, i lower bound e gli upper bound, il gap di ottimalità e le operazioni di branching.
+    - Da questo modulo, i capitoli «Bound primali e duali» e «Branch-and-bound basato sulla programmazione lineare»: il rilassamento lineare, i lower bound e gli upper bound, il gap di ottimalità e le operazioni di branching.
 
-    - Da questo modulo, il capitolo «Risolutori MIP: che cosa fanno»: la soluzione incumbent, i sotto-problemi risolti da un solver e le euristiche al suo interno.
+    - Da questo modulo, il capitolo «Solver MIP: che cosa fanno»: la soluzione incumbent, i sotto-problemi risolti da un solver e le euristiche al suo interno.
 
-    - Dal modulo <em>Programmazione lineare</em>: l'[algoritmo del simplesso duale (Capitolo 10)](https://fabiofurini.github.io/linear-programming/duality/10-dual-simplex/), che riottimizza un LP dopo la modifica di un limite su una variabile.
+    - Dal modulo <em>Programmazione lineare</em>: l'[algoritmo del simplesso duale (Capitolo 10)](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/), che riottimizza un LP dopo la modifica di un limite su una variabile.
 
 !!! chiave "Obiettivi"
 
@@ -116,7 +116,7 @@ title: "Euristiche MIP"
 </tr>
 </table></div>
 
-- Gli esempi sono risolti con il solver MIP Gurobi, usato da Python tramite <code>gurobipy</code>; il modulo <em>Modellazione MIP</em> ([<u>fabiofurini.github.io/modellazione-mip</u>](https://fabiofurini.github.io/mip-modelling/), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/mip-modelling/modelling-3/)) spiega come usarlo. Quando un LP ha più soluzioni ottime, il testo riporta quella restituita dal solver; tutti i codici sono nell'ultima sezione.
+- Gli esempi sono risolti con il solver MIP Gurobi, usato da Python tramite <code>gurobipy</code>; il modulo <em>Modellazione MIP</em> ([<u>fabiofurini.github.io/modellazione-mip</u>](https://fabiofurini.github.io/modellazione-mip/), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/modellazione-mip/modellazione-3/)) spiega come usarlo. Quando un LP ha più soluzioni ottime, il testo riporta quella restituita dal solver; tutti i codici sono nell'ultima sezione.
 
 ## 10.2 Gli esempi del capitolo { #sez-sec-models }
 
@@ -125,7 +125,12 @@ title: "Euristiche MIP"
 - L'<strong>esempio dell'auto</strong> si scrive
 
     $$
-    \max~ 3\,x_1+2\,x_2 \quad\text{s.a.}\quad 10\,x_1+4\,x_2\le 45,\quad 4\,x_1+14\,x_2\le 49,\quad x_1,x_2\in\Z_{\ge 0}
+    \begin{array}{rrcrcl}
+    \max & 3\,x_1 & + & 2\,x_2 & & \\[1ex]
+    \text{soggetto a} & 10\,x_1 & + & 4\,x_2 & \le & 45 \\
+    & 4\,x_1 & + & 14\,x_2 & \le & 49 \\[1ex]
+    & x_1, & & x_2 & \in & \Z_{\ge 0}
+    \end{array}
     $$
 
 <div class="tabella" markdown="0"><table>
@@ -591,7 +596,7 @@ title: "Euristiche MIP"
 
 - Quando $f$ assume valori interi su tutte le soluzioni ammissibili, come in tutti gli esempi di questo capitolo, $\theta=1$ esclude esattamente le soluzioni che non sono migliori di $\bar{\vet x}$. Se il sotto-MIP con il cutoff è inammissibile, l'intorno non contiene soluzioni migliori: il solver ha <em>dimostrato</em> che $\bar{\vet x}$ è un ottimo locale per quell'intorno.
 
-- I metodi differiscono per <em>quali</em> vincoli definiscono l'intorno: RINS fissa variabili (<strong>fissaggio rigido</strong>, hard fixing), il local branching e la proximity search limitano il numero di variabili che cambiano (<strong>fissaggio morbido</strong>, soft fixing).
+- I metodi differiscono per <em>quali</em> vincoli definiscono l'intorno: RINS fissa variabili (<strong>fissaggio rigido</strong>, hard fixing), il local branching limita il numero di variabili che cambiano e la proximity search lo minimizza (<strong>fissaggio morbido</strong>, soft fixing).
 
 ### 10.6.1 RINS { #sez-sec-rins }
 
@@ -634,7 +639,13 @@ title: "Euristiche MIP"
     <strong>$P7$.</strong> L'incumbent è $\bar{\vet x}=(2,0)$, di valore $6$ (arrotondamento per difetto), e la soluzione LP è $\tilde{\vet x}=\big(\frac52,0\big)$. Concordano su $x_2=0$, che viene fissata. Il sotto-MIP
 
     $$
-    \max~ 3\,x_1 \quad\text{soggetto a}\quad x_1\le 12,\quad 2\,x_1\le 5,\quad 3\,x_1\ge 7,\quad x_1\in\Z_{\ge 0}
+    \begin{array}{rrcl}
+    \max & 3\,x_1 & & \\[1ex]
+    \text{soggetto a} & x_1 & \le & 12 \\
+    & 2\,x_1 & \le & 5 \\
+    & 3\,x_1 & \ge & 7 \\[1ex]
+    & x_1 & \in & \Z_{\ge 0}
+    \end{array}
     $$
 
     è inammissibile: il secondo vincolo dà $x_1\le2$, il cutoff $x_1\ge3$. RINS restituisce l'incumbent. La soluzione ottima $(2,1)$ ha $x_2=1$, ma $x_2$ è fissata a $0$ perché l'LP e l'incumbent concordano su di essa.
@@ -782,7 +793,7 @@ title: "Euristiche MIP"
 
 !!! teorema "Proposizione 10.12"
 
-    Se $f$ assume valori interi su tutte le soluzioni ammissibili del MIP e il sotto-MIP di prossimità attorno a $\bar{\vet x}$ con $\theta=1$ è inammissibile, allora $f(\bar{\vet x})=z(I)$.
+    Se $f$ assume valori interi su tutte le soluzioni ammissibili del MIP e il sotto-MIP di prossimità attorno a $\bar{\vet x}$ con $\theta=1$ è inammissibile, allora $\bar{\vet x}$ è una soluzione ottima del MIP.
 
 ??? dimostrazione "Dimostrazione"
 
@@ -966,7 +977,7 @@ title: "Euristiche MIP"
 
 ## 10.8 Le euristiche dentro il solver { #sez-sec-gurobi }
 
-- Un solver MIP moderno non è solo un algoritmo branch-and-bound: esegue, in automatico, gran parte delle euristiche di questo capitolo (il capitolo «Risolutori MIP: che cosa fanno» mostra log reali). In Gurobi:
+- Un solver MIP moderno non è solo un algoritmo branch-and-bound: esegue, in automatico, gran parte delle euristiche di questo capitolo (il capitolo «Solver MIP: che cosa fanno» mostra log reali). In Gurobi:
 
     - <em>prima dell'LP della radice</em>, euristiche che non hanno bisogno del rilassamento cercano una prima soluzione;
 
@@ -985,7 +996,7 @@ title: "Euristiche MIP"
 <tr>
 <td><code>Heuristics</code></td>
 <td><span class="arithmatex">\(0.05\)</span></td>
-<td>frazione del lavoro dedicata alle euristiche (<span class="arithmatex">\(0\)</span> minimo e massimo <span class="arithmatex">\(1\)</span>)</td>
+<td>frazione del lavoro dedicata alle euristiche (da <span class="arithmatex">\(0\)</span> a <span class="arithmatex">\(1\)</span>)</td>
 </tr>
 <tr>
 <td><code>MIPFocus</code></td>

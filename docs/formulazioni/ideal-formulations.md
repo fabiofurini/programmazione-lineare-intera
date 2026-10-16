@@ -6,17 +6,17 @@ title: "Formulazioni ideali"
 
 <div class="info-capitolo" markdown>
 
-**Parte 2 · Rafforzare la formulazione · Capitolo 3** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-modelli-bound-formulazioni.pdf) · [:material-pencil: Esercizi: Formulazioni ideali](../esercizi/ideal-formulations.md)
+**Parte 2 · Rafforzare la formulazione · Capitolo 3** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-modelli-bound-formulazioni.pdf) · [:material-presentation: Slide](../pdf/slide-03-ideal-formulations.pdf) · [:material-pencil: Esercizi: Formulazioni ideali](../esercizi/ideal-formulations.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Bound primali e bound duali»: la regione ammissibile di un problema PLI, il rilassamento lineare e il suo bound, e l'esempio dell'auto.
+    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Bound primali e duali»: la regione ammissibile di un problema PLI, il rilassamento lineare e il suo bound, e l'esempio dell'auto.
 
-    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 15 «La geometria della Programmazione Lineare»](https://fabiofurini.github.io/linear-programming/advanced-methods/15-geometry/): i vertici di un poliedro, e il fatto che un problema LP con una soluzione ottima ha un vertice ottimo.
+    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 15 «La geometria della Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): i vertici di un poliedro, e il fatto che un problema LP con una soluzione ottima ha un vertice ottimo.
 
-    - Dal modulo <em>Ottimizzazione convessa</em>, [Capitolo 1 «Insiemi convessi»](https://fabiofurini.github.io/convex-optimization/preliminaries/01-convex-sets/): combinazioni convesse e inviluppi convessi. In questo capitolo ne diamo un breve richiamo.
+    - Dal modulo <em>Ottimizzazione convessa</em>, [Capitolo 1 «Insiemi convessi»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/01-insiemi-convessi/): combinazioni convesse e inviluppi convessi. In questo capitolo ne diamo un breve richiamo.
 
 !!! chiave "Obiettivi"
 

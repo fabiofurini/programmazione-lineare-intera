@@ -6,13 +6,13 @@ title: "Disuguaglianze valide"
 
 <div class="info-capitolo" markdown>
 
-**Parte 2 · Rafforzare la formulazione · Capitolo 4** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-modelli-bound-formulazioni.pdf) · [:material-pencil: Esercizi: Disuguaglianze valide](../esercizi/valid-inequalities.md) · [:material-gesture-tap: App: Disuguaglianze valide e involucro convesso](../laboratorio/involucro-convesso.md)
+**Parte 2 · Rafforzare la formulazione · Capitolo 4** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-modelli-bound-formulazioni.pdf) · [:material-presentation: Slide](../pdf/slide-04-valid-inequalities.pdf) · [:material-pencil: Esercizi: Disuguaglianze valide](../esercizi/valid-inequalities.md) · [:material-gesture-tap: App: Disuguaglianze valide e involucro convesso](../laboratorio/involucro-convesso.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, il capitolo «Bound primali e bound duali»: il rilassamento lineare, il bound arrotondato $\lfloor z(\LP) \rfloor$, e i bound ottenuti con moltiplicatori non negativi dei vincoli.
+    - Da questo modulo, il capitolo «Bound primali e duali»: il rilassamento lineare, il bound arrotondato $\lfloor z(\LP) \rfloor$, e i bound ottenuti con moltiplicatori non negativi dei vincoli.
 
     - Da questo modulo, il capitolo «Formulazioni ideali»: le formulazioni, l'inviluppo convesso e il confronto tra formulazioni attraverso i loro poliedri.
 
@@ -216,7 +216,7 @@ title: "Disuguaglianze valide"
 
 - Con due variabili le direzioni $\alpha$ si scelgono guardando la figura. In generale, le disuguaglianze valide vengono da due fonti.
 
-- Famiglie di disuguaglianze per strutture specifiche dei vincoli, come le <strong>disuguaglianze di copertura</strong> di un vincolo a coefficienti positivi di un problema binario (prossimo capitolo).
+- Famiglie di disuguaglianze per strutture specifiche dei vincoli, come le <strong>disuguaglianze di cover</strong> di un vincolo a coefficienti positivi di un problema binario (prossimo capitolo).
 
 - L'arrotondamento di questo capitolo, applicato in modo sistematico alle righe del dizionario ottimo del rilassamento lineare: i <strong>tagli frazionari di Gomory</strong> dell'algoritmo dei piani di taglio, e poi l'algoritmo <strong>branch-and-cut</strong>.
 

@@ -6,15 +6,15 @@ title: "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory"
 
 <div class="info-capitolo" markdown>
 
-**Parte 3 · Metodi esatti · Capitolo 6** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-metodi-esatti.pdf) · [:material-pencil: Esercizi: Piani di taglio](../esercizi/gomory.md) · [:material-gesture-tap: App: Tagli di Gomory sul piano](../laboratorio/tagli-di-gomory.md)
+**Parte 3 · Metodi esatti · Capitolo 6** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-metodi-esatti.pdf) · [:material-presentation: Slide](../pdf/slide-06-gomory.pdf) · [:material-pencil: Esercizi: Piani di taglio](../esercizi/gomory.md) · [:material-gesture-tap: App: Cutting plane con i tagli di Gomory](../laboratorio/tagli-di-gomory.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Dal modulo <em>Programmazione lineare</em>, [Capitolo 10 «Algoritmo del simplesso duale»](https://fabiofurini.github.io/linear-programming/duality/10-dual-simplex/): dizionari del simplesso, basi duali ammissibili e operazioni di pivot duali. Un breve richiamo è dato in questo capitolo.
+    - Dal modulo <em>Programmazione lineare</em>, [Capitolo 10 «Algoritmo del simplesso duale»](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/): dizionari del simplesso, basi duali ammissibili e operazioni di pivot duali. Un breve richiamo è dato in questo capitolo.
 
-    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Bound primali e bound duali»: problemi PLI, il rilassamento lineare e l'upper bound dato dal rilassamento lineare.
+    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Bound primali e duali»: problemi PLI, il rilassamento lineare e l'upper bound dato dal rilassamento lineare.
 
     - Da questo modulo, il capitolo «Disuguaglianze valide»: disuguaglianze valide e tagli che eliminano punti frazionari.
 
@@ -72,7 +72,7 @@ title: "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory"
 
 - I tagli frazionari di Gomory si ottengono dalle righe di un dizionario del simplesso associato a una soluzione di base ammissibile frazionaria del rilassamento lineare in forma standard di un problema PLI.
 
-    <a id="box-2-defXX"></a>
+    <a id="box-2-def-gomory-cut"></a>
 
     !!! definizione "Definizione 6.2: taglio frazionario di Gomory"
 
@@ -301,7 +301,7 @@ title: "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory"
     \label{GFC_OBJ} \tag{6.2}
     \end{equation*}
 
-<a id="box-5-texexpbox1"></a>
+<a id="box-5-texexpboxgomory2"></a>
 
 !!! esempio "Esempio 6.3: Tagli frazionari di Gomory"
 

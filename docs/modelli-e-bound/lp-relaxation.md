@@ -6,7 +6,7 @@ title: "Bound primali e duali"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Modelli e bound · Capitolo 2** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-modelli-bound-formulazioni.pdf) · [:material-pencil: Esercizi: Bound primali e duali](../esercizi/lp-relaxation.md) · [:material-gesture-tap: App: Punti interi e rilassamento lineare](../laboratorio/punti-interi.md)
+**Parte 1 · Modelli e bound · Capitolo 2** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-modelli-bound-formulazioni.pdf) · [:material-presentation: Slide](../pdf/slide-02-lp-relaxation.pdf) · [:material-pencil: Esercizi: Bound primali e duali](../esercizi/lp-relaxation.md) · [:material-gesture-tap: App: Punti interi e rilassamento lineare](../laboratorio/punti-interi.md)
 
 </div>
 
@@ -14,9 +14,9 @@ title: "Bound primali e duali"
 
     - Da questo modulo, il capitolo «Programmazione lineare intera»: problemi PLI, soluzioni ammissibili e ottime, enumerazione completa e l'esempio dell'auto.
 
-    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/linear-programming/duality/09-duality/): il problema duale, la dualità debole e la dualità forte.
+    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/): il problema duale, la dualità debole e la dualità forte.
 
-    - Dallo stesso modulo, [Capitolo 6 «Algoritmo del simplesso»](https://fabiofurini.github.io/linear-programming/simplex/06-simplex/): un problema LP che ha una soluzione ottima ha un vertice ottimo.
+    - Dallo stesso modulo, [Capitolo 6 «Algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/simplesso/06-simplesso/): un problema LP che ha una soluzione ottima ha un vertice ottimo.
 
 !!! chiave "Obiettivi"
 
@@ -165,7 +165,7 @@ title: "Bound primali e duali"
 
 !!! definizione "Definizione 2.5: rilassamento lineare"
 
-    Il <strong>rilassamento lineare</strong> (rilassamento lineare) di un problema PLI in forma canonica di massimizzazione è il problema LP che si ottiene sostituendo i vincoli di integralità $x_j \in \Z_{\ge 0}$ con i vincoli di non negatività $x_j \ge 0$, per ogni $j \in \{1,2,\dots,n\}$:
+    Il <strong>rilassamento lineare</strong> di un problema PLI in forma canonica di massimizzazione è il problema LP che si ottiene sostituendo i vincoli di integralità $x_j \in \Z_{\ge 0}$ con i vincoli di non negatività $x_j \ge 0$, per ogni $j \in \{1,2,\dots,n\}$:
 
     <a id="eq-LP"></a>
 

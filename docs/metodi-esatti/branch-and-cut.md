@@ -6,17 +6,17 @@ title: "Il branch-and-cut"
 
 <div class="info-capitolo" markdown>
 
-**Parte 3 · Metodi esatti · Capitolo 8** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-metodi-esatti.pdf) · [:material-pencil: Esercizi: Branch-and-cut](../esercizi/branch-and-cut.md)
+**Parte 3 · Metodi esatti · Capitolo 8** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-metodi-esatti.pdf) · [:material-presentation: Slide](../pdf/slide-08-branch-and-cut.pdf) · [:material-pencil: Esercizi: Branch-and-cut](../esercizi/branch-and-cut.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, i capitoli «Disuguaglianze valide» e «Disuguaglianze di copertura»: le disuguaglianze valide e la separazione di una disuguaglianza violata di una famiglia.
+    - Da questo modulo, i capitoli «Disuguaglianze valide» e «Disuguaglianze di cover»: le disuguaglianze valide e la separazione di una disuguaglianza violata di una famiglia.
 
     - Da questo modulo, il capitolo «Algoritmo dei piani di taglio»: i tagli frazionari di Gomory e la riottimizzazione del problema LP con l'algoritmo del simplesso duale dopo l'inserimento di un taglio.
 
-    - Da questo modulo, il capitolo «Branch-and-bound basato sul rilassamento lineare»: la lista dei problemi LP, i criteri di potatura e le strategie di selezione della variabile e del nodo di branching.
+    - Da questo modulo, il capitolo «Branch-and-bound basato sulla programmazione lineare»: la lista dei problemi LP, i criteri di potatura e le strategie di selezione della variabile e del nodo di branching.
 
 !!! chiave "Obiettivi"
 
@@ -74,7 +74,7 @@ title: "Il branch-and-cut"
 
     Un taglio derivato solo dai vincoli originali (e da altri tagli globali) è <strong>globale</strong>. Un taglio la cui derivazione usa un vincolo di branching è, in generale, solo <strong>locale</strong>.
 
-- Un taglio frazionario di Gomory generato nel nodo radice è globale: deriva dai soli vincoli originali, e lo stesso vale per una disuguaglianza di una famiglia (come le disuguaglianze di copertura di un vincolo a coefficienti positivi) separata a partire da essi. Un taglio frazionario di Gomory generato da una riga che contiene la variabile di scarto di un vincolo di branching con coefficiente non nullo si tratta come locale.
+- Un taglio frazionario di Gomory generato nel nodo radice è globale: deriva dai soli vincoli originali, e lo stesso vale per una disuguaglianza di una famiglia (come le disuguaglianze di cover di un vincolo a coefficienti positivi) separata a partire da essi. Un taglio frazionario di Gomory generato da una riga che contiene la variabile di scarto di un vincolo di branching con coefficiente non nullo si tratta come locale.
 
 ## 8.3 Cut-and-branch e branch-and-cut
 
@@ -112,9 +112,9 @@ title: "Il branch-and-cut"
 
         1. se il problema $\LP_k$ è inammissibile, allora <code>STOP</code>.
 
-        2. se $\left\lfloor z(\LP_k) \right\rfloor \le \LB$, allora <code>STOP</code>.
+        2. se ${\tilde{\vet x}}(\LP_k)$ è intera, allora, se $z(\LP_k) > \LB$, aggiornare il <strong>lower bound</strong> e la <strong>soluzione incumbent</strong>, togliere dalla lista $L$ tutti i problemi LP con $\left\lfloor z(\LP) \right\rfloor \le \LB$ e <code>STOP</code> (anche quando $z(\LP_k) \le \LB$).
 
-        3. se ${\tilde{\vet x}}(\LP_k)$ è intera, allora aggiornare il <strong>lower bound</strong> e la <strong>soluzione incumbent</strong>, togliere dalla lista $L$ tutti i problemi LP con $\left\lfloor z(\LP) \right\rfloor \le \LB$ e <code>STOP</code>.
+        3. se $\left\lfloor z(\LP_k) \right\rfloor \le \LB$, allora <code>STOP</code>.
 
     - **Passo 2:** <strong>Generazione dei tagli</strong>
 
@@ -278,7 +278,7 @@ title: "Il branch-and-cut"
     x_1 \le 4 .
     $$
 
-- La soluzione ottima del nuovo problema $\LP_1$ è $(4,4)$, con $z(\LP_1) = 28$. Il nodo è potato per interezza, e l'algoritmo si ferma con $\LB = \UB = 28$ dopo aver risolto un solo problema LP.
+- La soluzione ottima del nuovo problema $\LP_1$ è $(4,4)$, con $z(\LP_1) = 28$. Il nodo è potato per integralità, e l'algoritmo si ferma con $\LB = \UB = 28$ dopo aver risolto un solo problema LP.
 
 <div class="tabella" markdown="0"><table>
 <tr>
@@ -369,7 +369,7 @@ title: "Il branch-and-cut"
 
 ## 8.5 Tagli locali: un esempio
 
-- Usiamo l'esempio delle automobili ($x_1$ auto sportive e $x_2$ auto familiari): massimizzare $3x_1+2x_2$ soggetto a $10x_1+4x_2\le 45$, $4x_1+14x_2\le 49$, $x_1,x_2\in\Z_{\ge 0}$. Nell'algoritmo branch-and-bound senza tagli, il nodo $3$ è il figlio verso l'alto della radice, con il vincolo di branching $x_1 \ge 4$ e la variabile di scarto $x_5 = x_1 - 4$.
+- Usiamo l'esempio dell'auto ($x_1$ auto sportive e $x_2$ auto familiari): massimizzare $3x_1+2x_2$ soggetto a $10x_1+4x_2\le 45$, $4x_1+14x_2\le 49$, $x_1,x_2\in\Z_{\ge 0}$. Nell'algoritmo branch-and-bound senza tagli, il nodo $3$ è il figlio verso l'alto della radice, con il vincolo di branching $x_1 \ge 4$ e la variabile di scarto $x_5 = x_1 - 4$.
 
 - Il dizionario ottimo del problema $\LP_3$, con $\tilde{\vet x}(\LP_3) = (4,\tfrac{5}{4})$ e $z(\LP_3) = \tfrac{29}{2}$, è:
 
@@ -478,7 +478,7 @@ title: "Il branch-and-cut"
 
 ### 8.6.2 Quali tagli
 
-- Si può usare qualunque famiglia di disuguaglianze valide con una procedura di separazione: i tagli frazionari di Gomory (per problemi PLI con dati interi), le disuguaglianze di copertura per i vincoli $\sum_j a_j x_j \le b$ a coefficienti positivi di un problema MIP con variabili binarie, e famiglie che sfruttano la struttura di un modello specifico.
+- Si può usare qualunque famiglia di disuguaglianze valide con una procedura di separazione: i tagli frazionari di Gomory (per problemi PLI con dati interi), le disuguaglianze di cover per i vincoli $\sum_j a_j x_j \le b$ a coefficienti positivi di un problema MIP con variabili binarie, e famiglie che sfruttano la struttura di un modello specifico.
 
 - I tagli frazionari di Gomory vengono dalle righe del dizionario ottimo, quindi sono sempre disponibili. In aritmetica floating point i loro coefficienti risentono degli errori di arrotondamento, e i solver scartano i tagli con coefficienti molto grandi o molto piccoli.
 

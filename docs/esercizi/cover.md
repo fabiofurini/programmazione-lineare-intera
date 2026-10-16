@@ -14,7 +14,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
 <a id="esercizio-5-1"></a>
 
-!!! esercizio "Esercizio 5.1: Disuguaglianze di copertura (P1)"
+!!! esercizio "Esercizio 5.1: Disuguaglianze di cover (P1)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=8$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -49,23 +49,23 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Elencare tutte le disuguaglianze di copertura e individuare le coperture minimali.
+    1. Elencare tutte le disuguaglianze di cover e individuare i cover minimali.
 
     2. Per il punto $\tilde{\boldsymbol{x}}$, scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$.
 
-    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata.
+    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata.
 
     4. Verificare se la soluzione greedy è ottima.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -74,16 +74,16 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate da $\tilde{\boldsymbol{x}}$.
+    Separazione delle disuguaglianze di cover violate da $\tilde{\boldsymbol{x}}$.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=8$:
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=8$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -151,7 +151,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        Ci sono $9$ coperture, di cui $4$ minimali. Le disuguaglianze di copertura delle coperture non minimali sono implicate da quelle delle coperture minimali e dagli upper bound $x_j\le1$.
+        Ci sono $9$ cover, di cui $4$ minimali. Le disuguaglianze di cover dei cover non minimali sono implicate da quelle dei cover minimali e dagli upper bound $x_j\le1$.
 
     - <span style="color:#e03131"><strong>Problema di separazione</strong></span><br> I costi $q_j=1-\tilde{x}_j$ sono $q=\left(0,\tfrac{3}{7},1,1\right)$, e il problema di separazione $\CSP$ è:
 
@@ -228,7 +228,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1,1\right)$, di valore $2$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $11>8$ e costo $\frac{17}{7}-2=\frac{3}{7}<1$. Quindi la disuguaglianza di copertura
+        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1,1\right)$, di valore $2$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $11>8$ e costo $\frac{17}{7}-2=\frac{3}{7}<1$. Quindi la disuguaglianza di cover
 
         $$
         x_1+x_2\le 1
@@ -236,11 +236,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è violata da $\tilde{\boldsymbol{x}}$: $1+\frac{4}{7}-1=\frac{4}{7}$.
 
-    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $10$ sono: $\{2\}$ (valore $\frac{3}{7}$), $\{3\}$ (valore $1$), $\{4\}$ (valore $1$), $\{2,4\}$ (valore $\frac{10}{7}$), $\{3,4\}$ (valore $2$). Quindi $z(\CSPKP)=2$, la soluzione greedy è ottima, $z(\CSP)=\frac{3}{7}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{4}{7}$.
+    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $10$ sono: $\{2\}$ (valore $\frac{3}{7}$), $\{3\}$ (valore $1$), $\{4\}$ (valore $1$), $\{2,4\}$ (valore $\frac{10}{7}$), $\{3,4\}$ (valore $2$). Quindi $z(\CSPKP)=2$, la soluzione greedy è ottima, $z(\CSP)=\frac{3}{7}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{4}{7}$.
 
 <a id="esercizio-5-2"></a>
 
-!!! esercizio "Esercizio 5.2: Disuguaglianze di copertura (P2)"
+!!! esercizio "Esercizio 5.2: Disuguaglianze di cover (P2)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=15$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -275,23 +275,23 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Elencare tutte le disuguaglianze di copertura e individuare le coperture minimali.
+    1. Elencare tutte le disuguaglianze di cover e individuare i cover minimali.
 
     2. Per il punto $\tilde{\boldsymbol{x}}$, scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$.
 
-    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata.
+    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata.
 
     4. Verificare se la soluzione greedy è ottima.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -300,16 +300,16 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate da $\tilde{\boldsymbol{x}}$.
+    Separazione delle disuguaglianze di cover violate da $\tilde{\boldsymbol{x}}$.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=15$:
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=15$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -363,7 +363,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        Ci sono $7$ coperture, di cui $3$ minimali. Le disuguaglianze di copertura delle coperture non minimali sono implicate da quelle delle coperture minimali e dagli upper bound $x_j\le1$.
+        Ci sono $7$ cover, di cui $3$ minimali. Le disuguaglianze di cover dei cover non minimali sono implicate da quelle dei cover minimali e dagli upper bound $x_j\le1$.
 
     - <span style="color:#e03131"><strong>Problema di separazione</strong></span><br> I costi $q_j=1-\tilde{x}_j$ sono $q=\left(0,\tfrac{3}{8},1,1\right)$, e il problema di separazione $\CSP$ è:
 
@@ -440,7 +440,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1,1\right)$, di valore $2$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $18>15$ e costo $\frac{19}{8}-2=\frac{3}{8}<1$. Quindi la disuguaglianza di copertura
+        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1,1\right)$, di valore $2$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $18>15$ e costo $\frac{19}{8}-2=\frac{3}{8}<1$. Quindi la disuguaglianza di cover
 
         $$
         x_1+x_2\le 1
@@ -448,11 +448,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è violata da $\tilde{\boldsymbol{x}}$: $1+\frac{5}{8}-1=\frac{5}{8}$.
 
-    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $13$ sono: $\{2\}$ (valore $\frac{3}{8}$), $\{3\}$ (valore $1$), $\{4\}$ (valore $1$), $\{2,4\}$ (valore $\frac{11}{8}$), $\{3,4\}$ (valore $2$). Quindi $z(\CSPKP)=2$, la soluzione greedy è ottima, $z(\CSP)=\frac{3}{8}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{5}{8}$.
+    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $13$ sono: $\{2\}$ (valore $\frac{3}{8}$), $\{3\}$ (valore $1$), $\{4\}$ (valore $1$), $\{2,4\}$ (valore $\frac{11}{8}$), $\{3,4\}$ (valore $2$). Quindi $z(\CSPKP)=2$, la soluzione greedy è ottima, $z(\CSP)=\frac{3}{8}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{5}{8}$.
 
 <a id="esercizio-5-3"></a>
 
-!!! esercizio "Esercizio 5.3: Disuguaglianze di copertura (P3)"
+!!! esercizio "Esercizio 5.3: Disuguaglianze di cover (P3)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=12$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -487,23 +487,23 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Elencare tutte le disuguaglianze di copertura e individuare le coperture minimali.
+    1. Elencare tutte le disuguaglianze di cover e individuare i cover minimali.
 
     2. Per il punto $\tilde{\boldsymbol{x}}$, scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$.
 
-    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata.
+    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata.
 
     4. Verificare se la soluzione greedy è ottima.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -512,16 +512,16 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate da $\tilde{\boldsymbol{x}}$.
+    Separazione delle disuguaglianze di cover violate da $\tilde{\boldsymbol{x}}$.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=12$:
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=12$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -575,7 +575,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        Ci sono $7$ coperture, di cui $3$ minimali. Le disuguaglianze di copertura delle coperture non minimali sono implicate da quelle delle coperture minimali e dagli upper bound $x_j\le1$.
+        Ci sono $7$ cover, di cui $3$ minimali. Le disuguaglianze di cover dei cover non minimali sono implicate da quelle dei cover minimali e dagli upper bound $x_j\le1$.
 
     - <span style="color:#e03131"><strong>Problema di separazione</strong></span><br> I costi $q_j=1-\tilde{x}_j$ sono $q=\left(0,0,\tfrac{1}{2},1\right)$, e il problema di separazione $\CSP$ è:
 
@@ -652,7 +652,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0,1\right)$, di valore $1$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $17>12$ e costo $\frac{3}{2}-1=\frac{1}{2}<1$. Quindi la disuguaglianza di copertura
+        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0,1\right)$, di valore $1$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $17>12$ e costo $\frac{3}{2}-1=\frac{1}{2}<1$. Quindi la disuguaglianza di cover
 
         $$
         x_1+x_2+x_3\le 2
@@ -660,13 +660,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è violata da $\tilde{\boldsymbol{x}}$: $1+1+\frac{1}{2}-2=\frac{1}{2}$.
 
-    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $10$ sono: $\{3\}$ (valore $\frac{1}{2}$), $\{4\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{2}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{1}{2}$.
+    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $10$ sono: $\{3\}$ (valore $\frac{1}{2}$), $\{4\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{2}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{1}{2}$.
 
-        La copertura $\bar{C}$ non è minimale: rimuovendo un indice con $q_j=0$ si ottiene la copertura minimale $\{1,3\}$, con lo stesso costo $\frac{1}{2}$. La sua disuguaglianza di copertura $x_1+x_3\le 1$ ha la stessa violazione $\frac{1}{2}$ ed è più forte.
+        Il cover $\bar{C}$ non è minimale: rimuovendo un indice con $q_j=0$ si ottiene il cover minimale $\{1,3\}$, con lo stesso costo $\frac{1}{2}$. La sua disuguaglianza di cover $x_1+x_3\le 1$ ha la stessa violazione $\frac{1}{2}$ ed è più forte.
 
 <a id="esercizio-5-4"></a>
 
-!!! esercizio "Esercizio 5.4: Disuguaglianze di copertura (P4)"
+!!! esercizio "Esercizio 5.4: Disuguaglianze di cover (P4)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=11$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -701,23 +701,23 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Elencare tutte le disuguaglianze di copertura e individuare le coperture minimali.
+    1. Elencare tutte le disuguaglianze di cover e individuare i cover minimali.
 
     2. Per il punto $\tilde{\boldsymbol{x}}$, scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$.
 
-    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata.
+    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata.
 
     4. Verificare se la soluzione greedy è ottima.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -726,16 +726,16 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate da $\tilde{\boldsymbol{x}}$.
+    Separazione delle disuguaglianze di cover violate da $\tilde{\boldsymbol{x}}$.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=11$:
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=11$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -810,7 +810,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        Ci sono $10$ coperture, di cui $5$ minimali. Le disuguaglianze di copertura delle coperture non minimali sono implicate da quelle delle coperture minimali e dagli upper bound $x_j\le1$.
+        Ci sono $10$ cover, di cui $5$ minimali. Le disuguaglianze di cover dei cover non minimali sono implicate da quelle dei cover minimali e dagli upper bound $x_j\le1$.
 
     - <span style="color:#e03131"><strong>Problema di separazione</strong></span><br> I costi $q_j=1-\tilde{x}_j$ sono $q=\left(0,\tfrac{1}{3},1,1\right)$, e il problema di separazione $\CSP$ è:
 
@@ -887,7 +887,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1,1\right)$, di valore $2$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $14>11$ e costo $\frac{7}{3}-2=\frac{1}{3}<1$. Quindi la disuguaglianza di copertura
+        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1,1\right)$, di valore $2$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $14>11$ e costo $\frac{7}{3}-2=\frac{1}{3}<1$. Quindi la disuguaglianza di cover
 
         $$
         x_1+x_2\le 1
@@ -895,11 +895,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è violata da $\tilde{\boldsymbol{x}}$: $1+\frac{2}{3}-1=\frac{2}{3}$.
 
-    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $16$ sono: $\{2\}$ (valore $\frac{1}{3}$), $\{3\}$ (valore $1$), $\{4\}$ (valore $1$), $\{2,4\}$ (valore $\frac{4}{3}$), $\{3,4\}$ (valore $2$). Quindi $z(\CSPKP)=2$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{3}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{2}{3}$.
+    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $16$ sono: $\{2\}$ (valore $\frac{1}{3}$), $\{3\}$ (valore $1$), $\{4\}$ (valore $1$), $\{2,4\}$ (valore $\frac{4}{3}$), $\{3,4\}$ (valore $2$). Quindi $z(\CSPKP)=2$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{3}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{2}{3}$.
 
 <a id="esercizio-5-5"></a>
 
-!!! esercizio "Esercizio 5.5: Disuguaglianze di copertura (P5)"
+!!! esercizio "Esercizio 5.5: Disuguaglianze di cover (P5)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=12$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -934,23 +934,23 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Elencare tutte le disuguaglianze di copertura e individuare le coperture minimali.
+    1. Elencare tutte le disuguaglianze di cover e individuare i cover minimali.
 
     2. Per il punto $\tilde{\boldsymbol{x}}$, scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$.
 
-    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata.
+    3. Applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata.
 
     4. Verificare se la soluzione greedy è ottima.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -959,16 +959,16 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate da $\tilde{\boldsymbol{x}}$.
+    Separazione delle disuguaglianze di cover violate da $\tilde{\boldsymbol{x}}$.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=12$:
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=12$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -1008,7 +1008,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        Ci sono $5$ coperture, di cui $4$ minimali. Le disuguaglianze di copertura delle coperture non minimali sono implicate da quelle delle coperture minimali e dagli upper bound $x_j\le1$.
+        Ci sono $5$ cover, di cui $4$ minimali. Le disuguaglianze di cover dei cover non minimali sono implicate da quelle dei cover minimali e dagli upper bound $x_j\le1$.
 
     - <span style="color:#e03131"><strong>Problema di separazione</strong></span><br> I costi $q_j=1-\tilde{x}_j$ sono $q=\left(0,0,\tfrac{1}{5},1\right)$, e il problema di separazione $\CSP$ è:
 
@@ -1085,7 +1085,7 @@ title: "Esercizi · Disuguaglianze di cover"
         </tr>
         </table></div>
 
-        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0,1\right)$, di valore $1$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $13>12$ e costo $\frac{6}{5}-1=\frac{1}{5}<1$. Quindi la disuguaglianza di copertura
+        La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0,1\right)$, di valore $1$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $13>12$ e costo $\frac{6}{5}-1=\frac{1}{5}<1$. Quindi la disuguaglianza di cover
 
         $$
         x_1+x_2+x_3\le 2
@@ -1093,13 +1093,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è violata da $\tilde{\boldsymbol{x}}$: $1+1+\frac{4}{5}-2=\frac{4}{5}$.
 
-    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $5$ sono: $\{3\}$ (valore $\frac{1}{5}$), $\{4\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{5}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{4}{5}$.
+    - <span style="color:#e03131"><strong>Verifica di ottimalità</strong></span><br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{3,4\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $5$ sono: $\{3\}$ (valore $\frac{1}{5}$), $\{4\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{5}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{4}{5}$.
 
 ## Separazione delle cover in tre dimensioni
 
 <a id="esercizio-5-6"></a>
 
-!!! esercizio "Esercizio 5.6: Disuguaglianze di copertura in 3D (P1)"
+!!! esercizio "Esercizio 5.6: Disuguaglianze di cover in 3D (P1)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=8$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3\}$ di $n=3$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -1141,21 +1141,21 @@ title: "Esercizi · Disuguaglianze di cover"
 
     1. scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$;
 
-    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata;
+    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata;
 
     3. verificare se la soluzione greedy è ottima;
 
-    4. disegnare il rilassamento lineare insieme alla disuguaglianza di copertura violata, se esiste.
+    4. disegnare il rilassamento lineare insieme alla disuguaglianza di cover violata, se esiste.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -1164,22 +1164,22 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate dai tre punti.
+    Separazione delle disuguaglianze di cover violate dai tre punti.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
 
         $$
         5+4\cdot\frac{3}{4}+0=8,\qquad 5\cdot\frac{1}{5}+4+3=8,\qquad 5\cdot\frac{1}{3}+4\cdot\frac{1}{3}+3\cdot\frac{1}{3}=4\le 8.
         $$
 
-        Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=8$:
+        I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=8$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -1259,7 +1259,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1\right)$, di valore $1$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $9>8$ e costo $\frac{5}{4}-1=\frac{1}{4}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1\right)$, di valore $1$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $9>8$ e costo $\frac{5}{4}-1=\frac{1}{4}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_1+x_2\le 1
@@ -1267,11 +1267,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $1+\frac{3}{4}-1=\frac{3}{4}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $3$ sono: $\{3\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{4}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{3}{4}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $3$ sono: $\{3\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{4}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{3}{4}$.
 
         ![Figura 1](../img/es-05-cover/fig01.svg){ .fig .ovale loading=lazy  }
 
-        Caso (a): il rilassamento lineare e la disuguaglianza di copertura $x_1+x_2\le 1$.
+        Caso (a): il rilassamento lineare e la disuguaglianza di cover $x_1+x_2\le 1$.
 
     - <span style="color:#e03131"><strong>Caso (b): $\tilde{\boldsymbol{x}}=\left(\tfrac{1}{5},1,1\right)$</strong></span>
 
@@ -1332,7 +1332,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0\right)$, di valore $0$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $12>8$ e costo $\frac{4}{5}-0=\frac{4}{5}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0\right)$, di valore $0$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $12>8$ e costo $\frac{4}{5}-0=\frac{4}{5}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_1+x_2+x_3\le 2
@@ -1340,13 +1340,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $\frac{1}{5}+1+1-2=\frac{1}{5}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Nessun indice con $q_j>0$ soddisfa da solo il vincolo con termine noto $3$, quindi ogni soluzione ammissibile di $\CSPKP$ ha valore $0$. Quindi $z(\CSPKP)=0$, la soluzione greedy è ottima, $z(\CSP)=\frac{4}{5}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{1}{5}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Nessun indice con $q_j>0$ soddisfa da solo il vincolo con termine noto $3$, quindi ogni soluzione ammissibile di $\CSPKP$ ha valore $0$. Quindi $z(\CSPKP)=0$, la soluzione greedy è ottima, $z(\CSP)=\frac{4}{5}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{1}{5}$.
 
-            La copertura $\bar{C}$ non è minimale: rimuovendo un indice con $q_j=0$ si ottiene la copertura minimale $\{1,2\}$, con lo stesso costo $\frac{4}{5}$. La sua disuguaglianza di copertura $x_1+x_2\le 1$ ha la stessa violazione $\frac{1}{5}$ ed è più forte.
+            Il cover $\bar{C}$ non è minimale: rimuovendo un indice con $q_j=0$ si ottiene il cover minimale $\{1,2\}$, con lo stesso costo $\frac{4}{5}$. La sua disuguaglianza di cover $x_1+x_2\le 1$ ha la stessa violazione $\frac{1}{5}$ ed è più forte.
 
         ![Figura 2](../img/es-05-cover/fig02.svg){ .fig .ovale loading=lazy  }
 
-        Caso (b): il rilassamento lineare e la disuguaglianza di copertura $x_1+x_2+x_3\le 2$.
+        Caso (b): il rilassamento lineare e la disuguaglianza di cover $x_1+x_2+x_3\le 2$.
 
     - <span style="color:#e03131"><strong>Caso (c): $\tilde{\boldsymbol{x}}=\left(\tfrac{1}{3},\tfrac{1}{3},\tfrac{1}{3}\right)$</strong></span>
 
@@ -1407,17 +1407,17 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1\right)$, di valore $\frac{2}{3}$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di copertura non è violata da $\tilde{\boldsymbol{x}}$.
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1\right)$, di valore $\frac{2}{3}$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di cover non è violata da $\tilde{\boldsymbol{x}}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $3$ sono: $\{3\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $3$ sono: $\{3\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
         ![Figura 3](../img/es-05-cover/fig03.svg){ .fig .ovale loading=lazy  }
 
-        Caso (c): il rilassamento lineare; nessuna disuguaglianza di copertura è violata dal punto.
+        Caso (c): il rilassamento lineare; nessuna disuguaglianza di cover è violata dal punto.
 
 <a id="esercizio-5-7"></a>
 
-!!! esercizio "Esercizio 5.7: Disuguaglianze di copertura in 3D (P2)"
+!!! esercizio "Esercizio 5.7: Disuguaglianze di cover in 3D (P2)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=11$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3\}$ di $n=3$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -1459,21 +1459,21 @@ title: "Esercizi · Disuguaglianze di cover"
 
     1. scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$;
 
-    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata;
+    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata;
 
     3. verificare se la soluzione greedy è ottima;
 
-    4. disegnare il rilassamento lineare insieme alla disuguaglianza di copertura violata, se esiste.
+    4. disegnare il rilassamento lineare insieme alla disuguaglianza di cover violata, se esiste.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -1482,22 +1482,22 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate dai tre punti.
+    Separazione delle disuguaglianze di cover violate dai tre punti.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
 
         $$
         2+3+9\cdot\frac{2}{3}=11,\qquad 0+3\cdot\frac{2}{3}+9=11,\qquad 2\cdot\frac{1}{3}+3\cdot\frac{1}{3}+9\cdot\frac{1}{3}=\frac{14}{3}\le 11.
         $$
 
-        Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=11$:
+        I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=11$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -1577,7 +1577,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0\right)$, di valore $0$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $14>11$ e costo $\frac{1}{3}-0=\frac{1}{3}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0\right)$, di valore $0$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $14>11$ e costo $\frac{1}{3}-0=\frac{1}{3}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_1+x_2+x_3\le 2
@@ -1585,13 +1585,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $1+1+\frac{2}{3}-2=\frac{2}{3}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Nessun indice con $q_j>0$ soddisfa da solo il vincolo con termine noto $2$, quindi ogni soluzione ammissibile di $\CSPKP$ ha valore $0$. Quindi $z(\CSPKP)=0$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{3}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{2}{3}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Nessun indice con $q_j>0$ soddisfa da solo il vincolo con termine noto $2$, quindi ogni soluzione ammissibile di $\CSPKP$ ha valore $0$. Quindi $z(\CSPKP)=0$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{3}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{2}{3}$.
 
-            La copertura $\bar{C}$ non è minimale: rimuovendo un indice con $q_j=0$ si ottiene la copertura minimale $\{2,3\}$, con lo stesso costo $\frac{1}{3}$. La sua disuguaglianza di copertura $x_2+x_3\le 1$ ha la stessa violazione $\frac{2}{3}$ ed è più forte.
+            Il cover $\bar{C}$ non è minimale: rimuovendo un indice con $q_j=0$ si ottiene il cover minimale $\{2,3\}$, con lo stesso costo $\frac{1}{3}$. La sua disuguaglianza di cover $x_2+x_3\le 1$ ha la stessa violazione $\frac{2}{3}$ ed è più forte.
 
         ![Figura 4](../img/es-05-cover/fig04.svg){ .fig .ovale loading=lazy  }
 
-        Caso (a): il rilassamento lineare e la disuguaglianza di copertura $x_1+x_2+x_3\le 2$.
+        Caso (a): il rilassamento lineare e la disuguaglianza di cover $x_1+x_2+x_3\le 2$.
 
     - <span style="color:#e03131"><strong>Caso (b): $\tilde{\boldsymbol{x}}=\left(0,\tfrac{2}{3},1\right)$</strong></span>
 
@@ -1652,7 +1652,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $1$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di coefficiente totale $12>11$ e costo $\frac{4}{3}-1=\frac{1}{3}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $1$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di coefficiente totale $12>11$ e costo $\frac{4}{3}-1=\frac{1}{3}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_2+x_3\le 1
@@ -1660,11 +1660,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $\frac{2}{3}+1-1=\frac{2}{3}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $2$ sono: $\{1\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{3}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{2}{3}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $2$ sono: $\{1\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{3}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{2}{3}$.
 
         ![Figura 5](../img/es-05-cover/fig05.svg){ .fig .ovale loading=lazy  }
 
-        Caso (b): il rilassamento lineare e la disuguaglianza di copertura $x_2+x_3\le 1$.
+        Caso (b): il rilassamento lineare e la disuguaglianza di cover $x_2+x_3\le 1$.
 
     - <span style="color:#e03131"><strong>Caso (c): $\tilde{\boldsymbol{x}}=\left(\tfrac{1}{3},\tfrac{1}{3},\tfrac{1}{3}\right)$</strong></span>
 
@@ -1725,17 +1725,17 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $\frac{2}{3}$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di copertura non è violata da $\tilde{\boldsymbol{x}}$.
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $\frac{2}{3}$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di cover non è violata da $\tilde{\boldsymbol{x}}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $2$ sono: $\{1\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $2$ sono: $\{1\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
         ![Figura 6](../img/es-05-cover/fig06.svg){ .fig .ovale loading=lazy  }
 
-        Caso (c): il rilassamento lineare; nessuna disuguaglianza di copertura è violata dal punto.
+        Caso (c): il rilassamento lineare; nessuna disuguaglianza di cover è violata dal punto.
 
 <a id="esercizio-5-8"></a>
 
-!!! esercizio "Esercizio 5.8: Disuguaglianze di copertura in 3D (P3)"
+!!! esercizio "Esercizio 5.8: Disuguaglianze di cover in 3D (P3)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=9$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3\}$ di $n=3$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -1777,21 +1777,21 @@ title: "Esercizi · Disuguaglianze di cover"
 
     1. scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$;
 
-    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata;
+    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata;
 
     3. verificare se la soluzione greedy è ottima;
 
-    4. disegnare il rilassamento lineare insieme alla disuguaglianza di copertura violata, se esiste.
+    4. disegnare il rilassamento lineare insieme alla disuguaglianza di cover violata, se esiste.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -1800,22 +1800,22 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate dai tre punti.
+    Separazione delle disuguaglianze di cover violate dai tre punti.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
 
         $$
         5+6\cdot\frac{2}{3}+0=9,\qquad 0+6\cdot\frac{1}{3}+7=9,\qquad 5\cdot\frac{1}{3}+6\cdot\frac{1}{3}+7\cdot\frac{1}{3}=6\le 9.
         $$
 
-        Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=9$:
+        I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=9$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -1909,7 +1909,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1\right)$, di valore $1$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $11>9$ e costo $\frac{4}{3}-1=\frac{1}{3}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1\right)$, di valore $1$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $11>9$ e costo $\frac{4}{3}-1=\frac{1}{3}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_1+x_2\le 1
@@ -1917,11 +1917,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $1+\frac{2}{3}-1=\frac{2}{3}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $8$ sono: $\{2\}$ (valore $\frac{1}{3}$), $\{3\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{3}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{2}{3}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $8$ sono: $\{2\}$ (valore $\frac{1}{3}$), $\{3\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{3}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{2}{3}$.
 
         ![Figura 7](../img/es-05-cover/fig07.svg){ .fig .ovale loading=lazy  }
 
-        Caso (a): il rilassamento lineare e la disuguaglianza di copertura $x_1+x_2\le 1$.
+        Caso (a): il rilassamento lineare e la disuguaglianza di cover $x_1+x_2\le 1$.
 
     - <span style="color:#e03131"><strong>Caso (b): $\tilde{\boldsymbol{x}}=\left(0,\tfrac{1}{3},1\right)$</strong></span>
 
@@ -1982,7 +1982,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $1$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di coefficiente totale $13>9$ e costo $\frac{5}{3}-1=\frac{2}{3}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $1$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di coefficiente totale $13>9$ e costo $\frac{5}{3}-1=\frac{2}{3}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_2+x_3\le 1
@@ -1990,11 +1990,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $\frac{1}{3}+1-1=\frac{1}{3}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $8$ sono: $\{1\}$ (valore $1$), $\{2\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{2}{3}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{1}{3}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $8$ sono: $\{1\}$ (valore $1$), $\{2\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{2}{3}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{1}{3}$.
 
         ![Figura 8](../img/es-05-cover/fig08.svg){ .fig .ovale loading=lazy  }
 
-        Caso (b): il rilassamento lineare e la disuguaglianza di copertura $x_2+x_3\le 1$.
+        Caso (b): il rilassamento lineare e la disuguaglianza di cover $x_2+x_3\le 1$.
 
     - <span style="color:#e03131"><strong>Caso (c): $\tilde{\boldsymbol{x}}=\left(\tfrac{1}{3},\tfrac{1}{3},\tfrac{1}{3}\right)$</strong></span>
 
@@ -2055,17 +2055,17 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $\frac{2}{3}$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di copertura non è violata da $\tilde{\boldsymbol{x}}$.
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $\frac{2}{3}$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di cover non è violata da $\tilde{\boldsymbol{x}}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $8$ sono: $\{1\}$ (valore $\frac{2}{3}$), $\{2\}$ (valore $\frac{2}{3}$), $\{3\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $8$ sono: $\{1\}$ (valore $\frac{2}{3}$), $\{2\}$ (valore $\frac{2}{3}$), $\{3\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
         ![Figura 9](../img/es-05-cover/fig09.svg){ .fig .ovale loading=lazy  }
 
-        Caso (c): il rilassamento lineare; nessuna disuguaglianza di copertura è violata dal punto.
+        Caso (c): il rilassamento lineare; nessuna disuguaglianza di cover è violata dal punto.
 
 <a id="esercizio-5-9"></a>
 
-!!! esercizio "Esercizio 5.9: Disuguaglianze di copertura in 3D (P4)"
+!!! esercizio "Esercizio 5.9: Disuguaglianze di cover in 3D (P4)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=5$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3\}$ di $n=3$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -2107,21 +2107,21 @@ title: "Esercizi · Disuguaglianze di cover"
 
     1. scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$;
 
-    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata;
+    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata;
 
     3. verificare se la soluzione greedy è ottima;
 
-    4. disegnare il rilassamento lineare insieme alla disuguaglianza di copertura violata, se esiste.
+    4. disegnare il rilassamento lineare insieme alla disuguaglianza di cover violata, se esiste.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -2130,22 +2130,22 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate dai tre punti.
+    Separazione delle disuguaglianze di cover violate dai tre punti.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
 
         $$
         2+5\cdot\frac{3}{5}+0=5,\qquad 2+0+5\cdot\frac{3}{5}=5,\qquad 2\cdot\frac{1}{3}+5\cdot\frac{1}{3}+5\cdot\frac{1}{3}=4\le 5.
         $$
 
-        Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=5$:
+        I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=5$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -2239,7 +2239,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1\right)$, di valore $1$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $7>5$ e costo $\frac{7}{5}-1=\frac{2}{5}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,1\right)$, di valore $1$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2\}$, di coefficiente totale $7>5$ e costo $\frac{7}{5}-1=\frac{2}{5}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_1+x_2\le 1
@@ -2247,11 +2247,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $1+\frac{3}{5}-1=\frac{3}{5}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $6$ sono: $\{2\}$ (valore $\frac{2}{5}$), $\{3\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{2}{5}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{3}{5}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $6$ sono: $\{2\}$ (valore $\frac{2}{5}$), $\{3\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{2}{5}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{3}{5}$.
 
         ![Figura 10](../img/es-05-cover/fig10.svg){ .fig .ovale loading=lazy  }
 
-        Caso (a): il rilassamento lineare e la disuguaglianza di copertura $x_1+x_2\le 1$.
+        Caso (a): il rilassamento lineare e la disuguaglianza di cover $x_1+x_2\le 1$.
 
     - <span style="color:#e03131"><strong>Caso (b): $\tilde{\boldsymbol{x}}=\left(1,0,\tfrac{3}{5}\right)$</strong></span>
 
@@ -2312,7 +2312,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,1,0\right)$, di valore $1$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,3\}$, di coefficiente totale $7>5$ e costo $\frac{7}{5}-1=\frac{2}{5}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,1,0\right)$, di valore $1$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,3\}$, di coefficiente totale $7>5$ e costo $\frac{7}{5}-1=\frac{2}{5}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_1+x_3\le 1
@@ -2320,11 +2320,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $1+\frac{3}{5}-1=\frac{3}{5}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $6$ sono: $\{2\}$ (valore $1$), $\{3\}$ (valore $\frac{2}{5}$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{2}{5}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{3}{5}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $6$ sono: $\{2\}$ (valore $1$), $\{3\}$ (valore $\frac{2}{5}$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{2}{5}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{3}{5}$.
 
         ![Figura 11](../img/es-05-cover/fig11.svg){ .fig .ovale loading=lazy  }
 
-        Caso (b): il rilassamento lineare e la disuguaglianza di copertura $x_1+x_3\le 1$.
+        Caso (b): il rilassamento lineare e la disuguaglianza di cover $x_1+x_3\le 1$.
 
     - <span style="color:#e03131"><strong>Caso (c): $\tilde{\boldsymbol{x}}=\left(\tfrac{1}{3},\tfrac{1}{3},\tfrac{1}{3}\right)$</strong></span>
 
@@ -2385,17 +2385,17 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $\frac{2}{3}$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di copertura non è violata da $\tilde{\boldsymbol{x}}$.
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(1,0,0\right)$, di valore $\frac{2}{3}$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{2,3\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di cover non è violata da $\tilde{\boldsymbol{x}}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $6$ sono: $\{1\}$ (valore $\frac{2}{3}$), $\{2\}$ (valore $\frac{2}{3}$), $\{3\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $6$ sono: $\{1\}$ (valore $\frac{2}{3}$), $\{2\}$ (valore $\frac{2}{3}$), $\{3\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
         ![Figura 12](../img/es-05-cover/fig12.svg){ .fig .ovale loading=lazy  }
 
-        Caso (c): il rilassamento lineare; nessuna disuguaglianza di copertura è violata dal punto.
+        Caso (c): il rilassamento lineare; nessuna disuguaglianza di cover è violata dal punto.
 
 <a id="esercizio-5-10"></a>
 
-!!! esercizio "Esercizio 5.10: Disuguaglianze di copertura in 3D (P5)"
+!!! esercizio "Esercizio 5.10: Disuguaglianze di cover in 3D (P5)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=10$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3\}$ di $n=3$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -2437,21 +2437,21 @@ title: "Esercizi · Disuguaglianze di cover"
 
     1. scrivere il problema di separazione $\CSP$ e il suo problema complementare $\CSPKP$;
 
-    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di copertura violata;
+    2. applicare l'euristica greedy a $\CSPKP$ e, se possibile, trovare una disuguaglianza di cover violata;
 
     3. verificare se la soluzione greedy è ottima;
 
-    4. disegnare il rilassamento lineare insieme alla disuguaglianza di copertura violata, se esiste.
+    4. disegnare il rilassamento lineare insieme alla disuguaglianza di cover violata, se esiste.
 
     !!! nota ""
 
-        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è una <strong>copertura</strong>, e la disuguaglianza lineare
+        Un sottoinsieme di indici $C\subseteq\mathscr{I}$ con $\sum_{j\in C}a_j>b$ è un <strong>cover</strong>, e la disuguaglianza lineare
 
         \begin{equation*}
         \sum_{j\in C}x_j\le|C|-1
         \end{equation*}
 
-        è la <strong>disuguaglianza di copertura</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di copertura violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
+        è la <strong>disuguaglianza di cover</strong> associata a $C$. Dato un punto $\tilde{\boldsymbol{x}}$, esiste una disuguaglianza di cover violata da $\tilde{\boldsymbol{x}}$ se e solo se $z(\CSP)<1$, dove
 
         \begin{equation*}
         (\CSP)\qquad \min\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,z_j:\
@@ -2460,22 +2460,22 @@ title: "Esercizi · Disuguaglianze di cover"
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura violate dai tre punti.
+    Separazione delle disuguaglianze di cover violate dai tre punti.
 
-    - <span style="color:#e03131"><strong>Disuguaglianze di copertura</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
+    - <span style="color:#e03131"><strong>Disuguaglianze di cover</strong></span><br> Tutti e tre i punti appartengono al rilassamento lineare; i membri sinistri valgono
 
         $$
         5+4+6\cdot\frac{1}{6}=10,\qquad 5\cdot\frac{4}{5}+0+6=10,\qquad 5\cdot\frac{1}{3}+4\cdot\frac{1}{3}+6\cdot\frac{1}{3}=5\le 10.
         $$
 
-        Le coperture sono i sottoinsiemi di indici il cui coefficiente totale supera $b=10$:
+        I cover sono i sottoinsiemi di indici il cui coefficiente totale supera $b=10$:
 
         <div class="tabella" markdown="0"><table>
         <tr>
         <th><span class="arithmatex">\(C\)</span></th>
         <th><span class="arithmatex">\(\sum_{j\in C}a_j\)</span></th>
         <th><span class="arithmatex">\(|C|\)</span></th>
-        <th>Disuguaglianza di copertura</th>
+        <th>Disuguaglianza di cover</th>
         <th>Minimale</th>
         </tr>
         <tr>
@@ -2555,7 +2555,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0\right)$, di valore $0$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $15>10$ e costo $\frac{5}{6}-0=\frac{5}{6}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,0,0\right)$, di valore $0$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,2,3\}$, di coefficiente totale $15>10$ e costo $\frac{5}{6}-0=\frac{5}{6}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_1+x_2+x_3\le 2
@@ -2563,13 +2563,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $1+1+\frac{1}{6}-2=\frac{1}{6}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Nessun indice con $q_j>0$ soddisfa da solo il vincolo con termine noto $4$, quindi ogni soluzione ammissibile di $\CSPKP$ ha valore $0$. Quindi $z(\CSPKP)=0$, la soluzione greedy è ottima, $z(\CSP)=\frac{5}{6}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{1}{6}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Nessun indice con $q_j>0$ soddisfa da solo il vincolo con termine noto $4$, quindi ogni soluzione ammissibile di $\CSPKP$ ha valore $0$. Quindi $z(\CSPKP)=0$, la soluzione greedy è ottima, $z(\CSP)=\frac{5}{6}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{1}{6}$.
 
-            La copertura $\bar{C}$ non è minimale: rimuovendo un indice con $q_j=0$ si ottiene la copertura minimale $\{1,3\}$, con lo stesso costo $\frac{5}{6}$. La sua disuguaglianza di copertura $x_1+x_3\le 1$ ha la stessa violazione $\frac{1}{6}$ ed è più forte.
+            Il cover $\bar{C}$ non è minimale: rimuovendo un indice con $q_j=0$ si ottiene il cover minimale $\{1,3\}$, con lo stesso costo $\frac{5}{6}$. La sua disuguaglianza di cover $x_1+x_3\le 1$ ha la stessa violazione $\frac{1}{6}$ ed è più forte.
 
         ![Figura 13](../img/es-05-cover/fig13.svg){ .fig .ovale loading=lazy  }
 
-        Caso (a): il rilassamento lineare e la disuguaglianza di copertura $x_1+x_2+x_3\le 2$.
+        Caso (a): il rilassamento lineare e la disuguaglianza di cover $x_1+x_2+x_3\le 2$.
 
     - <span style="color:#e03131"><strong>Caso (b): $\tilde{\boldsymbol{x}}=\left(\tfrac{4}{5},0,1\right)$</strong></span>
 
@@ -2630,7 +2630,7 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,1,0\right)$, di valore $1$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,3\}$, di coefficiente totale $11>10$ e costo $\frac{6}{5}-1=\frac{1}{5}<1$. Quindi la disuguaglianza di copertura
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,1,0\right)$, di valore $1$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,3\}$, di coefficiente totale $11>10$ e costo $\frac{6}{5}-1=\frac{1}{5}<1$. Quindi la disuguaglianza di cover
 
             $$
             x_1+x_3\le 1
@@ -2638,11 +2638,11 @@ title: "Esercizi · Disuguaglianze di cover"
 
             è violata da $\tilde{\boldsymbol{x}}$: $\frac{4}{5}+1-1=\frac{4}{5}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $4$ sono: $\{2\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{5}<1$, e la massima violazione di una disuguaglianza di copertura è $\frac{4}{5}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $4$ sono: $\{2\}$ (valore $1$). Quindi $z(\CSPKP)=1$, la soluzione greedy è ottima, $z(\CSP)=\frac{1}{5}<1$, e la massima violazione di una disuguaglianza di cover è $\frac{4}{5}$.
 
         ![Figura 14](../img/es-05-cover/fig14.svg){ .fig .ovale loading=lazy  }
 
-        Caso (b): il rilassamento lineare e la disuguaglianza di copertura $x_1+x_3\le 1$.
+        Caso (b): il rilassamento lineare e la disuguaglianza di cover $x_1+x_3\le 1$.
 
     - <span style="color:#e03131"><strong>Caso (c): $\tilde{\boldsymbol{x}}=\left(\tfrac{1}{3},\tfrac{1}{3},\tfrac{1}{3}\right)$</strong></span>
 
@@ -2703,19 +2703,19 @@ title: "Esercizi · Disuguaglianze di cover"
             </tr>
             </table></div>
 
-            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,1,0\right)$, di valore $\frac{2}{3}$. La copertura corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,3\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di copertura non è violata da $\tilde{\boldsymbol{x}}$.
+            La soluzione greedy è $\bar{\boldsymbol{y}}=\left(0,1,0\right)$, di valore $\frac{2}{3}$. Il cover corrispondente è $\bar{C}=\{j\in\mathscr{I}:\bar{y}_j=0\}=\{1,3\}$, di costo $2-\frac{2}{3}=\frac{4}{3}\ge1$: la sua disuguaglianza di cover non è violata da $\tilde{\boldsymbol{x}}$.
 
-        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $4$ sono: $\{2\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        - **c)** <strong>Verifica di ottimalità</strong> <br> Gli indici con $q_j=0$ non cambiano il valore di una soluzione. I sottoinsiemi non vuoti degli indici $\{1,2,3\}$ con $q_j>0$ che soddisfano il vincolo con termine noto $4$ sono: $\{2\}$ (valore $\frac{2}{3}$). Quindi $z(\CSPKP)=\frac{2}{3}$, la soluzione greedy è ottima, e $z(\CSP)=\frac{4}{3}\ge1$: <strong>nessuna</strong> disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
         ![Figura 15](../img/es-05-cover/fig15.svg){ .fig .ovale loading=lazy  }
 
-        Caso (c): il rilassamento lineare; nessuna disuguaglianza di copertura è violata dal punto.
+        Caso (c): il rilassamento lineare; nessuna disuguaglianza di cover è violata dal punto.
 
 ## Chiusura e separazione
 
 <a id="esercizio-5-11"></a>
 
-!!! esercizio "Esercizio 5.11: Chiusura delle coperture per separazione (P1)"
+!!! esercizio "Esercizio 5.11: Chiusura dei cover per separazione (P1)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=9$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -2750,13 +2750,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di copertura massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di copertura è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di cover risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di cover massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di cover è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
 
-    2. Qual è il valore ottimo sulla chiusura delle coperture? La soluzione finale è intera?
+    2. Qual è il valore ottimo sulla chiusura dei cover? La soluzione finale è intera?
 
     !!! nota ""
 
-        La <strong>chiusura delle coperture</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di copertura $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
+        La <strong>chiusura dei cover</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di cover $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
 
         \begin{equation*}
         (\CSPKP)\qquad \max\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,y_j:\
@@ -2764,11 +2764,11 @@ title: "Esercizi · Disuguaglianze di cover"
         y_j\in\{0,1\}\ \forall j\in\mathscr{I}\Big\}.
         \end{equation*}
 
-        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, la copertura $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associata alla disuguaglianza di copertura massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, il cover $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associato alla disuguaglianza di cover massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=23-10=13$.
+    Separazione delle disuguaglianze di cover con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=23-10=13$.
 
     - <span style="color:#e03131"><strong>Iterazione 1</strong></span><br> La soluzione ottima di $\LP$ è $\tilde{\boldsymbol{x}}=\left(1,\tfrac{4}{9},0,0\right)$, di valore $z(\LP)=\frac{110}{3}$.
 
@@ -2788,7 +2788,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{23}{9}-2=\frac{5}{9}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,2\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,2\}$ e la disuguaglianza di cover
 
         $$
         x_1+x_2\le 1
@@ -2796,7 +2796,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+\frac{4}{9}-1=\frac{4}{9}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_1+x_2\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
+    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di cover $x_1+x_2\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -2829,7 +2829,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=2-\frac{5}{4}=\frac{3}{4}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{2,3\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{2,3\}$ e la disuguaglianza di cover
 
         $$
         x_2+x_3\le 1
@@ -2837,7 +2837,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $\frac{1}{4}+1-1=\frac{1}{4}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_2+x_3\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
+    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di cover $x_2+x_3\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -2871,7 +2871,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{11}{6}-1=\frac{5}{6}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,4\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,4\}$ e la disuguaglianza di cover
 
         $$
         x_1+x_4\le 1
@@ -2879,7 +2879,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+\frac{1}{6}-1=\frac{1}{6}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 4</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_1+x_4\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{3}$:
+    - <span style="color:#e03131"><strong>Iterazione 4</strong></span><br> Aggiungendo la disuguaglianza di cover $x_1+x_4\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{3}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -2916,17 +2916,17 @@ title: "Esercizi · Disuguaglianze di cover"
 
         !!! chiave ""
 
-            Nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}=\left(\tfrac{6}{7},\tfrac{1}{7},\tfrac{6}{7},\tfrac{1}{7}\right)$: la separazione si ferma dopo $3$ disuguaglianze di copertura. Il valore ottimo sulla chiusura delle coperture è
+            Nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}=\left(\tfrac{6}{7},\tfrac{1}{7},\tfrac{6}{7},\tfrac{1}{7}\right)$: la separazione si ferma dopo $3$ disuguaglianze di cover. Il valore ottimo sulla chiusura dei cover è
 
             $$
             z(\mathrm{LP}^{\mathrm{cov}})=z(\mathrm{LP}_{3})=\frac{232}{7}<z(\LP)=\frac{110}{3},
             $$
 
-            e $\tilde{\boldsymbol{x}}$ è <strong>frazionario</strong>: la chiusura delle coperture non coincide con l'inviluppo convesso delle soluzioni intere.
+            e $\tilde{\boldsymbol{x}}$ è <strong>frazionario</strong>: la chiusura dei cover non coincide con l'inviluppo convesso delle soluzioni intere.
 
 <a id="esercizio-5-12"></a>
 
-!!! esercizio "Esercizio 5.12: Chiusura delle coperture per separazione (P2)"
+!!! esercizio "Esercizio 5.12: Chiusura dei cover per separazione (P2)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=17$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -2961,13 +2961,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di copertura massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di copertura è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di cover risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di cover massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di cover è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
 
-    2. Qual è il valore ottimo sulla chiusura delle coperture? La soluzione finale è intera?
+    2. Qual è il valore ottimo sulla chiusura dei cover? La soluzione finale è intera?
 
     !!! nota ""
 
-        La <strong>chiusura delle coperture</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di copertura $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
+        La <strong>chiusura dei cover</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di cover $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
 
         \begin{equation*}
         (\CSPKP)\qquad \max\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,y_j:\
@@ -2975,11 +2975,11 @@ title: "Esercizi · Disuguaglianze di cover"
         y_j\in\{0,1\}\ \forall j\in\mathscr{I}\Big\}.
         \end{equation*}
 
-        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, la copertura $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associata alla disuguaglianza di copertura massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, il cover $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associato alla disuguaglianza di cover massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=33-18=15$.
+    Separazione delle disuguaglianze di cover con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=33-18=15$.
 
     - <span style="color:#e03131"><strong>Iterazione 1</strong></span><br> La soluzione ottima di $\LP$ è $\tilde{\boldsymbol{x}}=\left(1,1,\tfrac{1}{5},0\right)$, di valore $z(\LP)=\frac{317}{5}$.
 
@@ -2999,7 +2999,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{9}{5}-1=\frac{4}{5}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{2,3\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{2,3\}$ e la disuguaglianza di cover
 
         $$
         x_2+x_3\le 1
@@ -3007,7 +3007,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+\frac{1}{5}-1=\frac{1}{5}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_2+x_3\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
+    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di cover $x_2+x_3\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -3040,7 +3040,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{7}{4}-1=\frac{3}{4}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{2,4\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{2,4\}$ e la disuguaglianza di cover
 
         $$
         x_2+x_4\le 1
@@ -3048,7 +3048,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+\frac{1}{4}-1=\frac{1}{4}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_2+x_4\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
+    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di cover $x_2+x_4\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -3084,17 +3084,17 @@ title: "Esercizi · Disuguaglianze di cover"
 
         !!! chiave ""
 
-            Nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}=\left(1,\tfrac{3}{4},\tfrac{1}{4},\tfrac{1}{4}\right)$: la separazione si ferma dopo $2$ disuguaglianze di copertura. Il valore ottimo sulla chiusura delle coperture è
+            Nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}=\left(1,\tfrac{3}{4},\tfrac{1}{4},\tfrac{1}{4}\right)$: la separazione si ferma dopo $2$ disuguaglianze di cover. Il valore ottimo sulla chiusura dei cover è
 
             $$
             z(\mathrm{LP}^{\mathrm{cov}})=z(\mathrm{LP}_{2})=\frac{251}{4}<z(\LP)=\frac{317}{5},
             $$
 
-            e $\tilde{\boldsymbol{x}}$ è <strong>frazionario</strong>: la chiusura delle coperture non coincide con l'inviluppo convesso delle soluzioni intere.
+            e $\tilde{\boldsymbol{x}}$ è <strong>frazionario</strong>: la chiusura dei cover non coincide con l'inviluppo convesso delle soluzioni intere.
 
 <a id="esercizio-5-13"></a>
 
-!!! esercizio "Esercizio 5.13: Chiusura delle coperture per separazione (P3)"
+!!! esercizio "Esercizio 5.13: Chiusura dei cover per separazione (P3)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=15$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -3129,13 +3129,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di copertura massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di copertura è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di cover risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di cover massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di cover è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
 
-    2. Qual è il valore ottimo sulla chiusura delle coperture? La soluzione finale è intera?
+    2. Qual è il valore ottimo sulla chiusura dei cover? La soluzione finale è intera?
 
     !!! nota ""
 
-        La <strong>chiusura delle coperture</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di copertura $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
+        La <strong>chiusura dei cover</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di cover $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
 
         \begin{equation*}
         (\CSPKP)\qquad \max\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,y_j:\
@@ -3143,11 +3143,11 @@ title: "Esercizi · Disuguaglianze di cover"
         y_j\in\{0,1\}\ \forall j\in\mathscr{I}\Big\}.
         \end{equation*}
 
-        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, la copertura $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associata alla disuguaglianza di copertura massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, il cover $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associato alla disuguaglianza di cover massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=25-16=9$.
+    Separazione delle disuguaglianze di cover con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=25-16=9$.
 
     - <span style="color:#e03131"><strong>Iterazione 1</strong></span><br> La soluzione ottima di $\LP$ è $\tilde{\boldsymbol{x}}=\left(1,1,\tfrac{8}{9},0\right)$, di valore $z(\LP)=46$.
 
@@ -3167,7 +3167,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{10}{9}-1=\frac{1}{9}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,2,3\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,2,3\}$ e la disuguaglianza di cover
 
         $$
         x_1+x_2+x_3\le 2
@@ -3175,7 +3175,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+1+\frac{8}{9}-2=\frac{8}{9}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_1+x_2+x_3\le 2$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
+    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di cover $x_1+x_2+x_3\le 2$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -3208,7 +3208,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{10}{9}-1=\frac{1}{9}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,2,4\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,2,4\}$ e la disuguaglianza di cover
 
         $$
         x_1+x_2+x_4\le 2
@@ -3216,7 +3216,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+1+\frac{8}{9}-2=\frac{8}{9}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_1+x_2+x_4\le 2$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
+    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di cover $x_1+x_2+x_4\le 2$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -3252,17 +3252,17 @@ title: "Esercizi · Disuguaglianze di cover"
 
         !!! chiave ""
 
-            Nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}=\left(1,\tfrac{1}{2},\tfrac{1}{2},\tfrac{1}{2}\right)$: la separazione si ferma dopo $2$ disuguaglianze di copertura. Il valore ottimo sulla chiusura delle coperture è
+            Nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}=\left(1,\tfrac{1}{2},\tfrac{1}{2},\tfrac{1}{2}\right)$: la separazione si ferma dopo $2$ disuguaglianze di cover. Il valore ottimo sulla chiusura dei cover è
 
             $$
             z(\mathrm{LP}^{\mathrm{cov}})=z(\mathrm{LP}_{2})=\frac{83}{2}<z(\LP)=46,
             $$
 
-            e $\tilde{\boldsymbol{x}}$ è <strong>frazionario</strong>: la chiusura delle coperture non coincide con l'inviluppo convesso delle soluzioni intere.
+            e $\tilde{\boldsymbol{x}}$ è <strong>frazionario</strong>: la chiusura dei cover non coincide con l'inviluppo convesso delle soluzioni intere.
 
 <a id="esercizio-5-14"></a>
 
-!!! esercizio "Esercizio 5.14: Chiusura delle coperture per separazione (P4)"
+!!! esercizio "Esercizio 5.14: Chiusura dei cover per separazione (P4)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=9$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -3297,13 +3297,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di copertura massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di copertura è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di cover risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di cover massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di cover è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
 
-    2. Qual è il valore ottimo sulla chiusura delle coperture? La soluzione finale è intera?
+    2. Qual è il valore ottimo sulla chiusura dei cover? La soluzione finale è intera?
 
     !!! nota ""
 
-        La <strong>chiusura delle coperture</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di copertura $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
+        La <strong>chiusura dei cover</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di cover $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
 
         \begin{equation*}
         (\CSPKP)\qquad \max\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,y_j:\
@@ -3311,11 +3311,11 @@ title: "Esercizi · Disuguaglianze di cover"
         y_j\in\{0,1\}\ \forall j\in\mathscr{I}\Big\}.
         \end{equation*}
 
-        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, la copertura $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associata alla disuguaglianza di copertura massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, il cover $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associato alla disuguaglianza di cover massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=25-10=15$.
+    Separazione delle disuguaglianze di cover con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=25-10=15$.
 
     - <span style="color:#e03131"><strong>Iterazione 1</strong></span><br> La soluzione ottima di $\LP$ è $\tilde{\boldsymbol{x}}=\left(1,\tfrac{1}{6},0,0\right)$, di valore $z(\LP)=\frac{199}{6}$.
 
@@ -3335,7 +3335,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{17}{6}-2=\frac{5}{6}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,2\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,2\}$ e la disuguaglianza di cover
 
         $$
         x_1+x_2\le 1
@@ -3343,7 +3343,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+\frac{1}{6}-1=\frac{1}{6}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_1+x_2\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
+    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di cover $x_1+x_2\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -3376,7 +3376,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{8}{3}-2=\frac{2}{3}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,3\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,3\}$ e la disuguaglianza di cover
 
         $$
         x_1+x_3\le 1
@@ -3384,7 +3384,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+\frac{1}{3}-1=\frac{1}{3}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_1+x_3\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
+    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di cover $x_1+x_3\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -3418,7 +3418,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{23}{8}-2=\frac{7}{8}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,4\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,4\}$ e la disuguaglianza di cover
 
         $$
         x_1+x_4\le 1
@@ -3426,7 +3426,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+\frac{1}{8}-1=\frac{1}{8}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 4</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_1+x_4\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{3}$:
+    - <span style="color:#e03131"><strong>Iterazione 4</strong></span><br> Aggiungendo la disuguaglianza di cover $x_1+x_4\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{3}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -3463,7 +3463,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         !!! chiave ""
 
-            Nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}=\left(1,0,0,0\right)$: la separazione si ferma dopo $3$ disuguaglianze di copertura. Il valore ottimo sulla chiusura delle coperture è
+            Nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}=\left(1,0,0,0\right)$: la separazione si ferma dopo $3$ disuguaglianze di cover. Il valore ottimo sulla chiusura dei cover è
 
             $$
             z(\mathrm{LP}^{\mathrm{cov}})=z(\mathrm{LP}_{3})=31<z(\LP)=\frac{199}{6},
@@ -3473,7 +3473,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
 <a id="esercizio-5-15"></a>
 
-!!! esercizio "Esercizio 5.15: Chiusura delle coperture per separazione (P5)"
+!!! esercizio "Esercizio 5.15: Chiusura dei cover per separazione (P5)"
 
     Consideriamo un problema binario con un vincolo $\sum_{j}a_jx_j\le b$, con coefficienti interi positivi $a_j$ e termine noto $b=12$, sulle variabili binarie indicizzate dall'insieme $\mathscr{I}=\{1,2,3,4\}$ di $n=4$ variabili, con i seguenti coefficienti dell'obiettivo e del vincolo:
 
@@ -3508,13 +3508,13 @@ title: "Esercizi · Disuguaglianze di cover"
 
     **Domande**
 
-    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di copertura risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di copertura massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di copertura è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
+    1. Partendo da $\tilde{\boldsymbol{x}}$, separare le disuguaglianze di cover risolvendo all'ottimo il problema complementare $\CSPKP$. Aggiungere all'LP la disuguaglianza di cover massimamente violata, risolverlo di nuovo e ripetere finché nessuna disuguaglianza di cover è violata. Se $\CSPKP$ ha più soluzioni ottime, scegliere quella che seleziona il maggior numero di variabili.
 
-    2. Qual è il valore ottimo sulla chiusura delle coperture? La soluzione finale è intera?
+    2. Qual è il valore ottimo sulla chiusura dei cover? La soluzione finale è intera?
 
     !!! nota ""
 
-        La <strong>chiusura delle coperture</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di copertura $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
+        La <strong>chiusura dei cover</strong> è il poliedro ottenuto aggiungendo a $\LP$ tutte le disuguaglianze di cover $\sum_{j\in C}x_j\le|C|-1$, $C\in\mathcal{C}$. Dato un punto $\tilde{\boldsymbol{x}}$, sia $\tilde{y}_1,\dots,\tilde{y}_n$ una soluzione ottima del problema complementare
 
         \begin{equation*}
         (\CSPKP)\qquad \max\Big\{\sum_{j\in\mathscr{I}}(1-\tilde{x}_j)\,y_j:\
@@ -3522,11 +3522,11 @@ title: "Esercizi · Disuguaglianze di cover"
         y_j\in\{0,1\}\ \forall j\in\mathscr{I}\Big\}.
         \end{equation*}
 
-        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, la copertura $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associata alla disuguaglianza di copertura massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}$.
+        Se $n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)<1$, il cover $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}$ è associato alla disuguaglianza di cover massimamente violata da $\tilde{\boldsymbol{x}}$; altrimenti, nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}$.
 
 ??? soluzione "Soluzione"
 
-    Separazione delle disuguaglianze di copertura con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=24-13=11$.
+    Separazione delle disuguaglianze di cover con il problema complementare; in tutte le iterazioni, il termine noto di $\CSPKP$ è $\sum_{j\in\mathscr{I}}a_j-(b+1)=24-13=11$.
 
     - <span style="color:#e03131"><strong>Iterazione 1</strong></span><br> La soluzione ottima di $\LP$ è $\tilde{\boldsymbol{x}}=\left(1,1,\tfrac{1}{7},0\right)$, di valore $z(\LP)=56$.
 
@@ -3546,7 +3546,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{13}{7}-1=\frac{6}{7}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,3\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,3\}$ e la disuguaglianza di cover
 
         $$
         x_1+x_3\le 1
@@ -3554,7 +3554,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+\frac{1}{7}-1=\frac{1}{7}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_1+x_3\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
+    - <span style="color:#e03131"><strong>Iterazione 2</strong></span><br> Aggiungendo la disuguaglianza di cover $x_1+x_3\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{1}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -3587,7 +3587,7 @@ title: "Esercizi · Disuguaglianze di cover"
         n-\sum_{j\in\mathscr{I}}\tilde{x}_j-z(\CSPKP)=\frac{11}{6}-1=\frac{5}{6}<1.
         $$
 
-        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,4\}$ e la disuguaglianza di copertura
+        Di conseguenza, $\tilde{C}=\{j\in\mathscr{I}:\tilde{y}_j=0\}=\{1,4\}$ e la disuguaglianza di cover
 
         $$
         x_1+x_4\le 1
@@ -3595,7 +3595,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         è massimamente violata da $\tilde{\boldsymbol{x}}$: $1+\frac{1}{6}-1=\frac{1}{6}$.
 
-    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di copertura $x_1+x_4\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
+    - <span style="color:#e03131"><strong>Iterazione 3</strong></span><br> Aggiungendo la disuguaglianza di cover $x_1+x_4\le 1$, otteniamo il seguente LP, indicato con $\mathrm{LP}_{2}$:
 
         $$
         \begin{array}{rrcrcrcrcl}
@@ -3631,7 +3631,7 @@ title: "Esercizi · Disuguaglianze di cover"
 
         !!! chiave ""
 
-            Nessuna disuguaglianza di copertura è violata da $\tilde{\boldsymbol{x}}=\left(1,1,0,0\right)$: la separazione si ferma dopo $2$ disuguaglianze di copertura. Il valore ottimo sulla chiusura delle coperture è
+            Nessuna disuguaglianza di cover è violata da $\tilde{\boldsymbol{x}}=\left(1,1,0,0\right)$: la separazione si ferma dopo $2$ disuguaglianze di cover. Il valore ottimo sulla chiusura dei cover è
 
             $$
             z(\mathrm{LP}^{\mathrm{cov}})=z(\mathrm{LP}_{2})=54<z(\LP)=56,

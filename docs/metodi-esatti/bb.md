@@ -6,17 +6,17 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 <div class="info-capitolo" markdown>
 
-**Parte 3 · Metodi esatti · Capitolo 7** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-metodi-esatti.pdf) · [:material-pencil: Esercizi: Branch-and-bound](../esercizi/bb.md) · [:material-gesture-tap: App: Branch-and-bound passo per passo](../laboratorio/branch-and-bound-passi.md)
+**Parte 3 · Metodi esatti · Capitolo 7** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-metodi-esatti.pdf) · [:material-presentation: Slide 1/2](../pdf/slide-07-bb-1.pdf) · [:material-presentation: Slide 2/2](../pdf/slide-07-bb-2.pdf) · [:material-pencil: Esercizi: Branch-and-bound](../esercizi/bb.md) · [:material-gesture-tap: App: Branch-and-bound passo per passo](../laboratorio/branch-and-bound-passi.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Dal modulo <em>Programmazione lineare</em>, [Capitolo 10 «Algoritmo del simplesso duale»](https://fabiofurini.github.io/linear-programming/duality/10-dual-simplex/): dizionari del simplesso, basi duali ammissibili e operazioni di pivot duali. Un breve riepilogo è dato in questo capitolo.
+    - Dal modulo <em>Programmazione lineare</em>, [Capitolo 10 «Algoritmo del simplesso duale»](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/): dizionari del simplesso, basi duali ammissibili e operazioni di pivot duali. Un breve riepilogo è dato in questo capitolo.
 
     - Da questo modulo, il capitolo «Programmazione lineare intera»: problemi PLI, soluzioni ammissibili e ottime, e l'esempio dell'auto.
 
-    - Da questo modulo, il capitolo «Bound primali e bound duali»: il rilassamento lineare, i lower bound dalle soluzioni ammissibili, gli upper bound dal rilassamento lineare e il gap di ottimalità.
+    - Da questo modulo, il capitolo «Bound primali e duali»: il rilassamento lineare, i lower bound dalle soluzioni ammissibili, gli upper bound dal rilassamento lineare e il gap di ottimalità.
 
 !!! chiave "Obiettivi"
 
@@ -109,7 +109,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 - L'operazione di branching più comune è il <strong>branching binario</strong>: agisce su una sola <strong>variabile di branching</strong> e produce due nodi di branching figli, uno con un <strong>upper bound</strong> aggiuntivo e uno con un <strong>lower bound</strong> aggiuntivo sulla variabile di branching.
 
-- Più precisamente, sia $\tilde{\vet x}(\LP_k)$ una soluzione ottima del problema $\LP_k$, e sia $x_j$, con $j \in \{1, 2, \dots, p\}$, una <u>variabile intera</u> che assume un valore frazionario $\tilde x_j$. Il branching binario su $x_j$ genera due problemi LP figli:
+- Più precisamente, sia $\tilde{\vet x}(\LP_k)$ una soluzione ottima del problema $\LP_k$, e sia $x_j$, con $j \in \{1, 2, \dots, p\}$, una <u>variabile intera</u> che assume un valore frazionario $\tilde x_j$ (le variabili intere sono $x_1, \dots, x_p$; in un problema PLI $p = n$). Il branching binario su $x_j$ genera due problemi LP figli:
 
     1. il problema $\LP_k$ con il <strong>vincolo di branching verso il basso</strong> aggiuntivo
 
@@ -177,7 +177,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 ### 7.2.6 Upper bound e gap di ottimalità
 
-- Se la lista $L$ non è vuota, ogni soluzione ammissibile migliore di quella incumbent si trova nella regione di qualche nodo della lista. Di conseguenza, l'algoritmo B&amp;B ha il <strong>upper bound</strong>
+- Se la lista $L$ non è vuota, ogni soluzione ammissibile migliore di quella incumbent si trova nella regione di qualche nodo della lista. Di conseguenza, l'algoritmo B&amp;B ha l' <strong>upper bound</strong>
 
     \begin{equation*}
     \label{bb:UB}
@@ -257,9 +257,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
         1. se il problema $\LP_k$ è inammissibile, allora <code>STOP</code>.
 
-        2. se $\left\lfloor z(\LP_k) \right\rfloor \le \LB$, allora <code>STOP</code>.
-
-        3. se ${\tilde{\vet x}}(\LP_k)$ è intera, allora aggiornare il <strong>lower bound</strong> e la <strong>soluzione incumbent</strong>:
+        2. se ${\tilde{\vet x}}(\LP_k)$ è intera, allora, se $z(\LP_k) > \LB$, aggiornare il <strong>lower bound</strong> e la <strong>soluzione incumbent</strong>:
 
             $$
             \LB \leftarrow z(\LP_k)
@@ -267,7 +265,9 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
             {\bar{\vet x}}(\ILP) \leftarrow {\tilde{\vet x}}(\LP_k)
             $$
 
-            Rimuovere dalla lista $L$ tutti i problemi LP con $\left\lfloor z(\LP) \right\rfloor \le \LB$ e <code>STOP</code>.
+            Rimuovere dalla lista $L$ tutti i problemi LP con $\left\lfloor z(\LP) \right\rfloor \le \LB$ e <code>STOP</code> (anche quando $z(\LP_k) \le \LB$).
+
+        3. se $\left\lfloor z(\LP_k) \right\rfloor \le \LB$, allora <code>STOP</code>.
 
     - **Passo 2:** <strong>Inserimento nella lista</strong>
 
@@ -1379,7 +1379,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
     Eseguiamo l'algoritmo B&amp;B dell'<span style="color:#1971c2">[Esempio 7.5](#box-9-ex-bb-runA)</span> (indice minimo, LIFO), partendo da una soluzione euristica dell'esempio dell'auto.
 
-    - L'euristica a una variabile del Capitolo 1 fissa $x_1$ al valore più grande possibile e $x_2 = 0$: dà $\bar{\vet x} = (4, 0)$ di valore $12$. Avviando l'esecuzione A con $\LB = 12$, l'algoritmo risolve $6$ problemi LP, tanti quanti senza l'euristica: questo lower bound è troppo debole per potare prima qualche nodo.
+    - L'euristica a una variabile del capitolo «Bound primali e duali» fissa $x_1$ al valore più grande possibile e $x_2 = 0$: dà $\bar{\vet x} = (4, 0)$ di valore $12$. Avviando l'esecuzione A con $\LB = 12$, l'algoritmo risolve $6$ problemi LP, tanti quanti senza l'euristica: questo lower bound è troppo debole per potare prima qualche nodo.
 
     - L'euristica che fissa prima $x_1$ e poi $x_2$ al valore più grande possibile dà $\bar{\vet x} = (4, 1)$ di valore $14$. Partendo da $\LB = 14$, la radice non è potata, perché $\lfloor z(\LP_1) \rfloor = 15 > 14$, ma entrambi i figli sono potati per bound e l'algoritmo si ferma dopo $3$ problemi LP:
 
