@@ -99,6 +99,7 @@ extra_css:
   - stylesheets/extra.css?v=1aa75eceb4
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css
   - stylesheets/interattivi.css?v=5d53d6f224
+  - stylesheets/quiz.css?v=9e3792b41c
 
 markdown_extensions:
   - admonition
@@ -127,6 +128,7 @@ extra_javascript:
   - javascripts/gi-comune.js?v=40df75e3e5
   - javascripts/gi-pli-dati.js?v=8ebd23eab0
   - javascripts/gi-pli.js?v=26662f1816
+  - javascripts/quiz.js?v=3990768383
 
 nav:
   - Home: index.md
@@ -162,6 +164,7 @@ nav:
       - "8. Branch-and-cut": esercizi/branch-and-cut.md
       - "9. Solver MIP": esercizi/mip-solvers.md
       - "10. Euristiche MIP": esercizi/mip-heuristics.md
+  - Quiz: autovalutazione.md
   - Laboratorio: laboratorio/index.md
   - Materiale: materiale.md
   - Indice: indice.md

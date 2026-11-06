@@ -16,6 +16,7 @@ associato al [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma
 
 [Comincia dai capitoli :material-arrow-right:](modelli-e-bound/index.md){ .md-button .md-button--primary }
 [Gli esercizi](esercizi/index.md){ .md-button }
+[:material-clipboard-check-outline: Mettiti alla prova](autovalutazione.md){ .md-button }
 [:material-download: Scarica le dispense (PDF)](materiale.md){ .md-button }
 
 </div>
@@ -101,6 +102,16 @@ dispensa: sul sito e nel PDF trovi tutto allo stesso posto.
     10\. Euristiche MIP
 
     [:octicons-arrow-right-24: I capitoli](euristiche-mip/index.md)
+
+-   :material-clipboard-check-outline: **Autovalutazione**
+
+    ---
+
+    *Facsimile d'esame*
+
+    Un facsimile nuovo a ogni avvio: 13 domande, 33 punti, con la soluzione e il link alle dispense.
+
+    [:octicons-arrow-right-24: Mettiti alla prova](autovalutazione.md)
 
 </div>
 
