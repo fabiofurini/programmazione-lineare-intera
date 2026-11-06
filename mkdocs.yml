@@ -128,7 +128,7 @@ extra_javascript:
   - javascripts/gi-comune.js?v=40df75e3e5
   - javascripts/gi-pli-dati.js?v=8ebd23eab0
   - javascripts/gi-pli.js?v=26662f1816
-  - javascripts/quiz.js?v=3990768383
+  - javascripts/quiz.js?v=be7fae2b85
 
 nav:
   - Home: index.md
