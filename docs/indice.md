@@ -1,5 +1,35 @@
 # Indice completo
 
+<!-- collana-organizzazione -->
+## Come è organizzato ogni capitolo
+
+Ogni capitolo è una delle note del corso, con gli stessi numeri e gli stessi colori della
+dispensa: sul sito e nel PDF trovi tutto allo stesso posto.
+
+<div class="grid" markdown>
+
+!!! definizione "Definizione"
+    Il significato preciso di un concetto nuovo.
+
+!!! teorema "Teorema, proposizione, osservazione"
+    Un risultato da ricordare, con le sue ipotesi.
+
+!!! esempio "Esempio"
+    Un calcolo svolto per intero, un passo alla volta.
+
+!!! chiave ""
+    **In verde** il punto chiave da portare a casa.
+
+!!! algoritmo "Algoritmo"
+    Lo pseudocodice di un metodo, in rosso.
+
+</div>
+
+??? dimostrazione "Dimostrazione — si apre con un clic"
+    Le dimostrazioni ci sono tutte, ma chiuse: prima leggi l'enunciato, poi apri
+    la dimostrazione quando vuoi studiarla. Lo stesso vale per le soluzioni degli esercizi.
+<!-- /collana-organizzazione -->
+
 ## [Modelli e bound](modelli-e-bound/index.md)
 
 1. [La programmazione lineare intera](modelli-e-bound/ilp.md)
