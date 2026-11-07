@@ -102,6 +102,54 @@ Il branch-and-bound passo per passo: ogni nodo risolve un rilassamento lineare e
 
 </div>
 
+<!-- collana-da-non-perdere -->
+## Da non perdere
+
+<div class="grid cards" markdown>
+
+-   :material-pencil-box-multiple: **Esercizi con le soluzioni**
+
+    ---
+
+    Esercizi per ogni capitolo, ciascuno con la soluzione svolta che si apre con un clic.
+
+    [:octicons-arrow-right-24: Gli esercizi](esercizi/index.md)
+
+-   :material-clipboard-check-outline: **Quiz di autovalutazione**
+
+    ---
+
+    Un facsimile d'esame nuovo a ogni avvio: 13 domande, 33 punti, con la soluzione e il link alle dispense. In Materiale c'è anche la banca completa delle domande.
+
+    [:octicons-arrow-right-24: Mettiti alla prova](autovalutazione.md)
+
+-   :material-gesture-tap: **Laboratorio interattivo**
+
+    ---
+
+    App che girano nel browser: muovi i parametri e guarda le idee del corso lavorare, un passo alla volta.
+
+    [:octicons-arrow-right-24: Il laboratorio](laboratorio/index.md)
+
+-   :material-download: **Dispense in PDF**
+
+    ---
+
+    Dispense, eserciziari e slide in PDF, con la stessa numerazione del sito.
+
+    [:octicons-arrow-right-24: Il materiale](materiale.md)
+
+-   :material-format-list-numbered: **Indice completo**
+
+    ---
+
+    Tutti i capitoli con le loro sezioni in una pagina, e come è fatto ogni capitolo.
+
+    [:octicons-arrow-right-24: L'indice](indice.md)
+
+</div>
+<!-- /collana-da-non-perdere -->
+
 ---
 
 <!-- collana -->
@@ -153,6 +201,8 @@ Dieci corsi con la stessa impostazione: dispense online e in PDF, esercizi con l
 
 </div>
 <!-- /collana -->
+
+---
 
 Materiale didattico di **[Fabio Furini](https://fabiofurini.github.io/)** —
 [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma.
