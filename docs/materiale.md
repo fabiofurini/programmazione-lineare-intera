@@ -78,4 +78,9 @@ I problemi di programmazione lineare intera e mista usati negli esempi e negli e
 
 [:material-file-pdf-box: Catalogo dei problemi MIP (PDF)](pdf/catalogo-problemi-mip.pdf){ .md-button }
 
+<!-- banca-domande -->
+## Banca delle domande del quiz
 
+Tutte le domande dell'autovalutazione, divise per parte e capitolo, con la risposta corretta e la spiegazione; per le domande generate, che cambiano i numeri a ogni avvio, alcuni esempi.
+
+[:material-format-list-checks: Banca delle domande](quiz/elenco_domande.html){ .md-button }
