@@ -1434,6 +1434,528 @@
     })
   });
 
+  // ================================================================ copertura dettagliata (7 novembre 2026)
+  // 18 generatori nuovi, ognuno con il gemello in verifica/gemelli_copertura.py
+
+  // ---------------------------------------------------------------- C1. forma canonica di massimizzazione
+  G.push({
+    id: "pli-g-canon", livello: "facile", capitolo: "ilp", link: link("ilp", "box-1-defILPCanonical"),
+    genera: ripeti(function (rng, lingua) {
+      var c = [ri(rng, 1, 7), ri(rng, 1, 7)], a1 = [ri(rng, 1, 6), ri(rng, 1, 6)], b1 = ri(rng, 4, 20);
+      var a2 = [ri(rng, 1, 6), ri(rng, 1, 6)], b2 = ri(rng, 10, 40);
+      function op(o, r1, rhs1) {
+        return { s: "$\\max\\ " + txLin(o, X) + "$, $" + txIneq(r1, "\\le", rhs1) + "$, $" + txIneq(a2, "\\le", b2) + "$",
+                 v: [o, r1.concat([rhs1]), a2.concat([b2])] };
+      }
+      var nc = [-c[0], -c[1]], na = [-a1[0], -a1[1]];
+      var corr = op(nc, na, -b1);
+      var d = [op(c, na, -b1), op(nc, a1, b1), op(nc, na, b1)];
+      var testo = L(lingua,
+        "Il problema PLI $\\min\\ " + txLin(c, X) + "$ soggetto a $" + txIneq(a1, "\\ge", b1) + "$, $" + txIneq(a2, "\\le", b2) + "$, $x_1, x_2 \\in \\Z_{\\ge 0}$ va scritto in forma canonica di massimizzazione (funzione obiettivo da massimizzare, soli vincoli $\\le$, $\\vet x \\in \\Z^2_{\\ge 0}$). Quale scrittura è corretta?",
+        "The ILP problem $\\min\\ " + txLin(c, X) + "$ subject to $" + txIneq(a1, "\\ge", b1) + "$, $" + txIneq(a2, "\\le", b2) + "$, $x_1, x_2 \\in \\Z_{\\ge 0}$ must be written in canonical maximization form (objective to maximize, only $\\le$ constraints, $\\vet x \\in \\Z^2_{\\ge 0}$). Which writing is correct?");
+      var sp = L(lingua,
+        "$\\min f = -\\max(-f)$: si cambia segno ai costi. Il vincolo $\\ge$ si moltiplica per $-1$ in entrambi i membri, così diventa $\\le$; il vincolo $\\le$ resta com'è.",
+        "$\\min f = -\\max(-f)$: change the sign of the costs. The $\\ge$ constraint is multiplied by $-1$ on both sides, so it becomes $\\le$; the $\\le$ constraint stays as it is.");
+      return chiudi(rng, testo, corr, d, sp, { c: c, a1: a1, b1: b1, a2: a2, b2: b2 });
+    })
+  });
+
+  // ---------------------------------------------------------------- C2. formulazione ideale di a(x1 + x2) <= b
+  function istRetta(rng) {
+    var a = ri(rng, 2, 5), m = ri(rng, 2, 6), b = a * m + ri(rng, 1, a - 1);
+    return { a: a, b: b, m: m };
+  }
+  G.push({
+    id: "pli-g-hull-line", livello: "facile", capitolo: "ideal-formulations", link: link("ideal-formulations", "box-4-def-ideal"),
+    genera: ripeti(function (rng, lingua) {
+      var r = istRetta(rng), a = r.a, b = r.b, m = r.m;
+      function op(tipo, rhs) {
+        var s = tipo === "o" ? "$" + a + "x_1 + " + a + "x_2 \\le " + b + "$" : "$x_1 + x_2 \\le " + tx(rhs) + "$";
+        return { s: s, v: [tipo, fs(rhs)] };
+      }
+      var corr = op("s", m), d = [op("s", m + 1), op("o", b), op("s", F(b, a))];
+      var testo = L(lingua,
+        "Sia $F$ l'insieme dei punti interi di $P = \\{\\vet x \\in \\R^2 : " + a + "x_1 + " + a + "x_2 \\le " + b + ",\\ \\vet x \\ge \\vet 0\\}$. Una formulazione è ideale se il suo poliedro è l'inviluppo convesso $\\mathrm{conv}(F)$. Quale vincolo, insieme a $\\vet x \\ge \\vet 0$, dà la formulazione ideale?",
+        "Let $F$ be the set of integer points of $P = \\{\\vet x \\in \\R^2 : " + a + "x_1 + " + a + "x_2 \\le " + b + ",\\ \\vet x \\ge \\vet 0\\}$. A formulation is ideal if its polyhedron is the convex hull $\\mathrm{conv}(F)$. Which constraint, together with $\\vet x \\ge \\vet 0$, gives the ideal formulation?");
+      var sp = L(lingua,
+        "I punti interi soddisfano $x_1 + x_2 \\le \\lfloor " + b + "/" + a + " \\rfloor = " + m + "$; il triangolo di vertici $(0,0)$, $(" + m + ",0)$, $(0," + m + ")$ ha vertici interi, quindi è $\\mathrm{conv}(F)$. Il vincolo originale ha vertici frazionari.",
+        "The integer points satisfy $x_1 + x_2 \\le \\lfloor " + b + "/" + a + " \\rfloor = " + m + "$; the triangle with vertices $(0,0)$, $(" + m + ",0)$, $(0," + m + ")$ has integer vertices, so it is $\\mathrm{conv}(F)$. The original constraint has fractional vertices.");
+      return chiudi(rng, testo, corr, d, sp, { a: a, b: b });
+    })
+  });
+
+  // ---------------------------------------------------------------- C3. bound di due formulazioni
+  G.push({
+    id: "pli-g-stronger-bound", livello: "facile", capitolo: "ideal-formulations", link: link("ideal-formulations", "box-8-def-stronger"),
+    genera: ripeti(function (rng, lingua) {
+      var r = istRetta(rng), a = r.a, b = r.b, m = r.m;
+      var c = [ri(rng, 1, 6), ri(rng, 1, 6)];
+      if (c[0] === c[1]) return null;
+      var cM = Math.max(c[0], c[1]), cm = Math.min(c[0], c[1]);
+      var z1 = mul(cM, F(b, a)), z2 = F(cM * m);
+      function op(p, q) { return { s: "$z(\\LP_1) = " + tx(p) + "$, $z(\\LP_2) = " + tx(q) + "$", v: [fs(p), fs(q)] }; }
+      var corr = op(z1, z2);
+      var d = filtra(corr, [op(z2, z1), op(mul(cm, F(b, a)), F(cm * m)), op(z1, F(cM * (m + 1))), op(z1, z1)]);
+      var testo = L(lingua,
+        "Per il problema PLI $\\max\\ " + txLin(c, X) + "$, $x_1, x_2 \\in \\Z_{\\ge 0}$, si confrontano due formulazioni con gli stessi punti interi: $P_1$: $" + a + "x_1 + " + a + "x_2 \\le " + b + "$ e $P_2$: $x_1 + x_2 \\le " + m + "$ (entrambe con $\\vet x \\ge \\vet 0$). Quanto valgono i valori ottimi $z(\\LP_1)$ e $z(\\LP_2)$ dei rilassamenti lineari?",
+        "For the ILP problem $\\max\\ " + txLin(c, X) + "$, $x_1, x_2 \\in \\Z_{\\ge 0}$, two formulations with the same integer points are compared: $P_1$: $" + a + "x_1 + " + a + "x_2 \\le " + b + "$ and $P_2$: $x_1 + x_2 \\le " + m + "$ (both with $\\vet x \\ge \\vet 0$). What are the optimal values $z(\\LP_1)$ and $z(\\LP_2)$ of the LP relaxations?");
+      var sp = L(lingua,
+        "L'ottimo sta nel vertice sull'asse della variabile con costo maggiore ($" + cM + "$): in $P_1$ vale $" + cM + " \\cdot \\frac{" + b + "}{" + a + "}$, in $P_2$ vale $" + cM + " \\cdot " + m + "$. $P_2 \\subseteq P_1$ è più forte e dà il bound migliore.",
+        "The optimum is at the vertex on the axis of the variable with the larger cost ($" + cM + "$): over $P_1$ it is $" + cM + " \\cdot \\frac{" + b + "}{" + a + "}$, over $P_2$ it is $" + cM + " \\cdot " + m + "$. $P_2 \\subseteq P_1$ is stronger and gives the better bound.");
+      return chiudi(rng, testo, corr, d, sp, { a: a, b: b, m: m, c: c });
+    })
+  });
+
+  // ---------------------------------------------------------------- C4. verifica di una disuguaglianza di cover
+  G.push({
+    id: "pli-g-cover-check", livello: "facile", capitolo: "cover", link: link("cover", "box-3-def-inequality"),
+    genera: ripeti(function (rng, lingua) {
+      var n = 4, a = [], j;
+      for (j = 0; j < n; j++) a.push(ri(rng, 3, 9));
+      var S = a.reduce(function (s, t) { return s + t; }, 0);
+      var b = ri(rng, Math.ceil(S / 2), S - 3);
+      if (Math.max.apply(null, a) > b) return null;
+      var k = pick(rng, [2, 3]), C = mescola(rng, [0, 1, 2, 3]).slice(0, k).sort();
+      var sC = C.reduce(function (s, t) { return s + a[t]; }, 0);
+      if (sC <= b) return null;
+      var den = pick(rng, [2, 3, 4]), x = [];
+      for (j = 0; j < n; j++) x.push(C.indexOf(j) >= 0 && rng() < 0.6 ? F(1) : F(ri(rng, 0, den), den));
+      if (!ammissibile([a], [b], x)) return null;
+      var lhs = F(0), wl = F(0);
+      C.forEach(function (t) { lhs = add(lhs, x[t]); wl = add(wl, mul(a[t], x[t])); });
+      if (eq(lhs, wl)) return null;
+      var viol = cmp(lhs, k - 1) > 0 ? 1 : 0;
+      var txC = "\\sum_{j \\in C} x_j";
+      function op(rhs, val, vv) {
+        var s = "$" + txC + " \\le " + rhs + "$; " + L(lingua, "in $\\tilde{\\vet x}$ il membro sinistro vale $", "at $\\tilde{\\vet x}$ the left-hand side is $") + tx(val) + "$: " +
+          (vv ? L(lingua, "violata", "violated") : L(lingua, "soddisfatta", "satisfied"));
+        return { s: s, v: [rhs, fs(val), vv] };
+      }
+      var corr = op(k - 1, lhs, viol);
+      var d = [op(k, lhs, cmp(lhs, k) > 0 ? 1 : 0), op(k - 1, lhs, 1 - viol), op(k - 1, wl, cmp(wl, k - 1) > 0 ? 1 : 0)];
+      var testo = L(lingua,
+        "Si consideri il vincolo binario $" + txIneq(a, "\\le", b) + "$, $x_j \\in \\{0,1\\}$. Un cover è un insieme di indici $C$ con $\\sum_{j \\in C} a_j > " + b + "$. Per $C = " + txIdx(C) + "$ e il punto frazionario $\\tilde{\\vet x} = " + txPt(x) + "$, quale affermazione sulla disuguaglianza di cover di $C$ è corretta?",
+        "Consider the binary constraint $" + txIneq(a, "\\le", b) + "$, $x_j \\in \\{0,1\\}$. A cover is a set of indices $C$ with $\\sum_{j \\in C} a_j > " + b + "$. For $C = " + txIdx(C) + "$ and the fractional point $\\tilde{\\vet x} = " + txPt(x) + "$, which statement about the cover inequality of $C$ is correct?");
+      var sp = L(lingua,
+        "$\\sum_{j \\in C} a_j = " + sC + " > " + b + "$: $C$ è un cover e la sua disuguaglianza è $" + txC + " \\le |C| - 1 = " + (k - 1) + "$. In $\\tilde{\\vet x}$ la somma delle componenti di $C$ (senza pesi $a_j$) vale $" + tx(lhs) + "$.",
+        "$\\sum_{j \\in C} a_j = " + sC + " > " + b + "$: $C$ is a cover and its inequality is $" + txC + " \\le |C| - 1 = " + (k - 1) + "$. At $\\tilde{\\vet x}$ the sum of the components in $C$ (without weights $a_j$) is $" + tx(lhs) + "$.");
+      return chiudi(rng, testo, corr, d, sp, { a: a, b: b, C: C, x: x.map(fs) });
+    })
+  });
+
+  // ---------------------------------------------------------------- C5. riga del taglio con termine noto più grande
+  G.push({
+    id: "pli-g-gomory-select", livello: "facile", capitolo: "gomory", link: link("gomory", "box-9-def-cpa"),
+    genera: ripeti(function (rng, lingua) {
+      var vals = [], j;
+      for (j = 0; j < 4; j++) {
+        var q = pick(rng, [2, 3, 4, 5, 6]);
+        vals.push(rng() < 0.15 ? F(ri(rng, 1, 9)) : add(ri(rng, 0, 9), F(ri(rng, 1, q - 1), q)));
+      }
+      vals[3] = add(vals[3], ri(rng, 10, 30));          // valore della funzione obiettivo
+      var fr = vals.map(frac);
+      if (fr.every(function (f) { return f.n === 0; })) return null;
+      // regola: frazione massima; parità: indice minimo della variabile in base, riga obiettivo per ultima
+      var best = -1;
+      for (j = 0; j < 4; j++) if (fr[j].n !== 0 && (best < 0 || cmp(fr[j], fr[best]) > 0)) best = j;
+      var nomi = [L(lingua, "la riga di $x_1$", "the row of $x_1$"), L(lingua, "la riga di $x_2$", "the row of $x_2$"),
+                  L(lingua, "la riga di $x_3$", "the row of $x_3$"), L(lingua, "la riga della funzione obiettivo", "the objective row")];
+      var ops = [0, 1, 2, 3].map(function (t) { return { s: nomi[t], v: t }; });
+      var corr = ops[best], d = ops.filter(function (o, t) { return t !== best; });
+      var testo = L(lingua,
+        "Nell'algoritmo dei piani di taglio per un problema PLI canonico di massimo con dati interi, il dizionario ottimo corrente ha in base $x_1$, $x_2$, $x_3$ con valori $\\bar b_1 = " + tx(vals[0]) + "$, $\\bar b_2 = " + tx(vals[1]) + "$, $\\bar b_3 = " + tx(vals[2]) + "$, e valore $\\bar z = " + tx(vals[3]) + "$. Con la strategia del termine noto più grande (termine noto del taglio $= $ parte frazionaria; parità: indice minimo, riga obiettivo per ultima), da quale riga si genera il taglio di Gomory?",
+        "In the cutting plane algorithm for a canonical maximization ILP problem with integer data, the current optimal dictionary has basic $x_1$, $x_2$, $x_3$ with values $\\bar b_1 = " + tx(vals[0]) + "$, $\\bar b_2 = " + tx(vals[1]) + "$, $\\bar b_3 = " + tx(vals[2]) + "$, and value $\\bar z = " + tx(vals[3]) + "$. With the largest right-hand side strategy (right-hand side of the cut $= $ fractional part; ties: smallest index, objective row last), from which row is the Gomory cut generated?");
+      var sp = L(lingua,
+        "Parti frazionarie: $" + fr.map(tx).join("$, $") + "$ (righe di $x_1$, $x_2$, $x_3$ e obiettivo); le righe con valore intero non generano tagli. Si sceglie la parte frazionaria massima.",
+        "Fractional parts: $" + fr.map(tx).join("$, $") + "$ (rows of $x_1$, $x_2$, $x_3$ and objective); rows with integer value generate no cut. The largest fractional part is chosen.");
+      return chiudi(rng, testo, corr, d, sp, { vals: vals.map(fs) });
+    })
+  });
+
+  // ---------------------------------------------------------------- C6. rafforzamento dei bound nel presolve
+  G.push({
+    id: "pli-g-presolve-bound", livello: "facile", capitolo: "mip-solvers", link: link("mip-solvers", "box-2-def-presolve"),
+    genera: ripeti(function (rng, lingua) {
+      var a = [ri(rng, 2, 6), ri(rng, 3, 7), ri(rng, 2, 6)], l1 = ri(rng, 1, 3), l3 = ri(rng, 1, 3);
+      var b = ri(rng, 20, 45), res = b - a[0] * l1 - a[2] * l3;
+      if (res <= a[1] || res % a[1] === 0) return null;
+      var U = Math.floor(res / a[1]), U0 = Math.floor(b / a[1]);
+      if (U0 === U) return null;
+      function op(v) { return { s: "$x_2 \\le " + tx(v) + "$", v: fs(v) }; }
+      var corr = op(U), d = filtra(corr, [op(U0), op(F(res, a[1])), op(U + 1)]);
+      var testo = L(lingua,
+        "Nel presolve di un solver MIP, il vincolo $" + txIneq(a, "\\le", b, X) + "$ ha variabili intere con $x_1 \\ge " + l1 + "$, $x_2 \\ge 0$, $x_3 \\ge " + l3 + "$. Quale upper bound su $x_2$ ricava il rafforzamento dei bound?",
+        "In the presolve of a MIP solver, the constraint $" + txIneq(a, "\\le", b, X) + "$ has integer variables with $x_1 \\ge " + l1 + "$, $x_2 \\ge 0$, $x_3 \\ge " + l3 + "$. Which upper bound on $x_2$ does bound tightening derive?");
+      var sp = L(lingua,
+        "Con $x_1$ e $x_3$ ai loro lower bound: $" + a[1] + "x_2 \\le " + b + " - " + a[0] + " \\cdot " + l1 + " - " + a[2] + " \\cdot " + l3 + " = " + res + "$, e $x_2$ intera dà $x_2 \\le \\lfloor " + res + "/" + a[1] + " \\rfloor = " + U + "$.",
+        "With $x_1$ and $x_3$ at their lower bounds: $" + a[1] + "x_2 \\le " + b + " - " + a[0] + " \\cdot " + l1 + " - " + a[2] + " \\cdot " + l3 + " = " + res + "$, and integer $x_2$ gives $x_2 \\le \\lfloor " + res + "/" + a[1] + " \\rfloor = " + U + "$.");
+      return chiudi(rng, testo, corr, d, sp, { a: a, b: b, l1: l1, l3: l3 });
+    })
+  });
+
+  // ---------------------------------------------------------------- C7. lettura dei bound nel log (massimo o minimo)
+  G.push({
+    id: "pli-g-solver-minmax", livello: "facile", capitolo: "mip-solvers", link: link("mip-solvers", "box-1-def-solver"),
+    genera: ripeti(function (rng, lingua) {
+      var max = rng() < 0.5, I = ri(rng, 40, 400), d0 = ri(rng, 1, 25);
+      var B = max ? I + d0 : I - d0;
+      var lo = Math.min(I, B), hi = Math.max(I, B);
+      var ops = [
+        { s: L(lingua, "Incumbent ($" + I + "$) è un lower bound e BestBd ($" + B + "$) un upper bound su $z^*$", "Incumbent ($" + I + "$) is a lower bound and BestBd ($" + B + "$) an upper bound on $z^*$"), v: "IL" },
+        { s: L(lingua, "Incumbent ($" + I + "$) è un upper bound e BestBd ($" + B + "$) un lower bound su $z^*$", "Incumbent ($" + I + "$) is an upper bound and BestBd ($" + B + "$) a lower bound on $z^*$"), v: "IU" },
+        { s: L(lingua, "Il valore ottimo è $z^* = " + I + "$, il valore dell'incumbent", "The optimal value is $z^* = " + I + "$, the incumbent value"), v: "EI" },
+        { s: L(lingua, "Il valore ottimo è $z^* = " + B + "$, il best bound", "The optimal value is $z^* = " + B + "$, the best bound"), v: "EB" }];
+      var k = max ? 0 : 1;
+      var testo = L(lingua,
+        "Il log di Gurobi per un problema di " + (max ? "massimo" : "minimo") + " con valore ottimo $z^*$ (sconosciuto) si interrompe con Incumbent $= " + I + "$ e BestBd $= " + B + "$. Che cosa si può affermare?",
+        "The Gurobi log for a " + (max ? "maximization" : "minimization") + " problem with (unknown) optimal value $z^*$ stops with Incumbent $= " + I + "$ and BestBd $= " + B + "$. What can be stated?");
+      var sp = L(lingua,
+        "Incumbent è il valore di una soluzione ammissibile (lato primale), BestBd il bound del branch-and-cut (lato duale). In un problema di " + (max ? "massimo l'incumbent è un lower bound" : "minimo l'incumbent è un upper bound") + "; con gap non nullo non si conosce $z^*$, solo $" + lo + " \\le z^* \\le " + hi + "$.",
+        "Incumbent is the value of a feasible solution (primal side), BestBd the bound of branch-and-cut (dual side). In a " + (max ? "maximization problem the incumbent is a lower bound" : "minimization problem the incumbent is an upper bound") + "; with a nonzero gap $z^*$ is unknown, only $" + lo + " \\le z^* \\le " + hi + "$.");
+      return chiudi(rng, testo, ops[k], ops.filter(function (o, t) { return t !== k; }), sp, { max: max ? 1 : 0, I: I, B: B });
+    })
+  });
+
+  // ---------------------------------------------------------------- C8. intorno di local branching
+  G.push({
+    id: "pli-g-lb-neigh", livello: "facile", capitolo: "mip-heuristics", link: link("mip-heuristics", "box-18-def-lb"),
+    genera: ripeti(function (rng, lingua) {
+      var n = 6, k = pick(rng, [1, 2]), xb = [], j;
+      for (j = 0; j < n; j++) xb.push(rng() < 0.5 ? 1 : 0);
+      function vicino(dist) {
+        var p = xb.slice(), idx = mescola(rng, [0, 1, 2, 3, 4, 5]).slice(0, dist);
+        idx.forEach(function (t) { p[t] = 1 - p[t]; });
+        return p;
+      }
+      var dc = ri(rng, 1, k), pts = [vicino(dc), vicino(k + 1), vicino(k + 2), vicino(Math.min(n, k + ri(rng, 1, 3)))];
+      function op(p) { return { s: "$(" + p.join(", ") + ")$", v: p }; }
+      var corr = op(pts[0]), d = filtra(corr, pts.slice(1).map(op));
+      var testo = L(lingua,
+        "In un MIP con $6$ variabili binarie, il local branching attorno all'incumbent $\\bar{\\vet x} = (" + xb.join(", ") + ")$ aggiunge il vincolo $\\Delta(\\vet x, \\bar{\\vet x}) = \\sum_{j: \\bar x_j = 1}(1 - x_j) + \\sum_{j: \\bar x_j = 0} x_j \\le " + k + "$. Quale dei seguenti punti binari appartiene all'intorno?",
+        "In a MIP with $6$ binary variables, local branching around the incumbent $\\bar{\\vet x} = (" + xb.join(", ") + ")$ adds the constraint $\\Delta(\\vet x, \\bar{\\vet x}) = \\sum_{j: \\bar x_j = 1}(1 - x_j) + \\sum_{j: \\bar x_j = 0} x_j \\le " + k + "$. Which of the following binary points belongs to the neighbourhood?");
+      var sp = L(lingua,
+        "Sui punti binari $\\Delta$ conta le componenti diverse da $\\bar{\\vet x}$: il punto corretto ne cambia $" + dc + " \\le " + k + "$, gli altri almeno $" + (k + 1) + "$.",
+        "On binary points $\\Delta$ counts the components that differ from $\\bar{\\vet x}$: the correct point changes $" + dc + " \\le " + k + "$, the others at least $" + (k + 1) + "$.");
+      return chiudi(rng, testo, corr, d, sp, { xb: xb, k: k });
+    })
+  });
+
+  // ---------------------------------------------------------------- C9. scelta della proximity search
+  G.push({
+    id: "pli-g-ps-pick", livello: "facile", capitolo: "mip-heuristics", link: link("mip-heuristics", "box-20-def-ps"),
+    genera: ripeti(function (rng, lingua) {
+      var f0 = ri(rng, 30, 80), sol = [], j;
+      for (j = 0; j < 5; j++) sol.push({ f: f0 + ri(rng, -6, 3), d: ri(rng, 1, 9) });
+      var amm = sol.map(function (s) { return s.f <= f0 - 1; });
+      var cand = [0, 1, 2, 3, 4].filter(function (t) { return amm[t]; });
+      if (cand.length < 2) return null;
+      var dmin = Math.min.apply(null, cand.map(function (t) { return sol[t].d; }));
+      var best = cand.filter(function (t) { return sol[t].d === dmin; });
+      if (best.length !== 1) return null;
+      best = best[0];
+      var dAll = Math.min.apply(null, sol.map(function (s) { return s.d; }));
+      var nearAll = [0, 1, 2, 3, 4].filter(function (t) { return sol[t].d === dAll; });
+      var fmin = Math.min.apply(null, sol.map(function (s) { return s.f; }));
+      var bestF = [0, 1, 2, 3, 4].filter(function (t) { return sol[t].f === fmin; });
+      if (nearAll.length !== 1 || amm[nearAll[0]] || bestF.length !== 1 || bestF[0] === best) return null;
+      var altri = [0, 1, 2, 3, 4].filter(function (t) { return t !== best && t !== nearAll[0] && t !== bestF[0]; });
+      var nom = function (t) { return { s: "$S_" + (t + 1) + "$", v: t }; };
+      var corr = nom(best), d = [nom(nearAll[0]), nom(bestF[0]), nom(altri[0])];
+      var tab = sol.map(function (s, t) { return "$S_" + (t + 1) + "$: $f = " + s.f + "$, $\\Delta = " + s.d + "$"; }).join("; ");
+      var testo = L(lingua,
+        "Nella proximity search per un MIP $\\min f(\\vet x)$ con $f$ intera, l'incumbent ha $f(\\bar{\\vet x}) = " + f0 + "$ e si usa $\\theta = 1$. Il sotto-MIP minimizza la distanza $\\Delta(\\vet x, \\bar{\\vet x})$ con il vincolo $f(\\vet x) \\le f(\\bar{\\vet x}) - \\theta$. Le soluzioni ammissibili del MIP sono soltanto: " + tab + ". Quale restituisce il sotto-MIP?",
+        "In proximity search for a MIP $\\min f(\\vet x)$ with integer $f$, the incumbent has $f(\\bar{\\vet x}) = " + f0 + "$ and $\\theta = 1$ is used. The sub-MIP minimizes the distance $\\Delta(\\vet x, \\bar{\\vet x})$ with the constraint $f(\\vet x) \\le f(\\bar{\\vet x}) - \\theta$. The feasible solutions of the MIP are only: " + tab + ". Which one does the sub-MIP return?");
+      var sp = L(lingua,
+        "Sono ammesse solo le soluzioni con $f \\le " + (f0 - 1) + "$; fra queste si prende quella a distanza minima, $S_" + (best + 1) + "$. La più vicina in assoluto viola il cutoff; la migliore per $f$ non è la più vicina.",
+        "Only solutions with $f \\le " + (f0 - 1) + "$ are allowed; among them the closest one is taken, $S_" + (best + 1) + "$. The closest overall violates the cutoff; the best for $f$ is not the closest.");
+      return chiudi(rng, testo, corr, d, sp, { f0: f0, sol: sol.map(function (s) { return [s.f, s.d]; }) });
+    })
+  });
+
+  // ---------------------------------------------------------------- M1. z(LP) e z(ILP)
+  G.push({
+    id: "pli-g-lp-ilp", livello: "media", capitolo: "lp-relaxation", link: link("lp-relaxation", "box-8-prop-lp-bound"),
+    genera: ripeti(function (rng, lingua) {
+      var ist = istanzaAuto(rng);
+      if (!ist) return null;
+      var zl = ist.lp.z, pts = interi(ist.A, ist.b), zi = null;
+      pts.forEach(function (p) { var v = ist.c[0] * p[0] + ist.c[1] * p[1]; if (zi === null || v > zi) zi = v; });
+      var xd = ist.lp.x.map(flo), zd = ist.c[0] * xd[0] + ist.c[1] * xd[1];
+      if (zd === zi || isInt(zl)) return null;
+      function op(p, q) { return { s: "$z(\\LP) = " + tx(p) + "$, $z(\\ILP) = " + tx(q) + "$", v: [fs(p), fs(q)] }; }
+      var corr = op(zl, zi);
+      var d = filtra(corr, [op(zl, zd), op(flo(zl), zi), op(zl, flo(zl)), op(F(zi), zl)]);
+      var testo = L(lingua,
+        "Si consideri il problema PLI " + txPLI(ist, lingua) + ". Quanto valgono il valore ottimo $z(\\LP)$ del rilassamento lineare e il valore ottimo $z(\\ILP)$ del problema PLI?",
+        "Consider the ILP problem " + txPLI(ist, lingua) + ". What are the optimal value $z(\\LP)$ of the LP relaxation and the optimal value $z(\\ILP)$ of the ILP problem?");
+      var sp = L(lingua,
+        "L'ottimo del rilassamento è il vertice $" + txPt(ist.lp.x) + "$ dei due vincoli, con valore $" + tx(zl) + "$; enumerando i punti interi ammissibili il massimo è $" + zi + "$. Vale $z(\\ILP) \\le \\lfloor z(\\LP) \\rfloor$; l'arrotondamento per difetto $" + txPt(xd) + "$ vale solo $" + zd + "$.",
+        "The optimum of the relaxation is the vertex $" + txPt(ist.lp.x) + "$ of the two constraints, with value $" + tx(zl) + "$; enumerating the feasible integer points the maximum is $" + zi + "$. We have $z(\\ILP) \\le \\lfloor z(\\LP) \\rfloor$; rounding down to $" + txPt(xd) + "$ gives only $" + zd + "$.");
+      return chiudi(rng, testo, corr, d, sp, { ist: verIst(ist) });
+    })
+  });
+
+  // ---------------------------------------------------------------- M2. numero di cover minimali
+  G.push({
+    id: "pli-g-cover-count", livello: "media", capitolo: "cover", link: link("cover", "box-5-def-minimal"),
+    genera: ripeti(function (rng, lingua) {
+      var n = pick(rng, [4, 5]), a = [], j;
+      for (j = 0; j < n; j++) a.push(ri(rng, 2, 9));
+      var S = a.reduce(function (s, t) { return s + t; }, 0), b = ri(rng, Math.ceil(S / 3), S - 2);
+      if (Math.max.apply(null, a) > b) return null;
+      var nc = 0, nm = 0, n2 = 0;
+      for (var m = 1; m < (1 << n); m++) {
+        var w = 0, C = [];
+        for (j = 0; j < n; j++) if (m & (1 << j)) { w += a[j]; C.push(j); }
+        if (w <= b) continue;
+        nc++;
+        if (C.length === 2) n2++;
+        if (C.every(function (t) { return w - a[t] <= b; })) nm++;
+      }
+      if (nm < 2) return null;
+      function op(v) { return { s: "$" + v + "$", v: v }; }
+      var corr = op(nm), d = filtra(corr, [op(nc), op(nm + 1), op(n2), op(nm - 1)]);
+      var testo = L(lingua,
+        "Si consideri il vincolo binario $" + txIneq(a, "\\le", b) + "$, $x_j \\in \\{0,1\\}$. Un cover è un insieme di indici $C$ con $\\sum_{j \\in C} a_j > " + b + "$, ed è minimale se nessun suo sottoinsieme proprio è un cover. Quanti cover minimali ha il vincolo?",
+        "Consider the binary constraint $" + txIneq(a, "\\le", b) + "$, $x_j \\in \\{0,1\\}$. A cover is a set of indices $C$ with $\\sum_{j \\in C} a_j > " + b + "$, and it is minimal if no proper subset of it is a cover. How many minimal covers does the constraint have?");
+      var sp = L(lingua,
+        "Il vincolo ha $" + nc + "$ cover; sono minimali quelli per cui togliendo un qualunque indice il peso scende a $\\le " + b + "$ (con coefficienti positivi basta togliere un indice alla volta): $" + nm + "$.",
+        "The constraint has $" + nc + "$ covers; minimal are those for which removing any index brings the weight to $\\le " + b + "$ (with positive coefficients removing one index at a time suffices): $" + nm + "$.");
+      return chiudi(rng, testo, corr, d, sp, { a: a, b: b });
+    })
+  });
+
+  // ---------------------------------------------------------------- M3. formulazione ideale? (vertici)
+  G.push({
+    id: "pli-g-ideal-vert", livello: "media", capitolo: "ideal-formulations", link: link("ideal-formulations", "box-4-def-ideal"),
+    genera: ripeti(function (rng, lingua) {
+      var A = [[ri(rng, 1, 5), ri(rng, 1, 5)], [ri(rng, 1, 5), ri(rng, 1, 5)]], b = [ri(rng, 4, 16), ri(rng, 4, 16)];
+      var r = lp2([1, 1], [[A[0][0], A[0][1], b[0]], [A[1][0], A[1][1], b[1]]].concat(nonneg()));
+      if (r.stato !== "ott") return null;
+      var fv = r.vertici.filter(function (v) { return !intero(v); });
+      if (fv.length !== 1 || r.vertici.length < 4) return null;
+      var vi = r.vertici.filter(function (v) { return intero(v); });
+      // un punto frazionario di P che non è un vertice: punto medio fra il vertice frazionario e l'origine
+      var mid = [div(fv[0][0], 2), div(fv[0][1], 2)];
+      if (intero(mid)) return null;
+      var ops = [
+        { s: L(lingua, "No: $" + txPt(fv[0]) + "$ è un vertice frazionario di $P$", "No: $" + txPt(fv[0]) + "$ is a fractional vertex of $P$"), v: ["no", fv[0].map(fs)] },
+        { s: L(lingua, "Sì: tutti i vertici di $P$ sono interi", "Yes: all vertices of $P$ are integer"), v: ["si"] },
+        { s: L(lingua, "No: $" + txPt(mid) + "$ è un vertice frazionario di $P$", "No: $" + txPt(mid) + "$ is a fractional vertex of $P$"), v: ["no", mid.map(fs)] },
+        { s: L(lingua, "Sì: $P \\cap \\Z^2 = F$ basta perché $P$ sia ideale", "Yes: $P \\cap \\Z^2 = F$ is enough for $P$ to be ideal"), v: ["si2"] }];
+      var testo = L(lingua,
+        "Sia $P = \\{\\vet x \\in \\R^2 : " + txIneq(A[0], "\\le", b[0]) + ",\\ " + txIneq(A[1], "\\le", b[1]) + ",\\ \\vet x \\ge \\vet 0\\}$ la formulazione di un problema PLI con regione ammissibile $F = P \\cap \\Z^2$. $P$ è ideale ($P = \\mathrm{conv}(F)$)?",
+        "Let $P = \\{\\vet x \\in \\R^2 : " + txIneq(A[0], "\\le", b[0]) + ",\\ " + txIneq(A[1], "\\le", b[1]) + ",\\ \\vet x \\ge \\vet 0\\}$ be the formulation of an ILP problem with feasible region $F = P \\cap \\Z^2$. Is $P$ ideal ($P = \\mathrm{conv}(F)$)?");
+      var sp = L(lingua,
+        "I vertici di $P$ sono $" + r.vertici.map(txPt).join("$, $") + "$. Un vertice frazionario non è in $\\mathrm{conv}(F)$, i cui vertici sono interi: $P$ non è ideale. $" + txPt(mid) + "$ sta in $P$ ma non è un vertice.",
+        "The vertices of $P$ are $" + r.vertici.map(txPt).join("$, $") + "$. A fractional vertex is not in $\\mathrm{conv}(F)$, whose vertices are integer: $P$ is not ideal. $" + txPt(mid) + "$ lies in $P$ but is not a vertex.");
+      return chiudi(rng, testo, ops[0], ops.slice(1), sp, { A: A, b: b });
+    })
+  });
+
+  // ---------------------------------------------------------------- M4. RINS su uno zaino binario
+  G.push({
+    id: "pli-g-rins-sub", livello: "media", capitolo: "mip-heuristics", link: link("mip-heuristics", "box-16-def-rins"),
+    genera: ripeti(function (rng, lingua) {
+      var n = 5, p = [], w = [], j;
+      for (j = 0; j < n; j++) { p.push(ri(rng, 3, 15)); w.push(ri(rng, 2, 9)); }
+      var W = ri(rng, 10, 22);
+      // rilassamento lineare (greedy frazionario), rapporti tutti distinti
+      var ord = [0, 1, 2, 3, 4].sort(function (u, v) { return p[v] * w[u] - p[u] * w[v]; });
+      for (j = 0; j + 1 < n; j++) if (p[ord[j]] * w[ord[j + 1]] === p[ord[j + 1]] * w[ord[j]]) return null;
+      var xt = [F(0), F(0), F(0), F(0), F(0)], cap = W;
+      for (j = 0; j < n; j++) {
+        var t = ord[j];
+        if (w[t] <= cap) { xt[t] = F(1); cap -= w[t]; } else { xt[t] = F(cap, w[t]); cap = 0; }
+      }
+      if (xt.every(isInt)) return null;
+      // incumbent: ammissibile, diverso dall'ottimo
+      var xb = [];
+      for (j = 0; j < n; j++) xb.push(rng() < 0.5 ? 1 : 0);
+      var wb = 0, vb = 0;
+      for (j = 0; j < n; j++) { wb += w[j] * xb[j]; vb += p[j] * xb[j]; }
+      if (wb > W) return null;
+      var fix = [];
+      for (j = 0; j < n; j++) fix.push(isInt(xt[j]) && xt[j].n === xb[j]);
+      var nfree = fix.filter(function (f) { return !f; }).length;
+      if (nfree < 2 || nfree > 4) return null;
+      var bestSub = null, bestAll = 0;
+      for (var m = 0; m < 32; m++) {
+        var ww = 0, vv = 0, okf = true;
+        for (j = 0; j < n; j++) {
+          var xj = (m >> j) & 1;
+          ww += w[j] * xj; vv += p[j] * xj;
+          if (fix[j] && xj !== xb[j]) okf = false;
+        }
+        if (ww > W) continue;
+        if (vv > bestAll) bestAll = vv;
+        if (okf && vv >= vb + 1 && (bestSub === null || vv > bestSub)) bestSub = vv;
+      }
+      var ris = bestSub === null ? vb : bestSub;
+      var zl = valore(p, xt);
+      function op(v) { return { s: "$" + tx(v) + "$", v: fs(v) }; }
+      var corr = op(ris), d = filtra(corr, [op(bestAll), op(vb), op(flo(zl)), op(ris + 1)]);
+      var testo = L(lingua,
+        "Si applica RINS al problema dello zaino binario $\\max\\ " + txLin(p, X) + "$, $" + txIneq(w, "\\le", W) + "$, $\\vet x \\in \\{0,1\\}^5$, con incumbent $\\bar{\\vet x} = (" + xb.join(", ") + ")$ e soluzione del rilassamento lineare $\\tilde{\\vet x} = " + txPt(xt) + "$. RINS fissa le variabili su cui $\\bar{\\vet x}$ e $\\tilde{\\vet x}$ coincidono e risolve il sotto-MIP sulle altre con il cutoff $\\text{valore} \\ge " + vb + " + 1$. Qual è il valore della soluzione che RINS restituisce (l'incumbent, se il sotto-MIP è inammissibile)?",
+        "RINS is applied to the binary knapsack problem $\\max\\ " + txLin(p, X) + "$, $" + txIneq(w, "\\le", W) + "$, $\\vet x \\in \\{0,1\\}^5$, with incumbent $\\bar{\\vet x} = (" + xb.join(", ") + ")$ and LP relaxation solution $\\tilde{\\vet x} = " + txPt(xt) + "$. RINS fixes the variables on which $\\bar{\\vet x}$ and $\\tilde{\\vet x}$ coincide and solves the sub-MIP on the others with the cutoff $\\text{value} \\ge " + vb + " + 1$. What is the value of the solution RINS returns (the incumbent, if the sub-MIP is infeasible)?");
+      var libere = [];
+      for (j = 0; j < n; j++) if (!fix[j]) libere.push("x_" + (j + 1));
+      var sp = L(lingua,
+        "Restano libere $" + libere.join(", ") + "$; enumerandole (con le altre fissate) il miglior valore ammissibile " + (bestSub === null ? "non supera $" + vb + "$: il sotto-MIP è inammissibile e resta l'incumbent" : "con cutoff è $" + bestSub + "$") + ". L'ottimo globale vale $" + bestAll + "$: il fissaggio può escluderlo.",
+        "The free variables are $" + libere.join(", ") + "$; enumerating them (the others fixed) the best feasible value " + (bestSub === null ? "does not exceed $" + vb + "$: the sub-MIP is infeasible and the incumbent stays" : "with cutoff is $" + bestSub + "$") + ". The global optimum is $" + bestAll + "$: fixing may exclude it.");
+      return chiudi(rng, testo, corr, d, sp, { p: p, w: w, W: W, xb: xb, xt: xt.map(fs) });
+    })
+  });
+
+  // ---------------------------------------------------------------- M5. taglio locale in un nodo
+  G.push({
+    id: "pli-g-local-valid", livello: "media", capitolo: "branch-and-cut", link: link("branch-and-cut", "box-2-def-global-local"),
+    genera: ripeti(function (rng, lingua) {
+      var a = [ri(rng, 3, 9), ri(rng, 2, 7)], b = ri(rng, 20, 50);
+      var u1 = Math.floor(b / a[0]);
+      if (u1 < 3) return null;
+      var k = ri(rng, 1, u1 - 1), Lc = Math.floor((b - a[0] * k) / a[1]), G0 = Math.floor(b / a[1]);
+      if (Lc < 1 || G0 <= Lc + 1) return null;
+      function op(v) { return { s: "$x_2 \\le " + v + "$", v: v }; }
+      var corr = op(Lc), d = [op(G0), op(Lc - 1), op(Lc + 1)];
+      var testo = L(lingua,
+        "In un algoritmo branch-and-cut per il problema PLI $\\max\\ x_1 + x_2$, $" + txIneq(a, "\\le", b) + "$, $x_1, x_2 \\in \\Z_{\\ge 0}$, il nodo $k$ ha il vincolo di branching $x_1 \\ge " + k + "$. Quale disuguaglianza è valida per tutte le soluzioni intere del nodo, è saturata da una di esse, e non è valida per l'intero problema (taglio locale)?",
+        "In a branch-and-cut algorithm for the ILP problem $\\max\\ x_1 + x_2$, $" + txIneq(a, "\\le", b) + "$, $x_1, x_2 \\in \\Z_{\\ge 0}$, node $k$ has the branching constraint $x_1 \\ge " + k + "$. Which inequality is valid for all integer solutions of the node, is tight at one of them, and is not valid for the whole problem (local cut)?");
+      var sp = L(lingua,
+        "Con $x_1 \\ge " + k + "$: $" + a[1] + "x_2 \\le " + b + " - " + a[0] + " \\cdot " + k + "$, quindi $x_2 \\le " + Lc + "$, saturata in $(" + k + ", " + Lc + ")$. Fuori dal nodo $(0, " + G0 + ")$ è ammissibile e la viola. $x_2 \\le " + G0 + "$ è globale; $x_2 \\le " + (Lc - 1) + "$ taglia $(" + k + ", " + Lc + ")$; $x_2 \\le " + (Lc + 1) + "$ non è saturata.",
+        "With $x_1 \\ge " + k + "$: $" + a[1] + "x_2 \\le " + b + " - " + a[0] + " \\cdot " + k + "$, so $x_2 \\le " + Lc + "$, tight at $(" + k + ", " + Lc + ")$. Outside the node $(0, " + G0 + ")$ is feasible and violates it. $x_2 \\le " + G0 + "$ is global; $x_2 \\le " + (Lc - 1) + "$ cuts off $(" + k + ", " + Lc + ")$; $x_2 \\le " + (Lc + 1) + "$ is not tight.");
+      return chiudi(rng, testo, corr, d, sp, { a: a, b: b, k: k });
+    })
+  });
+
+  // ---------------------------------------------------------------- M6. presolve a catena
+  G.push({
+    id: "pli-g-presolve-chain", livello: "media", capitolo: "mip-solvers", link: link("mip-solvers", "box-2-def-presolve"),
+    genera: ripeti(function (rng, lingua) {
+      var a11 = ri(rng, 2, 6), a12 = ri(rng, 1, 5), l2 = ri(rng, 1, 3), b1 = ri(rng, 12, 40);
+      var dd = ri(rng, 1, 4), a22 = ri(rng, 2, 7), b2 = ri(rng, 2, 15), u1 = ri(rng, 15, 25);
+      var r1 = b1 - a12 * l2;
+      if (r1 < a11 || r1 % a11 === 0) return null;
+      var U1 = Math.floor(r1 / a11);
+      if (U1 >= u1) return null;
+      var r2 = b2 + dd * U1, U2 = Math.floor(r2 / a22), U2s = Math.floor((b2 + dd * u1) / a22), U1n = Math.floor(b1 / a11);
+      if (r2 % a22 === 0 || U2 === U2s || U2 < l2) return null;   // istanza ammissibile: serve x2 >= l2
+      function op(p, q) { return { s: "$x_1 \\le " + p + "$, $x_2 \\le " + q + "$", v: [p, q] }; }
+      var corr = op(U1, U2);
+      var d = filtra(corr, [op(U1, U2s), op(U1n, Math.floor((b2 + dd * U1n) / a22)), op(U1, U2 + 1), op(U1 + 1, Math.floor((b2 + dd * (U1 + 1)) / a22))]);
+      var testo = L(lingua,
+        "Nel presolve di un solver MIP le variabili intere $x_1 \\in [0, " + u1 + "]$, $x_2 \\in [" + l2 + ", +\\infty)$ compaiono nei vincoli $" + a11 + "x_1 + " + a12 + "x_2 \\le " + b1 + "$ e $-" + (dd === 1 ? "" : dd) + "x_1 + " + a22 + "x_2 \\le " + b2 + "$. Il rafforzamento dei bound ricava prima un upper bound su $x_1$ dal primo vincolo, poi lo usa nel secondo per $x_2$. Quali bound si ottengono?",
+        "In the presolve of a MIP solver the integer variables $x_1 \\in [0, " + u1 + "]$, $x_2 \\in [" + l2 + ", +\\infty)$ appear in the constraints $" + a11 + "x_1 + " + a12 + "x_2 \\le " + b1 + "$ and $-" + (dd === 1 ? "" : dd) + "x_1 + " + a22 + "x_2 \\le " + b2 + "$. Bound tightening first derives an upper bound on $x_1$ from the first constraint, then uses it in the second for $x_2$. Which bounds are obtained?");
+      var sp = L(lingua,
+        "Primo vincolo con $x_2 \\ge " + l2 + "$: $" + a11 + "x_1 \\le " + r1 + "$, quindi $x_1 \\le " + U1 + "$. Secondo vincolo: $" + a22 + "x_2 \\le " + b2 + " + " + dd + "x_1 \\le " + r2 + "$, quindi $x_2 \\le " + U2 + "$. Usare il vecchio bound $x_1 \\le " + u1 + "$ dà $x_2 \\le " + U2s + "$.",
+        "First constraint with $x_2 \\ge " + l2 + "$: $" + a11 + "x_1 \\le " + r1 + "$, so $x_1 \\le " + U1 + "$. Second constraint: $" + a22 + "x_2 \\le " + b2 + " + " + dd + "x_1 \\le " + r2 + "$, so $x_2 \\le " + U2 + "$. Using the old bound $x_1 \\le " + u1 + "$ gives $x_2 \\le " + U2s + "$.");
+      return chiudi(rng, testo, corr, d, sp, { a11: a11, a12: a12, l2: l2, b1: b1, dd: dd, a22: a22, b2: b2, u1: u1 });
+    })
+  });
+
+  // ---------------------------------------------------------------- X1. PLI con tre variabili per enumerazione
+  G.push({
+    id: "pli-g-enum3", livello: "complessa", capitolo: "ilp", link: link("ilp", "box-5-defOptILP"),
+    genera: ripeti(function (rng, lingua) {
+      var c = [ri(rng, 3, 12), ri(rng, 3, 12), ri(rng, 3, 12)], a = [ri(rng, 2, 7), ri(rng, 2, 7), ri(rng, 2, 7)];
+      var u = [ri(rng, 1, 3), ri(rng, 1, 3), ri(rng, 1, 3)], b = ri(rng, 9, 20);
+      var best = null, bv = -1, nb = 0, x1, x2, x3, bestNoU = null, bvNoU = -1;
+      for (x1 = 0; x1 <= 10; x1++) for (x2 = 0; x2 <= 10; x2++) for (x3 = 0; x3 <= 10; x3++) {
+        if (a[0] * x1 + a[1] * x2 + a[2] * x3 > b) continue;
+        var v = c[0] * x1 + c[1] * x2 + c[2] * x3;
+        if (x1 <= u[0] && x2 <= u[1] && x3 <= u[2]) {
+          if (v > bv) { bv = v; best = [x1, x2, x3]; nb = 1; } else if (v === bv) nb++;
+        }
+        if (v > bvNoU) { bvNoU = v; bestNoU = [x1, x2, x3]; }
+      }
+      if (nb !== 1 || bvNoU <= bv) return null;
+      // greedy per rapporto c/a rispettando i limiti
+      var ord = [0, 1, 2].sort(function (p, q) { return c[q] * a[p] - c[p] * a[q]; }), cap = b, g = [0, 0, 0];
+      ord.forEach(function (j) { g[j] = Math.min(u[j], Math.floor(cap / a[j])); cap -= a[j] * g[j]; });
+      var gv = c[0] * g[0] + c[1] * g[1] + c[2] * g[2];
+      if (gv === bv) return null;
+      // terzo distrattore: migliore punto ammissibile con una variabile a zero diversa
+      var alt = null, av = -1;
+      for (x1 = 0; x1 <= u[0]; x1++) for (x2 = 0; x2 <= u[1]; x2++) for (x3 = 0; x3 <= u[2]; x3++) {
+        var vv = c[0] * x1 + c[1] * x2 + c[2] * x3;
+        if (a[0] * x1 + a[1] * x2 + a[2] * x3 <= b && vv < bv && vv > av && !(x1 === g[0] && x2 === g[1] && x3 === g[2])) { av = vv; alt = [x1, x2, x3]; }
+      }
+      if (!alt) return null;
+      function op(x, v) { return { s: "$\\tilde{\\vet x} = (" + x.join(", ") + ")$, $z = " + v + "$", v: [x, v] }; }
+      var corr = op(best, bv), d = filtra(corr, [op(bestNoU, bvNoU), op(g, gv), op(alt, av)]);
+      var testo = L(lingua,
+        "Si consideri il problema PLI $\\max\\ " + txLin(c, X) + "$ soggetto a $" + txIneq(a, "\\le", b) + "$, $x_1 \\le " + u[0] + "$, $x_2 \\le " + u[1] + "$, $x_3 \\le " + u[2] + "$, $\\vet x \\in \\Z^3_{\\ge 0}$. Quali sono la soluzione ottima (unica) e il valore ottimo?",
+        "Consider the ILP problem $\\max\\ " + txLin(c, X) + "$ subject to $" + txIneq(a, "\\le", b) + "$, $x_1 \\le " + u[0] + "$, $x_2 \\le " + u[1] + "$, $x_3 \\le " + u[2] + "$, $\\vet x \\in \\Z^3_{\\ge 0}$. What are the (unique) optimal solution and the optimal value?");
+      var sp = L(lingua,
+        "La regione ammissibile è finita: enumerando i punti con $x_j \\le u_j$ e $" + txIneq(a, "\\le", b) + "$ il massimo è $" + bv + "$ in $(" + best.join(", ") + ")$. Il greedy per rapporto $c_j/a_j$ dà $(" + g.join(", ") + ")$ di valore $" + gv + "$; $(" + bestNoU.join(", ") + ")$ viola un limite superiore.",
+        "The feasible region is finite: enumerating the points with $x_j \\le u_j$ and $" + txIneq(a, "\\le", b) + "$ the maximum is $" + bv + "$ at $(" + best.join(", ") + ")$. The greedy by ratio $c_j/a_j$ gives $(" + g.join(", ") + ")$ of value $" + gv + "$; $(" + bestNoU.join(", ") + ")$ violates an upper bound.");
+      return chiudi(rng, testo, corr, d, sp, { c: c, a: a, b: b, u: u });
+    })
+  });
+
+  // ---------------------------------------------------------------- X2. bound duale ottimo
+  G.push({
+    id: "pli-g-dual-ub", livello: "complessa", capitolo: "lp-relaxation", link: link("lp-relaxation", "box-18-prop-dual-bound"),
+    genera: ripeti(function (rng, lingua) {
+      var ist = istanzaAuto(rng);
+      if (!ist) return null;
+      var A = ist.A, b = ist.b, c = ist.c;
+      // duale: min b1 p1 + b2 p2, A^T p >= c, p >= 0  ->  max -b p, -A^T p <= -c
+      var r = lp2([-b[0], -b[1]], [[-A[0][0], -A[1][0], -c[0]], [-A[0][1], -A[1][1], -c[1]]].concat(nonneg()));
+      if (r.stato !== "ott" || !r.unico) return null;
+      var pi = r.x, ub = neg(r.z);
+      if (isInt(ub)) return null;
+      // errore tipico: moltiplicatori calcolati con A invece di A^T
+      var rw = lp2([-b[0], -b[1]], [[-A[0][0], -A[0][1], -c[0]], [-A[1][0], -A[1][1], -c[1]]].concat(nonneg()));
+      if (rw.stato !== "ott" || !rw.unico) return null;
+      function op(p, u) { return { s: "$\\tilde{\\vet \\pi} = " + txPt(p) + "$, $\\UB = " + tx(u) + "$", v: [p.map(fs), fs(u)] }; }
+      var corr = op(pi, flo(ub));
+      var d = filtra(corr, [op(pi, ub), op(rw.x, flo(neg(rw.z))), op(pi, cei(ub)), op(rw.x, neg(rw.z))]);
+      var testo = L(lingua,
+        "Per il problema PLI " + txPLI(ist, lingua) + " si combinano i due vincoli con moltiplicatori $\\pi_1, \\pi_2 \\ge 0$ tali che i coefficienti combinati siano almeno i costi ($\\mat A\\T \\vet \\pi \\ge \\vet c$). Qual è la soluzione ottima $\\tilde{\\vet \\pi}$ del problema duale del rilassamento lineare, e quale upper bound $\\UB$ su $z(\\ILP)$ si ricava (con l'arrotondamento lecito)?",
+        "For the ILP problem " + txPLI(ist, lingua) + " the two constraints are combined with multipliers $\\pi_1, \\pi_2 \\ge 0$ such that the combined coefficients are at least the costs ($\\mat A\\T \\vet \\pi \\ge \\vet c$). What is the optimal solution $\\tilde{\\vet \\pi}$ of the dual of the LP relaxation, and which upper bound $\\UB$ on $z(\\ILP)$ follows (with the legitimate rounding)?");
+      var sp = L(lingua,
+        "Il duale è $\\min\\ " + b[0] + "\\pi_1 + " + b[1] + "\\pi_2$ con $" + A[0][0] + "\\pi_1 + " + A[1][0] + "\\pi_2 \\ge " + c[0] + "$, $" + A[0][1] + "\\pi_1 + " + A[1][1] + "\\pi_2 \\ge " + c[1] + "$, $\\vet \\pi \\ge \\vet 0$: ottimo $" + txPt(pi) + "$ di valore $" + tx(ub) + " = z(\\LP)$. Variabili e costi interi: $\\UB = " + flo(ub) + "$.",
+        "The dual is $\\min\\ " + b[0] + "\\pi_1 + " + b[1] + "\\pi_2$ with $" + A[0][0] + "\\pi_1 + " + A[1][0] + "\\pi_2 \\ge " + c[0] + "$, $" + A[0][1] + "\\pi_1 + " + A[1][1] + "\\pi_2 \\ge " + c[1] + "$, $\\vet \\pi \\ge \\vet 0$: optimum $" + txPt(pi) + "$ of value $" + tx(ub) + " = z(\\LP)$. Integer variables and costs: $\\UB = " + flo(ub) + "$.");
+      return chiudi(rng, testo, corr, d, sp, { ist: verIst(ist) });
+    })
+  });
+
+  // ---------------------------------------------------------------- X3. arresto con MIPGap su un log
+  G.push({
+    id: "pli-g-log-stop", livello: "complessa", capitolo: "mip-solvers", link: link("mip-solvers", "934-the-gap-as-a-stopping-criterion", "934-il-gap-come-criterio-di-arresto"),
+    genera: ripeti(function (rng, lingua) {
+      var g = pick(rng, [1, 2, 5]), I = ri(rng, 150, 400), B = I + ri(rng, 30, 60), righe = [], j;
+      for (j = 0; j < 5; j++) {
+        righe.push([I, B]);
+        if (rng() < 0.6) I += ri(rng, 1, 8);
+        B -= ri(rng, 1, 12);
+        if (B < I) B = I;
+      }
+      var gaps = righe.map(function (r) { return F(r[1] - r[0], r[0]); });
+      var stop = -1;
+      for (j = 0; j < 5; j++) if (stop < 0 && cmp(gaps[j], F(g, 100)) <= 0) stop = j;
+      if (stop < 1) return null;
+      for (j = 0; j < 5; j++) if (eq(gaps[j], F(g, 100))) return null;
+      // errore tipico: gap rispetto al best bound invece che all'incumbent
+      var stopB = -1;
+      for (j = 0; j < 5; j++) if (stopB < 0 && cmp(F(righe[j][1] - righe[j][0], righe[j][1]), F(g, 100)) <= 0) stopB = j;
+      var lab = function (t) { return t < 0 ? L(lingua, "nessuna: il solver non si ferma", "none: the solver does not stop") : L(lingua, "la riga " + (t + 1), "row " + (t + 1)); };
+      var cand = [stop, stopB, stop + 1 <= 4 ? stop + 1 : -1, stop - 1, -1, 4, 0];
+      var corr = { s: lab(stop), v: stop }, d = [], visti = {};
+      visti[stop] = 1;
+      cand.forEach(function (t) { if (!visti[t] && d.length < 3) { visti[t] = 1; d.push({ s: lab(t), v: t }); } });
+      var tab = righe.map(function (r, t) { return L(lingua, "riga ", "row ") + (t + 1) + ": Incumbent $" + r[0] + "$, BestBd $" + r[1] + "$"; }).join("; ");
+      var testo = L(lingua,
+        "Un solver MIP risolve un problema di massimo con dati interi e MIPGap $= " + g + "\\%$; il gap è $\\frac{\\text{BestBd} - \\text{Incumbent}}{|\\text{Incumbent}|}$ e il solver si ferma alla prima riga del log in cui il gap è al più MIPGap. Le righe del log sono: " + tab + ". A quale riga si ferma?",
+        "A MIP solver solves a maximization problem with integer data and MIPGap $= " + g + "\\%$; the gap is $\\frac{\\text{BestBd} - \\text{Incumbent}}{|\\text{Incumbent}|}$ and the solver stops at the first log row where the gap is at most MIPGap. The log rows are: " + tab + ". At which row does it stop?");
+      var sp = L(lingua,
+        "Gap delle righe: $" + gaps.map(function (q) { return tx(q); }).join("$, $") + "$, da confrontare con $\\frac{" + g + "}{100}$. Il denominatore è l'incumbent, non il best bound. La soluzione restituita è ottima solo a meno della tolleranza.",
+        "Gaps of the rows: $" + gaps.map(function (q) { return tx(q); }).join("$, $") + "$, to be compared with $\\frac{" + g + "}{100}$. The denominator is the incumbent, not the best bound. The returned solution is optimal only up to the tolerance.");
+      return chiudi(rng, testo, corr, d, sp, { g: g, righe: righe });
+    })
+  });
+
   window.QUIZ_GEN = window.QUIZ_GEN || {};
   var dest = (window.QUIZ_GEN[MOD] = window.QUIZ_GEN[MOD] || []);
   G.forEach(function (g) { dest.push(g); });
