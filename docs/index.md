@@ -18,6 +18,8 @@ associato al [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma
 
 **Le dispense del corso, online**: programmazione lineare intera e mista, rilassamento lineare e bound, disuguaglianze valide, piani di taglio, branch-and-bound e branch-and-cut, solver MIP ed euristiche, con definizioni, esempi svolti passo per passo ed esercizi con soluzioni.
 
+Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/).
+
 [Comincia :material-arrow-right:](modelli-e-bound/index.md){ .md-button .md-button--primary }
 [:material-pencil: Esercizi](esercizi/index.md){ .md-button }
 [:material-gesture-tap: Laboratorio](laboratorio/index.md){ .md-button }
