@@ -31,9 +31,9 @@ Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazi
 <!-- collana-app -->
 ## Provalo subito
 
-Il branch-and-bound passo per passo: ogni nodo risolve un rilassamento lineare e divide la regione su una variabile frazionaria.
+Il branch-and-bound alla fine: l'albero completo, con le regioni dei nodi, i nodi potati e l'incumbent. Ogni nodo risolve un rilassamento lineare e divide la regione su una variabile frazionaria; premi «Esegui» per rivederlo passo per passo.
 
-<div class="gi" data-grafico="pli-bb"></div>
+<div class="gi" data-grafico="pli-bb" data-vetrina="A | auto"></div>
 
 [:material-gesture-tap: Altre app nel laboratorio](laboratorio/index.md){ .md-button }
 <!-- /collana-app -->

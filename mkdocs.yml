@@ -128,7 +128,7 @@ extra_javascript:
   - javascripts/interattivi.js?v=5452c77472
   - javascripts/gi-comune.js?v=40df75e3e5
   - javascripts/gi-pli-dati.js?v=8ebd23eab0
-  - javascripts/gi-pli.js?v=26662f1816
+  - javascripts/gi-pli.js?v=adc7976f63
   - javascripts/quiz.js?v=be7fae2b85
 
 nav:

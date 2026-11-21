@@ -644,6 +644,52 @@
       `Optimal dictionary of \\(\\LP_{${nd.id}}\\)` + (nd.padre !== null ? " (with the slacks of the branching constraints)" : "")), dizTex(nd.diz)]];
   };
 
+  // ------------------------------------------------------------ vetrina (home della collana)
+  /** Vetrina: l'app nella home della collana, <div class="gi" data-grafico="…" data-vetrina="…"> (sesto campo di
+   *  APP in COLLANA/collana.py). Senza l'attributo non fa nulla: nel laboratorio l'app resta com'è.
+   *  Va chiamata in monta(board, st) (dopo i comandi e i menu); agisce una volta sola per grafico:
+   *  prepara(valore) porta l'app allo stato da mostrare (voce, istanza, passo: di solito il disegno completo),
+   *  poi il pannello si alleggerisce: restano voci, cursori, ◀ ▶ «Esegui» e letture; spariscono «Prova tu»,
+   *  «Azzera», i menu e i pulsanti delle istanze (sono nella pagina del laboratorio). */
+  function vetrina(st, prepara) {
+    const v = st.el.dataset.vetrina, D = st.dati;
+    if (!v || D.vetrina) return;
+    D.vetrina = true;
+    st.el.classList.add("gi-vetrina");
+    const corpo = st.el.querySelector(".gi-corpo");
+    if (corpo) for (const c of corpo.children) c.style.minWidth = "0";   // la colonna unica del telefono non si allarga
+    setTimeout(() => {
+      try { prepara(v); } catch (e) { console.error("GI: vetrina «" + st.el.dataset.grafico + "»", e); }
+      const pan = corpo && corpo.children[1];
+      if (!pan) return;
+      pan.querySelectorAll(".gi-domanda").forEach((e) => { e.hidden = true; });
+      pan.querySelectorAll("select").forEach((e) => { if (!e.closest(".gi-comandi")) e.style.display = "none"; });
+      pan.querySelectorAll(".gi-comandi").forEach((box) => {
+        let dopo = false;
+        for (const b of box.children) { if (dopo) b.style.display = "none"; if (b.tagName === "SELECT") dopo = true; }
+      });
+      for (const d of pan.children) {
+        if (!d.classList.contains("gi-comandi") && d.children.length === 1 && d.firstElementChild.matches("button.gi-btn")) d.style.display = "none";
+      }
+    }, 40);
+  }
+  /** la voce k di «funzioni», come un clic sul suo pulsante */
+  function scegliVoce(st, k) {
+    if (!k || k === st.chiave()) return;
+    const R = window.GI_RICETTE[st.el.dataset.grafico], i = Object.keys((R && (R.funzioni || R.funzioniCustom)) || {}).indexOf(k);
+    const b = st.el.querySelectorAll(".gi-chip")[i];
+    if (b) b.click();
+  }
+  /** il cursore del passo (l'ultimo del pannello) al passo k: k < 0 conta dalla fine, null è l'ultimo passo */
+  function vaiAlPasso(st, k) {
+    const cur = st.el.querySelectorAll(".gi-ctrl input[type=range]"), inp = cur[cur.length - 1];
+    if (!inp) return;
+    st.aggiorna();                           // il massimo del cursore lo fissa la ricetta in aggiorna
+    const max = +inp.max, min = +inp.min;
+    inp.value = String(k == null || isNaN(k) ? max : k < 0 ? Math.max(min, max + k) : Math.min(max, k));
+    inp.dispatchEvent(new Event("input"));
+  }
+
   window.GI_RICETTE["pli-bb"] = {
     titolo: T("Branch-and-bound passo per passo", "Branch-and-bound step by step"),
     sottotitolo: T("esempio delle automobili e altri problemi", "the car example and other problems"),
@@ -676,6 +722,8 @@
       M.comandi(st, []);
       lettureDopo(st, st.dati.comandi);
       seguiDimensioni(board, st);
+      // home della collana: data-vetrina="problema | problema per il telefono" (voci), albero completo
+      vetrina(st, (v) => { const due = v.split("|"); scegliVoce(st, ((st.el.clientWidth < 600 && due[1]) || due[0]).trim()); vaiAlPasso(st, null); st.el.querySelectorAll(".pli-regole").forEach((e) => { e.style.display = "none"; }); });
     },
     aggiorna(board, st) {
       const t = alberoDi(st), k = M.passoK(st, t.R.passi.length - 1), E = t.R.passi[k], C = M.COL(st);
