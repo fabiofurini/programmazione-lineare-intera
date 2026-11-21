@@ -12,9 +12,9 @@ title: "I solver MIP: che cosa fanno"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, i capitoli «Branch-and-bound basato sulla programmazione lineare» e «Algoritmi branch-and-cut»: le operazioni di branching, bounding e pruning, i tagli e la soluzione incumbent.
+    - Da questo modulo, i capitoli [«Il branch-and-bound basato sulla programmazione lineare»](https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/bb/) e [«Il branch-and-cut»](https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/branch-and-cut/): le operazioni di branching, bounding e pruning, i tagli e la soluzione incumbent.
 
-    - Da questo modulo, il capitolo «Bound primali e duali»: i lower bound e gli upper bound e il gap di ottimalità.
+    - Da questo modulo, il capitolo [«Bound primali e duali»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/lp-relaxation/): i lower bound e gli upper bound e il gap di ottimalità.
 
     - Per imparare a usare Gurobi nella pratica, vedi il modulo «Modellazione MIP» ([<u>fabiofurini.github.io/modellazione-mip</u>](https://fabiofurini.github.io/modellazione-mip/)), [capitolo 3 «Dal modello a Python/Gurobi»](https://fabiofurini.github.io/modellazione-mip/modellazione-3/).
 

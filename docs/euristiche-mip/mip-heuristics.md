@@ -14,9 +14,9 @@ title: "Euristiche MIP"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, i capitoli «Bound primali e duali» e «Branch-and-bound basato sulla programmazione lineare»: il rilassamento lineare, i lower bound e gli upper bound, il gap di ottimalità e le operazioni di branching.
+    - Da questo modulo, i capitoli [«Bound primali e duali»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/lp-relaxation/) e [«Il branch-and-bound basato sulla programmazione lineare»](https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/bb/): il rilassamento lineare, i lower bound e gli upper bound, il gap di ottimalità e le operazioni di branching.
 
-    - Da questo modulo, il capitolo «Solver MIP: che cosa fanno»: la soluzione incumbent, i sotto-problemi risolti da un solver e le euristiche al suo interno.
+    - Da questo modulo, il capitolo [«I solver MIP: che cosa fanno»](https://fabiofurini.github.io/programmazione-lineare-intera/solver/mip-solvers/): la soluzione incumbent, i sotto-problemi risolti da un solver e le euristiche al suo interno.
 
     - Dal modulo <em>Programmazione lineare</em>: l'[algoritmo del simplesso duale (Capitolo 10)](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/), che riottimizza un LP dopo la modifica di un limite su una variabile.
 

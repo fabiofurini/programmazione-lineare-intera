@@ -12,9 +12,9 @@ title: "Disuguaglianze valide"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, il capitolo «Bound primali e duali»: il rilassamento lineare, il bound arrotondato $\lfloor z(\LP) \rfloor$, e i bound ottenuti con moltiplicatori non negativi dei vincoli.
+    - Da questo modulo, il capitolo [«Bound primali e duali»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/lp-relaxation/): il rilassamento lineare, il bound arrotondato $\lfloor z(\LP) \rfloor$, e i bound ottenuti con moltiplicatori non negativi dei vincoli.
 
-    - Da questo modulo, il capitolo «Formulazioni ideali»: le formulazioni, l'inviluppo convesso e il confronto tra formulazioni attraverso i loro poliedri.
+    - Da questo modulo, il capitolo [«Formulazioni ideali»](https://fabiofurini.github.io/programmazione-lineare-intera/formulazioni/ideal-formulations/): le formulazioni, l'inviluppo convesso e il confronto tra formulazioni attraverso i loro poliedri.
 
 !!! chiave "Obiettivi"
 

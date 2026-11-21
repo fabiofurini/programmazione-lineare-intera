@@ -12,11 +12,11 @@ title: "Il branch-and-cut"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, i capitoli «Disuguaglianze valide» e «Disuguaglianze di cover»: le disuguaglianze valide e la separazione di una disuguaglianza violata di una famiglia.
+    - Da questo modulo, i capitoli [«Disuguaglianze valide»](https://fabiofurini.github.io/programmazione-lineare-intera/formulazioni/valid-inequalities/) e [«Disuguaglianze di cover»](https://fabiofurini.github.io/programmazione-lineare-intera/formulazioni/cover/): le disuguaglianze valide e la separazione di una disuguaglianza violata di una famiglia.
 
-    - Da questo modulo, il capitolo «Algoritmo dei piani di taglio»: i tagli frazionari di Gomory e la riottimizzazione del problema LP con l'algoritmo del simplesso duale dopo l'inserimento di un taglio.
+    - Da questo modulo, il capitolo [«L'algoritmo dei piani di taglio con i tagli frazionari di Gomory»](https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/gomory/): i tagli frazionari di Gomory e la riottimizzazione del problema LP con l'algoritmo del simplesso duale dopo l'inserimento di un taglio.
 
-    - Da questo modulo, il capitolo «Branch-and-bound basato sulla programmazione lineare»: la lista dei problemi LP, i criteri di potatura e le strategie di selezione della variabile e del nodo di branching.
+    - Da questo modulo, il capitolo [«Il branch-and-bound basato sulla programmazione lineare»](https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/bb/): la lista dei problemi LP, i criteri di potatura e le strategie di selezione della variabile e del nodo di branching.
 
 !!! chiave "Obiettivi"
 

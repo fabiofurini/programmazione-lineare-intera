@@ -14,9 +14,9 @@ title: "Disuguaglianze di cover"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, [Capitolo 1 «Programmazione lineare intera»](https://fabiofurini.github.io/integer-linear-programming/models-and-bounds/ilp/) e [Capitolo 2 «Bound primali e duali»](https://fabiofurini.github.io/integer-linear-programming/models-and-bounds/lp-relaxation/): problemi di PLI, il rilassamento lineare e l'upper bound fornito dal rilassamento lineare.
+    - Da questo modulo, [Capitolo 1 «La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/) e [Capitolo 2 «Bound primali e duali»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/lp-relaxation/): problemi di PLI, il rilassamento lineare e l'upper bound fornito dal rilassamento lineare.
 
-    - Da questo modulo, [Capitolo 3 «Formulazioni ideali»](https://fabiofurini.github.io/integer-linear-programming/formulations/ideal-formulations/) e [Capitolo 4 «Disuguaglianze valide»](https://fabiofurini.github.io/integer-linear-programming/formulations/valid-inequalities/): l'inviluppo convesso delle soluzioni intere, le disuguaglianze valide e i tagli che rimuovono punti frazionari.
+    - Da questo modulo, [Capitolo 3 «Formulazioni ideali»](https://fabiofurini.github.io/programmazione-lineare-intera/formulazioni/ideal-formulations/) e [Capitolo 4 «Disuguaglianze valide»](https://fabiofurini.github.io/programmazione-lineare-intera/formulazioni/valid-inequalities/): l'inviluppo convesso delle soluzioni intere, le disuguaglianze valide e i tagli che rimuovono punti frazionari.
 
     - Il rilassamento lineare di un problema binario con un vincolo, risolto inserendo le variabili in ordine non crescente del rapporto $c_j/a_j$ tra i coefficienti dell'obiettivo e del vincolo (regola di Dantzig).
 

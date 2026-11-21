@@ -12,7 +12,7 @@ title: "Bound primali e duali"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, il capitolo «Programmazione lineare intera»: problemi PLI, soluzioni ammissibili e ottime, enumerazione completa e l'esempio dell'auto.
+    - Da questo modulo, il capitolo [«La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/): problemi PLI, soluzioni ammissibili e ottime, enumerazione completa e l'esempio dell'auto.
 
     - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/): il problema duale, la dualità debole e la dualità forte.
 

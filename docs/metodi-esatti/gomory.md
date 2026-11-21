@@ -14,9 +14,9 @@ title: "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory"
 
     - Dal modulo <em>Programmazione lineare</em>, [Capitolo 10 «Algoritmo del simplesso duale»](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/): dizionari del simplesso, basi duali ammissibili e operazioni di pivot duali. Un breve richiamo è dato in questo capitolo.
 
-    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Bound primali e duali»: problemi PLI, il rilassamento lineare e l'upper bound dato dal rilassamento lineare.
+    - Da questo modulo, i capitoli [«La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/) e [«Bound primali e duali»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/lp-relaxation/): problemi PLI, il rilassamento lineare e l'upper bound dato dal rilassamento lineare.
 
-    - Da questo modulo, il capitolo «Disuguaglianze valide»: disuguaglianze valide e tagli che eliminano punti frazionari.
+    - Da questo modulo, il capitolo [«Disuguaglianze valide»](https://fabiofurini.github.io/programmazione-lineare-intera/formulazioni/valid-inequalities/): disuguaglianze valide e tagli che eliminano punti frazionari.
 
 !!! chiave "Obiettivi"
 

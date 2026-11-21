@@ -12,7 +12,7 @@ title: "Formulazioni ideali"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, i capitoli «Programmazione lineare intera» e «Bound primali e duali»: la regione ammissibile di un problema PLI, il rilassamento lineare e il suo bound, e l'esempio dell'auto.
+    - Da questo modulo, i capitoli [«La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/) e [«Bound primali e duali»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/lp-relaxation/): la regione ammissibile di un problema PLI, il rilassamento lineare e il suo bound, e l'esempio dell'auto.
 
     - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 15 «La geometria della Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): i vertici di un poliedro, e il fatto che un problema LP con una soluzione ottima ha un vertice ottimo.
 
