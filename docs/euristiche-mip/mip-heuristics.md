@@ -1201,6 +1201,8 @@ title: "Euristiche MIP"
 </tr>
 </table></div>
 
+- I metodi di questo capitolo applicati ai modelli dello zaino, del bin packing, del TSP, di $P\,||\,C_{\max}$ e del lot sizing: capitolo [«Euristiche MIP per i problemi classici»](https://fabiofurini.github.io/algoritmi-euristici/mip-heuristics-classical/) del modulo <em>Algoritmi euristici</em>.
+
 ## 10.10 Implementazione in <code>Python</code> { #sez-sec-python }
 
 - I codici usano Python 3 e <code>gurobipy</code>. Alle variabili di un modello si accede tramite la loro posizione $j$ in <code>m.getVars()</code>, e la lista <code>I</code> delle posizioni delle variabili intere è l'insieme $\mathscr{D}$; gli indici partono da $0$.
