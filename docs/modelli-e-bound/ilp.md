@@ -163,6 +163,8 @@ title: "La programmazione lineare intera"
 
     - Secondo vincolo: il reparto verniciatura è disponibile per $49$ ore; un'auto sportiva richiede $4$ ore e una familiare $14$.
 
+    Come si costruiscono modelli come questo a partire da problemi reali è il tema del modulo <em>Modellazione MIP</em>: [la parte Modellazione](https://fabiofurini.github.io/modellazione-mip/modellazione/).
+
 ### 1.1.1 Regione ammissibile e funzione obiettivo
 
 <a id="box-3-defFeasRegILP"></a>
