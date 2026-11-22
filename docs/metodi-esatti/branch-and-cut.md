@@ -369,7 +369,7 @@ title: "Il branch-and-cut"
 
 ## 8.5 Tagli locali: un esempio
 
-- Usiamo l'esempio dell'auto ($x_1$ auto sportive e $x_2$ auto familiari): massimizzare $3x_1+2x_2$ soggetto a $10x_1+4x_2\le 45$, $4x_1+14x_2\le 49$, $x_1,x_2\in\Z_{\ge 0}$. Nell'algoritmo branch-and-bound senza tagli, il nodo $3$ è il figlio verso l'alto della radice, con il vincolo di branching $x_1 \ge 4$ e la variabile di scarto $x_5 = x_1 - 4$.
+- Usiamo l'esempio della produzione di auto ($x_1$ auto sportive e $x_2$ auto familiari): massimizzare $3x_1+2x_2$ soggetto a $10x_1+4x_2\le 45$, $4x_1+14x_2\le 49$, $x_1,x_2\in\Z_{\ge 0}$. Nell'algoritmo branch-and-bound senza tagli, il nodo $3$ è il figlio verso l'alto della radice, con il vincolo di branching $x_1 \ge 4$ e la variabile di scarto $x_5 = x_1 - 4$.
 
 - Il dizionario ottimo del problema $\LP_3$, con $\tilde{\vet x}(\LP_3) = (4,\tfrac{5}{4})$ e $z(\LP_3) = \tfrac{29}{2}$, è:
 

@@ -1,11 +1,11 @@
 /* Laboratorio di «Programmazione lineare intera / Integer Linear Programming»: le quattro app.
  *
- *   pli-punti-interi   punti interi e rilassamento lineare (esempio delle automobili + altri problemi):
+ *   pli-punti-interi   punti interi e rilassamento lineare (esempio della produzione di auto + altri problemi):
  *                      poliedro, punti interi, ottimo continuo, ottimo intero, retta di livello, divario
- *   pli-involucro      disuguaglianze valide e involucro convesso (automobili): si aggiungono una alla volta
- *   pli-bb             branch-and-bound passo per passo (automobili): regole per la variabile, il nodo e
+ *   pli-involucro      disuguaglianze valide e involucro convesso (produzione di auto): si aggiungono una alla volta
+ *   pli-bb             branch-and-bound passo per passo (produzione di auto): regole per la variabile, il nodo e
  *                      l'ordine dei figli; albero, partizione della regione, LB e UB
- *   pli-gomory         tagli di Gomory sul piano (automobili): un taglio per iterazione; regole per la
+ *   pli-gomory         tagli di Gomory sul piano (produzione di auto): un taglio per iterazione; regole per la
  *                      riga del taglio (anche tutti i tagli violati, un giro per passo) e per
  *                      l'inserimento (primitivo o debole)
  *
@@ -25,7 +25,7 @@
 
   // ================================================================ problemi
   // max c'x, A x <= b, x >= 0 intero: il catalogo comune del laboratorio (gi-pli-dati.js, generato da
-  // python/genera_dati_lab.py), con gli stessi nomi in tutte le app: «Automobili», «Problema A», … .
+  // python/genera_dati_lab.py), con gli stessi nomi in tutte le app: «Produzione di auto», «Problema A», … .
   // Le app dei punti interi usano tutto il catalogo (i due vincoli si muovono con i cursori b_1, b_2);
   // il B&B e i tagli solo i problemi precalcolati (D0.problemi). Numeri verificati con python
   // (motore_oc, enumerazione e Gurobi): auto z(LP) = 31/2 in (7/2; 5/2), z(ILP) = 14 in (4; 1);
@@ -332,13 +332,13 @@
       righe.push(`${tinta(zc, T("Retta", "Line"))} \\(z = ${zs}\\): ` + r);
       return righe.join("<br>");
     },
-    domanda: T("Nell'esempio delle automobili premi ▶ su \\(z\\): fra quali valori la retta taglia il poliedro senza toccare punti interi? Arrotonda \\(\\tilde{\\vet{x}}\\): il punto è ammissibile? Muovi \\(b_1\\) e \\(b_2\\): riesci ad annullare il divario?",
-      "In the car example press ▶ on \\(z\\): for which values does the line cut the polyhedron without touching integer points? Round \\(\\tilde{\\vet{x}}\\): is the point feasible? Move \\(b_1\\) and \\(b_2\\): can you bring the gap to zero?"),
+    domanda: T("Nell'esempio della produzione di auto premi ▶ su \\(z\\): fra quali valori la retta taglia il poliedro senza toccare punti interi? Arrotonda \\(\\tilde{\\vet{x}}\\): il punto è ammissibile? Muovi \\(b_1\\) e \\(b_2\\): riesci ad annullare il divario?",
+      "In the car production example press ▶ on \\(z\\): for which values does the line cut the polyhedron without touching integer points? Round \\(\\tilde{\\vet{x}}\\): is the point feasible? Move \\(b_1\\) and \\(b_2\\): can you bring the gap to zero?"),
   };
 
 
   // ================================================================
-  // Strumenti comuni alle tre app sull'esempio delle automobili
+  // Strumenti comuni alle tre app sull'esempio della produzione di auto
   // ================================================================
   const D0 = window.GI_PLI;                       // dati calcolati da motore_oc (gi-pli-dati.js)
   const AUTO = ESEMPI.auto;                       // max 3x1 + 2x2, 10x1 + 4x2 <= 45, 4x1 + 14x2 <= 49
@@ -491,7 +491,7 @@
 
   window.GI_RICETTE["pli-involucro"] = {
     titolo: T("Disuguaglianze valide e involucro convesso", "Valid inequalities and the convex hull"),
-    sottotitolo: T("esempio delle automobili", "the car example"),
+    sottotitolo: T("esempio della produzione di auto", "the car production example"),
     parametri: [{ k: "k", nome: "k", min: 0, max: 4, step: 1, val: 0, colore: "a", cifre: 0,
       descr: T("quante disuguaglianze valide sono aggiunte (nell'ordine delle dispense): ◀ ▶ una alla volta, «Esegui» per tutte",
         "how many valid inequalities are added (in the order of the notes): ◀ ▶ one at a time, «Run» for all") }],
@@ -692,7 +692,7 @@
 
   window.GI_RICETTE["pli-bb"] = {
     titolo: T("Branch-and-bound passo per passo", "Branch-and-bound step by step"),
-    sottotitolo: T("esempio delle automobili e altri problemi", "the car example and other problems"),
+    sottotitolo: T("esempio della produzione di auto e altri problemi", "the car production example and other problems"),
     funzioni: VOCI_P(),
     etichettaFunzioni: T("Problema", "Problem"),
     parametri: [{ k: "k", nome: "k", min: 0, max: 24, step: 1, val: 0, colore: "a", cifre: 0,
@@ -950,7 +950,7 @@
 
   window.GI_RICETTE["pli-gomory"] = {
     titolo: T("Cutting plane con i tagli di Gomory", "Cutting plane with Gomory cuts"),
-    sottotitolo: T("esempio delle automobili e altri problemi", "the car example and other problems"),
+    sottotitolo: T("esempio della produzione di auto e altri problemi", "the car production example and other problems"),
     funzioni: VOCI_P(),
     etichettaFunzioni: T("Problema", "Problem"),
     parametri: [{ k: "k", nome: "k", min: 0, max: G0.iterazioni.length, step: 1, val: 0, colore: "a", cifre: 0,

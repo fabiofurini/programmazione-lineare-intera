@@ -221,7 +221,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), quale dei seguenti punti <u>non</u> appartiene alla regione ammissibile $F$?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), quale dei seguenti punti <u>non</u> appartiene alla regione ammissibile $F$?",
     "opzioni": [
      "$(2,2)$",
      "$(4,1)$",
@@ -231,7 +231,7 @@
     "spiegazione": "$(4,2)$ viola il primo vincolo: $10 \\cdot 4 + 4 \\cdot 2 = 48 > 45$. Gli altri tre punti soddisfano entrambi i vincoli."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), which of the following points does <u>not</u> belong to the feasible region $F$?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), which of the following points does <u>not</u> belong to the feasible region $F$?",
     "opzioni": [
      "$(2,2)$",
      "$(4,1)$",
@@ -611,7 +611,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) il rilassamento lineare ha ottimo $(\\frac{7}{2}, \\frac{5}{2})$ di valore $\\frac{31}{2}$, e $(4,1)$ è ammissibile. Quali bound si hanno sul valore ottimo $z(\\ILP)$?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) il rilassamento lineare ha ottimo $(\\frac{7}{2}, \\frac{5}{2})$ di valore $\\frac{31}{2}$, e $(4,1)$ è ammissibile. Quali bound si hanno sul valore ottimo $z(\\ILP)$?",
     "opzioni": [
      "$14 \\le z(\\ILP) \\le \\frac{31}{2}$",
      "$13 \\le z(\\ILP) \\le 16$",
@@ -621,7 +621,7 @@
     "spiegazione": "$(4,1)$ dà il lower bound $14$; costi e variabili sono interi, quindi l'upper bound $\\frac{31}{2}$ si arrotonda per difetto a $15$. Il gap è $\\frac{1}{14}$: $(4,1)$ non è ancora certificata ottima."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the LP relaxation has the optimum $(\\frac{7}{2}, \\frac{5}{2})$ of value $\\frac{31}{2}$, and $(4,1)$ is feasible. Which bounds do we have on the optimal value $z(\\ILP)$?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the LP relaxation has the optimum $(\\frac{7}{2}, \\frac{5}{2})$ of value $\\frac{31}{2}$, and $(4,1)$ is feasible. Which bounds do we have on the optimal value $z(\\ILP)$?",
     "opzioni": [
      "$14 \\le z(\\ILP) \\le \\frac{31}{2}$",
      "$13 \\le z(\\ILP) \\le 16$",
@@ -641,7 +641,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) la soluzione ottima del duale del rilassamento lineare (moltiplicatori dei due vincoli) è $(\\frac{17}{62}, \\frac{2}{31})$. Qual è il miglior upper bound intero sul valore ottimo $z(\\ILP)$ che se ne ricava?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) la soluzione ottima del duale del rilassamento lineare (moltiplicatori dei due vincoli) è $(\\frac{17}{62}, \\frac{2}{31})$. Qual è il miglior upper bound intero sul valore ottimo $z(\\ILP)$ che se ne ricava?",
     "opzioni": [
      "$15$",
      "$\\frac{31}{2}$",
@@ -651,7 +651,7 @@
     "spiegazione": "$45 \\cdot \\frac{17}{62} + 49 \\cdot \\frac{2}{31} = \\frac{31}{2} = z(\\LP)$ (dualità forte); con costi e variabili interi si arrotonda per difetto a $15$. Il valore $14$ non è certificato da questi moltiplicatori."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the optimal solution of the dual of the LP relaxation (multipliers of the two constraints) is $(\\frac{17}{62}, \\frac{2}{31})$. What is the best integer upper bound on the optimal value $z(\\ILP)$ obtained from it?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the optimal solution of the dual of the LP relaxation (multipliers of the two constraints) is $(\\frac{17}{62}, \\frac{2}{31})$. What is the best integer upper bound on the optimal value $z(\\ILP)$ obtained from it?",
     "opzioni": [
      "$15$",
      "$\\frac{31}{2}$",
@@ -678,7 +678,7 @@
      "Se $z(\\LP)$ è intero, allora $\\tilde{\\vet x}(\\LP)$ è intera ed è ottima per il problema PLI.",
      "$z(\\ILP) = \\lfloor z(\\LP) \\rfloor$ per ogni problema PLI con dati interi, perché i costi sono interi."
     ],
-    "spiegazione": "Ogni soluzione intera è ammissibile per il rilassamento, che ha la stessa funzione obiettivo. Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$) $\\lfloor z(\\LP) \\rfloor = 15 > 14 = z(\\ILP)$."
+    "spiegazione": "Ogni soluzione intera è ammissibile per il rilassamento, che ha la stessa funzione obiettivo. Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$) $\\lfloor z(\\LP) \\rfloor = 15 > 14 = z(\\ILP)$."
    },
    "en": {
     "testo": "Let $z(\\ILP)$ be the optimal value of a maximization ILP problem and $z(\\LP)$ the optimal value of its LP relaxation (same constraints, without integrality). Let $\\tilde{\\vet x}(\\LP)$ be an optimal solution of the relaxation. Which statement is correct?",
@@ -688,7 +688,7 @@
      "If $z(\\LP)$ is integer, then $\\tilde{\\vet x}(\\LP)$ is integer and optimal for the ILP problem.",
      "$z(\\ILP) = \\lfloor z(\\LP) \\rfloor$ for every ILP problem with integer data, because the costs are integer."
     ],
-    "spiegazione": "Every integer solution is feasible for the relaxation, which has the same objective function. In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$) $\\lfloor z(\\LP) \\rfloor = 15 > 14 = z(\\ILP)$."
+    "spiegazione": "Every integer solution is feasible for the relaxation, which has the same objective function. In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$) $\\lfloor z(\\LP) \\rfloor = 15 > 14 = z(\\ILP)$."
    }
   },
   {
@@ -971,7 +971,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Quanti vertici ha l'inviluppo convesso dei $16$ punti interi ammissibili dell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$)?",
+    "testo": "Quanti vertici ha l'inviluppo convesso dei $16$ punti interi ammissibili dell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$)?",
     "opzioni": [
      "$16$",
      "$4$",
@@ -981,7 +981,7 @@
     "spiegazione": "I vertici sono $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$; degli altri $10$ punti cinque stanno sul bordo e cinque all'interno."
    },
    "en": {
-    "testo": "How many vertices does the convex hull of the $16$ feasible integer points of the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) have?",
+    "testo": "How many vertices does the convex hull of the $16$ feasible integer points of the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) have?",
     "opzioni": [
      "$16$",
      "$4$",
@@ -1001,7 +1001,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), sia $P$ il poliedro dei due vincoli con $\\vet x \\ge \\vet 0$ e $F$ l'insieme dei punti interi ammissibili. Perché $P$ non è una formulazione ideale, cioè $P \\neq \\mathrm{conv}(F)$?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), sia $P$ il poliedro dei due vincoli con $\\vet x \\ge \\vet 0$ e $F$ l'insieme dei punti interi ammissibili. Perché $P$ non è una formulazione ideale, cioè $P \\neq \\mathrm{conv}(F)$?",
     "opzioni": [
      "Perché il punto $(\\frac{7}{2}, \\frac{5}{2})$ di $P$ viola $x_1 + x_2 \\le 5$, valida per $\\mathrm{conv}(F)$.",
      "Perché il problema PLI ha più soluzioni ottime e il rilassamento una sola.",
@@ -1011,7 +1011,7 @@
     "spiegazione": "Basta un punto di $P$ fuori dall'inviluppo: l'ottimo del rilassamento $(\\frac{7}{2}, \\frac{5}{2})$ ha somma $6 > 5$."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), let $P$ be the polyhedron of the two constraints with $\\vet x \\ge \\vet 0$ and $F$ the set of feasible integer points. Why is $P$ not an ideal formulation, that is $P \\neq \\mathrm{conv}(F)$?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), let $P$ be the polyhedron of the two constraints with $\\vet x \\ge \\vet 0$ and $F$ the set of feasible integer points. Why is $P$ not an ideal formulation, that is $P \\neq \\mathrm{conv}(F)$?",
     "opzioni": [
      "Because the point $(\\frac{7}{2}, \\frac{5}{2})$ of $P$ violates $x_1 + x_2 \\le 5$, valid for $\\mathrm{conv}(F)$.",
      "Because the ILP problem has several optimal solutions and the relaxation only one.",
@@ -1031,7 +1031,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), l'inviluppo convesso dei punti interi ammissibili ha vertici $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$. Quanti dei $16$ punti interi ammissibili stanno nell'interno (non sul bordo) dell'inviluppo?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), l'inviluppo convesso dei punti interi ammissibili ha vertici $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$. Quanti dei $16$ punti interi ammissibili stanno nell'interno (non sul bordo) dell'inviluppo?",
     "opzioni": [
      "$10$",
      "$5$",
@@ -1041,7 +1041,7 @@
     "spiegazione": "Sul bordo, oltre ai vertici, stanno $(0,1)$, $(0,2)$, $(1,0)$, $(2,0)$, $(3,0)$; all'interno $(1,1)$, $(2,1)$, $(3,1)$, $(1,2)$, $(2,2)$. Un punto che non è vertice può stare sul bordo."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the convex hull of the feasible integer points has vertices $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$. How many of the $16$ feasible integer points lie in the interior (not on the boundary) of the hull?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the convex hull of the feasible integer points has vertices $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$. How many of the $16$ feasible integer points lie in the interior (not on the boundary) of the hull?",
     "opzioni": [
      "$10$",
      "$5$",
@@ -1271,7 +1271,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si moltiplica il primo vincolo per $\\frac{1}{2}$ e, poiché per ogni soluzione intera il membro sinistro è intero, si arrotonda per difetto il termine noto. Quale disuguaglianza valida si ottiene?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si moltiplica il primo vincolo per $\\frac{1}{2}$ e, poiché per ogni soluzione intera il membro sinistro è intero, si arrotonda per difetto il termine noto. Quale disuguaglianza valida si ottiene?",
     "opzioni": [
      "$5x_1 + 2x_2 \\le 23$",
      "$5x_1 + 2x_2 \\le 21$",
@@ -1281,7 +1281,7 @@
     "spiegazione": "$5x_1 + 2x_2 \\le \\frac{45}{2}$ con membro sinistro intero: il termine noto si arrotonda per difetto a $22$."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the first constraint is multiplied by $\\frac{1}{2}$ and, since the left-hand side is integer for every integer solution, the right-hand side is rounded down. Which valid inequality is obtained?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the first constraint is multiplied by $\\frac{1}{2}$ and, since the left-hand side is integer for every integer solution, the right-hand side is rounded down. Which valid inequality is obtained?",
     "opzioni": [
      "$5x_1 + 2x_2 \\le 23$",
      "$5x_1 + 2x_2 \\le 21$",
@@ -1331,7 +1331,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), la disuguaglianza $x_1 + x_2 \\le 6$ è valida. Che cosa fa rispetto all'ottimo del rilassamento lineare $(\\frac{7}{2}, \\frac{5}{2})$?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), la disuguaglianza $x_1 + x_2 \\le 6$ è valida. Che cosa fa rispetto all'ottimo del rilassamento lineare $(\\frac{7}{2}, \\frac{5}{2})$?",
     "opzioni": [
      "Lo elimina e porta l'upper bound arrotondato a $14$.",
      "Non lo elimina, perché in quel punto $x_1 + x_2$ vale esattamente $6$.",
@@ -1341,7 +1341,7 @@
     "spiegazione": "$\\frac{7}{2} + \\frac{5}{2} = 6$: il punto soddisfa la disuguaglianza all'uguaglianza. La disuguaglianza saturata $x_1 + x_2 \\le 5$ invece lo elimina; fermarsi a un termine noto grossolano è un errore tipico."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the inequality $x_1 + x_2 \\le 6$ is valid. What does it do with respect to the optimum of the LP relaxation $(\\frac{7}{2}, \\frac{5}{2})$?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the inequality $x_1 + x_2 \\le 6$ is valid. What does it do with respect to the optimum of the LP relaxation $(\\frac{7}{2}, \\frac{5}{2})$?",
     "opzioni": [
      "It cuts it off and brings the rounded upper bound to $14$.",
      "It does not cut it off, because at that point $x_1 + x_2$ equals exactly $6$.",
@@ -1361,7 +1361,7 @@
    },
    "corretta": 2,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) il rilassamento lineare ha valore ottimo $z(\\LP) = \\frac{31}{2}$ e upper bound arrotondato $\\lfloor z(\\LP) \\rfloor = 15$. Le disuguaglianze valide $5x_1 + 2x_2 \\le 22$ e $2x_1 + 7x_2 \\le 24$ eliminano entrambe l'ottimo $(\\frac{7}{2}, \\frac{5}{2})$. Che cosa diventa l'upper bound arrotondato aggiungendone una?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) il rilassamento lineare ha valore ottimo $z(\\LP) = \\frac{31}{2}$ e upper bound arrotondato $\\lfloor z(\\LP) \\rfloor = 15$. Le disuguaglianze valide $5x_1 + 2x_2 \\le 22$ e $2x_1 + 7x_2 \\le 24$ eliminano entrambe l'ottimo $(\\frac{7}{2}, \\frac{5}{2})$. Che cosa diventa l'upper bound arrotondato aggiungendone una?",
     "opzioni": [
      "Scende a $14$ con ciascuna delle due.",
      "Scende a $13$ con ciascuna delle due.",
@@ -1371,7 +1371,7 @@
     "spiegazione": "I nuovi valori sono $\\frac{472}{31}$ e $\\frac{957}{62}$, entrambi con parte intera $15$: una disuguaglianza che elimina l'ottimo LP non migliora sempre il bound arrotondato."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the LP relaxation has optimal value $z(\\LP) = \\frac{31}{2}$ and rounded upper bound $\\lfloor z(\\LP) \\rfloor = 15$. The valid inequalities $5x_1 + 2x_2 \\le 22$ and $2x_1 + 7x_2 \\le 24$ both cut off the optimum $(\\frac{7}{2}, \\frac{5}{2})$. What does the rounded upper bound become when one of them is added?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the LP relaxation has optimal value $z(\\LP) = \\frac{31}{2}$ and rounded upper bound $\\lfloor z(\\LP) \\rfloor = 15$. The valid inequalities $5x_1 + 2x_2 \\le 22$ and $2x_1 + 7x_2 \\le 24$ both cut off the optimum $(\\frac{7}{2}, \\frac{5}{2})$. What does the rounded upper bound become when one of them is added?",
     "opzioni": [
      "It drops to $14$ with either of them.",
      "It drops to $13$ with either of them.",
@@ -1421,7 +1421,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), qual è la disuguaglianza con coefficienti $(1, 2)$ valida e saturata, cioè soddisfatta da tutti i punti interi ammissibili e all'uguaglianza da almeno uno?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), qual è la disuguaglianza con coefficienti $(1, 2)$ valida e saturata, cioè soddisfatta da tutti i punti interi ammissibili e all'uguaglianza da almeno uno?",
     "opzioni": [
      "$x_1 + 2x_2 \\le 7$",
      "$x_1 + 2x_2 \\le 8$",
@@ -1431,7 +1431,7 @@
     "spiegazione": "Con $\\beta = 8$ si ha $x_1 = 8 - 2x_2$: i vincoli danno $x_2 \\ge 3$ e $x_2 \\le 2$, contraddizione. Con $\\beta = 7$ i punti $(3,2)$ e $(1,3)$ sono ammissibili: $x_1 + 2x_2 \\le 7$ è saturata."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), which inequality with coefficients $(1, 2)$ is valid and tight, that is satisfied by all the feasible integer points and with equality by at least one?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), which inequality with coefficients $(1, 2)$ is valid and tight, that is satisfied by all the feasible integer points and with equality by at least one?",
     "opzioni": [
      "$x_1 + 2x_2 \\le 7$",
      "$x_1 + 2x_2 \\le 8$",
@@ -3588,7 +3588,7 @@
      "Che $\\lfloor \\tilde{\\vet x} \\rfloor$ è una soluzione ottima del MIP.",
      "Che l'arrotondamento per eccesso appartiene a $\\mathcal{L}$."
     ],
-    "spiegazione": "Arrotondare per difetto non aumenta alcun membro sinistro con coefficienti non negativi, e resta $\\ge \\vet 0$; nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$) il punto ottenuto non è ottimo ($13$ invece di $14$)."
+    "spiegazione": "Arrotondare per difetto non aumenta alcun membro sinistro con coefficienti non negativi, e resta $\\ge \\vet 0$; nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$) il punto ottenuto non è ottimo ($13$ invece di $14$)."
    },
    "en": {
     "testo": "Let $\\mathcal{L} = \\{\\vet x \\in \\R^n : \\mat A\\,\\vet x \\le \\vet b,\\ \\vet l \\le \\vet x \\le \\vet u\\}$ be the region of the LP relaxation of a MIP, and let $\\lfloor \\tilde{\\vet x} \\rfloor$ be the point obtained from $\\tilde{\\vet x}$ by rounding the integer variables down. All coefficients of $\\mat A$ are nonnegative, $\\vet b \\ge \\vet 0$ and $\\vet l = \\vet 0$. What can be guaranteed for $\\tilde{\\vet x} \\in \\mathcal{L}$?",
@@ -3598,7 +3598,7 @@
      "That $\\lfloor \\tilde{\\vet x} \\rfloor$ is an optimal solution of the MIP.",
      "That rounding up belongs to $\\mathcal{L}$."
     ],
-    "spiegazione": "Rounding down does not increase any left-hand side with nonnegative coefficients, and stays $\\ge \\vet 0$; in the car example ($\\max\\ 3x_1 + 2x_2$) the point obtained is not optimal ($13$ instead of $14$)."
+    "spiegazione": "Rounding down does not increase any left-hand side with nonnegative coefficients, and stays $\\ge \\vet 0$; in the car production example ($\\max\\ 3x_1 + 2x_2$) the point obtained is not optimal ($13$ instead of $14$)."
    }
   },
   {
@@ -3761,7 +3761,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si applica il diving frazionario: si fissa la variabile frazionaria più vicina a un intero all'intero più vicino (pareggi per indice minimo, a $\\frac{1}{2}$ per eccesso) e si risolve di nuovo, partendo dall'ottimo del rilassamento $(\\frac{7}{2}, \\frac{5}{2})$. Che cosa restituisce?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si applica il diving frazionario: si fissa la variabile frazionaria più vicina a un intero all'intero più vicino (pareggi per indice minimo, a $\\frac{1}{2}$ per eccesso) e si risolve di nuovo, partendo dall'ottimo del rilassamento $(\\frac{7}{2}, \\frac{5}{2})$. Che cosa restituisce?",
     "opzioni": [
      "$(4,1)$, di valore $14$",
      "$(3,2)$, di valore $13$",
@@ -3771,7 +3771,7 @@
     "spiegazione": "Pareggio a distanza $\\frac{1}{2}$: si fissa $x_1 = 4$; il nuovo ottimo è $(4, \\frac{5}{4})$, si fissa $x_2 = 1$ e la soluzione $(4,1)$ è intera, ed è l'ottimo del problema."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) fractional diving is applied: the fractional variable closest to an integer is fixed to the nearest integer (ties by minimum index, $\\frac{1}{2}$ rounded up) and the relaxation is solved again, starting from its optimum $(\\frac{7}{2}, \\frac{5}{2})$. What does it return?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) fractional diving is applied: the fractional variable closest to an integer is fixed to the nearest integer (ties by minimum index, $\\frac{1}{2}$ rounded up) and the relaxation is solved again, starting from its optimum $(\\frac{7}{2}, \\frac{5}{2})$. What does it return?",
     "opzioni": [
      "$(4,1)$, of value $14$",
      "$(3,2)$, of value $13$",
@@ -4091,7 +4091,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Con i vincoli dell'esempio dell'auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) e l'obiettivo $\\max\\ x_1 - x_2$, il rilassamento lineare ha l'ottimo $(\\frac{9}{2}, 0)$. Si aggiunge l'upper bound $x_1 \\le \\lfloor \\frac{45}{10} \\rfloor = 4$. Che cosa succede?",
+    "testo": "Con i vincoli dell'esempio della produzione di auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) e l'obiettivo $\\max\\ x_1 - x_2$, il rilassamento lineare ha l'ottimo $(\\frac{9}{2}, 0)$. Si aggiunge l'upper bound $x_1 \\le \\lfloor \\frac{45}{10} \\rfloor = 4$. Che cosa succede?",
     "opzioni": [
      "Nulla: gli upper bound sulle variabili non tagliano mai l'ottimo LP.",
      "Il nuovo ottimo LP è $(4, 0)$, intero e quindi ottimo; il bound arrotondato era già $4$.",
@@ -4101,7 +4101,7 @@
     "spiegazione": "$(\\frac{9}{2}, 0)$ viola $x_1 \\le 4$, e il nuovo ottimo $(4,0)$ ha valore $4$. Il bound arrotondato era $\\lfloor \\frac{9}{2} \\rfloor = 4$ già prima: una formulazione migliore non migliora sempre il bound arrotondato."
    },
    "en": {
-    "testo": "With the constraints of the car example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) and the objective $\\max\\ x_1 - x_2$, the LP relaxation has the optimum $(\\frac{9}{2}, 0)$. The upper bound $x_1 \\le \\lfloor \\frac{45}{10} \\rfloor = 4$ is added. What happens?",
+    "testo": "With the constraints of the car production example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) and the objective $\\max\\ x_1 - x_2$, the LP relaxation has the optimum $(\\frac{9}{2}, 0)$. The upper bound $x_1 \\le \\lfloor \\frac{45}{10} \\rfloor = 4$ is added. What happens?",
     "opzioni": [
      "Nothing: upper bounds on the variables never cut off the LP optimum.",
      "The new LP optimum is $(4, 0)$, integer and hence optimal; the rounded bound was already $4$.",
@@ -4151,7 +4151,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si combinano i vincoli con i moltiplicatori $(\\pi_1, \\pi_2)$ per ottenere il bound $45\\pi_1 + 49\\pi_2$ su $z(\\ILP)$. Quale coppia dà un bound valido?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si combinano i vincoli con i moltiplicatori $(\\pi_1, \\pi_2)$ per ottenere il bound $45\\pi_1 + 49\\pi_2$ su $z(\\ILP)$. Quale coppia dà un bound valido?",
     "opzioni": [
      "$(\\pi_1, \\pi_2) = (1, -\\frac{1}{14})$",
      "$(\\pi_1, \\pi_2) = (\\frac{3}{10}, \\frac{1}{7})$",
@@ -4161,7 +4161,7 @@
     "spiegazione": "Servono $\\pi_1, \\pi_2 \\ge 0$, $10\\pi_1 + 4\\pi_2 \\ge 3$ e $4\\pi_1 + 14\\pi_2 \\ge 2$. $(\\frac{3}{10}, \\frac{1}{7})$: $\\frac{25}{7} \\ge 3$ e $\\frac{16}{5} \\ge 2$, bound $\\frac{41}{2}$. $(1, -\\frac{1}{14})$ ha un moltiplicatore negativo; $(\\frac{3}{10}, 0)$ dà $\\frac{6}{5} < 2$; $(\\frac{1}{5}, \\frac{1}{14})$ dà $\\frac{16}{7} < 3$."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the constraints are combined with the multipliers $(\\pi_1, \\pi_2)$ to obtain the bound $45\\pi_1 + 49\\pi_2$ on $z(\\ILP)$. Which pair gives a valid bound?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the constraints are combined with the multipliers $(\\pi_1, \\pi_2)$ to obtain the bound $45\\pi_1 + 49\\pi_2$ on $z(\\ILP)$. Which pair gives a valid bound?",
     "opzioni": [
      "$(\\pi_1, \\pi_2) = (1, -\\frac{1}{14})$",
      "$(\\pi_1, \\pi_2) = (\\frac{3}{10}, \\frac{1}{7})$",
@@ -4271,7 +4271,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Nell'esempio dell'auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) l'inviluppo convesso dei punti interi ammissibili ha vertici $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$. Dove stanno i punti ammissibili $(0,1)$ e $(3,0)$, che non sono vertici?",
+    "testo": "Nell'esempio della produzione di auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) l'inviluppo convesso dei punti interi ammissibili ha vertici $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$. Dove stanno i punti ammissibili $(0,1)$ e $(3,0)$, che non sono vertici?",
     "opzioni": [
      "Strettamente all'interno dell'inviluppo.",
      "Sul bordo dell'inviluppo, su due lati.",
@@ -4281,7 +4281,7 @@
     "spiegazione": "$(0,1)$ sta sul lato da $(0,0)$ a $(0,3)$ e $(3,0)$ sul lato da $(0,0)$ a $(4,0)$: un punto che non è un vertice può stare sul bordo."
    },
    "en": {
-    "testo": "In the car example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the convex hull of the feasible integer points has vertices $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$. Where are the feasible points $(0,1)$ and $(3,0)$, which are not vertices?",
+    "testo": "In the car production example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the convex hull of the feasible integer points has vertices $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$. Where are the feasible points $(0,1)$ and $(3,0)$, which are not vertices?",
     "opzioni": [
      "Strictly inside the hull.",
      "On the boundary of the hull, on two edges.",
@@ -4391,7 +4391,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Nell'esempio dell'auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si cerca la disuguaglianza valida più forte $x_1 + x_2 \\le \\beta$, abbassando $\\beta$ finché un punto intero ammissibile ha $x_1 + x_2 = \\beta$. Con $\\beta = 6$ e $x_2 = 6 - x_1$ i vincoli danno $x_1 \\le \\frac{7}{2}$ e $x_1 \\ge \\frac{7}{2}$. Che cosa si fa?",
+    "testo": "Nell'esempio della produzione di auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si cerca la disuguaglianza valida più forte $x_1 + x_2 \\le \\beta$, abbassando $\\beta$ finché un punto intero ammissibile ha $x_1 + x_2 = \\beta$. Con $\\beta = 6$ e $x_2 = 6 - x_1$ i vincoli danno $x_1 \\le \\frac{7}{2}$ e $x_1 \\ge \\frac{7}{2}$. Che cosa si fa?",
     "opzioni": [
      "Ci si ferma: $x_1 = \\frac{7}{2}$ soddisfa entrambi, quindi $\\beta = 6$ è stretto.",
      "Si pone $\\beta = 7$: i due bound coincidono, quindi $\\beta$ va aumentato.",
@@ -4401,7 +4401,7 @@
     "spiegazione": "Il punto deve essere intero: $x_1 \\le \\lfloor \\frac{7}{2} \\rfloor = 3$ e $x_1 \\ge \\lceil \\frac{7}{2} \\rceil = 4$. Nessun punto intero ha somma $6$; con $\\beta = 5$ si trovano $(3,2)$ e $(4,1)$."
    },
    "en": {
-    "testo": "In the car example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) we look for the strongest valid inequality $x_1 + x_2 \\le \\beta$, lowering $\\beta$ until a feasible integer point has $x_1 + x_2 = \\beta$. With $\\beta = 6$ and $x_2 = 6 - x_1$ the constraints give $x_1 \\le \\frac{7}{2}$ and $x_1 \\ge \\frac{7}{2}$. What is done?",
+    "testo": "In the car production example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) we look for the strongest valid inequality $x_1 + x_2 \\le \\beta$, lowering $\\beta$ until a feasible integer point has $x_1 + x_2 = \\beta$. With $\\beta = 6$ and $x_2 = 6 - x_1$ the constraints give $x_1 \\le \\frac{7}{2}$ and $x_1 \\ge \\frac{7}{2}$. What is done?",
     "opzioni": [
      "We stop: $x_1 = \\frac{7}{2}$ satisfies both, so $\\beta = 6$ is tight.",
      "We set $\\beta = 7$: the two bounds coincide, so $\\beta$ must be increased.",
@@ -4456,7 +4456,7 @@
      "Ai tagli frazionari di Gomory, ottenuti da una riga del dizionario ottimo.",
      "Agli upper bound sulle variabili $x_j \\le \\lfloor b / a_j \\rfloor$.",
      "Alle disuguaglianze di cover del vincolo.",
-     "Alle disuguaglianze della formulazione ideale dell'esempio dell'auto."
+     "Alle disuguaglianze della formulazione ideale dell'esempio della produzione di auto."
     ],
     "spiegazione": "$\\{1,2\\}$ è un cover (coefficienti con somma maggiore di $8$): al più $|C| - 1 = 1$ delle sue variabili vale $1$."
    },
@@ -4466,7 +4466,7 @@
      "To the Gomory fractional cuts, obtained from a row of the optimal dictionary.",
      "To the upper bounds on the variables $x_j \\le \\lfloor b / a_j \\rfloor$.",
      "To the cover inequalities of the constraint.",
-     "To the inequalities of the ideal formulation of the car example."
+     "To the inequalities of the ideal formulation of the car production example."
     ],
     "spiegazione": "$\\{1,2\\}$ is a cover (coefficients summing to more than $8$): at most $|C| - 1 = 1$ of its variables equals $1$."
    }
@@ -4481,7 +4481,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Nell'esempio dell'auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) uno studente usa i moltiplicatori $(\\frac{1}{20}, \\frac{1}{20})$: ottiene $\\frac{7}{10}x_1 + \\frac{9}{10}x_2 \\le \\frac{47}{10}$ e scrive $x_1 + x_2 \\le 4$. Che cosa non va?",
+    "testo": "Nell'esempio della produzione di auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) uno studente usa i moltiplicatori $(\\frac{1}{20}, \\frac{1}{20})$: ottiene $\\frac{7}{10}x_1 + \\frac{9}{10}x_2 \\le \\frac{47}{10}$ e scrive $x_1 + x_2 \\le 4$. Che cosa non va?",
     "opzioni": [
      "Niente: è valida e più forte di $x_1 + x_2 \\le 5$, perché $\\frac{47}{10}$ si arrotonda a $4$.",
      "Il termine noto andava arrotondato per eccesso, a $5$, perché i coefficienti sono minori di $1$.",
@@ -4491,7 +4491,7 @@
     "spiegazione": "Per scrivere $x_1 + x_2 \\le \\lfloor \\cdot \\rfloor$ servono coefficienti combinati almeno $1$; qui $\\frac{7}{10}$ e $\\frac{9}{10}$ non bastano. Il punto ammissibile $(4,1)$ ha somma $5 > 4$."
    },
    "en": {
-    "testo": "In the car example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) a student uses the multipliers $(\\frac{1}{20}, \\frac{1}{20})$: he gets $\\frac{7}{10}x_1 + \\frac{9}{10}x_2 \\le \\frac{47}{10}$ and writes $x_1 + x_2 \\le 4$. What is wrong?",
+    "testo": "In the car production example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) a student uses the multipliers $(\\frac{1}{20}, \\frac{1}{20})$: he gets $\\frac{7}{10}x_1 + \\frac{9}{10}x_2 \\le \\frac{47}{10}$ and writes $x_1 + x_2 \\le 4$. What is wrong?",
     "opzioni": [
      "Nothing: it is valid and stronger than $x_1 + x_2 \\le 5$, since $\\frac{47}{10}$ rounds down to $4$.",
      "The right-hand side should have been rounded up, to $5$, because the coefficients are below $1$.",
@@ -4511,7 +4511,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) è nota la soluzione ammissibile $(4,1)$ di valore $14$. Con la disuguaglianza valida $x_1 + x_2 \\le 5$ il rilassamento ha l'ottimo $(\\frac{25}{6}, \\frac{5}{6})$, di valore $\\frac{85}{6}$. Che cosa si conclude?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) è nota la soluzione ammissibile $(4,1)$ di valore $14$. Con la disuguaglianza valida $x_1 + x_2 \\le 5$ il rilassamento ha l'ottimo $(\\frac{25}{6}, \\frac{5}{6})$, di valore $\\frac{85}{6}$. Che cosa si conclude?",
     "opzioni": [
      "Nulla: l'ottimo del rilassamento è frazionario, quindi serve altro.",
      "$\\lfloor \\frac{85}{6} \\rfloor = 14$: il bound superiore è uguale a $14$ e $(4,1)$ è certificata ottima.",
@@ -4521,7 +4521,7 @@
     "spiegazione": "Con variabili e costi interi $z(\\ILP) \\le \\lfloor z(\\LP) \\rfloor = 14$; insieme a $z(\\ILP) \\ge 14$ il gap è zero."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the feasible solution $(4,1)$ of value $14$ is known. With the valid inequality $x_1 + x_2 \\le 5$ the relaxation has the optimum $(\\frac{25}{6}, \\frac{5}{6})$, of value $\\frac{85}{6}$. What is concluded?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the feasible solution $(4,1)$ of value $14$ is known. With the valid inequality $x_1 + x_2 \\le 5$ the relaxation has the optimum $(\\frac{25}{6}, \\frac{5}{6})$, of value $\\frac{85}{6}$. What is concluded?",
     "opzioni": [
      "Nothing: the optimum of the relaxation is fractional, so more is needed.",
      "$\\lfloor \\frac{85}{6} \\rfloor = 14$: the upper bound equals $14$ and $(4,1)$ is certified optimal.",
@@ -4541,7 +4541,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Per l'esempio dell'auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si sono ricavate le disuguaglianze valide $x_1 \\le 4$, $x_2 \\le 3$, $x_1 + x_2 \\le 5$, $x_1 + 2x_2 \\le 7$. Che poliedro descrivono, con $\\vet x \\ge \\vet 0$?",
+    "testo": "Per l'esempio della produzione di auto ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si sono ricavate le disuguaglianze valide $x_1 \\le 4$, $x_2 \\le 3$, $x_1 + x_2 \\le 5$, $x_1 + 2x_2 \\le 7$. Che poliedro descrivono, con $\\vet x \\ge \\vet 0$?",
     "opzioni": [
      "Una formulazione più forte dell'originale, ma con vertici frazionari.",
      "Un poliedro che esclude alcuni punti interi ammissibili.",
@@ -4551,7 +4551,7 @@
     "spiegazione": "I vertici sono $(0,0)$, $(4,0)$, $(4,1)$, $(3,2)$, $(1,3)$, $(0,3)$, tutti interi e ammissibili: le quattro disuguaglianze sono la formulazione ideale."
    },
    "en": {
-    "testo": "For the car example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the valid inequalities $x_1 \\le 4$, $x_2 \\le 3$, $x_1 + x_2 \\le 5$, $x_1 + 2x_2 \\le 7$ were derived. Which polyhedron do they describe, with $\\vet x \\ge \\vet 0$?",
+    "testo": "For the car production example ($10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the valid inequalities $x_1 \\le 4$, $x_2 \\le 3$, $x_1 + x_2 \\le 5$, $x_1 + 2x_2 \\le 7$ were derived. Which polyhedron do they describe, with $\\vet x \\ge \\vet 0$?",
     "opzioni": [
      "A formulation stronger than the original one, but with fractional vertices.",
      "A polyhedron that excludes some feasible integer points.",
@@ -4866,12 +4866,12 @@
    "livello": "facile",
    "capitolo": "gomory",
    "link": {
-    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/gomory/#63-lesempio-dellauto",
-    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/gomory/#63-the-car-example"
+    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/gomory/#63-lesempio-della-produzione-di-auto",
+    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/gomory/#63-the-car-production-example"
    },
    "corretta": 2,
    "it": {
-    "testo": "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory risolve l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$). Il quarto taglio, nelle variabili originali, è $7x_1 + 7x_2 \\le 40$; con la sua forma primitiva il rilassamento ha l'ottimo $(\\frac{25}{6}, \\frac{5}{6})$ di valore $\\frac{85}{6}$. Quali sono il taglio primitivo e il bound superiore $\\UB = \\lfloor z(\\LP) \\rfloor$?",
+    "testo": "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory risolve l'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$). Il quarto taglio, nelle variabili originali, è $7x_1 + 7x_2 \\le 40$; con la sua forma primitiva il rilassamento ha l'ottimo $(\\frac{25}{6}, \\frac{5}{6})$ di valore $\\frac{85}{6}$. Quali sono il taglio primitivo e il bound superiore $\\UB = \\lfloor z(\\LP) \\rfloor$?",
     "opzioni": [
      "$x_1 + x_2 \\le \\frac{40}{7}$ e $\\UB = 14$",
      "$x_1 + x_2 \\le 6$ e $\\UB = 15$",
@@ -4881,7 +4881,7 @@
     "spiegazione": "Si divide per il MCD $7$ e si arrotonda per difetto il termine noto: $\\lfloor \\frac{40}{7} \\rfloor = 5$. Poi $\\lfloor \\frac{85}{6} \\rfloor = 14$."
    },
    "en": {
-    "testo": "The cutting plane algorithm with Gomory fractional cuts solves the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$). The fourth cut, in the original variables, is $7x_1 + 7x_2 \\le 40$; with its primitive form the relaxation has the optimum $(\\frac{25}{6}, \\frac{5}{6})$ of value $\\frac{85}{6}$. What are the primitive cut and the upper bound $\\UB = \\lfloor z(\\LP) \\rfloor$?",
+    "testo": "The cutting plane algorithm with Gomory fractional cuts solves the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$). The fourth cut, in the original variables, is $7x_1 + 7x_2 \\le 40$; with its primitive form the relaxation has the optimum $(\\frac{25}{6}, \\frac{5}{6})$ of value $\\frac{85}{6}$. What are the primitive cut and the upper bound $\\UB = \\lfloor z(\\LP) \\rfloor$?",
     "opzioni": [
      "$x_1 + x_2 \\le \\frac{40}{7}$ and $\\UB = 14$",
      "$x_1 + x_2 \\le 6$ and $\\UB = 15$",
@@ -4896,12 +4896,12 @@
    "livello": "facile",
    "capitolo": "gomory",
    "link": {
-    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/gomory/#63-lesempio-dellauto",
-    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/gomory/#63-the-car-example"
+    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/gomory/#63-lesempio-della-produzione-di-auto",
+    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/gomory/#63-the-car-production-example"
    },
    "corretta": 3,
    "it": {
-    "testo": "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory risolve l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), di cui è nota la soluzione ammissibile $(4,1)$ di valore $14$. Dopo il quarto taglio $\\lfloor z(\\LP) \\rfloor = 14$, ma l'ottimo del rilassamento $(\\frac{25}{6}, \\frac{5}{6})$ è frazionario. Che cosa fa l'algoritmo?",
+    "testo": "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory risolve l'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), di cui è nota la soluzione ammissibile $(4,1)$ di valore $14$. Dopo il quarto taglio $\\lfloor z(\\LP) \\rfloor = 14$, ma l'ottimo del rilassamento $(\\frac{25}{6}, \\frac{5}{6})$ è frazionario. Che cosa fa l'algoritmo?",
     "opzioni": [
      "Si ferma: il bound non migliora più, quindi $(4,1)$ è ottima.",
      "Si ferma e restituisce $(\\frac{25}{6}, \\frac{5}{6})$ arrotondato, cioè $(4,1)$.",
@@ -4911,7 +4911,7 @@
     "spiegazione": "L'algoritmo non usa bound inferiori: si arresta quando la soluzione di $\\LP_k$ è intera. Il quinto taglio $9x_1 + 4x_2 \\le 40$ dà l'ottimo intero $(4,1)$."
    },
    "en": {
-    "testo": "The cutting plane algorithm with Gomory fractional cuts solves the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), for which the feasible solution $(4,1)$ of value $14$ is known. After the fourth cut $\\lfloor z(\\LP) \\rfloor = 14$, but the optimum of the relaxation $(\\frac{25}{6}, \\frac{5}{6})$ is fractional. What does the algorithm do?",
+    "testo": "The cutting plane algorithm with Gomory fractional cuts solves the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), for which the feasible solution $(4,1)$ of value $14$ is known. After the fourth cut $\\lfloor z(\\LP) \\rfloor = 14$, but the optimum of the relaxation $(\\frac{25}{6}, \\frac{5}{6})$ is fractional. What does the algorithm do?",
     "opzioni": [
      "It stops: the bound does not improve any more, so $(4,1)$ is optimal.",
      "It stops and returns $(\\frac{25}{6}, \\frac{5}{6})$ rounded, that is $(4,1)$.",
@@ -5021,7 +5021,7 @@
    },
    "corretta": 2,
    "it": {
-    "testo": "Con i tagli frazionari di Gomory su l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), il valore del rilassamento passa da $\\frac{31}{2}$ a $\\frac{232}{15}$, $\\frac{891}{58}$ e $\\frac{275}{18}$ dopo i primi tre tagli. Che cosa succede al bound superiore $\\lfloor z(\\LP_k) \\rfloor$?",
+    "testo": "Con i tagli frazionari di Gomory sull'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), il valore del rilassamento passa da $\\frac{31}{2}$ a $\\frac{232}{15}$, $\\frac{891}{58}$ e $\\frac{275}{18}$ dopo i primi tre tagli. Che cosa succede al bound superiore $\\lfloor z(\\LP_k) \\rfloor$?",
     "opzioni": [
      "Scende di $1$ a ogni taglio: $15$, $14$, $13$.",
      "Sale e scende, perché un taglio può aumentare $z(\\LP_k)$.",
@@ -5031,7 +5031,7 @@
     "spiegazione": "$\\frac{232}{15} \\approx 15{,}47$, $\\frac{891}{58} \\approx 15{,}36$, $\\frac{275}{18} \\approx 15{,}28$: il valore decresce, il bound arrotondato no. I tagli perdono efficacia (tailing off)."
    },
    "en": {
-    "testo": "With Gomory fractional cuts on the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the value of the relaxation goes from $\\frac{31}{2}$ to $\\frac{232}{15}$, $\\frac{891}{58}$ and $\\frac{275}{18}$ after the first three cuts. What happens to the upper bound $\\lfloor z(\\LP_k) \\rfloor$?",
+    "testo": "With Gomory fractional cuts on the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the value of the relaxation goes from $\\frac{31}{2}$ to $\\frac{232}{15}$, $\\frac{891}{58}$ and $\\frac{275}{18}$ after the first three cuts. What happens to the upper bound $\\lfloor z(\\LP_k) \\rfloor$?",
     "opzioni": [
      "It drops by $1$ at every cut: $15$, $14$, $13$.",
      "It goes up and down, because a cut can increase $z(\\LP_k)$.",
@@ -5051,7 +5051,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Nel branch-and-bound su l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) l'ottimo del rilassamento ha $x_1 = \\frac{7}{2}$, e si creano i due figli $x_1 \\le 3$ e $x_1 \\ge 4$. Che cosa viene tolto dalla regione del rilassamento?",
+    "testo": "Nel branch-and-bound sull'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) l'ottimo del rilassamento ha $x_1 = \\frac{7}{2}$, e si creano i due figli $x_1 \\le 3$ e $x_1 \\ge 4$. Che cosa viene tolto dalla regione del rilassamento?",
     "opzioni": [
      "La striscia $3 < x_1 < 4$, che non contiene punti interi.",
      "I punti interi con $x_1 = 3$, che stanno sul bordo.",
@@ -5061,7 +5061,7 @@
     "spiegazione": "Ogni soluzione intera ha $x_1 \\le 3$ oppure $x_1 \\ge 4$: i figli insieme contengono tutte le soluzioni intere e escludono solo la striscia intermedia."
    },
    "en": {
-    "testo": "In branch-and-bound on the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the optimum of the relaxation has $x_1 = \\frac{7}{2}$, and the two children $x_1 \\le 3$ and $x_1 \\ge 4$ are created. What is removed from the region of the relaxation?",
+    "testo": "In branch-and-bound on the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the optimum of the relaxation has $x_1 = \\frac{7}{2}$, and the two children $x_1 \\le 3$ and $x_1 \\ge 4$ are created. What is removed from the region of the relaxation?",
     "opzioni": [
      "The strip $3 < x_1 < 4$, which contains no integer point.",
      "The integer points with $x_1 = 3$, which lie on the boundary.",
@@ -5111,7 +5111,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Nel branch-and-bound sull'esempio dell'auto la riga di $x_1$ nel dizionario ottimo della radice è $x_1 = \\frac{7}{2} - \\frac{7}{62}x_3 + \\frac{1}{31}x_4$ ($x_3, x_4$: scarti, non di base). Per il figlio $x_1 \\ge 4$ si introduce la variabile di surplus $x_5 = x_1 - 4 \\ge 0$. Qual è la nuova riga del dizionario?",
+    "testo": "Nel branch-and-bound sull'esempio della produzione di auto la riga di $x_1$ nel dizionario ottimo della radice è $x_1 = \\frac{7}{2} - \\frac{7}{62}x_3 + \\frac{1}{31}x_4$ ($x_3, x_4$: scarti, non di base). Per il figlio $x_1 \\ge 4$ si introduce la variabile di surplus $x_5 = x_1 - 4 \\ge 0$. Qual è la nuova riga del dizionario?",
     "opzioni": [
      "$x_5 = \\frac{1}{2} - \\frac{7}{62}x_3 + \\frac{1}{31}x_4$",
      "$x_5 = -\\frac{1}{2} - \\frac{7}{62}x_3 + \\frac{1}{31}x_4$",
@@ -5121,7 +5121,7 @@
     "spiegazione": "Si sostituisce la riga di $x_1$ in $x_1 - 4$: il termine noto è $\\frac{7}{2} - 4 = -\\frac{1}{2}$ e i coefficienti restano quelli di $x_1$. La terza opzione è la riga del figlio $x_1 \\le 3$."
    },
    "en": {
-    "testo": "In branch-and-bound on the car example the row of $x_1$ in the optimal dictionary of the root is $x_1 = \\frac{7}{2} - \\frac{7}{62}x_3 + \\frac{1}{31}x_4$ ($x_3, x_4$: slacks, nonbasic). For the child $x_1 \\ge 4$ the surplus variable $x_5 = x_1 - 4 \\ge 0$ is introduced. What is the new row of the dictionary?",
+    "testo": "In branch-and-bound on the car production example the row of $x_1$ in the optimal dictionary of the root is $x_1 = \\frac{7}{2} - \\frac{7}{62}x_3 + \\frac{1}{31}x_4$ ($x_3, x_4$: slacks, nonbasic). For the child $x_1 \\ge 4$ the surplus variable $x_5 = x_1 - 4 \\ge 0$ is introduced. What is the new row of the dictionary?",
     "opzioni": [
      "$x_5 = \\frac{1}{2} - \\frac{7}{62}x_3 + \\frac{1}{31}x_4$",
      "$x_5 = -\\frac{1}{2} - \\frac{7}{62}x_3 + \\frac{1}{31}x_4$",
@@ -5201,7 +5201,7 @@
    },
    "corretta": 2,
    "it": {
-    "testo": "Il branch-and-bound risolve l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) in due modi: A (indice minimo, LIFO) risolve $6$ problemi LP, B (indice massimo, best bound) ne risolve $8$. Che cosa certificano?",
+    "testo": "Il branch-and-bound risolve l'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) in due modi: A (indice minimo, LIFO) risolve $6$ problemi LP, B (indice massimo, best bound) ne risolve $8$. Che cosa certificano?",
     "opzioni": [
      "B trova una soluzione migliore di A, perché il best bound esplora prima i nodi migliori.",
      "A certifica $(4,1)$, B la soluzione $(3,2)$ trovata per prima.",
@@ -5211,7 +5211,7 @@
     "spiegazione": "Entrambe le esecuzioni sono esatte e l'ottimo $(4,1)$ è unico; B trova prima una soluzione di valore $13$, ma ramificando su $x_2$ costruisce un albero più grande."
    },
    "en": {
-    "testo": "Branch-and-bound solves the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) in two ways: A (smallest index, LIFO) solves $6$ LP problems, B (largest index, best bound) solves $8$. What do they certify?",
+    "testo": "Branch-and-bound solves the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) in two ways: A (smallest index, LIFO) solves $6$ LP problems, B (largest index, best bound) solves $8$. What do they certify?",
     "opzioni": [
      "B finds a better solution than A, because best bound explores the best nodes first.",
      "A certifies $(4,1)$, B the solution $(3,2)$ found first.",
@@ -5231,7 +5231,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Nel branch-and-bound basato sulla PL per un problema PLI di massimizzazione con costi interi ($\\LP_k$: rilassamento del nodo $k$, cioè vincoli originali più vincoli di branching; $\\LB$: valore della migliore soluzione intera trovata), su l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) con $\\LB = -\\infty$, la radice si ramifica su $x_1$. I figli hanno $\\tilde{\\vet x}(\\LP_2) = (3, \\frac{37}{14})$, $z(\\LP_2) = \\frac{100}{7}$ e $\\tilde{\\vet x}(\\LP_3) = (4, \\frac{5}{4})$, $z(\\LP_3) = \\frac{29}{2}$. Quanto vale il bound superiore $\\UB$, massimo dei bound $\\lfloor z(\\LP_k) \\rfloor$ dei nodi aperti?",
+    "testo": "Nel branch-and-bound basato sulla PL per un problema PLI di massimizzazione con costi interi ($\\LP_k$: rilassamento del nodo $k$, cioè vincoli originali più vincoli di branching; $\\LB$: valore della migliore soluzione intera trovata), sull'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) con $\\LB = -\\infty$, la radice si ramifica su $x_1$. I figli hanno $\\tilde{\\vet x}(\\LP_2) = (3, \\frac{37}{14})$, $z(\\LP_2) = \\frac{100}{7}$ e $\\tilde{\\vet x}(\\LP_3) = (4, \\frac{5}{4})$, $z(\\LP_3) = \\frac{29}{2}$. Quanto vale il bound superiore $\\UB$, massimo dei bound $\\lfloor z(\\LP_k) \\rfloor$ dei nodi aperti?",
     "opzioni": [
      "$15$",
      "$\\frac{100}{7}$",
@@ -5241,7 +5241,7 @@
     "spiegazione": "Entrambi i figli sono frazionari e entrano nella lista; $\\lfloor \\frac{100}{7} \\rfloor = 14$ e $\\lfloor \\frac{29}{2} \\rfloor = 14$. La radice, già ramificata, non è più nella lista."
    },
    "en": {
-    "testo": "In LP-based branch-and-bound for a maximization ILP problem with integer costs ($\\LP_k$: relaxation of node $k$, that is the original constraints plus the branching constraints; $\\LB$: value of the best integer solution found), on the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) with $\\LB = -\\infty$, the root is branched on $x_1$. The children have $\\tilde{\\vet x}(\\LP_2) = (3, \\frac{37}{14})$, $z(\\LP_2) = \\frac{100}{7}$ and $\\tilde{\\vet x}(\\LP_3) = (4, \\frac{5}{4})$, $z(\\LP_3) = \\frac{29}{2}$. What is the upper bound $\\UB$, the maximum of the bounds $\\lfloor z(\\LP_k) \\rfloor$ of the open nodes?",
+    "testo": "In LP-based branch-and-bound for a maximization ILP problem with integer costs ($\\LP_k$: relaxation of node $k$, that is the original constraints plus the branching constraints; $\\LB$: value of the best integer solution found), on the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) with $\\LB = -\\infty$, the root is branched on $x_1$. The children have $\\tilde{\\vet x}(\\LP_2) = (3, \\frac{37}{14})$, $z(\\LP_2) = \\frac{100}{7}$ and $\\tilde{\\vet x}(\\LP_3) = (4, \\frac{5}{4})$, $z(\\LP_3) = \\frac{29}{2}$. What is the upper bound $\\UB$, the maximum of the bounds $\\lfloor z(\\LP_k) \\rfloor$ of the open nodes?",
     "opzioni": [
      "$15$",
      "$\\frac{100}{7}$",
@@ -5411,7 +5411,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Il branch-and-bound su l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si inizializza con la soluzione $(3,2)$ di valore $13$ (arrotondamento per difetto dell'ottimo LP) invece che con $\\LB = -\\infty$. Che cosa può cambiare?",
+    "testo": "Il branch-and-bound sull'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si inizializza con la soluzione $(3,2)$ di valore $13$ (arrotondamento per difetto dell'ottimo LP) invece che con $\\LB = -\\infty$. Che cosa può cambiare?",
     "opzioni": [
      "Il valore ottimo, che può diventare $13$ se non si trova un nodo migliore.",
      "Il numero di nodi risolti, che può diminuire; l'ottimo $14$ resta.",
@@ -5421,7 +5421,7 @@
     "spiegazione": "Un buon $\\LB$ iniziale permette più potature per bound e cambia la dimensione dell'albero, non il valore ottimo."
    },
    "en": {
-    "testo": "Branch-and-bound on the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) is initialized with the solution $(3,2)$ of value $13$ (rounding the LP optimum down) instead of $\\LB = -\\infty$. What can change?",
+    "testo": "Branch-and-bound on the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) is initialized with the solution $(3,2)$ of value $13$ (rounding the LP optimum down) instead of $\\LB = -\\infty$. What can change?",
     "opzioni": [
      "The optimal value, which can become $13$ if no better node is found.",
      "The number of solved nodes, which can decrease; the optimum $14$ stays.",
@@ -5501,7 +5501,7 @@
    },
    "corretta": 2,
    "it": {
-    "testo": "Nel nodo $3$ dell'esempio dell'auto (figlio $x_1 \\ge 4$, $x_5 = x_1 - 4$) si aggiunge il taglio locale $x_2 \\le 1$ con scarto $x_6$. Il dizionario ha $x_6 = -\\frac{1}{4} + \\frac{1}{4}x_3 + \\frac{5}{2}x_5$ e $z = \\frac{29}{2} - \\frac{1}{2}x_3 - 2x_5$; il simplesso duale sceglie la colonna con il rapporto minimo $\\bar c_j / \\bar a_{6j}$ tra le $\\bar a_{6j} < 0$, con la convenzione $x_6 = \\bar b_6 - \\sum_j \\bar a_{6j} x_j$. Che cosa si ottiene?",
+    "testo": "Nel nodo $3$ dell'esempio della produzione di auto (figlio $x_1 \\ge 4$, $x_5 = x_1 - 4$) si aggiunge il taglio locale $x_2 \\le 1$ con scarto $x_6$. Il dizionario ha $x_6 = -\\frac{1}{4} + \\frac{1}{4}x_3 + \\frac{5}{2}x_5$ e $z = \\frac{29}{2} - \\frac{1}{2}x_3 - 2x_5$; il simplesso duale sceglie la colonna con il rapporto minimo $\\bar c_j / \\bar a_{6j}$ tra le $\\bar a_{6j} < 0$, con la convenzione $x_6 = \\bar b_6 - \\sum_j \\bar a_{6j} x_j$. Che cosa si ottiene?",
     "opzioni": [
      "Entra $x_3$; l'ottimo è $(4, 1)$ di valore $14$, e il nodo si pota per interezza.",
      "Entra $x_5$; l'ottimo è $(4, 1)$ di valore $14$, l'ottimo intero.",
@@ -5511,7 +5511,7 @@
     "spiegazione": "Rapporti: $\\frac{-1/2}{-1/4} = 2$ per $x_3$ e $\\frac{-2}{-5/2} = \\frac{4}{5}$ per $x_5$, quindi entra $x_5$ e $z = \\frac{29}{2} - \\frac{4}{5} \\cdot \\frac{1}{4} = \\frac{143}{10}$. Il taglio locale fa da vincolo di branching senza creare un nodo."
    },
    "en": {
-    "testo": "At node $3$ of the car example (child $x_1 \\ge 4$, $x_5 = x_1 - 4$) the local cut $x_2 \\le 1$ is added with slack $x_6$. The dictionary has $x_6 = -\\frac{1}{4} + \\frac{1}{4}x_3 + \\frac{5}{2}x_5$ and $z = \\frac{29}{2} - \\frac{1}{2}x_3 - 2x_5$; the dual simplex picks the column with the minimum ratio $\\bar c_j / \\bar a_{6j}$ among those with $\\bar a_{6j} < 0$, with the convention $x_6 = \\bar b_6 - \\sum_j \\bar a_{6j} x_j$. What is obtained?",
+    "testo": "At node $3$ of the car production example (child $x_1 \\ge 4$, $x_5 = x_1 - 4$) the local cut $x_2 \\le 1$ is added with slack $x_6$. The dictionary has $x_6 = -\\frac{1}{4} + \\frac{1}{4}x_3 + \\frac{5}{2}x_5$ and $z = \\frac{29}{2} - \\frac{1}{2}x_3 - 2x_5$; the dual simplex picks the column with the minimum ratio $\\bar c_j / \\bar a_{6j}$ among those with $\\bar a_{6j} < 0$, with the convention $x_6 = \\bar b_6 - \\sum_j \\bar a_{6j} x_j$. What is obtained?",
     "opzioni": [
      "$x_3$ enters; the optimum is $(4, 1)$ of value $14$, and the node is pruned by integrality.",
      "$x_5$ enters; the optimum is $(4, 1)$ of value $14$, the integer optimum.",
@@ -5771,7 +5771,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Nel capitolo un MIP ha $N$ variabili e $\\mathscr{D} \\subseteq \\{1, \\dots, N\\}$ è l'insieme degli indici delle variabili intere. Gli esempi (auto, $P7$, $P42$, $P46$, $P72$) sono problemi PLI in forma canonica di massimizzazione con dati interi. Che cosa vale per loro?",
+    "testo": "Nel capitolo un MIP ha $N$ variabili e $\\mathscr{D} \\subseteq \\{1, \\dots, N\\}$ è l'insieme degli indici delle variabili intere. Gli esempi (produzione di auto, $P7$, $P42$, $P46$, $P72$) sono problemi PLI in forma canonica di massimizzazione con dati interi. Che cosa vale per loro?",
     "opzioni": [
      "$\\mathscr{D} = \\emptyset$, perché le euristiche lavorano sul rilassamento.",
      "$\\mathscr{D} = \\{1, \\dots, N\\}$, e il bound superiore è $\\lfloor z(\\LP) \\rfloor$.",
@@ -5781,7 +5781,7 @@
     "spiegazione": "Tutte le variabili sono intere e l'obiettivo ha costi interi, quindi assume valori interi sulle soluzioni ammissibili e il bound si arrotonda per difetto."
    },
    "en": {
-    "testo": "In the chapter a MIP has $N$ variables and $\\mathscr{D} \\subseteq \\{1, \\dots, N\\}$ is the set of the indices of the integer variables. The examples (car, $P7$, $P42$, $P46$, $P72$) are ILP problems in canonical maximization form with integer data. What holds for them?",
+    "testo": "In the chapter a MIP has $N$ variables and $\\mathscr{D} \\subseteq \\{1, \\dots, N\\}$ is the set of the indices of the integer variables. The examples (car production, $P7$, $P42$, $P46$, $P72$) are ILP problems in canonical maximization form with integer data. What holds for them?",
     "opzioni": [
      "$\\mathscr{D} = \\emptyset$, because the heuristics work on the relaxation.",
      "$\\mathscr{D} = \\{1, \\dots, N\\}$, and the upper bound is $\\lfloor z(\\LP) \\rfloor$.",
@@ -5801,7 +5801,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "La feasibility pump su l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) arrotonda l'ottimo LP $(\\frac{7}{2}, \\frac{5}{2})$ a $(4,3)$, non ammissibile, e dopo due flip restituisce $(3,2)$, di valore $13$, mentre il valore ottimo è $14$. Perché la soluzione non è ottima?",
+    "testo": "La feasibility pump sull'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) arrotonda l'ottimo LP $(\\frac{7}{2}, \\frac{5}{2})$ a $(4,3)$, non ammissibile, e dopo due flip restituisce $(3,2)$, di valore $13$, mentre il valore ottimo è $14$. Perché la soluzione non è ottima?",
     "opzioni": [
      "Perché i flip sono casuali e la pump va ripetuta con un altro seme.",
      "Perché la distanza $L_1$ non è lineare sulle variabili intere generali.",
@@ -5811,7 +5811,7 @@
     "spiegazione": "Le proiezioni minimizzano la distanza $\\Delta$ dall'ultimo punto intero, non l'obiettivo: la pump trova una prima soluzione ammissibile, la qualità è compito dei metodi di miglioramento."
    },
    "en": {
-    "testo": "The feasibility pump on the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) rounds the LP optimum $(\\frac{7}{2}, \\frac{5}{2})$ to $(4,3)$, which is infeasible, and after two flips returns $(3,2)$, of value $13$, while the optimal value is $14$. Why is the solution not optimal?",
+    "testo": "The feasibility pump on the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) rounds the LP optimum $(\\frac{7}{2}, \\frac{5}{2})$ to $(4,3)$, which is infeasible, and after two flips returns $(3,2)$, of value $13$, while the optimal value is $14$. Why is the solution not optimal?",
     "opzioni": [
      "Because the flips are random and the pump must be repeated with another seed.",
      "Because the $L_1$ distance is not linear on general integer variables.",
@@ -6101,7 +6101,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Un'euristica MIP eseguita dentro il solver su l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) trova $(3,2)$, di valore $13$, mentre il bound duale è $\\lfloor z(\\LP) \\rfloor = 15$. Quanto vale il gap relativo $(\\UB - \\LB)/\\LB$?",
+    "testo": "Un'euristica MIP eseguita dentro il solver sull'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) trova $(3,2)$, di valore $13$, mentre il bound duale è $\\lfloor z(\\LP) \\rfloor = 15$. Quanto vale il gap relativo $(\\UB - \\LB)/\\LB$?",
     "opzioni": [
      "$\\frac{2}{13} \\approx 15{,}4\\%$",
      "$\\frac{2}{15} \\approx 13{,}3\\%$",
@@ -6111,7 +6111,7 @@
     "spiegazione": "$\\frac{15 - 13}{13} = \\frac{2}{13}$. Dentro un solver il bound duale è disponibile, quindi il gap della soluzione euristica è sempre noto."
    },
    "en": {
-    "testo": "A MIP heuristic run inside the solver on the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) finds $(3,2)$, of value $13$, while the dual bound is $\\lfloor z(\\LP) \\rfloor = 15$. What is the relative gap $(\\UB - \\LB)/\\LB$?",
+    "testo": "A MIP heuristic run inside the solver on the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) finds $(3,2)$, of value $13$, while the dual bound is $\\lfloor z(\\LP) \\rfloor = 15$. What is the relative gap $(\\UB - \\LB)/\\LB$?",
     "opzioni": [
      "$\\frac{2}{13} \\approx 15.4\\%$",
      "$\\frac{2}{15} \\approx 13.3\\%$",
@@ -6401,7 +6401,7 @@
    },
    "corretta": 2,
    "it": {
-    "testo": "Nel metodo grafico per l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), l'ultimo punto intero toccato dalla linea di livello $3x_1 + 2x_2 = z$ è $(4,1)$. Che cosa se ne conclude?",
+    "testo": "Nel metodo grafico per l'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), l'ultimo punto intero toccato dalla linea di livello $3x_1 + 2x_2 = z$ è $(4,1)$. Che cosa se ne conclude?",
     "opzioni": [
      "$(4,1)$ è ottima e $z(\\ILP) = 15$, il valore del rilassamento lineare.",
      "$(4,1)$ è solo un bound primale: servono altri controlli.",
@@ -6411,7 +6411,7 @@
     "spiegazione": "Nessun altro punto di $F$ sta sulla retta $3x_1 + 2x_2 = 14$, quindi l'ottimo è unico."
    },
    "en": {
-    "testo": "In the graphical method for the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the last integer point touched by the level line $3x_1 + 2x_2 = z$ is $(4,1)$. What can be concluded?",
+    "testo": "In the graphical method for the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the last integer point touched by the level line $3x_1 + 2x_2 = z$ is $(4,1)$. What can be concluded?",
     "opzioni": [
      "$(4,1)$ is optimal and $z(\\ILP) = 15$, the value of the LP relaxation.",
      "$(4,1)$ is only a primal bound: further checks are needed.",
@@ -6791,7 +6791,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Nell'euristica a una variabile per l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), con $x_2 = 0$ la variabile $x_1$ si porta al massimo valore ammissibile. Quale soluzione e quale $\\LB$ si ottengono?",
+    "testo": "Nell'euristica a una variabile per l'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), con $x_2 = 0$ la variabile $x_1$ si porta al massimo valore ammissibile. Quale soluzione e quale $\\LB$ si ottengono?",
     "opzioni": [
      "$(4,0)$ con $\\LB = 12$.",
      "$(4{,}5;\\ 0)$ con $\\LB = 13{,}5$.",
@@ -6801,7 +6801,7 @@
     "spiegazione": "$\\bar x_1 = \\min\\{\\lfloor 45/10 \\rfloor, \\lfloor 49/4 \\rfloor\\} = \\min\\{4,12\\} = 4$, quindi $\\LB = 3 \\cdot 4 = 12$."
    },
    "en": {
-    "testo": "In the one-variable heuristic for the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), with $x_2 = 0$ the variable $x_1$ is raised to its largest feasible value. Which solution and which $\\LB$ are obtained?",
+    "testo": "In the one-variable heuristic for the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), with $x_2 = 0$ the variable $x_1$ is raised to its largest feasible value. Which solution and which $\\LB$ are obtained?",
     "opzioni": [
      "$(4,0)$ with $\\LB = 12$.",
      "$(4.5,\\ 0)$ with $\\LB = 13.5$.",
@@ -6971,7 +6971,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "In l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), il rilassamento lineare ha ottimo $(\\frac72, \\frac52)$. Che cosa dà l'arrotondamento all'intero più vicino?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), il rilassamento lineare ha ottimo $(\\frac72, \\frac52)$. Che cosa dà l'arrotondamento all'intero più vicino?",
     "opzioni": [
      "$(4,3)$, che è ammissibile con valore $18$.",
      "$(4,3)$, che è inammissibile perché $10 \\cdot 4 + 4 \\cdot 3 = 52 > 45$.",
@@ -6981,7 +6981,7 @@
     "spiegazione": "$\\frac72$ e $\\frac52$ si arrotondano a $4$ e $3$; il punto viola il primo vincolo."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the LP relaxation has optimum $(\\frac72, \\frac52)$. What does rounding to the nearest integer give?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), the LP relaxation has optimum $(\\frac72, \\frac52)$. What does rounding to the nearest integer give?",
     "opzioni": [
      "$(4,3)$, which is feasible with value $18$.",
      "$(4,3)$, which is infeasible because $10 \\cdot 4 + 4 \\cdot 3 = 52 > 45$.",
@@ -7008,7 +7008,7 @@
      "Ha sempre valore $\\lfloor z(\\LP) \\rfloor$.",
      "È una soluzione ammissibile, quindi un bound primale."
     ],
-    "spiegazione": "Nell'esempio dell'auto l'arrotondamento per difetto dà $(3,2)$ con valore $13$, mentre $z(\\ILP) = 14$."
+    "spiegazione": "Nell'esempio della produzione di auto l'arrotondamento per difetto dà $(3,2)$ con valore $13$, mentre $z(\\ILP) = 14$."
    },
    "en": {
     "testo": "Rounding down the optimum $\\tilde{\\vet x}(\\LP)$ of the LP relaxation of an ILP problem gives a feasible point. What can be said about it?",
@@ -7018,7 +7018,7 @@
      "It always has value $\\lfloor z(\\LP) \\rfloor$.",
      "It is a feasible solution, hence a primal bound."
     ],
-    "spiegazione": "In the car example rounding down gives $(3,2)$ with value $13$, while $z(\\ILP) = 14$."
+    "spiegazione": "In the car production example rounding down gives $(3,2)$ with value $13$, while $z(\\ILP) = 14$."
    }
   },
   {
@@ -7391,7 +7391,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Per l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si hanno la soluzione ammissibile $(3,2)$ di valore $13$ e il rilassamento lineare con $z(\\LP) = \\frac{31}{2}$. Quale intervallo contiene $z(\\ILP)$, usando l'arrotondamento lecito?",
+    "testo": "Per l'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) si hanno la soluzione ammissibile $(3,2)$ di valore $13$ e il rilassamento lineare con $z(\\LP) = \\frac{31}{2}$. Quale intervallo contiene $z(\\ILP)$, usando l'arrotondamento lecito?",
     "opzioni": [
      "$13 \\le z(\\ILP) \\le 15$.",
      "$13 \\le z(\\ILP) \\le 15{,}5$.",
@@ -7401,7 +7401,7 @@
     "spiegazione": "Variabili e costi interi: $z(\\ILP) \\le \\lfloor 15{,}5 \\rfloor = 15$; il lower bound è il valore $13$ della soluzione nota."
    },
    "en": {
-    "testo": "For the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) we have the feasible solution $(3,2)$ of value $13$ and the LP relaxation with $z(\\LP) = \\frac{31}{2}$. Which interval contains $z(\\ILP)$, using the legitimate rounding?",
+    "testo": "For the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) we have the feasible solution $(3,2)$ of value $13$ and the LP relaxation with $z(\\LP) = \\frac{31}{2}$. Which interval contains $z(\\ILP)$, using the legitimate rounding?",
     "opzioni": [
      "$13 \\le z(\\ILP) \\le 15$.",
      "$13 \\le z(\\ILP) \\le 15.5$.",
@@ -7751,7 +7751,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Per l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) la formulazione originale dà l'upper bound $\\lfloor \\frac{31}{2} \\rfloor = 15$. Quale upper bound dà la formulazione ideale?",
+    "testo": "Per l'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) la formulazione originale dà l'upper bound $\\lfloor \\frac{31}{2} \\rfloor = 15$. Quale upper bound dà la formulazione ideale?",
     "opzioni": [
      "$14$, il valore ottimo $z(\\ILP)$.",
      "$15$, come la formulazione originale.",
@@ -7761,7 +7761,7 @@
     "spiegazione": "Sulla formulazione ideale il rilassamento lineare ha ottimo intero: dà esattamente $z(\\ILP) = 14$."
    },
    "en": {
-    "testo": "For the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the original formulation gives the upper bound $\\lfloor \\frac{31}{2} \\rfloor = 15$. Which upper bound does the ideal formulation give?",
+    "testo": "For the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the original formulation gives the upper bound $\\lfloor \\frac{31}{2} \\rfloor = 15$. Which upper bound does the ideal formulation give?",
     "opzioni": [
      "$14$, the optimal value $z(\\ILP)$.",
      "$15$, as the original formulation.",
@@ -7961,7 +7961,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Per l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), la disuguaglianza $x_1 \\le 4$ è valida?",
+    "testo": "Per l'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), la disuguaglianza $x_1 \\le 4$ è valida?",
     "opzioni": [
      "Sì: dal primo vincolo $10x_1 \\le 45$.",
      "No: il punto $(4{,}5;\\ 0)$ del rilassamento la viola.",
@@ -7971,7 +7971,7 @@
     "spiegazione": "Valida significa soddisfatta da tutti i punti di $F$; può tagliare punti frazionari come $(4{,}5;0)$."
    },
    "en": {
-    "testo": "For the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), is the inequality $x_1 \\le 4$ valid?",
+    "testo": "For the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), is the inequality $x_1 \\le 4$ valid?",
     "opzioni": [
      "Yes: from the first constraint $10x_1 \\le 45$.",
      "No: the point $(4.5,\\ 0)$ of the relaxation violates it.",
@@ -8111,7 +8111,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Per l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) la disuguaglianza $x_1 + x_2 \\le 6$ è valida. Abbassando il termine noto finché un punto intero ammissibile lo raggiunge, quale disuguaglianza saturata si ottiene?",
+    "testo": "Per l'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) la disuguaglianza $x_1 + x_2 \\le 6$ è valida. Abbassando il termine noto finché un punto intero ammissibile lo raggiunge, quale disuguaglianza saturata si ottiene?",
     "opzioni": [
      "$x_1 + x_2 \\le 5$.",
      "$x_1 + x_2 \\le 4$.",
@@ -8121,7 +8121,7 @@
     "spiegazione": "Nessun punto di $F$ ha $x_1 + x_2 = 6$; il massimo di $x_1 + x_2$ su $F$ è $5$, ad esempio in $(3,2)$."
    },
    "en": {
-    "testo": "For the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the inequality $x_1 + x_2 \\le 6$ is valid. Lowering the right-hand side until a feasible integer point reaches it, which tight inequality is obtained?",
+    "testo": "For the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the inequality $x_1 + x_2 \\le 6$ is valid. Lowering the right-hand side until a feasible integer point reaches it, which tight inequality is obtained?",
     "opzioni": [
      "$x_1 + x_2 \\le 5$.",
      "$x_1 + x_2 \\le 4$.",
@@ -8298,7 +8298,7 @@
      "Non aumenta, ma può restare uguale.",
      "Aumenta, perché il poliedro cambia."
     ],
-    "spiegazione": "Nell'esempio dell'auto $5x_1 + 2x_2 \\le 22$ taglia l'ottimo ma il bound arrotondato resta $15$."
+    "spiegazione": "Nell'esempio della produzione di auto $5x_1 + 2x_2 \\le 22$ taglia l'ottimo ma il bound arrotondato resta $15$."
    },
    "en": {
     "testo": "A valid inequality that cuts off the fractional optimum of the LP relaxation of a maximization ILP problem is added. What happens to the upper bound $z(\\LP)$?",
@@ -8308,7 +8308,7 @@
      "It does not increase, but it can stay the same.",
      "It increases, because the polyhedron changes."
     ],
-    "spiegazione": "In the car example $5x_1 + 2x_2 \\le 22$ cuts off the optimum but the rounded bound stays at $15$."
+    "spiegazione": "In the car production example $5x_1 + 2x_2 \\le 22$ cuts off the optimum but the rounded bound stays at $15$."
    }
   },
   {
@@ -10086,12 +10086,12 @@
    "livello": "facile",
    "capitolo": "gomory",
    "link": {
-    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/gomory/#63-lesempio-dellauto",
-    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/gomory/#63-the-car-example"
+    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/gomory/#63-lesempio-della-produzione-di-auto",
+    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/gomory/#63-the-car-production-example"
    },
    "corretta": 2,
    "it": {
-    "testo": "Nell'algoritmo dei piani di taglio su l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) il primo taglio primitivo è $5x_1 + 14x_2 \\le 52$ e il nuovo ottimo ha valore $\\frac{232}{15}$. Quale upper bound si ottiene?",
+    "testo": "Nell'algoritmo dei piani di taglio sull'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) il primo taglio primitivo è $5x_1 + 14x_2 \\le 52$ e il nuovo ottimo ha valore $\\frac{232}{15}$. Quale upper bound si ottiene?",
     "opzioni": [
      "$16$.",
      "$14$.",
@@ -10101,7 +10101,7 @@
     "spiegazione": "$\\frac{232}{15} \\approx 15{,}47$, quindi $\\UB = \\lfloor \\frac{232}{15} \\rfloor = 15$."
    },
    "en": {
-    "testo": "In the cutting plane algorithm on the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the first primitive cut is $5x_1 + 14x_2 \\le 52$ and the new optimum has value $\\frac{232}{15}$. Which upper bound is obtained?",
+    "testo": "In the cutting plane algorithm on the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the first primitive cut is $5x_1 + 14x_2 \\le 52$ and the new optimum has value $\\frac{232}{15}$. Which upper bound is obtained?",
     "opzioni": [
      "$16$.",
      "$14$.",
@@ -10116,12 +10116,12 @@
    "livello": "facile",
    "capitolo": "gomory",
    "link": {
-    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/gomory/#63-lesempio-dellauto",
-    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/gomory/#63-the-car-example"
+    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/gomory/#63-lesempio-della-produzione-di-auto",
+    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/gomory/#63-the-car-production-example"
    },
    "corretta": 0,
    "it": {
-    "testo": "Nell'esempio dell'auto risolto con i piani di taglio, il taglio $6x_1 + 14x_2 \\le 55$ viene reso primitivo. Quale disuguaglianza si aggiunge?",
+    "testo": "Nell'esempio della produzione di auto risolto con i piani di taglio, il taglio $6x_1 + 14x_2 \\le 55$ viene reso primitivo. Quale disuguaglianza si aggiunge?",
     "opzioni": [
      "$3x_1 + 7x_2 \\le 27$.",
      "$3x_1 + 7x_2 \\le 27{,}5$.",
@@ -10131,7 +10131,7 @@
     "spiegazione": "$\\mathrm{MCD}(6,14) = 2$ e $\\lfloor 55/2 \\rfloor = 27$."
    },
    "en": {
-    "testo": "In the car example solved by cutting planes, the cut $6x_1 + 14x_2 \\le 55$ is made primitive. Which inequality is added?",
+    "testo": "In the car production example solved by cutting planes, the cut $6x_1 + 14x_2 \\le 55$ is made primitive. Which inequality is added?",
     "opzioni": [
      "$3x_1 + 7x_2 \\le 27$.",
      "$3x_1 + 7x_2 \\le 27.5$.",
@@ -10391,7 +10391,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Nel capitolo sul branch-and-bound, l'esempio dell'auto $\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x \\in \\Z^2_{\\ge 0}$ ha quali valori di $n$ (variabili) e $m$ (vincoli)?",
+    "testo": "Nel capitolo sul branch-and-bound, l'esempio della produzione di auto $\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x \\in \\Z^2_{\\ge 0}$ ha quali valori di $n$ (variabili) e $m$ (vincoli)?",
     "opzioni": [
      "$n = 2$, $m = 2$.",
      "$n = 2$, $m = 4$, contando le non negatività.",
@@ -10401,7 +10401,7 @@
     "spiegazione": "Due variabili intere e due vincoli $\\le$; le non negatività fanno parte del dominio."
    },
    "en": {
-    "testo": "In the chapter on branch-and-bound, the car example $\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x \\in \\Z^2_{\\ge 0}$ has which values of $n$ (variables) and $m$ (constraints)?",
+    "testo": "In the chapter on branch-and-bound, the car production example $\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x \\in \\Z^2_{\\ge 0}$ has which values of $n$ (variables) and $m$ (constraints)?",
     "opzioni": [
      "$n = 2$, $m = 2$.",
      "$n = 2$, $m = 4$, counting nonnegativity.",
@@ -11616,12 +11616,12 @@
    "livello": "facile",
    "capitolo": "bb",
    "link": {
-    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/bb/#77-esempi-svolti-sullesempio-dellauto",
-    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/bb/#77-worked-examples-on-the-car-example"
+    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/bb/#77-esempi-svolti-sullesempio-della-produzione-di-auto",
+    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/bb/#77-worked-examples-on-the-car-production-example"
    },
    "corretta": 1,
    "it": {
-    "testo": "Nel branch-and-bound su l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) la radice ha $\\tilde{\\vet x}(\\LP_1) = (\\frac72, \\frac52)$ e $z(\\LP_1) = \\frac{31}{2}$. Con la strategia lessicografica a indice minimo, quale variabile e quali vincoli di branching si usano?",
+    "testo": "Nel branch-and-bound sull'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) la radice ha $\\tilde{\\vet x}(\\LP_1) = (\\frac72, \\frac52)$ e $z(\\LP_1) = \\frac{31}{2}$. Con la strategia lessicografica a indice minimo, quale variabile e quali vincoli di branching si usano?",
     "opzioni": [
      "$x_2$, con $x_2 \\le 2$ e $x_2 \\ge 3$.",
      "$x_1$, con $x_1 \\le 3$ e $x_1 \\ge 4$.",
@@ -11631,7 +11631,7 @@
     "spiegazione": "Entrambe frazionarie: indice minimo $x_1$; $\\lfloor \\frac72 \\rfloor = 3$, $\\lceil \\frac72 \\rceil = 4$."
    },
    "en": {
-    "testo": "In branch-and-bound on the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the root has $\\tilde{\\vet x}(\\LP_1) = (\\frac72, \\frac52)$ and $z(\\LP_1) = \\frac{31}{2}$. With the smallest-index lexicographic strategy, which variable and which branching constraints are used?",
+    "testo": "In branch-and-bound on the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$) the root has $\\tilde{\\vet x}(\\LP_1) = (\\frac72, \\frac52)$ and $z(\\LP_1) = \\frac{31}{2}$. With the smallest-index lexicographic strategy, which variable and which branching constraints are used?",
     "opzioni": [
      "$x_2$, with $x_2 \\le 2$ and $x_2 \\ge 3$.",
      "$x_1$, with $x_1 \\le 3$ and $x_1 \\ge 4$.",
@@ -11646,12 +11646,12 @@
    "livello": "facile",
    "capitolo": "bb",
    "link": {
-    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/bb/#77-esempi-svolti-sullesempio-dellauto",
-    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/bb/#77-worked-examples-on-the-car-example"
+    "it": "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/bb/#77-esempi-svolti-sullesempio-della-produzione-di-auto",
+    "en": "https://fabiofurini.github.io/integer-linear-programming/exact-methods/bb/#77-worked-examples-on-the-car-production-example"
    },
    "corretta": 1,
    "it": {
-    "testo": "Nel branch-and-bound su l'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), quale upper bound dà la radice con $z(\\LP_1) = \\frac{31}{2}$, e quale gap si ha se $\\LB = 14$?",
+    "testo": "Nel branch-and-bound sull'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), quale upper bound dà la radice con $z(\\LP_1) = \\frac{31}{2}$, e quale gap si ha se $\\LB = 14$?",
     "opzioni": [
      "$\\UB = 15{,}5$ e gap $\\frac{1{,}5}{14}$.",
      "$\\UB = 15$ e gap $\\frac{1}{14} \\approx 7{,}1\\%$.",
@@ -11661,7 +11661,7 @@
     "spiegazione": "$\\lfloor 15{,}5 \\rfloor = 15$; gap $= (15 - 14)/14$."
    },
    "en": {
-    "testo": "In branch-and-bound on the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), which upper bound does the root with $z(\\LP_1) = \\frac{31}{2}$ give, and what is the gap if $\\LB = 14$?",
+    "testo": "In branch-and-bound on the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x_1, x_2 \\in \\Z_{\\ge 0}$), which upper bound does the root with $z(\\LP_1) = \\frac{31}{2}$ give, and what is the gap if $\\LB = 14$?",
     "opzioni": [
      "$\\UB = 15.5$ and gap $\\frac{1.5}{14}$.",
      "$\\UB = 15$ and gap $\\frac{1}{14} \\approx 7.1\\%$.",
@@ -12281,7 +12281,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x \\in \\Z^2_{\\ge 0}$), il nodo $3$ ha il vincolo di branching $x_1 \\ge 4$. Un taglio ricavato usando questo vincolo è:",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x \\in \\Z^2_{\\ge 0}$), il nodo $3$ ha il vincolo di branching $x_1 \\ge 4$. Un taglio ricavato usando questo vincolo è:",
     "opzioni": [
      "locale: valido solo con $x_1 \\ge 4$.",
      "globale, perché è un taglio di Gomory.",
@@ -12291,7 +12291,7 @@
     "spiegazione": "La derivazione usa $x_1 \\ge 4$: il taglio vale solo in $F_3$."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x \\in \\Z^2_{\\ge 0}$), node $3$ has the branching constraint $x_1 \\ge 4$. A cut derived using this constraint is:",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$, $x \\in \\Z^2_{\\ge 0}$), node $3$ has the branching constraint $x_1 \\ge 4$. A cut derived using this constraint is:",
     "opzioni": [
      "local: valid only with $x_1 \\ge 4$.",
      "global, because it is a Gomory cut.",
@@ -12311,7 +12311,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Nell'esempio dell'auto, nel nodo con $x_1 \\ge 4$ ($10x_1 + 4x_2 \\le 45$) vale $4x_2 \\le 45 - 10x_1 \\le 5$, quindi $x_2 \\le 1$. Questa disuguaglianza è valida per tutto il problema?",
+    "testo": "Nell'esempio della produzione di auto, nel nodo con $x_1 \\ge 4$ ($10x_1 + 4x_2 \\le 45$) vale $4x_2 \\le 45 - 10x_1 \\le 5$, quindi $x_2 \\le 1$. Questa disuguaglianza è valida per tutto il problema?",
     "opzioni": [
      "Sì: è ricavata dai vincoli del problema.",
      "Sì: è soddisfatta dalla soluzione ottima $(4,1)$.",
@@ -12321,7 +12321,7 @@
     "spiegazione": "La derivazione usa $x_1 \\ge 4$; fuori dal sottoalbero può eliminare soluzioni ammissibili."
    },
    "en": {
-    "testo": "In the car example, at the node with $x_1 \\ge 4$ ($10x_1 + 4x_2 \\le 45$) we have $4x_2 \\le 45 - 10x_1 \\le 5$, so $x_2 \\le 1$. Is this inequality valid for the whole problem?",
+    "testo": "In the car production example, at the node with $x_1 \\ge 4$ ($10x_1 + 4x_2 \\le 45$) we have $4x_2 \\le 45 - 10x_1 \\le 5$, so $x_2 \\le 1$. Is this inequality valid for the whole problem?",
     "opzioni": [
      "Yes: it is derived from the constraints of the problem.",
      "Yes: it is satisfied by the optimal solution $(4,1)$.",
@@ -13841,7 +13841,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Gli esempi del capitolo sulle euristiche MIP (auto, $P7$, $P42$, $P46$, $P72$) sono problemi di massimo, mentre le definizioni usano $\\min f(\\vet x)$. Come si conciliano?",
+    "testo": "Gli esempi del capitolo sulle euristiche MIP (produzione di auto, $P7$, $P42$, $P46$, $P72$) sono problemi di massimo, mentre le definizioni usano $\\min f(\\vet x)$. Come si conciliano?",
     "opzioni": [
      "Le euristiche valgono solo per problemi di minimo.",
      "Si cambia il verso di tutti i vincoli.",
@@ -13851,7 +13851,7 @@
     "spiegazione": "Il cutoff $f(\\vet x) \\le f(\\bar{\\vet x}) - \\theta$ diventa $\\vet c\\T \\vet x \\ge \\vet c\\T \\bar{\\vet x} + \\theta$."
    },
    "en": {
-    "testo": "The examples of the chapter on MIP heuristics (car, $P7$, $P42$, $P46$, $P72$) are maximization problems, while the definitions use $\\min f(\\vet x)$. How are they reconciled?",
+    "testo": "The examples of the chapter on MIP heuristics (car production, $P7$, $P42$, $P46$, $P72$) are maximization problems, while the definitions use $\\min f(\\vet x)$. How are they reconciled?",
     "opzioni": [
      "The heuristics hold only for minimization problems.",
      "The direction of all constraints is reversed.",
@@ -13871,7 +13871,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Nell'esempio dell'auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$), il rilassamento ha ottimo $(\\frac72, \\frac52)$. Che cosa restituisce l'euristica di arrotondamento all'intero più vicino?",
+    "testo": "Nell'esempio della produzione di auto ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$), il rilassamento ha ottimo $(\\frac72, \\frac52)$. Che cosa restituisce l'euristica di arrotondamento all'intero più vicino?",
     "opzioni": [
      "Fallimento: $(4,3)$ viola $10x_1 + 4x_2 \\le 45$.",
      "La soluzione ammissibile $(4,3)$ di valore $18$.",
@@ -13881,7 +13881,7 @@
     "spiegazione": "$\\frac72$ e $\\frac52$ si arrotondano per eccesso a $4$ e $3$; il punto è inammissibile e l'arrotondamento fallisce."
    },
    "en": {
-    "testo": "In the car example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$), the relaxation has optimum $(\\frac72, \\frac52)$. What does the nearest-integer rounding heuristic return?",
+    "testo": "In the car production example ($\\max\\ 3x_1 + 2x_2$, $10x_1 + 4x_2 \\le 45$, $4x_1 + 14x_2 \\le 49$), the relaxation has optimum $(\\frac72, \\frac52)$. What does the nearest-integer rounding heuristic return?",
     "opzioni": [
      "Failure: $(4,3)$ violates $10x_1 + 4x_2 \\le 45$.",
      "The feasible solution $(4,3)$ of value $18$.",
@@ -14831,7 +14831,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Nell'esempio dell'auto, l'arrotondamento per difetto dà $(3,2)$ con $\\LB = 13$ e il rilassamento dà $\\UB = \\lfloor z(\\LP) \\rfloor = 15$. Quanto vale il gap $(\\UB - \\LB)/|\\LB|$?",
+    "testo": "Nell'esempio della produzione di auto, l'arrotondamento per difetto dà $(3,2)$ con $\\LB = 13$ e il rilassamento dà $\\UB = \\lfloor z(\\LP) \\rfloor = 15$. Quanto vale il gap $(\\UB - \\LB)/|\\LB|$?",
     "opzioni": [
      "$\\frac{2}{15} \\approx 13{,}3\\%$.",
      "$\\frac{1}{13} \\approx 7{,}7\\%$.",
@@ -14841,7 +14841,7 @@
     "spiegazione": "$(15 - 13)/13 = 0{,}154$."
    },
    "en": {
-    "testo": "In the car example, rounding down gives $(3,2)$ with $\\LB = 13$ and the relaxation gives $\\UB = \\lfloor z(\\LP) \\rfloor = 15$. What is the gap $(\\UB - \\LB)/|\\LB|$?",
+    "testo": "In the car production example, rounding down gives $(3,2)$ with $\\LB = 13$ and the relaxation gives $\\UB = \\lfloor z(\\LP) \\rfloor = 15$. What is the gap $(\\UB - \\LB)/|\\LB|$?",
     "opzioni": [
      "$\\frac{2}{15} \\approx 13.3\\%$.",
      "$\\frac{1}{13} \\approx 7.7\\%$.",

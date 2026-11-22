@@ -80,7 +80,7 @@ dispensa: sul sito e nel PDF trovi tutto allo stesso posto.
 6. [L'algoritmo dei piani di taglio con i tagli frazionari di Gomory](metodi-esatti/gomory.md)
     - 6.1 Tagli frazionari di Gomory
     - 6.2 Un algoritmo dei piani di taglio basato sui tagli frazionari di Gomory
-    - 6.3 L'esempio dell'auto
+    - 6.3 L'esempio della produzione di auto
     - 6.4 Errori tipici
     - 6.5 In sintesi
 7. [Il branch-and-bound basato sulla programmazione lineare](metodi-esatti/bb.md)
@@ -90,7 +90,7 @@ dispensa: sul sito e nel PDF trovi tutto allo stesso posto.
     - 7.4 Breve riepilogo dell'algoritmo del simplesso duale
     - 7.5 Strategie di selezione della variabile di branching
     - 7.6 Strategie di selezione del nodo di branching
-    - 7.7 Esempi svolti sull'esempio dell'auto
+    - 7.7 Esempi svolti sull'esempio della produzione di auto
     - 7.8 Errori tipici
     - 7.9 Estensioni
     - 7.10 In sintesi

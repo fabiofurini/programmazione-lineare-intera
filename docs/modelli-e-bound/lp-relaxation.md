@@ -12,7 +12,7 @@ title: "Bound primali e duali"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, il capitolo [«La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/): problemi PLI, soluzioni ammissibili e ottime, enumerazione completa e l'esempio dell'auto.
+    - Da questo modulo, il capitolo [«La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/): problemi PLI, soluzioni ammissibili e ottime, enumerazione completa e l'esempio della produzione di auto.
 
     - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/): il problema duale, la dualità debole e la dualità forte.
 
@@ -93,7 +93,7 @@ title: "Bound primali e duali"
 
 !!! esempio "Esempio 2.1: bound primale"
 
-    Per la soluzione ammissibile $(2,2)$ dell'esempio dell'auto otteniamo $\LB = 3 \cdot 2 + 2 \cdot 2 = 10$, quindi $z(\ILP) \ge 10$.
+    Per la soluzione ammissibile $(2,2)$ dell'esempio della produzione di auto otteniamo $\LB = 3 \cdot 2 + 2 \cdot 2 = 10$, quindi $z(\ILP) \ge 10$.
 
 <a id="box-5-def-floor"></a>
 
@@ -103,7 +103,7 @@ title: "Bound primali e duali"
 
 <a id="box-6-ex-heur-car"></a>
 
-!!! esempio "Esempio 2.2: due algoritmi euristici per l'esempio dell'auto"
+!!! esempio "Esempio 2.2: due algoritmi euristici per l'esempio della produzione di auto"
 
     - L'<strong>euristica a una variabile</strong> porta una sola variabile al suo valore massimo, con l'altra uguale a $0$, e tiene la migliore delle due soluzioni.
 
@@ -211,9 +211,9 @@ title: "Bound primali e duali"
 
 <a id="box-10-ex-lp-car"></a>
 
-!!! esempio "Esempio 2.3: il rilassamento lineare dell'esempio dell'auto"
+!!! esempio "Esempio 2.3: il rilassamento lineare dell'esempio della produzione di auto"
 
-    - Il rilassamento lineare dell'esempio dell'auto ha la soluzione ottima
+    - Il rilassamento lineare dell'esempio della produzione di auto ha la soluzione ottima
 
         $$
         \tilde{x}_1 = \frac{7}{2}, \quad \tilde{x}_2 = \frac{5}{2}, \qquad z(\LP) = \frac{31}{2},
@@ -229,7 +229,7 @@ title: "Bound primali e duali"
 
     ![Figura 1](../img/02-lp-relaxation/fig01.svg){ .fig .ovale loading=lazy  }
 
-    <em>Il rilassamento lineare dell'esempio dell'auto: la regione ammissibile (rossa), i suoi $16$ punti interi (neri) e la soluzione ottima $(\frac{7}{2},\frac{5}{2})$ del rilassamento lineare (blu), con la retta obiettivo $3\,x_1 + 2\,x_2 = \frac{31}{2}$ che vi passa (tratteggiata). La linea grigia tratteggiata è la retta obiettivo della soluzione ottima del problema PLI.</em>
+    <em>Il rilassamento lineare dell'esempio della produzione di auto: la regione ammissibile (rossa), i suoi $16$ punti interi (neri) e la soluzione ottima $(\frac{7}{2},\frac{5}{2})$ del rilassamento lineare (blu), con la retta obiettivo $3\,x_1 + 2\,x_2 = \frac{31}{2}$ che vi passa (tratteggiata). La linea grigia tratteggiata è la retta obiettivo della soluzione ottima del problema PLI.</em>
 
     - Il valore ottimo è $14$ o $15$. Con $\UB = 15$ e $\LB = 14$ il gap di ottimalità $\eqref{gap}$ è $\frac{1}{14} \approx 7.1\%$: la soluzione $(4,1)$ non è ancora certificata ottima.
 
@@ -241,7 +241,7 @@ title: "Bound primali e duali"
 
 <a id="box-11-ex-round-car"></a>
 
-!!! esempio "Esempio 2.4: arrotondamento nell'esempio dell'auto"
+!!! esempio "Esempio 2.4: arrotondamento nell'esempio della produzione di auto"
 
     - La soluzione ottima del rilassamento lineare è $\tilde{\vet x}(\LP) = (\frac{7}{2},\frac{5}{2})$. Arrotondando all'intero più vicino si ottiene $(4,3)$, che è inammissibile: $10 \cdot 4 + 4 \cdot 3 = 52 > 45$.
 
@@ -326,9 +326,9 @@ title: "Bound primali e duali"
 
 <a id="box-15-ex-vub-car"></a>
 
-!!! esempio "Esempio 2.7: upper bound sulle variabili dell'esempio dell'auto"
+!!! esempio "Esempio 2.7: upper bound sulle variabili dell'esempio della produzione di auto"
 
-    Entrambi i vincoli dell'esempio dell'auto hanno coefficienti non negativi:
+    Entrambi i vincoli dell'esempio della produzione di auto hanno coefficienti non negativi:
 
     \begin{align*}
     x_1 &\le \min \left\{ \left\lfloor \tfrac{45}{10} \right\rfloor, \left\lfloor \tfrac{49}{4} \right\rfloor \right\}
@@ -337,7 +337,7 @@ title: "Bound primali e duali"
     = \min\{11, 3\} = 3.
     \end{align*}
 
-    - Le disuguaglianze $x_1 \le 4$ e $x_2 \le 3$ sono soddisfatte da tutti i punti interi dell'esempio dell'auto, e si possono aggiungere al modello. Tagliano due regioni del poliedro, e nessun punto intero.
+    - Le disuguaglianze $x_1 \le 4$ e $x_2 \le 3$ sono soddisfatte da tutti i punti interi dell'esempio della produzione di auto, e si possono aggiungere al modello. Tagliano due regioni del poliedro, e nessun punto intero.
 
     ![Figura 4](../img/02-lp-relaxation/fig04.svg){ .fig .ovale loading=lazy  }
 
@@ -349,7 +349,7 @@ title: "Bound primali e duali"
 
 !!! esempio "Esempio 2.8: upper bound che tagliano l'ottimo del rilassamento lineare"
 
-    - Consideriamo la funzione obiettivo $x_1 - x_2$ sui vincoli dell'esempio dell'auto, la cui soluzione ottima del problema PLI è $(4,0)$ con $z(\ILP) = 4$. Prima dei bound, la soluzione ottima del rilassamento lineare è $(\frac{9}{2},0)$ con $z(\LP) = \frac{9}{2}$; dopo $x_1 \le 4$ è $(4,0)$ con $z(\LP) = 4$, che è intera e quindi ottima.
+    - Consideriamo la funzione obiettivo $x_1 - x_2$ sui vincoli dell'esempio della produzione di auto, la cui soluzione ottima del problema PLI è $(4,0)$ con $z(\ILP) = 4$. Prima dei bound, la soluzione ottima del rilassamento lineare è $(\frac{9}{2},0)$ con $z(\LP) = \frac{9}{2}$; dopo $x_1 \le 4$ è $(4,0)$ con $z(\LP) = 4$, che è intera e quindi ottima.
 
     ![Figura 5](../img/02-lp-relaxation/fig05.svg){ .fig .ovale loading=lazy  }
 
@@ -399,7 +399,7 @@ title: "Bound primali e duali"
 
 <a id="box-19-ex-mult-car"></a>
 
-!!! esempio "Esempio 2.9: moltiplicatori per l'esempio dell'auto"
+!!! esempio "Esempio 2.9: moltiplicatori per l'esempio della produzione di auto"
 
     - Una soluzione ammissibile del rilassamento lineare non dà un bound duale: il suo valore non è né un lower bound né un upper bound su $z(\ILP)$.
 
@@ -424,7 +424,7 @@ title: "Bound primali e duali"
     </tr>
     </table></div>
 
-    - Moltiplicando il primo vincolo dell'esempio dell'auto per $\frac{3}{4}$ otteniamo
+    - Moltiplicando il primo vincolo dell'esempio della produzione di auto per $\frac{3}{4}$ otteniamo
 
         $$
         \frac{15}{2}\,x_1 + 3\,x_2 \le \frac{135}{4}.
@@ -472,7 +472,7 @@ title: "Bound primali e duali"
     </tr>
     </table></div>
 
-    - I moltiplicatori migliori, con il valore più piccolo di $45\,\pi_1 + 49\,\pi_2$, risolvono il problema duale [(2.6)](#eq-DLP) dell'esempio dell'auto:
+    - I moltiplicatori migliori, con il valore più piccolo di $45\,\pi_1 + 49\,\pi_2$, risolvono il problema duale [(2.6)](#eq-DLP) dell'esempio della produzione di auto:
 
     $$
     \begin{array}{rrrrrrr}
@@ -485,7 +485,7 @@ title: "Bound primali e duali"
 
 <a id="box-20-ex-dual-car"></a>
 
-!!! esempio "Esempio 2.10: soluzione duale ottima dell'esempio dell'auto"
+!!! esempio "Esempio 2.10: soluzione duale ottima dell'esempio della produzione di auto"
 
     La soluzione ottima del problema duale dell'<span style="color:#1971c2">[Esempio 2.9](#box-19-ex-mult-car)</span> è $\tilde{\vet \pi}(\mathrm{D(LP)}) = (\frac{17}{62},\frac{2}{31})$, e
 
@@ -526,7 +526,7 @@ title: "Bound primali e duali"
 
     - <strong>Ricavare un bound su una variabile da un vincolo con coefficienti negativi.</strong> La dimostrazione di $\eqref{vub}$ richiede che tutti i coefficienti siano non negativi.
 
-    - <strong>Credere che una formulazione più forte migliori sempre il bound.</strong> I bound $x_1 \le 4$ e $x_2 \le 3$ lasciano invariato il bound $15$ dell'esempio dell'auto.
+    - <strong>Credere che una formulazione più forte migliori sempre il bound.</strong> I bound $x_1 \le 4$ e $x_2 \le 3$ lasciano invariato il bound $15$ dell'esempio della produzione di auto.
 
 ## 2.8 In sintesi
 
@@ -544,7 +544,7 @@ title: "Bound primali e duali"
 
     - I moltiplicatori non negativi dei vincoli danno bound duali; i migliori risolvono il problema duale, il cui valore ottimo è $z(\LP)$.
 
-    <strong>Cruscotto dell'esempio dell'auto.</strong> I bound su $z(\ILP)$ trovati finora in questo modulo (bound primale: lower bound; bound duale: upper bound):
+    <strong>Cruscotto dell'esempio della produzione di auto.</strong> I bound su $z(\ILP)$ trovati finora in questo modulo (bound primale: lower bound; bound duale: upper bound):
 
     <div class="tabella" markdown="0"><table>
     <tr>

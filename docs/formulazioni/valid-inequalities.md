@@ -32,7 +32,7 @@ title: "Disuguaglianze valide"
 
 !!! nota "Dove eravamo"
 
-    Nell'esempio dell'auto la formulazione ideale dà l'upper bound $14$, uguale al lower bound, e quindi certifica che $(4,1)$ è ottima. Ma abbiamo trovato le sue quattro disuguaglianze guardando l'inviluppo convesso, cosa che in generale non è possibile. Ora impariamo a <strong>ricavare</strong> queste disuguaglianze dai vincoli.
+    Nell'esempio della produzione di auto la formulazione ideale dà l'upper bound $14$, uguale al lower bound, e quindi certifica che $(4,1)$ è ottima. Ma abbiamo trovato le sue quattro disuguaglianze guardando l'inviluppo convesso, cosa che in generale non è possibile. Ora impariamo a <strong>ricavare</strong> queste disuguaglianze dai vincoli.
 
 ## 4.1 Disuguaglianze valide
 
@@ -64,9 +64,9 @@ title: "Disuguaglianze valide"
 
 <a id="box-3-ex-vi-car"></a>
 
-!!! esempio "Esempio 4.1: disuguaglianze valide dell'esempio dell'auto"
+!!! esempio "Esempio 4.1: disuguaglianze valide dell'esempio della produzione di auto"
 
-    Le disuguaglianze $x_1 \le 4$ e $x_2 \le 3$ dei capitoli precedenti sono disuguaglianze valide dell'esempio dell'auto. Non tagliano la soluzione ottima $(\frac{7}{2},\frac{5}{2})$ del rilassamento lineare, quindi non migliorano l'upper bound $15$.
+    Le disuguaglianze $x_1 \le 4$ e $x_2 \le 3$ dei capitoli precedenti sono disuguaglianze valide dell'esempio della produzione di auto. Non tagliano la soluzione ottima $(\frac{7}{2},\frac{5}{2})$ del rilassamento lineare, quindi non migliorano l'upper bound $15$.
 
 ## 4.2 Ricavare disuguaglianze valide per arrotondamento
 
@@ -95,7 +95,7 @@ title: "Disuguaglianze valide"
 
 !!! esempio "Esempio 4.2: arrotondamento con moltiplicatore $\frac{1}{2}$"
 
-    Nell'esempio dell'auto moltiplichiamo il primo vincolo per $\frac{1}{2}$: otteniamo $5\,x_1 + 2\,x_2 \le \frac{45}{2}$. Poiché il membro sinistro è intero, otteniamo la disuguaglianza valida
+    Nell'esempio della produzione di auto moltiplichiamo il primo vincolo per $\frac{1}{2}$: otteniamo $5\,x_1 + 2\,x_2 \le \frac{45}{2}$. Poiché il membro sinistro è intero, otteniamo la disuguaglianza valida
 
     $$
     5\,x_1 + 2\,x_2 \le 22.
@@ -210,7 +210,7 @@ title: "Disuguaglianze valide"
 
     Con la disuguaglianza valida $x_1 + x_2 \le 5$, oppure con $x_1 + 2\,x_2 \le 7$, l'upper bound scende da $15$ a $14$. È uguale al lower bound dato da $(4,1)$: <strong>la soluzione $(4,1)$ è certificata ottima</strong>, e il gap è zero.
 
-- Le due disuguaglianze, insieme a $x_1 \le 4$ e $x_2 \le 3$, sono esattamente le quattro disuguaglianze della formulazione ideale del capitolo precedente. Per l'esempio dell'auto abbiamo raggiunto l'inviluppo convesso con disuguaglianze valide ricavate dai vincoli.
+- Le due disuguaglianze, insieme a $x_1 \le 4$ e $x_2 \le 3$, sono esattamente le quattro disuguaglianze della formulazione ideale del capitolo precedente. Per l'esempio della produzione di auto abbiamo raggiunto l'inviluppo convesso con disuguaglianze valide ricavate dai vincoli.
 
 ## 4.4 Famiglie di disuguaglianze valide e tagli
 
@@ -232,7 +232,7 @@ title: "Disuguaglianze valide"
 
     - <strong>Usare moltiplicatori non abbastanza grandi.</strong> I coefficienti combinati devono essere almeno $\alpha_j$ per ogni $j$, e i moltiplicatori devono essere non negativi.
 
-    - <strong>Fermarsi a un termine noto grossolano.</strong> La disuguaglianza $x_1 + x_2 \le 6$ è valida, ma non taglia l'ottimo del rilassamento lineare dell'esempio dell'auto (la sua somma è $6$); la disuguaglianza saturata $x_1 + x_2 \le 5$ lo taglia.
+    - <strong>Fermarsi a un termine noto grossolano.</strong> La disuguaglianza $x_1 + x_2 \le 6$ è valida, ma non taglia l'ottimo del rilassamento lineare dell'esempio della produzione di auto (la sua somma è $6$); la disuguaglianza saturata $x_1 + x_2 \le 5$ lo taglia.
 
 ## 4.6 In sintesi
 
@@ -246,9 +246,9 @@ title: "Disuguaglianze valide"
 
     - Una disuguaglianza valida serve solo se taglia l'ottimo del rilassamento lineare e migliora il bound arrotondato.
 
-    - Nell'esempio dell'auto, $x_1 + x_2 \le 5$ oppure $x_1 + 2\,x_2 \le 7$ abbassa l'upper bound da $15$ a $14$, e certifica che $(4,1)$ è ottima.
+    - Nell'esempio della produzione di auto, $x_1 + x_2 \le 5$ oppure $x_1 + 2\,x_2 \le 7$ abbassa l'upper bound da $15$ a $14$, e certifica che $(4,1)$ è ottima.
 
-    <strong>Cruscotto dell'esempio dell'auto.</strong> I bound su $z(\ILP)$ trovati finora in questo modulo:
+    <strong>Cruscotto dell'esempio della produzione di auto.</strong> I bound su $z(\ILP)$ trovati finora in questo modulo:
 
     <div class="tabella" markdown="0"><table>
     <tr>

@@ -155,7 +155,13 @@ title: "La programmazione lineare intera"
     \end{array}
     $$
 
-    Le variabili $x_1$ e $x_2$ si possono leggere come il numero di auto di due tipi da produrre: questo problema PLI è l'<strong>esempio dell'auto</strong>, l'esempio guida del modulo.
+    <strong>L'esempio della produzione di auto.</strong> Questo problema PLI è l'esempio guida del modulo. Un'azienda produce due tipi di auto, sportive e familiari: $x_1$ e $x_2$ sono i numeri di auto sportive e familiari da produrre, interi perché un'auto non si può produrre in parte.
+
+    - Il profitto è $3$ per un'auto sportiva e $2$ per un'auto familiare (in migliaia di euro): l'obiettivo massimizza il profitto totale $3x_1+2x_2$.
+
+    - Primo vincolo: la linea di montaggio è disponibile per $45$ ore; un'auto sportiva richiede $10$ ore e una familiare $4$.
+
+    - Secondo vincolo: il reparto verniciatura è disponibile per $49$ ore; un'auto sportiva richiede $4$ ore e una familiare $14$.
 
 ### 1.1.1 Regione ammissibile e funzione obiettivo
 
@@ -216,7 +222,7 @@ title: "La programmazione lineare intera"
 
     ![Figura 1](../img/01-ilp/fig01.svg){ .fig .ovale loading=lazy  }
 
-    <em>L'esempio dell'auto: la regione ammissibile del problema PLI è l'insieme dei suoi $16$ punti interi (neri) dentro il poliedro (rosso). La soluzione ottima $(4,1)$ è in blu, con la retta obiettivo $3\,x_1 + 2\,x_2 = 14$ (tratteggiata).</em>
+    <em>L'esempio della produzione di auto: la regione ammissibile del problema PLI è l'insieme dei suoi $16$ punti interi (neri) dentro il poliedro (rosso). La soluzione ottima $(4,1)$ è in blu, con la retta obiettivo $3\,x_1 + 2\,x_2 = 14$ (tratteggiata).</em>
 
     Il punto $\bar{\vet x} = (2,2)$ appartiene a $F$, perché $10 \cdot 2 + 4 \cdot 2 = 28 \le 45$ e $4 \cdot 2 + 14 \cdot 2 = 36 \le 49$. Il punto $(4,2)$ non appartiene a $F$, perché $10 \cdot 4 + 4 \cdot 2 = 48 > 45$. Il punto $(\frac{7}{2},\frac{5}{2})$ appartiene a $P$ ma non a $F$, perché non è intero.
 
@@ -258,7 +264,7 @@ title: "La programmazione lineare intera"
 
     Consideriamo il problema PLI dell'<span style="color:#1971c2">[Esempio 1.1](#box-2-exILPCanonical)</span>. Il gradiente della funzione obiettivo è $\nabla f = (3,2)$. Spostando la linea di livello $3\,x_1 + 2\,x_2 = z$ nella direzione di $\nabla f$, l'ultimo punto di $F$ raggiunto è $(4,1)$, sulla linea tratteggiata $3\,x_1 + 2\,x_2 = 14$ della figura dell'<span style="color:#1971c2">[Esempio 1.2](#box-4-exFeasRegILP)</span>. Nessun altro punto di $F$ giace su questa linea.
 
-    L'esempio dell'auto ha l'<strong>unica</strong> soluzione ottima $\tilde{\vet x}(\ILP) = (4,1)$, con valore ottimo $z(\ILP) = 14$.
+    L'esempio della produzione di auto ha l'<strong>unica</strong> soluzione ottima $\tilde{\vet x}(\ILP) = (4,1)$, con valore ottimo $z(\ILP) = 14$.
 
 ## 1.2 Esiti possibili
 
@@ -292,7 +298,7 @@ title: "La programmazione lineare intera"
 
 ## 1.3 Enumerazione completa
 
-- Quando la regione ammissibile è un insieme finito, possiamo trovare una soluzione ottima per <strong>enumerazione completa</strong>: calcoliamo la funzione obiettivo per ogni soluzione ammissibile e teniamo la migliore. Per l'esempio dell'auto ci sono $16$ punti:
+- Quando la regione ammissibile è un insieme finito, possiamo trovare una soluzione ottima per <strong>enumerazione completa</strong>: calcoliamo la funzione obiettivo per ogni soluzione ammissibile e teniamo la migliore. Per l'esempio della produzione di auto ci sono $16$ punti:
 
 $$
 \begin{array}{ccc|ccc}
@@ -402,7 +408,7 @@ $$
 
     - Per evitare l'enumerazione servono bound su $z(\ILP)$ da entrambi i lati: soluzioni ammissibili e rilassamenti, l'argomento del capitolo successivo.
 
-    <strong>Cruscotto dell'esempio dell'auto.</strong> Ancora nessun bound: il capitolo successivo fornisce i primi lower bound e upper bound.
+    <strong>Cruscotto dell'esempio della produzione di auto.</strong> Ancora nessun bound: il capitolo successivo fornisce i primi lower bound e upper bound.
 
 ---
 

@@ -12,7 +12,7 @@ title: "Formulazioni ideali"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, i capitoli [«La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/) e [«Bound primali e duali»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/lp-relaxation/): la regione ammissibile di un problema PLI, il rilassamento lineare e il suo bound, e l'esempio dell'auto.
+    - Da questo modulo, i capitoli [«La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/) e [«Bound primali e duali»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/lp-relaxation/): la regione ammissibile di un problema PLI, il rilassamento lineare e il suo bound, e l'esempio della produzione di auto.
 
     - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 15 «La geometria della Programmazione Lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): i vertici di un poliedro, e il fatto che un problema LP con una soluzione ottima ha un vertice ottimo.
 
@@ -34,7 +34,7 @@ title: "Formulazioni ideali"
 
 !!! nota "Dove eravamo"
 
-    Nell'esempio dell'auto abbiamo il lower bound $14$ e l'upper bound $\lfloor z(\LP) \rfloor = 15$. Il gap di $\frac{1}{14}$ è dovuto al poliedro dei vincoli, che contiene punti frazionari fuori dall'inviluppo convesso dei punti interi. Questo capitolo definisce il poliedro che non lascia alcun gap.
+    Nell'esempio della produzione di auto abbiamo il lower bound $14$ e l'upper bound $\lfloor z(\LP) \rfloor = 15$. Il gap di $\frac{1}{14}$ è dovuto al poliedro dei vincoli, che contiene punti frazionari fuori dall'inviluppo convesso dei punti interi. Questo capitolo definisce il poliedro che non lascia alcun gap.
 
 ## 3.1 L'inviluppo convesso
 
@@ -50,9 +50,9 @@ title: "Formulazioni ideali"
 
 <a id="box-2-ex-hull-car"></a>
 
-!!! esempio "Esempio 3.1: inviluppo convesso dell'esempio dell'auto"
+!!! esempio "Esempio 3.1: inviluppo convesso dell'esempio della produzione di auto"
 
-    L'inviluppo convesso dei $16$ punti interi dell'esempio dell'auto ha $6$ vertici:
+    L'inviluppo convesso dei $16$ punti interi dell'esempio della produzione di auto ha $6$ vertici:
 
     $$
     (0,0), \quad (4,0), \quad (4,1), \quad (3,2), \quad (1,3), \quad (0,3).
@@ -62,7 +62,7 @@ title: "Formulazioni ideali"
 
     ![Figura 1](../img/03-ideal-formulations/fig01.svg){ .fig .ovale loading=lazy  }
 
-    <em>L'inviluppo convesso dei $16$ punti interi dell'esempio dell'auto (verde). I suoi $6$ vertici (quadrati neri) sono punti interi; altri cinque punti stanno sul bordo e cinque all'interno.</em>
+    <em>L'inviluppo convesso dei $16$ punti interi dell'esempio della produzione di auto (verde). I suoi $6$ vertici (quadrati neri) sono punti interi; altri cinque punti stanno sul bordo e cinque all'interno.</em>
 
 ## 3.2 Formulazioni e formulazioni ideali
 
@@ -102,19 +102,19 @@ title: "Formulazioni ideali"
 
 <a id="box-6-ex-car-not-ideal"></a>
 
-!!! esempio "Esempio 3.2: la formulazione dell'esempio dell'auto non è ideale"
+!!! esempio "Esempio 3.2: la formulazione dell'esempio della produzione di auto non è ideale"
 
-    Il punto $(\frac{7}{2},\frac{5}{2})$ appartiene al poliedro $P$ dell'esempio dell'auto ma non a $\mathrm{conv}(F)$, perché viola $x_1 + x_2 \le 5$, che tutti i vertici dell'inviluppo dell'<span style="color:#1971c2">[Esempio 3.1](#box-2-ex-hull-car)</span> soddisfano: $\mathrm{conv}(F) \subsetneq P$.
+    Il punto $(\frac{7}{2},\frac{5}{2})$ appartiene al poliedro $P$ dell'esempio della produzione di auto ma non a $\mathrm{conv}(F)$, perché viola $x_1 + x_2 \le 5$, che tutti i vertici dell'inviluppo dell'<span style="color:#1971c2">[Esempio 3.1](#box-2-ex-hull-car)</span> soddisfano: $\mathrm{conv}(F) \subsetneq P$.
 
     ![Figura 2](../img/03-ideal-formulations/fig02.svg){ .fig .ovale loading=lazy  }
 
-    <em>L'esempio dell'auto: il poliedro del rilassamento lineare (rosso) contiene l'inviluppo convesso dei punti interi (verde), e la soluzione ottima del rilassamento lineare (blu) sta fuori dall'inviluppo.</em>
+    <em>L'esempio della produzione di auto: il poliedro del rilassamento lineare (rosso) contiene l'inviluppo convesso dei punti interi (verde), e la soluzione ottima del rilassamento lineare (blu) sta fuori dall'inviluppo.</em>
 
 <a id="box-7-ex-car-ideal"></a>
 
-!!! esempio "Esempio 3.3: una formulazione ideale dell'esempio dell'auto"
+!!! esempio "Esempio 3.3: una formulazione ideale dell'esempio della produzione di auto"
 
-    L'inviluppo convesso dell'esempio dell'auto è descritto dalle quattro disuguaglianze seguenti e dai vincoli di non negatività:
+    L'inviluppo convesso dell'esempio della produzione di auto è descritto dalle quattro disuguaglianze seguenti e dai vincoli di non negatività:
 
     $$
     \begin{array}{rrrrrrr}
@@ -131,7 +131,7 @@ title: "Formulazioni ideali"
 
     ![Figura 3](../img/03-ideal-formulations/fig03.svg){ .fig .ovale loading=lazy  }
 
-    <em>La formulazione ideale dell'esempio dell'auto: la sua regione ammissibile (verde) è l'inviluppo convesso dei punti interi. La soluzione ottima del problema LP è il punto intero $(4,1)$ (blu).</em>
+    <em>La formulazione ideale dell'esempio della produzione di auto: la sua regione ammissibile (verde) è l'inviluppo convesso dei punti interi. La soluzione ottima del problema LP è il punto intero $(4,1)$ (blu).</em>
 
 ## 3.3 Confronto tra formulazioni
 
@@ -147,7 +147,7 @@ title: "Formulazioni ideali"
     P_1 \subseteq P_2 \quad \Longrightarrow \quad z(\ILP) ~\le~ z(\LP_1) ~\le~ z(\LP_2).
     $$
 
-- La formulazione ideale è la più forte di tutte, perché è contenuta in ogni formulazione. Nell'esempio dell'auto la formulazione originale dà il bound $\lfloor \frac{31}{2} \rfloor = 15$, e quella ideale dell'<span style="color:#1971c2">[Esempio 3.3](#box-7-ex-car-ideal)</span> dà il bound $14$.
+- La formulazione ideale è la più forte di tutte, perché è contenuta in ogni formulazione. Nell'esempio della produzione di auto la formulazione originale dà il bound $\lfloor \frac{31}{2} \rfloor = 15$, e quella ideale dell'<span style="color:#1971c2">[Esempio 3.3](#box-7-ex-car-ideal)</span> dà il bound $14$.
 
 !!! chiave ""
 
@@ -165,11 +165,11 @@ title: "Formulazioni ideali"
 
 !!! attenzione "Attenzione"
 
-    - <strong>Credere che i punti che non sono vertici stiano strettamente all'interno dell'inviluppo.</strong> Possono stare sul bordo, come $(0,1)$ e $(3,0)$ nell'esempio dell'auto.
+    - <strong>Credere che i punti che non sono vertici stiano strettamente all'interno dell'inviluppo.</strong> Possono stare sul bordo, come $(0,1)$ e $(3,0)$ nell'esempio della produzione di auto.
 
     - <strong>Controllare solo la soluzione ottima.</strong> Una formulazione può restituire una soluzione ottima intera senza essere ideale: l'ottimo del rilassamento lineare può essere intero per una funzione obiettivo e frazionario per un'altra.
 
-    - <strong>Credere che ogni formulazione sia ideale.</strong> La formulazione dell'esempio dell'auto ha i punti interi giusti, ma contiene punti frazionari fuori dall'inviluppo.
+    - <strong>Credere che ogni formulazione sia ideale.</strong> La formulazione dell'esempio della produzione di auto ha i punti interi giusti, ma contiene punti frazionari fuori dall'inviluppo.
 
     - <strong>Aggiungere disuguaglianze che eliminano punti interi.</strong> Una formulazione deve conservare tutti i punti di $F$: il poliedro può restringersi solo fino all'inviluppo convesso, mai oltre.
 
@@ -183,11 +183,11 @@ title: "Formulazioni ideali"
 
     - Una formulazione più forte, con un poliedro più piccolo, non dà mai un bound peggiore.
 
-    - L'esempio dell'auto ha una formulazione ideale con $4$ disuguaglianze, che dà $z(\LP) = 14 = z(\ILP)$.
+    - L'esempio della produzione di auto ha una formulazione ideale con $4$ disuguaglianze, che dà $z(\LP) = 14 = z(\ILP)$.
 
     - Le formulazioni ideali esistono per dati razionali, ma in generale richiedono un numero esponenziale di disuguaglianze e sono difficili da trovare.
 
-    <strong>Cruscotto dell'esempio dell'auto.</strong> I bound su $z(\ILP)$ trovati finora in questo modulo:
+    <strong>Cruscotto dell'esempio della produzione di auto.</strong> I bound su $z(\ILP)$ trovati finora in questo modulo:
 
     <div class="tabella" markdown="0"><table>
     <tr>

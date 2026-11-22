@@ -14,7 +14,7 @@ L'algoritmo dei piani di taglio con i tagli frazionari di Gomory, il branch-and-
 
     ---
 
-    Tagli frazionari di Gomory · Un algoritmo dei piani di taglio basato sui tagli frazionari di Gomory · L'esempio dell'auto · Errori tipici · …
+    Tagli frazionari di Gomory · Un algoritmo dei piani di taglio basato sui tagli frazionari di Gomory · L'esempio della produzione di auto · Errori tipici · …
 
     [:octicons-arrow-right-24: Leggi il capitolo](gomory.md) · [Esercizi](../esercizi/gomory.md) · [Slide](../pdf/slide-06-gomory.pdf)
 

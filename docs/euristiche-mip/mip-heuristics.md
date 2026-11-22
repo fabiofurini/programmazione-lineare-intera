@@ -59,7 +59,7 @@ title: "Euristiche MIP"
 
     e $z(\LP)=\min\{f(\vet x): \vet x\in\mathcal{L}\}$ è il valore del rilassamento lineare.
 
-- Un problema di massimizzazione, come l'esempio dell'auto, si tratta nello stesso modo, scambiando $\min$ e $\max$, $\le$ e $\ge$ nei confronti fra valori della funzione obiettivo.
+- Un problema di massimizzazione, come l'esempio della produzione di auto, si tratta nello stesso modo, scambiando $\min$ e $\max$, $\le$ e $\ge$ nei confronti fra valori della funzione obiettivo.
 
 <a id="box-2-def-mipheur"></a>
 
@@ -120,9 +120,9 @@ title: "Euristiche MIP"
 
 ## 10.2 Gli esempi del capitolo { #sez-sec-models }
 
-- I metodi sono illustrati sull'<strong>esempio dell'auto</strong> di questo modulo e su quattro piccoli problemi del <strong>catalogo dei problemi MIP</strong>. Sono tutti problemi PLI in forma canonica di massimizzazione, con dati interi e $x_j\in\Z_{\ge 0}$ per ogni $j$, così che $\mathscr{D}=\{1,2,\dots,N\}$.
+- I metodi sono illustrati sull'<strong>esempio della produzione di auto</strong> di questo modulo e su quattro piccoli problemi del <strong>catalogo dei problemi MIP</strong>. Sono tutti problemi PLI in forma canonica di massimizzazione, con dati interi e $x_j\in\Z_{\ge 0}$ per ogni $j$, così che $\mathscr{D}=\{1,2,\dots,N\}$.
 
-- L'<strong>esempio dell'auto</strong> si scrive
+- L'<strong>esempio della produzione di auto</strong> si scrive
 
     $$
     \begin{array}{rrcrcl}
@@ -178,7 +178,7 @@ title: "Euristiche MIP"
 <th><span class="arithmatex">\(z(\ILP)\)</span></th>
 </tr>
 <tr>
-<td>auto</td>
+<td>produzione di auto</td>
 <td><span class="arithmatex">\(2\)</span></td>
 <td><span class="arithmatex">\(2\)</span></td>
 <td><span class="arithmatex">\(\frac{31}{2}\)</span></td>
@@ -229,7 +229,7 @@ title: "Euristiche MIP"
     <th>soluzione ottima <span class="arithmatex">\(\tilde{\vet x}\)</span> del rilassamento lineare</th>
     </tr>
     <tr>
-    <td>auto</td>
+    <td>produzione di auto</td>
     <td><span class="arithmatex">\(\big(\frac72,\frac52\big)\)</span></td>
     </tr>
     <tr>
@@ -292,13 +292,13 @@ title: "Euristiche MIP"
 
     Per ogni $j$, $0\le\lfloor \tilde x_j\rfloor\le \tilde x_j\le u_j$, quindi i limiti sono rispettati. Per ogni riga $i$, poiché $a_{ij}\ge0$, $\sum_j a_{ij}\lfloor \tilde x_j\rfloor\le\sum_j a_{ij}\tilde x_j\le b_i$. <span class="qed">□</span>
 
-- L'esempio dell'auto soddisfa le ipotesi dell'osservazione: l'arrotondamento per difetto è sempre ammissibile e, in generale, non ottimo.
+- L'esempio della produzione di auto soddisfa le ipotesi dell'osservazione: l'arrotondamento per difetto è sempre ammissibile e, in generale, non ottimo.
 
 <a id="box-7-ex-rounding"></a>
 
-!!! esempio "Esempio 10.2: Arrotondamento sull'esempio dell'auto e su $P42$"
+!!! esempio "Esempio 10.2: Arrotondamento sull'esempio della produzione di auto e su $P42$"
 
-    <strong>Esempio dell'auto.</strong> La soluzione LP $\tilde{\vet x}=\big(\frac72,\frac52\big)$ viene arrotondata a $\bar{\vet x}=(4,3)$, che viola il primo vincolo:
+    <strong>Esempio della produzione di auto.</strong> La soluzione LP $\tilde{\vet x}=\big(\frac72,\frac52\big)$ viene arrotondata a $\bar{\vet x}=(4,3)$, che viola il primo vincolo:
 
     $$
     10\cdot 4+4\cdot 3=52>45 .
@@ -354,7 +354,7 @@ title: "Euristiche MIP"
 
 <a id="box-9-ex-divecar"></a>
 
-!!! esempio "Esempio 10.3: Diving frazionario sull'esempio dell'auto"
+!!! esempio "Esempio 10.3: Diving frazionario sull'esempio della produzione di auto"
 
     <strong>Passo 1.</strong> La soluzione LP è $\tilde{\vet x}=\big(\frac72,\frac52\big)$, di valore $\frac{31}{2}$. Entrambe le variabili sono a distanza $\frac12$ dall'intero più vicino; il pareggio si risolve con l'indice: $x_1:=\rnd{\frac72}=4$.
 
@@ -366,13 +366,13 @@ title: "Euristiche MIP"
 
 <a id="box-10-ex-guided"></a>
 
-!!! esempio "Esempio 10.4: Diving guidato sull'esempio dell'auto e su $P7$"
+!!! esempio "Esempio 10.4: Diving guidato sull'esempio della produzione di auto e su $P7$"
 
-    <strong>Esempio dell'auto.</strong> La soluzione incumbent è $\bar{\vet x}=(3,2)$, di valore $13$ (arrotondamento per difetto). Nella soluzione LP $\big(\frac72,\frac52\big)$ entrambe le variabili sono a distanza $\frac12$ da $\bar{\vet x}$; si fissa $x_1:=3$. La nuova soluzione LP è $\big(3,\frac{37}{14}\big)$, di valore $\frac{100}{7}$; si fissa $x_2:=\bar x_2=2$. La soluzione LP $(3,2)$ è intera, di valore $13$: il diving <strong>restituisce l'incumbent</strong>, senza migliorarlo.
+    <strong>Esempio della produzione di auto.</strong> La soluzione incumbent è $\bar{\vet x}=(3,2)$, di valore $13$ (arrotondamento per difetto). Nella soluzione LP $\big(\frac72,\frac52\big)$ entrambe le variabili sono a distanza $\frac12$ da $\bar{\vet x}$; si fissa $x_1:=3$. La nuova soluzione LP è $\big(3,\frac{37}{14}\big)$, di valore $\frac{100}{7}$; si fissa $x_2:=\bar x_2=2$. La soluzione LP $(3,2)$ è intera, di valore $13$: il diving <strong>restituisce l'incumbent</strong>, senza migliorarlo.
 
     <strong>$P7$.</strong> La soluzione incumbent è $\bar{\vet x}=(2,0)$, di valore $6$ (arrotondamento per difetto di $\big(\frac52,0\big)$). L'unica variabile frazionaria è $x_1$: si fissa $x_1:=2$. La soluzione LP $(2,1)$, di valore $7$, è intera: il diving guidato trova la soluzione <strong>ottima</strong> dopo una sola fissazione, anche se l'incumbent ha $\bar x_2=0$, perché l'LP ricostruisce le variabili che non sono fissate.
 
-- L'incumbent decide solo i <em>valori</em> delle variabili fissate: sull'esempio dell'auto entrambi i valori fissati coincidono con quelli dell'incumbent scadente, su $P7$ il valore fissato è quello giusto.
+- L'incumbent decide solo i <em>valori</em> delle variabili fissate: sull'esempio della produzione di auto entrambi i valori fissati coincidono con quelli dell'incumbent scadente, su $P7$ il valore fissato è quello giusto.
 
 <a id="box-11-ex-divefail"></a>
 
@@ -534,9 +534,9 @@ title: "Euristiche MIP"
 
 <a id="box-15-ex-fpcar"></a>
 
-!!! esempio "Esempio 10.7: La feasibility pump sull'esempio dell'auto e su $P72$"
+!!! esempio "Esempio 10.7: La feasibility pump sull'esempio della produzione di auto e su $P72$"
 
-    <strong>Esempio dell'auto.</strong> L'arrotondamento della soluzione LP dà $\bar{\vet x}^0=(4,3)$, che è inammissibile.
+    <strong>Esempio della produzione di auto.</strong> L'arrotondamento della soluzione LP dà $\bar{\vet x}^0=(4,3)$, che è inammissibile.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -1054,7 +1054,7 @@ title: "Euristiche MIP"
 <th>certificata da</th>
 </tr>
 <tr>
-<td>auto, arrotondamento per difetto</td>
+<td>produzione di auto, arrotondamento per difetto</td>
 <td><span class="arithmatex">\((3,2)\)</span></td>
 <td><span class="arithmatex">\(13\)</span></td>
 <td><span class="arithmatex">\(15\)</span></td>
@@ -1062,7 +1062,7 @@ title: "Euristiche MIP"
 <td>—</td>
 </tr>
 <tr>
-<td>auto, diving</td>
+<td>produzione di auto, diving</td>
 <td><span class="arithmatex">\((4,1)\)</span></td>
 <td><span class="arithmatex">\(14\)</span></td>
 <td><span class="arithmatex">\(15\)</span></td>
@@ -1546,7 +1546,7 @@ def fix_and_optimize(m, x_tilde, windows, theta=1, trace=None):
 
     - Dentro un solver MIP è disponibile il bound duale: il gap della soluzione euristica è noto, e un gap uguale a $0$ certifica l'ottimalità.
 
-    <strong>Cruscotto dell'esempio dell'auto.</strong> I lower bound e gli upper bound su $z(\ILP)$ trovati finora in questo modulo:
+    <strong>Cruscotto dell'esempio della produzione di auto.</strong> I lower bound e gli upper bound su $z(\ILP)$ trovati finora in questo modulo:
 
     <div class="tabella" markdown="0"><table>
     <tr>

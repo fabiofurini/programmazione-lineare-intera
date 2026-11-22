@@ -720,7 +720,7 @@ title: "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory"
         \frac{1}{8}\;x_4.
         \end{align*}
 
-- Nell'Esempio 1 i coefficienti non hanno divisori comuni e non si arrotonda nulla. Nell'esempio dell'auto delle sezioni finali il secondo taglio nelle variabili originali è $6\,x_1 + 14\,x_2 \le 55$: con $g = 2$ la disuguaglianza primitiva è $3\,x_1 + 7\,x_2 \le \lfloor 55/2 \rfloor = 27$, e la sua variabile di scarto è $27 - 3\,x_1 - 7\,x_2$.
+- Nell'Esempio 1 i coefficienti non hanno divisori comuni e non si arrotonda nulla. Nell'esempio della produzione di auto delle sezioni finali il secondo taglio nelle variabili originali è $6\,x_1 + 14\,x_2 \le 55$: con $g = 2$ la disuguaglianza primitiva è $3\,x_1 + 7\,x_2 \le \lfloor 55/2 \rfloor = 27$, e la sua variabile di scarto è $27 - 3\,x_1 - 7\,x_2$.
 
 ## 6.2 Un algoritmo dei piani di taglio basato sui tagli frazionari di Gomory
 
@@ -1307,9 +1307,9 @@ title: "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory"
 
 - Per questo motivo i tagli frazionari di Gomory si usano spesso per rafforzare i rilassamenti lineari risolti nei nodi di un albero di branch-and-bound: il metodo che si ottiene è un <strong>algoritmo di branch-and-cut</strong>.
 
-## 6.3 L'esempio dell'auto
+## 6.3 L'esempio della produzione di auto
 
-- Risolviamo l'esempio dell'auto con l'algoritmo dei piani di taglio e le stesse regole dell'Esempio 1: un taglio per iterazione, termine noto più grande, pareggi risolti con l'indice minimo della variabile in base e la riga della funzione obiettivo per ultima.
+- Risolviamo l'esempio della produzione di auto con l'algoritmo dei piani di taglio e le stesse regole dell'Esempio 1: un taglio per iterazione, termine noto più grande, pareggi risolti con l'indice minimo della variabile in base e la riga della funzione obiettivo per ultima.
 
 - La tabella riporta, per ogni taglio, la disuguaglianza nelle variabili originali prima dell'arrotondamento (quando $g > 1$) e in forma primitiva, la soluzione e il valore del problema LP successivo, e l'upper bound $\UB = \lfloor z(\LP_{k+1}) \rfloor$.
 
@@ -1402,9 +1402,9 @@ title: "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory"
 
     - Ogni taglio si riscrive nelle variabili originali, si rende primitivo (diviso per il massimo comun divisore dei suoi coefficienti, termine noto arrotondato per difetto) e solo allora si aggiunge la sua variabile di scarto.
 
-    - I tagli funzionano bene all'inizio e poi perdono efficacia: nell'esempio dell'auto ne servono $5$.
+    - I tagli funzionano bene all'inizio e poi perdono efficacia: nell'esempio della produzione di auto ne servono $5$.
 
-    <strong>Cruscotto dell'esempio dell'auto.</strong> I lower bound e gli upper bound su $z(\ILP)$ trovati finora in questo modulo:
+    <strong>Cruscotto dell'esempio della produzione di auto.</strong> I lower bound e gli upper bound su $z(\ILP)$ trovati finora in questo modulo:
 
     <div class="tabella" markdown="0"><table>
     <tr>

@@ -14,7 +14,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
     - Dal modulo <em>Programmazione lineare</em>, [Capitolo 10 «Algoritmo del simplesso duale»](https://fabiofurini.github.io/programmazione-lineare/dualita/10-simplesso-duale/): dizionari del simplesso, basi duali ammissibili e operazioni di pivot duali. Un breve riepilogo è dato in questo capitolo.
 
-    - Da questo modulo, il capitolo [«La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/): problemi PLI, soluzioni ammissibili e ottime, e l'esempio dell'auto.
+    - Da questo modulo, il capitolo [«La programmazione lineare intera»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/ilp/): problemi PLI, soluzioni ammissibili e ottime, e l'esempio della produzione di auto.
 
     - Da questo modulo, il capitolo [«Bound primali e duali»](https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/lp-relaxation/): il rilassamento lineare, i lower bound dalle soluzioni ammissibili, gli upper bound dal rilassamento lineare e il gap di ottimalità.
 
@@ -34,13 +34,13 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 - Questo capitolo definisce l'algoritmo branch-and-bound basato sul rilassamento lineare per i problemi PLI in forma canonica di massimo con dati interi, con le sue operazioni di branching e di bounding.
 
-- L'istanza guida è l'esempio dell'auto, $\max \{ 3\,x_1 + 2\,x_2 : 10\,x_1 + 4\,x_2 \le 45,~ 4\,x_1 + 14\,x_2 \le 49,~ x_1, x_2 \in \Z_{\ge 0} \}$, il cui rilassamento lineare ha la soluzione ottima frazionaria $(\frac{7}{2},\frac{5}{2})$, con $z(\LP) = \frac{31}{2}$.
+- L'istanza guida è l'esempio della produzione di auto, $\max \{ 3\,x_1 + 2\,x_2 : 10\,x_1 + 4\,x_2 \le 45,~ 4\,x_1 + 14\,x_2 \le 49,~ x_1, x_2 \in \Z_{\ge 0} \}$, il cui rilassamento lineare ha la soluzione ottima frazionaria $(\frac{7}{2},\frac{5}{2})$, con $z(\LP) = \frac{31}{2}$.
 
 ## 7.1 L'idea in parole e in una figura
 
 - L'<strong>algoritmo branch-and-bound basato sul rilassamento lineare</strong> (in breve, <strong>algoritmo B&amp;B</strong>) è un metodo esatto per i problemi PLI. Si dice <strong>basato sul rilassamento lineare</strong> perché risolve rilassamenti lineari per guidare la ricerca di una soluzione ottima.
 
-- Nella soluzione ottima del rilassamento lineare dell'esempio dell'auto la variabile $x_1$ assume un valore frazionario compreso tra $3$ e $4$. Ogni soluzione ammissibile del problema PLI soddisfa $x_1 \le 3$ oppure $x_1 \ge 4$, quindi possiamo dividere il problema in due problemi LP più piccoli, uno per ciascun lato, ed eliminare la striscia intermedia, che non contiene punti interi:
+- Nella soluzione ottima del rilassamento lineare dell'esempio della produzione di auto la variabile $x_1$ assume un valore frazionario compreso tra $3$ e $4$. Ogni soluzione ammissibile del problema PLI soddisfa $x_1 \le 3$ oppure $x_1 \ge 4$, quindi possiamo dividere il problema in due problemi LP più piccoli, uno per ciascun lato, ed eliminare la striscia intermedia, che non contiene punti interi:
 
     $$
     \rightsquigarrow~\textbf{operazioni di branching}.
@@ -54,7 +54,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 ![Figura 1](../img/07-bb/fig01.svg){ .fig .ovale loading=lazy  }
 
-<em>Branching su $x_1$ alla radice dell'esempio dell'auto: le due regioni rosse sono le regioni ammissibili dei figli ($x_1 \le 3$ e $x_1 \ge 4$); la striscia grigia $3 < x_1 < 4$ viene tagliata via, e non contiene punti interi.</em>
+<em>Branching su $x_1$ alla radice dell'esempio della produzione di auto: le due regioni rosse sono le regioni ammissibili dei figli ($x_1 \le 3$ e $x_1 \ge 4$); la striscia grigia $3 < x_1 < 4$ viene tagliata via, e non contiene punti interi.</em>
 
 !!! chiave ""
 
@@ -77,7 +77,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
     x_j &\in \Z_{\ge 0}, & \forall j \in \{1, 2, \dots, n\}. \label{bb:MIP-int} \tag{7.1c}
     \end{align*}
 
-- L'esempio dell'auto è un problema PLI con $n = 2$ e $m = 2$.
+- L'esempio della produzione di auto è un problema PLI con $n = 2$ e $m = 2$.
 
 - Indichiamo con $z(\ILP)$ il valore ottimo del problema [(7.1)](#eq-bb-MIP), e con $\tilde{\vet x}(\ILP)$ una soluzione ottima.
 
@@ -433,7 +433,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 !!! esempio "Esempio 7.1: valori frazionari"
 
-    Al nodo radice dell'esempio dell'auto abbiamo $\tilde x_1 = \dfrac{7}{2},~~\tilde x_2 = \dfrac{5}{2}$, e i valori frazionari sono:
+    Al nodo radice dell'esempio della produzione di auto abbiamo $\tilde x_1 = \dfrac{7}{2},~~\tilde x_2 = \dfrac{5}{2}$, e i valori frazionari sono:
 
     $$
     f_1 = \min\left\{ \dfrac{7}{2} - 3,~ 4 - \dfrac{7}{2} \right\} = \dfrac{1}{2} \qquad f_2 = \min\left\{ \dfrac{5}{2} - 2,~ 3 - \dfrac{5}{2} \right\} = \dfrac{1}{2}
@@ -472,7 +472,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 !!! esempio "Esempio 7.2: strong branching"
 
-    Al nodo radice dell'esempio dell'auto abbiamo $\tilde x_1 = \dfrac{7}{2},~~\tilde x_2 = \dfrac{5}{2}$ e $z(\LP_1) = \dfrac{31}{2}$. Per ogni variabile frazionaria risolviamo i due problemi LP figli (con l'algoritmo del simplesso duale, a partire dal dizionario ottimo di $\LP_1$):
+    Al nodo radice dell'esempio della produzione di auto abbiamo $\tilde x_1 = \dfrac{7}{2},~~\tilde x_2 = \dfrac{5}{2}$ e $z(\LP_1) = \dfrac{31}{2}$. Per ogni variabile frazionaria risolviamo i due problemi LP figli (con l'algoritmo del simplesso duale, a partire dal dizionario ottimo di $\LP_1$):
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -567,9 +567,9 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
         ![Figura 5](../img/07-bb/fig05.svg){ .fig loading=lazy  }
 
-## 7.7 Esempi svolti sull'esempio dell'auto
+## 7.7 Esempi svolti sull'esempio della produzione di auto
 
-- Risolviamo ora l'esempio dell'auto con due esecuzioni dell'algoritmo B&amp;B, che differiscono solo per le strategie di selezione. Poiché tutte le variabili e tutti i costi sono interi, il bound di un nodo è $\mathrm{UB}(\LP_k) = \lfloor z(\LP_k) \rfloor$.
+- Risolviamo ora l'esempio della produzione di auto con due esecuzioni dell'algoritmo B&amp;B, che differiscono solo per le strategie di selezione. Poiché tutte le variabili e tutti i costi sono interi, il bound di un nodo è $\mathrm{UB}(\LP_k) = \lfloor z(\LP_k) \rfloor$.
 
 - Nella prima esecuzione ogni nodo è riottimizzato con l'algoritmo del simplesso duale, e riportiamo tutti i dizionari. Per ogni nodo una figura mostra la sua regione ammissibile.
 
@@ -579,7 +579,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 !!! esempio "Esempio 7.5: esecuzione A: indice minimo e LIFO"
 
-    Eseguiamo l'algoritmo B&amp;B sull'esempio dell'auto con:
+    Eseguiamo l'algoritmo B&amp;B sull'esempio della produzione di auto con:
 
     1. la regola dell'indice minimo (lessicografica) come strategia di selezione della variabile di branching;
 
@@ -593,7 +593,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
     - <span style="color:#e03131"><strong>Inizializzazione</strong></span>
 
-        Il problema $\LP_1$ è il rilassamento lineare dell'esempio dell'auto. L'algoritmo del simplesso con la regola di Bland, a partire dalla base delle variabili di scarto, esegue 2 operazioni di pivot ($x_1$ entra in base e $x_3$ esce; $x_2$ entra in base e $x_4$ esce) e termina con il dizionario ottimo:
+        Il problema $\LP_1$ è il rilassamento lineare dell'esempio della produzione di auto. L'algoritmo del simplesso con la regola di Bland, a partire dalla base delle variabili di scarto, esegue 2 operazioni di pivot ($x_1$ entra in base e $x_3$ esce; $x_2$ entra in base e $x_4$ esce) e termina con il dizionario ottimo:
 
         \begin{equation*}
         \begin{cases}
@@ -1106,7 +1106,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 !!! esempio "Esempio 7.6: esecuzione B: indice massimo e best bound"
 
-    Eseguiamo di nuovo l'algoritmo B&amp;B sull'esempio dell'auto, ora con:
+    Eseguiamo di nuovo l'algoritmo B&amp;B sull'esempio della produzione di auto, ora con:
 
     1. la regola dell'indice massimo (lessicografica) come strategia di selezione della variabile di branching;
 
@@ -1377,7 +1377,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 !!! esempio "Esempio 7.7: inizializzazione euristica"
 
-    Eseguiamo l'algoritmo B&amp;B dell'<span style="color:#1971c2">[Esempio 7.5](#box-9-ex-bb-runA)</span> (indice minimo, LIFO), partendo da una soluzione euristica dell'esempio dell'auto.
+    Eseguiamo l'algoritmo B&amp;B dell'<span style="color:#1971c2">[Esempio 7.5](#box-9-ex-bb-runA)</span> (indice minimo, LIFO), partendo da una soluzione euristica dell'esempio della produzione di auto.
 
     - L'euristica a una variabile del capitolo «Bound primali e duali» fissa $x_1$ al valore più grande possibile e $x_2 = 0$: dà $\bar{\vet x} = (4, 0)$ di valore $12$. Avviando l'esecuzione A con $\LB = 12$, l'algoritmo risolve $6$ problemi LP, tanti quanti senza l'euristica: questo lower bound è troppo debole per potare prima qualche nodo.
 
@@ -1432,7 +1432,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
 !!! attenzione "Attenzione"
 
-    - <strong>Arrotondare la soluzione LP.</strong> Arrotondare una soluzione ottima del rilassamento lineare dà al più una soluzione ammissibile, in generale non ottima. Nell'esempio dell'auto, arrotondando per difetto $\tilde{\vet x}(\LP) = (\tfrac{7}{2}, \tfrac{5}{2})$ si ottiene $(3, 2)$ di valore $13$, mentre $z(\ILP) = 14$ in $(4, 1)$.
+    - <strong>Arrotondare la soluzione LP.</strong> Arrotondare una soluzione ottima del rilassamento lineare dà al più una soluzione ammissibile, in generale non ottima. Nell'esempio della produzione di auto, arrotondando per difetto $\tilde{\vet x}(\LP) = (\tfrac{7}{2}, \tfrac{5}{2})$ si ottiene $(3, 2)$ di valore $13$, mentre $z(\ILP) = 14$ in $(4, 1)$.
 
     - <strong>Fare branching sulla variabile sbagliata.</strong> La variabile di branching deve essere una variabile intera con valore frazionario: una variabile con valore intero non esclude $\tilde{\vet x}(\LP_k)$.
 
@@ -1464,7 +1464,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
 
     - Le strategie di selezione e una buona soluzione euristica cambiano la dimensione dell'albero, non il valore ottimo.
 
-    <strong>Cruscotto dell'esempio dell'auto.</strong> I lower bound e gli upper bound su $z(\ILP)$ trovati finora in questo modulo:
+    <strong>Cruscotto dell'esempio della produzione di auto.</strong> I lower bound e gli upper bound su $z(\ILP)$ trovati finora in questo modulo:
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -1505,7 +1505,7 @@ title: "Il branch-and-bound basato sulla programmazione lineare"
     </tr>
     </table></div>
 
-    Nell'esempio dell'auto l'algoritmo chiude il gap tra $\LB = 13$ (soluzione LP arrotondata) e $\UB = 15$ (rilassamento lineare) risolvendo $6$ problemi LP.
+    Nell'esempio della produzione di auto l'algoritmo chiude il gap tra $\LB = 13$ (soluzione LP arrotondata) e $\UB = 15$ (rilassamento lineare) risolvendo $6$ problemi LP.
 
 ---
 
