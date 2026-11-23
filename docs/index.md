@@ -20,8 +20,6 @@ Il corso presenta la programmazione lineare intera e mista: il rilassamento line
 disuguaglianze valide e i piani di taglio, gli algoritmi di branch-and-bound e branch-and-cut, i solver
 MIP e le euristiche.
 
-Ogni capitolo ha definizioni, esempi svolti passo per passo ed esercizi con le soluzioni.
-
 Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/).
 
 [Comincia :material-arrow-right:](modelli-e-bound/index.md){ .md-button .md-button--primary }
