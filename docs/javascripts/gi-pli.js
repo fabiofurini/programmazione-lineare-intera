@@ -190,7 +190,7 @@
     funzioni: VOCI(),
     etichettaFunzioni: T("Problema", "Problem"),
     parametri: [
-      { k: "z", nome: "z", min: 0, max: 10, step: 0.25, val: 4, colore: "a", cifre: 2,
+      { k: "z", nome: "z", min: 0, max: 10, step: 0.25, val: 4, colore: "livello", cifre: 2,
         descr: T("livello della retta \\(\\vet{c}'\\vet{x} = z\\) (▶ la fa scorrere)", "level of the line \\(\\vet{c}'\\vet{x} = z\\) (▶ slides it)") },
       { k: "c1", nome: "c_1", min: -4, max: 9, step: 1, val: 1, colore: "b", cifre: 0,
         descr: T("coefficiente di \\(x_1\\) nell'obiettivo", "coefficient of \\(x_1\\) in the objective") },
@@ -212,7 +212,8 @@
         [C.verde, T("involucro dei punti interi", "hull of the integer points"), "dashed"],
         [C.blu, T("\\(\\tilde{\\vet{x}}\\) ottimo continuo", "\\(\\tilde{\\vet{x}}\\) continuous optimum"), "punto"],
         [C.viola, T("\\(\\tilde{\\vet{x}}\\) arrotondato", "\\(\\tilde{\\vet{x}}\\) rounded"), "punto"],
-        [st.colore("a"), T("retta \\(\\vet{c}'\\vet{x} = z\\)", "line \\(\\vet{c}'\\vet{x} = z\\)"), ""],
+        [C.rosso, T("rette dei vincoli", "constraint lines"), ""],
+        [C.blu, T("retta di livello \\(\\vet{c}'\\vet{x} = z\\)", "level line \\(\\vet{c}'\\vet{x} = z\\)"), "dashed"],
       ];
     },
     monta(board, st) {
@@ -223,18 +224,17 @@
       const C = M.COL(st), A = () => analisiPI(st);
       // la retta di livello e il suo tratto dentro il poliedro (seguono il cursore z)
       board.create("line", [() => -st.p().z, () => A().P.c[0], () => A().P.c[1]], {
-        strokeColor: st.colore("a"), strokeWidth: 2, fixed: true, highlight: false, withLabel: false,
+        strokeColor: C.blu, strokeWidth: 2.5, dash: 2, fixed: true, highlight: false, withLabel: false,
         visible: () => A().P.c[0] !== 0 || A().P.c[1] !== 0,
       });
       GI.spezzata(board, () => trattoRetta(A().poli, A().P.c, st.p().z) || [], {
-        strokeColor: st.colore("a"), strokeWidth: 6, strokeOpacity: 0.8, fixed: true,
+        strokeColor: C.blu, strokeWidth: 5.5, dash: 2, fixed: true,
       });
       // i punti interi ammissibili che stanno sulla retta
       GI.nuvola(board, 40, () => {
         const a = A(), z = st.p().z;
         return a.interi.filter((q) => Math.abs(a.P.c[0] * q[0] + a.P.c[1] * q[1] - z) < 1e-9);
-      }, { size: 8, fillColor: "none", fillOpacity: 0, strokeColor: st.colore("a"), strokeWidth: 2.5 });
-      void C;
+      }, { size: 8, fillColor: "none", fillOpacity: 0, strokeColor: C.blu, strokeWidth: 2.5 });
     },
     aggiorna(board, st) {
       const A = analisiPI(st), C = M.COL(st), B0 = boxDi(st.chiave());
@@ -243,15 +243,15 @@
       M.adatta(board, -0.7, B0.Y + 0.7, B0.X + 0.7, -0.7);
       M.ridisegna(board, st, [A.firma, M.scuro()].join("|"), (crea) => {
         const { P, B } = A, c = P.c;
-        // le rette dei vincoli (1 e 2 dei colori dei loro cursori, gli altri grigi)
+        // le rette dei vincoli, rosse continue come nelle dispense (1 e 2, mossi dai cursori, un po' più spesse)
         P.V.forEach((v, i) => {
           const s = segmento(v.a, v.b, -0.9, B.X + 0.9, -0.9, B.Y + 0.9);
           if (s) crea("curve", [[s[0][0], s[1][0]], [s[0][1], s[1][1]]], {
-            strokeColor: i < 2 ? st.colore("e") : C.grigio, strokeWidth: i < 2 ? 1.8 : 1.3,
-            dash: 2, fixed: true, highlight: false,
+            strokeColor: C.rosso, strokeWidth: i < 2 ? 2 : 1.5, strokeOpacity: 0.75,
+            fixed: true, highlight: false,
           });
         });
-        if (A.poli.length) M.area(crea, A.poli, { strokeColor: C.rosso, fillColor: C.rosso, fillOpacity: 0.16 });
+        if (A.poli.length) M.area(crea, A.poli, { strokeColor: C.rosso, strokeWidth: 3, fillColor: C.rosso, fillOpacity: 0.2 });
         // l'involucro convesso dei punti interi ammissibili
         const H = M.involucro(A.interi);
         if (H.length >= 3) M.area(crea, H, { strokeColor: C.verde, strokeWidth: 2, dash: 2, fillColor: C.verde, fillOpacity: 0.1 });
@@ -321,7 +321,7 @@
         righe.push(T(`<strong>Arrotondare</strong> \\(\\tilde{\\vet{x}}\\) dà `, `<strong>Rounding</strong> \\(\\tilde{\\vet{x}}\\) gives `) + s);
       }
       // la retta di livello
-      const z = p.z, zs = GI.num(z, 2), zc = st.colore("a");
+      const z = p.z, zs = GI.num(z, 2), zc = st.colore("livello");
       const sopra = A.interi.filter((q) => c[0] * q[0] + c[1] * q[1] >= z - 1e-9).length;
       let r;
       if (z > Qv(zl) + 1e-9) r = T(`la retta non incontra più il poliedro: \\(z > z(\\LP)\\).`, `the line no longer meets the polyhedron: \\(z > z(\\LP)\\).`);
@@ -501,6 +501,7 @@
       const C = M.COL(st);
       return [
         [C.rosso, T("rilassamento lineare", "LP relaxation"), "pieno"],
+        [C.rosso, T("rette dei vincoli", "constraint lines"), ""],
         [C.verde, T("involucro dei punti interi", "hull of the integer points"), "dashed"],
         [C.viola, T("disuguaglianze valide aggiunte", "added valid inequalities"), ""],
         [C.verde, T("punti interi ammissibili", "feasible integer points"), "punto"],
@@ -536,7 +537,7 @@
         const x0 = -0.9, x1 = 5.5, y0 = -0.9, y1 = 4.5;
         AUTO.V.forEach((v) => {
           const s = segmento(v.a, v.b, x0, x1, y0, y1);
-          if (s) crea("curve", [[s[0][0], s[1][0]], [s[0][1], s[1][1]]], { strokeColor: C.grigio, strokeWidth: 1.3, dash: 2, fixed: true, highlight: false });
+          if (s) crea("curve", [[s[0][0], s[1][0]], [s[0][1], s[1][1]]], { strokeColor: C.rosso, strokeWidth: 1.5, strokeOpacity: 0.75, fixed: true, highlight: false });
         });
         DISUG.forEach((d, i) => {
           const s = segmento(d.a, d.b, x0, x1, y0, y1);
@@ -545,7 +546,7 @@
             ? { strokeColor: C.viola, strokeWidth: 2.4, fixed: true, highlight: false }
             : { strokeColor: C.viola, strokeWidth: 1, strokeOpacity: 0.35, dash: 3, fixed: true, highlight: false });
         });
-        if (A.poli.length) M.area(crea, A.poli, { strokeColor: C.rosso, fillColor: C.rosso, fillOpacity: 0.16 });
+        if (A.poli.length) M.area(crea, A.poli, { strokeColor: C.rosso, strokeWidth: 3, fillColor: C.rosso, fillOpacity: 0.2 });
         M.area(crea, AUTO_HULL, { strokeColor: C.verde, strokeWidth: 2.2, dash: 2, fillColor: C.verde, fillOpacity: 0.1 });
         for (let i = 0; i <= 5; i++) for (let j = 0; j <= 4; j++) {
           const amm = AUTO_INTERI.some((q) => q[0] === i && q[1] === j);
@@ -755,7 +756,7 @@
         M.scritta(crea, ...px(x1 - 0.15, 0.35), "x₁", { fontSize: fs + 1, strokeColor: C.muted, anchorX: "right" });
         M.scritta(crea, ...px(0.3, y1 - 0.2), "x₂", { fontSize: fs + 1, strokeColor: C.muted, anchorX: "left" });
         // il poliedro di partenza (grigio) con le sue rette
-        for (const v of Pb.V) retta(v.a, v.b, { strokeColor: C.grigio, strokeWidth: 1.2, dash: 2 });
+        for (const v of Pb.V) retta(v.a, v.b, { strokeColor: C.rosso, strokeWidth: 1.5, strokeOpacity: 0.75 });
         regione(Pb.V0, { strokeColor: C.grigio, strokeWidth: 1.5, fillColor: "none", fillOpacity: 0 });
         // le regioni dei nodi: in lista (giallo), interi (verde), potati (grigio); il nodo in esame in rosso
         const foc = E.nodo;
@@ -961,6 +962,7 @@
       const C = M.COL(st);
       return [
         [C.rosso, T("rilassamento con i tagli", "relaxation with the cuts"), "pieno"],
+        [C.rosso, T("rette dei vincoli", "constraint lines"), ""],
         [C.viola, T("taglio dell'iterazione", "cut of this iteration"), ""],
         [C.viola, T("tagli precedenti", "previous cuts"), "dashed"],
         [C.verde, T("involucro dei punti interi", "hull of the integer points"), "dashed"],
@@ -993,7 +995,7 @@
         const V = Pb.V0.concat(tagli.map((it) => ({ a: it.a, b: it.b })));
         Pb.V.forEach((v) => {
           const s = segmento(v.a, v.b, x0, x1, y0, y1);
-          if (s) crea("curve", [[s[0][0], s[1][0]], [s[0][1], s[1][1]]], { strokeColor: C.grigio, strokeWidth: 1.3, dash: 2, fixed: true, highlight: false });
+          if (s) crea("curve", [[s[0][0], s[1][0]], [s[0][1], s[1][1]]], { strokeColor: C.rosso, strokeWidth: 1.5, strokeOpacity: 0.75, fixed: true, highlight: false });
         });
         tagli.forEach((it) => {
           const s = segmento(it.a, it.b, x0, x1, y0, y1);
@@ -1004,7 +1006,7 @@
             : { strokeColor: C.viola, strokeWidth: 1.2, strokeOpacity: 0.55, dash: 2, fixed: true, highlight: false });
         });
         const P = M.poligono(V, 1e3);
-        if (P.length) M.area(crea, P, { strokeColor: C.rosso, fillColor: C.rosso, fillOpacity: 0.18 });
+        if (P.length) M.area(crea, P, { strokeColor: C.rosso, strokeWidth: 3, fillColor: C.rosso, fillOpacity: 0.2 });
         M.area(crea, Pb.HULL, { strokeColor: C.verde, strokeWidth: 2, dash: 2, fillColor: C.verde, fillOpacity: 0.08 });
         for (let i = 0; i <= Pb.X; i++) for (let j = 0; j <= Pb.Y; j++) {
           const amm = Pb.INTERI.some((q) => q[0] === i && q[1] === j);
