@@ -16,7 +16,11 @@ hide:
 Materiale didattico ideato e sviluppato da **[Fabio Furini](https://fabiofurini.github.io/)**, professore
 associato al [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma.
 
-**Le dispense del corso, online**: programmazione lineare intera e mista, rilassamento lineare e bound, disuguaglianze valide, piani di taglio, branch-and-bound e branch-and-cut, solver MIP ed euristiche, con definizioni, esempi svolti passo per passo ed esercizi con soluzioni.
+Il corso presenta la programmazione lineare intera e mista: il rilassamento lineare e i bound, le
+disuguaglianze valide e i piani di taglio, gli algoritmi di branch-and-bound e branch-and-cut, i solver
+MIP e le euristiche.
+
+Ogni capitolo ha definizioni, esempi svolti passo per passo ed esercizi con le soluzioni.
 
 Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/).
 
