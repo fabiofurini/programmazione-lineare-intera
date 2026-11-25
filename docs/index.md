@@ -50,8 +50,6 @@ Il branch-and-bound alla fine: l'albero completo, con le regioni dei nodi, i nod
 
     Che cos'è un problema di programmazione lineare intera (MIP, ILP, BIP), le sue soluzioni e i suoi esiti; bound primali e duali, gap e rilassamento lineare.
 
-    1\. La programmazione lineare intera · 2\. Bound primali e duali
-
     [:octicons-arrow-right-24: I capitoli](modelli-e-bound/index.md)
 
 -   :material-vector-polygon: **II · Rafforzare la formulazione**
@@ -59,8 +57,6 @@ Il branch-and-bound alla fine: l'albero completo, con le regioni dei nodi, i nod
     ---
 
     Formulazioni ideali, disuguaglianze valide e disuguaglianze di cover: come rafforzare una formulazione.
-
-    3\. Formulazioni ideali · 4\. Disuguaglianze valide · 5\. Disuguaglianze di cover
 
     [:octicons-arrow-right-24: I capitoli](formulazioni/index.md)
 
@@ -70,8 +66,6 @@ Il branch-and-bound alla fine: l'albero completo, con le regioni dei nodi, i nod
 
     L'algoritmo dei piani di taglio con i tagli frazionari di Gomory, il branch-and-bound basato sulla programmazione lineare e il branch-and-cut. Esempi svolti passo per passo ed esercizi con la soluzione completa.
 
-    6\. L'algoritmo dei piani di taglio con i tagli frazionari di Gomory · 7\. Il branch-and-bound basato sulla programmazione lineare · 8\. Il branch-and-cut
-
     [:octicons-arrow-right-24: I capitoli](metodi-esatti/index.md)
 
 -   :material-cog-outline: **IV · I solver MIP**
@@ -80,8 +74,6 @@ Il branch-and-bound alla fine: l'albero completo, con le regioni dei nodi, i nod
 
     Che cosa fa un solver MIP (presolve, tagli, euristiche primali, strategie dell'albero, tolleranze) e come si legge il suo log, con esempi reali.
 
-    9\. I solver MIP: che cosa fanno
-
     [:octicons-arrow-right-24: I capitoli](solver/index.md)
 
 -   :material-lightning-bolt: **V · Euristiche MIP**
@@ -89,8 +81,6 @@ Il branch-and-bound alla fine: l'albero completo, con le regioni dei nodi, i nod
     ---
 
     Arrotondamento, diving, feasibility pump, RINS, local branching, relax-and-fix e fix-and-optimize. Esempi ed esercizi con la soluzione completa.
-
-    10\. Euristiche MIP
 
     [:octicons-arrow-right-24: I capitoli](euristiche-mip/index.md)
 
