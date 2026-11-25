@@ -94,6 +94,14 @@ Il branch-and-bound alla fine: l'albero completo, con le regioni dei nodi, i nod
 
     [:octicons-arrow-right-24: I capitoli](euristiche-mip/index.md)
 
+-   :material-vector-polygon: **Modellazione MIP**
+
+    ---
+
+    Dalla descrizione di un problema al modello di programmazione lineare intera, risolto con Python e Gurobi: tecniche di modellazione e problemi di assegnamento, scheduling, localizzazione e produzione. È un modulo a parte della collana.
+
+    [:octicons-arrow-right-24: Il modulo Modellazione MIP](https://fabiofurini.github.io/modellazione-mip/)
+
 -   :material-clipboard-check-outline: **Autovalutazione**
 
     ---
