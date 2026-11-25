@@ -145,9 +145,9 @@ extra_javascript:
   # grafici interattivi: JSXGraph, il motore, il catalogo dei problemi, poi le ricette (gi-*.js, le aggiunge genera_sito.py)
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js
   - javascripts/interattivi.js?v=5452c77472
-  - javascripts/gi-comune.js?v=40df75e3e5
+  - javascripts/gi-comune.js?v=782e532338
   - javascripts/gi-pli-dati.js?v=f8b6db669b
-  - javascripts/gi-pli.js?v=32274cc599
+  - javascripts/gi-pli.js?v=f6ae00206f
   - javascripts/quiz.js?v=be7fae2b85
 
 nav:

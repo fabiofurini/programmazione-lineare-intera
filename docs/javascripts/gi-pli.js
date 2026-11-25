@@ -56,13 +56,8 @@
   const qt = (q) => (q.n < 0 ? "−" : "") + (q.d === 1 ? Math.abs(q.n) : Math.abs(q.n) + "/" + q.d);
   const SUB = ["₁", "₂"];
   const vincoliTex = (V) => V.map((v) => `${lin(v.a)} \\le ${v.b}`);
-  // il problema in una riga (o in due, se la finestra è stretta)
-  const problemaTex = (ob, vincoli) => {
-    const con = `\\text{${T("con", "s.t.")}}`, dom = "\\vet{x} \\in \\Z^2_+";
-    return window.innerWidth < 700
-      ? `\\begin{array}{l}\\max\\ ${ob},\\ \\ ${dom} \\\\ ${vincoli.join(",\\ ")}\\end{array}`
-      : `\\max\\ ${ob}\\quad ${con}\\quad ${vincoli.join(",\\ ")},\\ ${dom}`;
-  };
+  // il problema come nelle dispense (M.modelloPL: x_j, segni e relazioni in colonna), x interi
+  const problemaTex = (c, V) => M.modelloPL({ senso: "max", c, A: V.map((v) => v.a), b: V.map((v) => v.b), dominio: "interi" });
 
   // segmento della retta a'x = b dentro il riquadro [x0, x1] x [y0, y1] (o null)
   const segmento = (a, b, x0, x1, y0, y1) => {
@@ -156,9 +151,9 @@
     const vals = poli.map((q) => P.c[0] * q[0] + P.c[1] * q[1]);
     return (st.dati.an = { firma, P, B, lp, interi, ip, tondo, violati, poli, zmin: Math.min(0, ...vals) });
   };
-  // il cursore z: l'intervallo segue il problema (da min c'x sul poliedro a z(LP) + 2)
+  // il cursore k (chiave interna z): l'intervallo segue il problema (da min c'x sul poliedro a z(LP) + 2)
   const preparaZ = (st, A) => {
-    const i = M.inputDi(st, "z");
+    const i = M.inputDi(st, "k");
     if (!i || !A.lp) return;
     const lo = Math.floor(A.zmin), hi = Math.ceil(Qv(A.lp.z)) + 2;
     if (+i.min !== lo) i.min = lo;
@@ -181,7 +176,7 @@
     st.dati.an = null;
     const A = analisiPI(st);
     preparaZ(st, A);
-    const iz = M.inputDi(st, "z");
+    const iz = M.inputDi(st, "k");
     if (iz && A.ip) iz.value = A.ip.z;
   };
 
@@ -190,8 +185,8 @@
     funzioni: VOCI(),
     etichettaFunzioni: T("Problema", "Problem"),
     parametri: [
-      { k: "z", nome: "z", min: 0, max: 10, step: 0.25, val: 4, colore: "livello", cifre: 2,
-        descr: T("livello della retta \\(\\vet{c}'\\vet{x} = z\\) (▶ la fa scorrere)", "level of the line \\(\\vet{c}'\\vet{x} = z\\) (▶ slides it)") },
+      { k: "z", nome: "k", min: 0, max: 10, step: 0.25, val: 4, colore: "livello", cifre: 2,
+        descr: T("livello della retta \\(\\vet{c}'\\vet{x} = k\\) (▶ la fa scorrere)", "level of the line \\(\\vet{c}'\\vet{x} = k\\) (▶ slides it)") },
       { k: "c1", nome: "c_1", min: -4, max: 9, step: 1, val: 1, colore: "b", cifre: 0,
         descr: T("coefficiente di \\(x_1\\) nell'obiettivo", "coefficient of \\(x_1\\) in the objective") },
       { k: "c2", nome: "c_2", min: -4, max: 9, step: 1, val: 1, colore: "b", cifre: 0,
@@ -213,16 +208,16 @@
         [C.blu, T("\\(\\tilde{\\vet{x}}\\) ottimo continuo", "\\(\\tilde{\\vet{x}}\\) continuous optimum"), "punto"],
         [C.viola, T("\\(\\tilde{\\vet{x}}\\) arrotondato", "\\(\\tilde{\\vet{x}}\\) rounded"), "punto"],
         [C.rosso, T("rette dei vincoli", "constraint lines"), ""],
-        [C.blu, T("retta di livello \\(\\vet{c}'\\vet{x} = z\\)", "level line \\(\\vet{c}'\\vet{x} = z\\)"), "dashed"],
+        [C.blu, T("retta di livello \\(\\vet{c}'\\vet{x} = k\\)", "level line \\(\\vet{c}'\\vet{x} = k\\)"), "dashed"],
       ];
     },
     monta(board, st) {
       if (st.dati.es !== st.chiave()) valoriEsempio(st);
       dopoAzzera(st, () => { st.dati.es = null; valoriEsempio(st); st.aggiorna(); });
-      lettureDopo(st, M.ctrlDi(st, "z"));
+      lettureDopo(st, M.ctrlDi(st, "k"));
       seguiDimensioni(board, st);
       const C = M.COL(st), A = () => analisiPI(st);
-      // la retta di livello e il suo tratto dentro il poliedro (seguono il cursore z)
+      // la retta di livello e il suo tratto dentro il poliedro (seguono il cursore k)
       board.create("line", [() => -st.p().z, () => A().P.c[0], () => A().P.c[1]], {
         strokeColor: C.blu, strokeWidth: 2.5, dash: 2, fixed: true, highlight: false, withLabel: false,
         visible: () => A().P.c[0] !== 0 || A().P.c[1] !== 0,
@@ -278,12 +273,9 @@
     },
     formula(p, st) {
       const A = analisiPI(st), c = A.P.c;
-      const t = (v, k, x, primo) => `${v < 0 ? "-" : primo ? "" : "+"}${st.col(k, Math.abs(v))}\\,${x}`;
-      const righe = A.P.V.map((v, i) => {
-        const s = `${lin(v.a)} \\le ${i < 2 ? st.col(i ? "b2" : "b1", v.b) : v.b}`;
-        return s;
-      });
-      return problemaTex(`${t(c[0], "c1", "x_1", true)} ${t(c[1], "c2", "x_2", false)}`, righe);
+      // c_1, c_2, b_1, b_2 nei colori dei loro cursori
+      const cc = c.map((v, j) => ({ s: Math.sign(v), t: Math.abs(v) === 1 ? "1" : st.col(j ? "c2" : "c1", Math.abs(v)) }));
+      return problemaTex(cc, A.P.V.map((v, i) => ({ a: v.a, b: i < 2 ? st.col(i ? "b2" : "b1", v.b) : v.b })));
     },
     letture(p, st) {
       const A = analisiPI(st), C = M.COL(st), c = A.P.c;
@@ -324,16 +316,16 @@
       const z = p.z, zs = GI.num(z, 2), zc = st.colore("livello");
       const sopra = A.interi.filter((q) => c[0] * q[0] + c[1] * q[1] >= z - 1e-9).length;
       let r;
-      if (z > Qv(zl) + 1e-9) r = T(`la retta non incontra più il poliedro: \\(z > z(\\LP)\\).`, `the line no longer meets the polyhedron: \\(z > z(\\LP)\\).`);
-      else if (z > A.ip.z + 1e-9) r = T(`la retta taglia ancora il poliedro, ma nessun punto intero ha \\(\\vet{c}'\\vet{x} \\ge ${zs}\\): siamo nel divario, \\(z(\\ILP) < z \\le z(\\LP)\\).`,
-        `the line still cuts the polyhedron, but no integer point has \\(\\vet{c}'\\vet{x} \\ge ${zs}\\): we are in the gap, \\(z(\\ILP) < z \\le z(\\LP)\\).`);
+      if (z > Qv(zl) + 1e-9) r = T(`la retta non incontra più il poliedro: \\(k > z(\\LP)\\).`, `the line no longer meets the polyhedron: \\(k > z(\\LP)\\).`);
+      else if (z > A.ip.z + 1e-9) r = T(`la retta taglia ancora il poliedro, ma nessun punto intero ha \\(\\vet{c}'\\vet{x} \\ge ${zs}\\): siamo nel divario, \\(z(\\ILP) < k \\le z(\\LP)\\).`,
+        `the line still cuts the polyhedron, but no integer point has \\(\\vet{c}'\\vet{x} \\ge ${zs}\\): we are in the gap, \\(z(\\ILP) < k \\le z(\\LP)\\).`);
       else r = T(`${sopra} ${sopra === 1 ? "punto intero ammissibile ha" : "punti interi ammissibili hanno"} \\(\\vet{c}'\\vet{x} \\ge ${zs}\\).`,
         `${sopra} feasible integer ${sopra === 1 ? "point has" : "points have"} \\(\\vet{c}'\\vet{x} \\ge ${zs}\\).`);
-      righe.push(`${tinta(zc, T("Retta", "Line"))} \\(z = ${zs}\\): ` + r);
+      righe.push(`${tinta(zc, T("Retta", "Line"))} \\(k = ${zs}\\): ` + r);
       return righe.join("<br>");
     },
-    domanda: T("Nell'esempio della produzione di auto premi ▶ su \\(z\\): fra quali valori la retta taglia il poliedro senza toccare punti interi? Arrotonda \\(\\tilde{\\vet{x}}\\): il punto è ammissibile? Muovi \\(b_1\\) e \\(b_2\\): riesci ad annullare il divario?",
-      "In the car production example press ▶ on \\(z\\): for which values does the line cut the polyhedron without touching integer points? Round \\(\\tilde{\\vet{x}}\\): is the point feasible? Move \\(b_1\\) and \\(b_2\\): can you bring the gap to zero?"),
+    domanda: T("Nell'esempio della produzione di auto premi ▶ su \\(k\\): fra quali valori la retta taglia il poliedro senza toccare punti interi? Arrotonda \\(\\tilde{\\vet{x}}\\): il punto è ammissibile? Muovi \\(b_1\\) e \\(b_2\\): riesci ad annullare il divario?",
+      "In the car production example press ▶ on \\(k\\): for which values does the line cut the polyhedron without touching integer points? Round \\(\\tilde{\\vet{x}}\\): is the point feasible? Move \\(b_1\\) and \\(b_2\\): can you bring the gap to zero?"),
   };
 
 
@@ -563,8 +555,8 @@
       });
     },
     formula(p, st) {
-      const A = analisiInv(st), t = DISUG.filter((_, i) => A.on[i]).map((d) => d.tex);
-      return `\\max\\ 3x_1 + 2x_2\\quad \\text{${T("con", "s.t.")}}\\quad 10x_1 + 4x_2 \\le 45,\\ 4x_1 + 14x_2 \\le 49${t.length ? ",\\ " + t.join(",\\ ") : ""},\\ \\vet{x} \\ge \\vet{0}`;
+      const A = analisiInv(st), t = DISUG.filter((_, i) => A.on[i]);
+      return M.modelloPL({ senso: "max", c: [3, 2], A: [[10, 4], [4, 14], ...t.map((d) => d.a)], b: [45, 49, ...t.map((d) => d.b)] });
     },
     letture(p, st) {
       const A = analisiInv(st), C = M.COL(st), zl = A.lp.z, ub = M.Qfloor(zl), righe = [];
@@ -836,7 +828,7 @@
     },
     formula(p, st) {
       const Pb = probDi(st.chiave());
-      return problemaTex(Pb.ob, Pb.vinc);
+      return problemaTex(Pb.R.c, Pb.V);
     },
     letture(p, st) {
       const t = alberoDi(st), k = M.passoK(st, t.R.passi.length - 1), E = t.R.passi[k], C = M.COL(st);
@@ -1020,7 +1012,7 @@
     },
     formula(p, st) {
       const Pb = probDi(st.chiave());
-      return problemaTex(Pb.ob, Pb.vinc);
+      return problemaTex(Pb.R.c, Pb.V);
     },
     letture(p, st) {
       const G = esecG(st), k = M.passoK(st, G.iterazioni.length), C = M.COL(st), righe = [];
