@@ -569,7 +569,7 @@ title: "Bound primali e duali"
 
 ## Laboratorio interattivo { #laboratorio-interattivo }
 
-Le idee del capitolo, da toccare con mano: muovi i cursori e trascina i punti.
+Le app di questo capitolo: muovi i cursori e trascina i punti.
 Ogni app si apre anche a tutta pagina nel [laboratorio interattivo](../laboratorio/index.md): [Punti interi e rilassamento lineare](../laboratorio/punti-interi.md).
 
 <div class="gi" data-grafico="pli-punti-interi"></div>

@@ -1435,7 +1435,7 @@ title: "L'algoritmo dei piani di taglio con i tagli frazionari di Gomory"
 
 ## Laboratorio interattivo { #laboratorio-interattivo }
 
-Le idee del capitolo, da toccare con mano: muovi i cursori e trascina i punti.
+Le app di questo capitolo: muovi i cursori e trascina i punti.
 Ogni app si apre anche a tutta pagina nel [laboratorio interattivo](../laboratorio/index.md): [Cutting plane con i tagli di Gomory](../laboratorio/tagli-di-gomory.md).
 
 <div class="gi" data-grafico="pli-gomory"></div>
